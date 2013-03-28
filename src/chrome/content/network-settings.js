@@ -1,0 +1,583 @@
+// Copyright (c) 2013, The Tor Project, Inc.
+// See LICENSE for licensing information.
+//
+// vim: set sw=2 sts=2 ts=8 et syntax=javascript:
+
+const Cc = Components.classes;
+const Ci = Components.interfaces;
+const Cu = Components.utils;
+
+Cu.import("resource://gre/modules/XPCOMUtils.jsm");
+XPCOMUtils.defineLazyModuleGetter(this, "TorLauncherUtil",
+                          "resource://torlauncher/modules/tl-util.jsm");
+XPCOMUtils.defineLazyModuleGetter(this, "TorLauncherLogger",
+                          "resource://torlauncher/modules/tl-logger.jsm");
+
+const kPrefPromptAtStartup = "extensions.torlauncher.prompt_at_startup";
+
+const kUseProxyCheckbox = "useProxy";
+const kProxyTypeMenulist = "proxyType";
+const kProxyAddr = "proxyAddr";
+const kProxyPort = "proxyPort";
+const kProxyUsername = "proxyUsername";
+const kProxyPassword = "proxyPassword";
+const kUseFirewallPortsCheckbox = "useFirewallPorts";
+const kFirewallAllowedPorts = "firewallAllowedPorts";
+const kUseBridgesCheckbox = "useBridges";
+const kBridgeList = "bridgeList";
+
+const kTorConfKeyDisableNetwork = "DisableNetwork";
+const kTorConfKeySocks4Proxy = "Socks4Proxy";
+const kTorConfKeySocks5Proxy = "Socks5Proxy";
+const kTorConfKeySocks5ProxyUsername = "Socks5ProxyUsername";
+const kTorConfKeySocks5ProxyPassword = "Socks5ProxyPassword";
+const kTorConfKeyHTTPSProxy = "HTTPSProxy";
+const kTorConfKeyHTTPSProxyAuthenticator = "HTTPSProxyAuthenticator";
+const kTorConfKeyReachableAddresses = "ReachableAddresses";
+const kTorConfKeyUseBridges = "UseBridges";
+const kTorConfKeyBridgeList = "Bridge";
+
+var gProtocolSvc = null;
+var gTorProcessService = null;
+var gIsInitialBootstrap = false;
+var gIsBootstrapComplete = false;
+
+
+function initDialog()
+{
+  var okBtn = document.documentElement.getButton("accept");
+  gIsInitialBootstrap = TorLauncherUtil.getBoolPref(kPrefPromptAtStartup);
+  if (gIsInitialBootstrap)
+  {
+    document.documentElement.setAttribute("class", "initialBootstrap");
+
+    var cancelBtn = document.documentElement.getButton("cancel");
+    var quitKey = (TorLauncherUtil.isWindows) ? "quit_win" : "quit";
+    cancelBtn.label = TorLauncherUtil.getLocalizedString(quitKey);
+
+    okBtn.label = TorLauncherUtil.getLocalizedString("connect");
+  }
+
+  okBtn.focus();
+
+  try
+  {
+    var svc = Cc["@torproject.org/torlauncher-protocol-service;1"]
+                .getService(Ci.nsISupports);
+    gProtocolSvc = svc.wrappedJSObject;
+  }
+  catch (e) { dump(e + "\n"); }
+
+  try
+  {
+    var svc = Cc["@torproject.org/torlauncher-process-service;1"]
+                .getService(Ci.nsISupports);
+    gTorProcessService = svc.wrappedJSObject;
+  }
+  catch (e) { dump(e + "\n"); }
+
+  TorLauncherLogger.log(2, "initDialog retrieving tor settings " +
+                             "----------------------------------------------");
+
+  var didSucceed = false;
+  try
+  {
+    // TODO: retrieve > 1 key at one time inside initProxySettings() et al.
+    didSucceed = initProxySettings() && initFirewallSettings() &&
+                 initBridgeSettings();
+  }
+  catch (e) { TorLauncherLogger.safelog(4, "Error in initDialog: ", e); }
+
+  if (!didSucceed)
+  {
+    // Unable to communicate with tor.  Hide settings and display an error.
+    setElemValue(kUseProxyCheckbox, false);
+    setElemValue(kUseFirewallPortsCheckbox, false);
+    setElemValue(kUseBridgesCheckbox, false);
+
+    setTimeout(function()
+        {
+          var details = TorLauncherUtil.getLocalizedString(
+                                          "ensure_tor_is_running");
+          var s = TorLauncherUtil.getFormattedLocalizedString(
+                                      "failed_to_get_settings", [details], 1);
+          TorLauncherUtil.showAlert(window, s);
+          close();
+        }, 0);
+  }
+
+  TorLauncherLogger.log(2, "initDialog done\n\n\n");
+}
+
+
+function onCancel()
+{
+  if (gIsInitialBootstrap) try
+  {
+    var obsSvc = Cc["@mozilla.org/observer-service;1"]
+                   .getService(Ci.nsIObserverService);
+    obsSvc.notifyObservers(null, "TorUserRequestedQuit", null);
+  } catch (e) {}
+
+  return true;
+}
+
+
+// Returns true if successful.
+function initProxySettings()
+{
+  var proxyType, proxyAddrPort, proxyUsername, proxyPassword;
+  var reply = gProtocolSvc.TorGetConfStr(kTorConfKeySocks4Proxy, null);
+  if (!gProtocolSvc.TorCommandSucceeded(reply))
+    return false;
+
+  if (reply.retVal)
+  {
+    proxyType = "SOCKS4";
+    proxyAddrPort = reply.retVal;
+    // TODO: disable user and password fields.
+  }
+  else
+  {
+    var reply = gProtocolSvc.TorGetConfStr(kTorConfKeySocks5Proxy, null);
+    if (!gProtocolSvc.TorCommandSucceeded(reply))
+      return false;
+
+    if (reply.retVal)
+    {
+      proxyType = "SOCKS5";
+      proxyAddrPort = reply.retVal;
+      var reply = gProtocolSvc.TorGetConfStr(kTorConfKeySocks5ProxyUsername,
+                                             null);
+      if (!gProtocolSvc.TorCommandSucceeded(reply))
+        return false;
+
+      proxyUsername = reply.retVal;
+      var reply = gProtocolSvc.TorGetConfStr(kTorConfKeySocks5ProxyPassword,
+                                             null);
+      if (!gProtocolSvc.TorCommandSucceeded(reply))
+        return false;
+
+      proxyPassword = reply.retVal;
+    }
+    else
+    {
+      var reply = gProtocolSvc.TorGetConfStr(kTorConfKeyHTTPSProxy, null);
+      if (!gProtocolSvc.TorCommandSucceeded(reply))
+        return false;
+
+      if (reply.retVal)
+      {
+        proxyType = "HTTP";
+        proxyAddrPort = reply.retVal;
+        var reply = gProtocolSvc.TorGetConfStr(
+                                   kTorConfKeyHTTPSProxyAuthenticator, null);
+        if (!gProtocolSvc.TorCommandSucceeded(reply))
+          return false;
+
+        var values = parseColonStr(reply.retVal);
+        proxyUsername = values[0];
+        proxyPassword = values[1];
+      }
+    }
+  }
+
+  setElemValue(kUseProxyCheckbox, (proxyType != undefined));
+  setElemValue(kProxyTypeMenulist, proxyType);
+
+  var proxyAddr, proxyPort;
+  if (proxyAddrPort)
+  {
+    var values = parseColonStr(proxyAddrPort);
+    proxyAddr = values[0];
+    proxyPort = values[1];
+  }
+
+  setElemValue(kProxyAddr, proxyAddr);
+  setElemValue(kProxyPort, proxyPort);
+  setElemValue(kProxyUsername, proxyUsername);
+  setElemValue(kProxyPassword, proxyPassword);
+
+  return true;
+} // initProxySettings
+
+
+// Returns true if successful.
+function initFirewallSettings()
+{
+  var allowedPorts;
+  var reply = gProtocolSvc.TorGetConfStr(kTorConfKeyReachableAddresses, null);
+  if (!gProtocolSvc.TorCommandSucceeded(reply))
+    return false;
+
+  if (reply.retVal)
+  {
+    var portStrArray = reply.retVal.split(',');
+    for (var i = 0; i < portStrArray.length; i++)
+    {
+      var values = parseColonStr(portStrArray[i]);
+      if (values[1])
+      {
+        if (allowedPorts)
+          allowedPorts += ',' + values[1];
+        else
+          allowedPorts = values[1];
+      }
+    }
+  }
+
+  setElemValue(kUseFirewallPortsCheckbox, (allowedPorts != undefined));
+  if (allowedPorts)
+    setElemValue(kFirewallAllowedPorts, allowedPorts);
+
+  return true;
+}
+
+
+// Returns true if successful.
+function initBridgeSettings()
+{
+  var reply = gProtocolSvc.TorGetConfBool(kTorConfKeyUseBridges, false);
+  if (!gProtocolSvc.TorCommandSucceeded(reply))
+    return false;
+
+  setElemValue(kUseBridgesCheckbox, reply.retVal);
+
+  var bridgeReply = gProtocolSvc.TorGetConf(kTorConfKeyBridgeList);
+  if (!gProtocolSvc.TorCommandSucceeded(bridgeReply))
+    return false;
+
+  setElemValue(kBridgeList, bridgeReply.lineArray);
+
+  return true;
+}
+
+
+// Returns true if settings were successfully applied.
+function applySettings()
+{
+  TorLauncherLogger.log(2, "applySettings ---------------------" +
+                             "----------------------------------------------");
+  var didSucceed = false;
+  try
+  {
+    didSucceed = applyProxySettings() && applyFirewallSettings() &&
+                 applyBridgeSettings();
+  }
+  catch (e) { TorLauncherLogger.safelog(4, "Error in applySettings: ", e); }
+
+  if (didSucceed)
+  {
+    var settings = {};
+    settings[kTorConfKeyDisableNetwork] = "0";
+    this.setConfAndReportErrors(settings);
+
+    gProtocolSvc.TorSendCommand("SAVECONF");
+
+    // Start bootstrap monitor before we open the modal progress dialog.
+    gTorProcessService.TorMonitorBootstrap(true);
+    openProgressDialog();
+    if (gIsBootstrapComplete)
+      close();
+  }
+
+  TorLauncherLogger.log(2, "applySettings done\n\n\n");
+
+  return false;
+}
+
+
+function openProgressDialog()
+{
+  var chromeURL = "chrome://torlauncher/content/progress.xul";
+  var features = "chrome,dialog=yes,modal=yes,dependent=yes";
+  window.openDialog(chromeURL, "_blank", features, onProgressDialogClose);
+}
+
+
+function onProgressDialogClose(aBootstrapCompleted)
+{
+  gIsBootstrapComplete = aBootstrapCompleted;
+}
+
+
+// Returns true if settings were successfully applied.
+function applyProxySettings()
+{
+  // TODO: validate user-entered data.  See Vidalia's NetworkPage::save()
+
+  var settings = {};
+  settings[kTorConfKeySocks4Proxy] = null;
+  settings[kTorConfKeySocks5Proxy] = null;
+  settings[kTorConfKeySocks5ProxyUsername] = null;
+  settings[kTorConfKeySocks5ProxyPassword] = null;
+  settings[kTorConfKeyHTTPSProxy] = null;
+  settings[kTorConfKeyHTTPSProxyAuthenticator] = null;
+
+  var proxyType, proxyAddrPort, proxyUsername, proxyPassword;
+  var useProxy = getElemValue(kUseProxyCheckbox, false);
+  if (useProxy)
+  {
+    proxyAddrPort = createColonStr(getElemValue(kProxyAddr, null),
+                                   getElemValue(kProxyPort, null));
+    if (!proxyAddrPort)
+    {
+      reportValidationError("error_proxy_addr_missing");
+      return false;
+    }
+
+    proxyType = getElemValue(kProxyTypeMenulist, null);
+    if (!proxyType)
+    {
+      reportValidationError("error_proxy_type_missing");
+      return false;
+    }
+
+    if ("SOCKS4" != proxyType)
+    {
+      proxyUsername = getElemValue(kProxyUsername);
+      proxyPassword = getElemValue(kProxyPassword);
+    }
+  }
+
+  if ("SOCKS4" == proxyType)
+  {
+    settings[kTorConfKeySocks4Proxy] = proxyAddrPort;
+  }
+  else if ("SOCKS5" == proxyType)
+  {
+    settings[kTorConfKeySocks5Proxy] = proxyAddrPort;
+    settings[kTorConfKeySocks5ProxyUsername] = proxyUsername;
+    settings[kTorConfKeySocks5ProxyPassword] = proxyPassword;
+  }
+  else if ("HTTP" == proxyType)
+  {
+    settings[kTorConfKeyHTTPSProxy] = proxyAddrPort;
+    // TODO: Does any escaping need to be done?
+    settings[kTorConfKeyHTTPSProxyAuthenticator] =
+                                  createColonStr(proxyUsername, proxyPassword);
+  }
+
+  return this.setConfAndReportErrors(settings);
+} // applyProxySettings
+
+
+function reportValidationError(aStrKey)
+{
+  showSaveSettingsAlert(TorLauncherUtil.getLocalizedString(aStrKey));
+}
+
+
+// Returns true if settings were successfully applied.
+function applyFirewallSettings()
+{
+  // TODO: validate user-entered data.  See Vidalia's NetworkPage::save()
+
+  var settings = {};
+  settings[kTorConfKeyReachableAddresses] = null;
+
+  var useFirewallPorts = getElemValue(kUseFirewallPortsCheckbox, false);
+  var allowedPorts = getElemValue(kFirewallAllowedPorts, null);
+  if (useFirewallPorts && allowedPorts)
+  {
+    var portsConfStr;
+    var portsArray = allowedPorts.split(',');
+    for (var i = 0; i < portsArray.length; ++i)
+    {
+      var s = portsArray[i].trim();
+      if (s.length > 0)
+      {
+        if (!portsConfStr)
+          portsConfStr = "*:" + s;
+        else
+          portsConfStr += ",*:" + s;
+      }
+    }
+
+    if (portsConfStr)
+      settings[kTorConfKeyReachableAddresses] = portsConfStr;
+  }
+
+  return this.setConfAndReportErrors(settings);
+}
+
+
+// Returns true if settings were successfully applied.
+function applyBridgeSettings()
+{
+  // TODO: validate user-entered data.  See Vidalia's NetworkPage::save()
+
+  var settings = {};
+  settings[kTorConfKeyUseBridges] = null;
+  settings[kTorConfKeyBridgeList] = null;
+
+  var useBridges = getElemValue(kUseBridgesCheckbox, false);
+  var bridgeList = getElemValue(kBridgeList, null);
+
+  if (useBridges && bridgeList)
+  {
+    settings[kTorConfKeyUseBridges] = true;
+    settings[kTorConfKeyBridgeList] = bridgeList;
+  }
+
+  return this.setConfAndReportErrors(settings);
+}
+
+
+// Returns true if successful.
+function setConfAndReportErrors(aSettingsObj)
+{
+  var reply = gProtocolSvc.TorSetConf(aSettingsObj);
+  var didSucceed = gProtocolSvc.TorCommandSucceeded(reply);
+  if (!didSucceed)
+  {
+    var details = "";
+    if (reply && reply.lineArray)
+    {
+      for (var i = 0; i < reply.lineArray.length; ++i)
+      {
+        if (i > 0)
+          details += '\n';
+        details += reply.lineArray[i];
+      }
+    }
+
+    showSaveSettingsAlert(details);
+  }
+
+  return didSucceed;
+}
+
+
+function showSaveSettingsAlert(aDetails)
+{
+  if (!aDetails)
+     aDetails = TorLauncherUtil.getLocalizedString("ensure_tor_is_running");
+
+  var s = TorLauncherUtil.getFormattedLocalizedString(
+                                  "failed_to_save_settings", [aDetails], 1);
+  TorLauncherUtil.showAlert(window, s);
+}
+
+
+function setElemValue(aID, aValue)
+{
+  var elem = document.getElementById(aID);
+  if (elem)
+  {
+    switch (elem.tagName)
+    {
+      case "checkbox":
+        elem.checked = aValue;
+        toggleElemUI(elem);
+        break;
+      case "textbox":
+      case "menulist":
+        elem.value = (aValue) ? aValue : "";
+        break;
+      case "listbox":
+        // Remove all existing items.
+        while (elem.itemCount > 0)
+          elem.removeItemAt(0);
+
+        // Add new items.
+        if (aValue && Array.isArray(aValue))
+        {
+          for (var i = 0; i < aValue.length; ++i)
+            elem.appendItem(aValue[i]);
+        }
+        break;
+    }
+  }
+}
+
+
+// Returns a Boolean (for checkboxes), a string (textbox and menulist), or an
+// array of strings (listbox).
+// Leading and trailing white space is trimmed from strings.
+function getElemValue(aID, aDefaultValue)
+{
+  var rv = aDefaultValue;
+  var elem = document.getElementById(aID);
+  if (elem)
+  {
+    switch (elem.tagName)
+    {
+      case "checkbox":
+        rv = elem.checked;
+        break;
+      case "textbox":
+      case "menulist":
+        rv = elem.value;
+        break;
+      case "listbox":
+        rv = elem.checked;
+        if (elem.itemCount > 0)
+        {
+          rv = [];
+          for (var i = 0; i < elem.itemCount; ++i)
+          {
+            var item = elem.getItemAtIndex(i);
+            if (item.label)
+              rv.push(item.label.trim());
+          }
+        }
+        break;
+    }
+  }
+
+  if (rv && ("string" == (typeof rv)))
+    rv = rv.trim();
+
+  return rv;
+}
+
+
+function toggleElemUI(aElem)
+{
+  if (!aElem)
+    return;
+
+  var gbID = aElem.getAttribute("groupboxID");
+  if (gbID)
+  {
+    var gb = document.getElementById(gbID);
+    if (gb)
+      gb.hidden = !aElem.checked;
+  }
+}
+
+
+// Separate aStr at the first colon.  Always return a two-element array.
+function parseColonStr(aStr)
+{
+  var rv = ["", ""];
+  if (!aStr)
+    return rv;
+
+  var idx = aStr.indexOf(":");
+  if (idx >= 0)
+  {
+    if (idx > 0)
+      rv[0] = aStr.substring(0, idx);
+    rv[1] = aStr.substring(idx + 1);
+  }
+  else
+    rv[0] = aStr;
+
+  return rv;
+}
+
+
+function createColonStr(aStr1, aStr2)
+{
+  var rv = aStr1;
+  if (aStr2)
+  {
+    if (!rv)
+      rv = "";
+    rv += ':' + aStr2;
+  }
+
+  return rv;
+}

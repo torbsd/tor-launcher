@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+
+    <Description about="urn:mozilla:install-manifest">
+        <em:name>TorLauncher</em:name>
+        <em:creator>The Tor Project, Inc.</em:creator>
+        <em:contributor>Pearl Crescent, LLC</em:contributor>
+        <em:id>torlauncher@torproject.org</em:id>
+        <em:version>0.1.0pre-alpha</em:version>
+        <em:homepageURL>https://www.torproject.org/projects/torbrowser.html.en?TODO</em:homepageURL>
+<!--
+        <em:optionsURL>chrome://torlauncher/content/preferences.xul</em:optionsURL>
+-->
+        <em:iconURL>chrome://torbutton/skin/tor.png</em:iconURL>
+<!--
+        <em:updateURL>https://www.torproject.org/torlauncherTODO/update17esr.rdf</em:updateURL>
+-->
+      <!--  <em:updateKey></em:updateKey> -->
+        <!-- firefox -->
+        <em:targetApplication>
+            <Description>
+                <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
+                <em:minVersion>17.0</em:minVersion>
+                <em:maxVersion>10000.0</em:maxVersion>
+            </Description>
+        </em:targetApplication>
+    </Description>
+</RDF>
