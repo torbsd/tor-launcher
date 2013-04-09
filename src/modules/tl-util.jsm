@@ -11,7 +11,7 @@ let EXPORTED_SYMBOLS = [ "TorLauncherUtil" ];
 
 const Cc = Components.classes;
 const Ci = Components.interfaces;
-const kPropBundleURI = "chrome://torlauncher/locale/torcontroller.properties";
+const kPropBundleURI = "chrome://torlauncher/locale/torlauncher.properties";
 const kPropNamePrefix = "torlauncher.";
 
 let TorLauncherUtil =  // Public
