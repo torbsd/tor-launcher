@@ -30,6 +30,7 @@ TorProcessService.prototype =
   kServiceName : "Tor Launcher Process Service",
   kClassID: Components.ID("{FE7B4CAF-BCF4-4848-8BFF-EFA66C9AFDA1}"),
 
+  kPrefStartTor: "extensions.torlauncher.start_tor",
   kPrefPromptAtStartup: "extensions.torlauncher.prompt_at_startup",
   kInitialMonitorDelayMS: 1000, // TODO: how can we avoid this delay?
   kMonitorDelayMS: 200,
@@ -76,7 +77,9 @@ TorProcessService.prototype =
       this.mObsSvc.addObserver(this, "quit-application-granted", false);
       this.mObsSvc.addObserver(this, kOpenNetworkSettingsTopic, false);
       this.mObsSvc.addObserver(this, kUserQuitTopic, false);
-      this._startTor();
+
+      if (TorLauncherUtil.getBoolPref(this.kPrefStartTor))
+        this._startTor();
     }
     else if ("quit-application-granted" == aTopic)
     {
@@ -118,7 +121,7 @@ TorProcessService.prototype =
         this.mTimer.init(this, this.kMonitorDelayMS, this.mTimer.TYPE_ONE_SHOT);
     }
     else if (kOpenNetworkSettingsTopic == aTopic)
-      this._openNetworkSettings();
+      this._openNetworkSettings(false);
     else if (kUserQuitTopic == aTopic)
       this.mQuitSoon = true;
   },
@@ -267,7 +270,7 @@ TorProcessService.prototype =
         //       to delay before retry inside TorSendCommand()... which is
         //       difficult b/c that is a synchronous API.
         if (this.mProtocolSvc)
-          this._openNetworkSettings(); // Blocks until dialog is closed.
+          this._openNetworkSettings(true); // Blocks until dialog is closed.
       }
       else
       {
@@ -332,13 +335,22 @@ TorProcessService.prototype =
   }, // _checkBootstrapStatus()
 
   // Blocks until network settings dialog is closed.
-  _openNetworkSettings: function()
+  _openNetworkSettings: function(aIsInitialBootstrap)
   {
-    var chromeURL = "chrome://torlauncher/content/network-settings.xul";
+    const kChromeURL = "chrome://torlauncher/content/network-settings.xul";
+
     var wwSvc = Cc["@mozilla.org/embedcomp/window-watcher;1"]
                   .getService(Ci.nsIWindowWatcher);
     var winFeatures = "chrome,dialog=yes,modal,all";
-    wwSvc.openWindow(null, chromeURL, "_blank", winFeatures, null);
+
+    var argsArray = Cc["@mozilla.org/array;1"]
+                      .createInstance(Ci.nsIMutableArray);
+    var variant = Cc["@mozilla.org/variant;1"]
+                    .createInstance(Ci.nsIWritableVariant);
+    variant.setFromVariant(aIsInitialBootstrap);
+    argsArray.appendElement(variant, false);
+
+    wwSvc.openWindow(null, kChromeURL, "_blank", winFeatures, argsArray);
   },
 
   _openProgressDialog: function()

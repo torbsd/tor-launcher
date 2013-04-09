@@ -4,6 +4,7 @@ pref("extensions.torlauncher.logmethod", 1);  // 0=stdout, 1=errorconsole, 2=deb
 pref("extensions.torlauncher.control_host", "127.0.0.1");
 pref("extensions.torlauncher.control_port", 9151);
 
+pref("extensions.torlauncher.start_tor", true);
 pref("extensions.torlauncher.prompt_at_startup", true);
 
 // All path prefs. are relative to the firefox executable's directory

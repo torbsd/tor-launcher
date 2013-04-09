@@ -15,8 +15,6 @@ XPCOMUtils.defineLazyModuleGetter(this, "TorLauncherUtil",
 XPCOMUtils.defineLazyModuleGetter(this, "TorLauncherLogger",
                           "resource://torlauncher/modules/tl-logger.jsm");
 
-const kPrefPromptAtStartup = "extensions.torlauncher.prompt_at_startup";
-
 const kUseProxyCheckbox = "useProxy";
 const kProxyTypeMenulist = "proxyType";
 const kProxyAddr = "proxyAddr";
@@ -48,7 +46,7 @@ var gIsBootstrapComplete = false;
 function initDialog()
 {
   var okBtn = document.documentElement.getButton("accept");
-  gIsInitialBootstrap = TorLauncherUtil.getBoolPref(kPrefPromptAtStartup);
+  gIsInitialBootstrap = window.arguments[0];
   if (gIsInitialBootstrap)
   {
     document.documentElement.setAttribute("class", "initialBootstrap");

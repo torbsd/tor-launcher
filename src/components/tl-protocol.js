@@ -71,6 +71,8 @@ TorProtocolService.prototype =
   kServiceName : "Tor Launcher Protocol Service",
   kClassID: Components.ID("{4F476361-23FB-43EF-A427-B36A14D3208E}"),
 
+  kPrefStartTor: "extensions.torlauncher.start_tor",
+
   // nsISupports implementation.
   QueryInterface: function(aIID)
   {
@@ -429,16 +431,19 @@ TorProtocolService.prototype =
         return null;
       }
 
-      // Try to become the primary controller (TAKEOWNERSHIP).
-      reply = this._sendCommand(conn, "TAKEOWNERSHIP", null);
-      if (!this.TorCommandSucceeded(reply))
-        TorLauncherLogger.log(4, "take ownership failed");
-      else
+      if (TorLauncherUtil.getBoolPref(this.kPrefStartTor))
       {
-        reply = this._sendCommand(conn, "RESETCONF",
-                                  "__OwningControllerProcess");
+        // Try to become the primary controller (TAKEOWNERSHIP).
+        reply = this._sendCommand(conn, "TAKEOWNERSHIP", null);
         if (!this.TorCommandSucceeded(reply))
-          TorLauncherLogger.log(4, "clear owning controller process failed");
+          TorLauncherLogger.log(4, "take ownership failed");
+        else
+        {
+          reply = this._sendCommand(conn, "RESETCONF",
+                                    "__OwningControllerProcess");
+          if (!this.TorCommandSucceeded(reply))
+            TorLauncherLogger.log(4, "clear owning controller process failed");
+        }
       }
     }
     catch(e)
