@@ -423,8 +423,15 @@ TorProtocolService.prototype =
                inStream: inputStream, outStream: outputStream };
 
       // AUTHENTICATE
-      var reply = this._sendCommand(conn, "AUTHENTICATE",
-                                    this._strEscape(this.mControlPassword));
+      var pwdArg = this._strEscape(this.mControlPassword);
+      if (pwdArg && (pwdArg.length > 0) && (pwdArg.charAt(0) != '"'))
+      {
+        // Surround non-hex strings with double quotes.
+        const kIsHexRE = /^[A-Fa-f0-9]*$/;
+        if (!kIsHexRE.test(pwdArg))
+          pwdArg = '"' + pwdArg + '"';
+      }
+      var reply = this._sendCommand(conn, "AUTHENTICATE", pwdArg);
       if (!this.TorCommandSucceeded(reply))
       {
         TorLauncherLogger.log(4, "authenticate failed");
