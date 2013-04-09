@@ -29,6 +29,7 @@ let TorLauncherUtil =  // Public
   // Error Reporting / Prompting
   showAlert: function(aParentWindow, aMsg)
   {
+    // TODO: alert() does not always resize correctly to fit the message.
     try
     {
       if (!aParentWindow)
