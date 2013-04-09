@@ -110,22 +110,21 @@
               oncommand="toggleElemUI(this);" />
     <groupbox id="bridgeSpecificSettings">
       <hbox>
-        <textbox id="addBridgeText" style="width: 320px" />
-        <button id="addBridgeBtn" label="&addButton;" oncommand="AddBridge();"
-                style="width: 20px !important" />
-      </hbox>
-      <hbox>
-        <listbox id="bridgeList" rows="4" style="width: 320px" />
-        <vbox>
-          <button id="deleteBridge" label="&deleteButton;" style="width: 20px"
-                  oncommand="DeleteBridge();"/>
-          <button id="copyBridgeList" label="&todo;" style="width: 20px"
-                  oncommand="copyBridgeList();"/>
+        <vbox flex="1">
+          <label value="&torsettings.useBridges.label;" control="bridgeList"/>
+          <textbox id="bridgeList" multiline="true" rows="4" />
         </vbox>
-      </hbox>
 <!--
-      <a href="TODO">How can I find bridges?</a>
+        <vbox>
+          <button id="copyBridgeList" label="Copy TODO" style="width: 20px"
+                  oncommand="copyBridgeList();"/>
+          <button id="pasteBridgeList" label="Paste TODO" style="width: 20px"
+                  oncommand="pasteBridgeList();"/>
+          <button id="howToFindBridges" label="How can I find bridges? TODO" style="width: 20px"
+                    oncommand="findBridgeList();"/>
+        </vbox>
 -->
+      </hbox>
     </groupbox>
   </vbox>
   </vbox>

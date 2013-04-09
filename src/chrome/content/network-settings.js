@@ -3,6 +3,8 @@
 //
 // vim: set sw=2 sts=2 ts=8 et syntax=javascript:
 
+// TODO: if clean start and "Unable to read Tor settings" error is displayed, we should not bootstrap Tor or start the browser.
+
 const Cc = Components.classes;
 const Ci = Components.interfaces;
 const Cu = Components.utils;
@@ -405,15 +407,21 @@ function applyFirewallSettings()
 // Returns true if settings were successfully applied.
 function applyBridgeSettings()
 {
-  // TODO: validate user-entered data.  See Vidalia's NetworkPage::save()
-
   var settings = {};
   settings[kTorConfKeyUseBridges] = null;
   settings[kTorConfKeyBridgeList] = null;
 
   var useBridges = getElemValue(kUseBridgesCheckbox, false);
-  var bridgeList = getElemValue(kBridgeList, null);
+  var bridgeStr = getElemValue(kBridgeList, null);
 
+  var bridgeList = parseAndValidateBridges(bridgeStr);
+  if (useBridges && !bridgeList)
+  {
+    reportValidationError("error_bridges_missing");
+    return false;
+  }
+
+  setElemValue(kBridgeList, bridgeList);
   if (useBridges && bridgeList)
   {
     settings[kTorConfKeyUseBridges] = true;
@@ -421,6 +429,42 @@ function applyBridgeSettings()
   }
 
   return this.setConfAndReportErrors(settings);
+}
+
+
+// Returns an array or null.
+function parseAndValidateBridges(aStr)
+{
+  if (!aStr)
+    return null;
+
+  var resultStr = aStr;
+  resultStr = resultStr.replace(/bridge/gi, ""); // Remove "bridge" everywhere.
+  resultStr = resultStr.replace(/\r\n/g, "\n");  // Convert \r\n pairs into \n.
+  resultStr = resultStr.replace(/\r/g, "\n");    // Convert \r into \n.
+  resultStr = resultStr.replace(/\n\n/g, "\n");  // Condense blank lines.
+
+  var resultArray = new Array;
+  var tmpArray = resultStr.split('\n');
+  for (var i = 0; i < tmpArray.length; i++)
+  {
+    let s = tmpArray[i].trim(); // Remove extraneous whitespace.
+    if (s.indexOf(' ') >= 0)
+    {
+      // Handle a space-separated list of bridge specs.
+      var tmpArray2 = s.split(' ');
+      for (var j = 0; j < tmpArray2.length; ++j)
+      {
+        let s2 = tmpArray2[j];
+        if (s2.length > 0)
+          resultArray.push(s2);
+      }
+    }
+    else if (s.length > 0)
+      resultArray.push(s);
+  }
+
+  return (0 == resultArray.length) ? null : resultArray;
 }
 
 
@@ -472,28 +516,27 @@ function setElemValue(aID, aValue)
         toggleElemUI(elem);
         break;
       case "textbox":
-      case "menulist":
-        elem.value = (aValue) ? aValue : "";
-        break;
-      case "listbox":
-        // Remove all existing items.
-        while (elem.itemCount > 0)
-          elem.removeItemAt(0);
-
-        // Add new items.
-        if (aValue && Array.isArray(aValue))
+        var s = aValue;
+        if (Array.isArray(aValue))
         {
+          s = "";
           for (var i = 0; i < aValue.length; ++i)
-            elem.appendItem(aValue[i]);
+          {
+            if (s.length > 0)
+              s += '\n';
+            s += aValue[i];
+          }
         }
+        // fallthru
+      case "menulist":
+        elem.value = (s) ? s : "";
         break;
     }
   }
 }
 
 
-// Returns a Boolean (for checkboxes), a string (textbox and menulist), or an
-// array of strings (listbox).
+// Returns a Boolean (for checkboxes) or a string (textbox and menulist).
 // Leading and trailing white space is trimmed from strings.
 function getElemValue(aID, aDefaultValue)
 {
@@ -509,19 +552,6 @@ function getElemValue(aID, aDefaultValue)
       case "textbox":
       case "menulist":
         rv = elem.value;
-        break;
-      case "listbox":
-        rv = elem.checked;
-        if (elem.itemCount > 0)
-        {
-          rv = [];
-          for (var i = 0; i < elem.itemCount; ++i)
-          {
-            var item = elem.getItemAtIndex(i);
-            if (item.label)
-              rv.push(item.label.trim());
-          }
-        }
         break;
     }
   }

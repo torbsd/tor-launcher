@@ -17,7 +17,4 @@
 <!ENTITY torsettings.firewall.checkbox "My firewall only lets me connect to certain ports">
 <!ENTITY torsettings.firewall.allowedPorts "Allowed Ports:">
 <!ENTITY torsettings.useBridges.checkbox "My ISP blocks connections to the Tor network">
-
-<!ENTITY addButton "+">
-<!ENTITY deleteButton "-">
-<!ENTITY todo "TODO">
+<!ENTITY torsettings.useBridges.label "Enter one or more bridge relays in the form address:port.">
