@@ -30,7 +30,6 @@ TorProcessService.prototype =
   kServiceName : "Tor Launcher Process Service",
   kClassID: Components.ID("{FE7B4CAF-BCF4-4848-8BFF-EFA66C9AFDA1}"),
 
-  kPrefStartTor: "extensions.torlauncher.start_tor",
   kPrefPromptAtStartup: "extensions.torlauncher.prompt_at_startup",
   kInitialMonitorDelayMS: 1000, // TODO: how can we avoid this delay?
   kMonitorDelayMS: 200,
@@ -78,7 +77,7 @@ TorProcessService.prototype =
       this.mObsSvc.addObserver(this, kOpenNetworkSettingsTopic, false);
       this.mObsSvc.addObserver(this, kUserQuitTopic, false);
 
-      if (TorLauncherUtil.getBoolPref(this.kPrefStartTor))
+      if (TorLauncherUtil.shouldStartAndOwnTor)
         this._startTor();
     }
     else if ("quit-application-granted" == aTopic)

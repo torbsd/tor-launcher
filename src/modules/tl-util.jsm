@@ -128,6 +128,22 @@ let TorLauncherUtil =  // Public
 
     return rv;
   },
+
+  get shouldStartAndOwnTor()
+  {
+    const kPrefStartTor = "extensions.torlauncher.start_tor";
+    try
+    {
+      const kEnvSkipLaunch = "TOR_SKIP_LAUNCH";
+
+      var env = Cc["@mozilla.org/process/environment;1"]
+                  .getService(Ci.nsIEnvironment);
+      if (env.exists(kEnvSkipLaunch))
+        return ("1" != env.get(kEnvSkipLaunch));
+    } catch(e) {}
+
+    return this.getBoolPref(kPrefStartTor, true);
+  },
 };
 
 
