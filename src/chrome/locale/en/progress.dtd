@@ -1,1 +1,3 @@
 <!ENTITY torprogress.dialog.title "Tor Status">
+<!ENTITY torprogress.heading "Connecting to the Tor network">
+<!ENTITY torprogress.pleaseWait "Your browser will open after you are connected.">

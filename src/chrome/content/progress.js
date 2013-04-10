@@ -27,8 +27,14 @@ function initDialog()
   }
   catch (e) {}
 
+  var isBrowserStartup = false;
   if (window.arguments)
-    gOpenerCallbackFunc = window.arguments[0];
+  {
+    isBrowserStartup = window.arguments[0];
+
+    if (window.arguments.length > 1)
+      gOpenerCallbackFunc = window.arguments[1];
+  }
 
   // If this dialog was not opened from network settings, change Cancel to Quit.
   if (!gOpenerCallbackFunc)
@@ -36,6 +42,14 @@ function initDialog()
     var cancelBtn = document.documentElement.getButton("cancel");
     var quitKey = (TorLauncherUtil.isWindows) ? "quit_win" : "quit";
     cancelBtn.label = TorLauncherUtil.getLocalizedString(quitKey);
+  }
+
+  // If opened during browser startup, display the "please wait" message.
+  if (isBrowserStartup)
+  {
+    var pleaseWait = document.getElementById("progressPleaseWait");
+    if (pleaseWait)
+      pleaseWait.removeAttribute("hidden");
   }
 }
 

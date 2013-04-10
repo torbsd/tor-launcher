@@ -291,7 +291,8 @@ function openProgressDialog()
 {
   var chromeURL = "chrome://torlauncher/content/progress.xul";
   var features = "chrome,dialog=yes,modal=yes,dependent=yes";
-  window.openDialog(chromeURL, "_blank", features, onProgressDialogClose);
+  window.openDialog(chromeURL, "_blank", features,
+                    gIsInitialBootstrap, onProgressDialogClose);
 }
 
 

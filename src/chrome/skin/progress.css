@@ -15,6 +15,11 @@ dialog {
   font-weight: bold;
 }
 
+#progressPleaseWait {
+  font-size: 110%;
+  margin-bottom: 15px;
+}
+
 #tbb-icon {
   list-style-image: url("chrome://torlauncher/skin/default48.png");
   width: 48px;

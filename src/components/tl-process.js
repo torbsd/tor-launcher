@@ -342,14 +342,7 @@ TorProcessService.prototype =
     var wwSvc = Cc["@mozilla.org/embedcomp/window-watcher;1"]
                   .getService(Ci.nsIWindowWatcher);
     var winFeatures = "chrome,dialog=yes,modal,all";
-
-    var argsArray = Cc["@mozilla.org/array;1"]
-                      .createInstance(Ci.nsIMutableArray);
-    var variant = Cc["@mozilla.org/variant;1"]
-                    .createInstance(Ci.nsIWritableVariant);
-    variant.setFromVariant(aIsInitialBootstrap);
-    argsArray.appendElement(variant, false);
-
+    var argsArray = this._createOpenWindowArgsArray(aIsInitialBootstrap);
     wwSvc.openWindow(null, kChromeURL, "_blank", winFeatures, argsArray);
   },
 
@@ -359,7 +352,19 @@ TorProcessService.prototype =
     var wwSvc = Cc["@mozilla.org/embedcomp/window-watcher;1"]
                   .getService(Ci.nsIWindowWatcher);
     var winFeatures = "chrome,dialog=yes,modal,all";
-    wwSvc.openWindow(null, chromeURL, "_blank", winFeatures, null);
+    var argsArray = this._createOpenWindowArgsArray(true);
+    wwSvc.openWindow(null, chromeURL, "_blank", winFeatures, argsArray);
+  },
+
+  _createOpenWindowArgsArray: function(aBool)
+  {
+    var argsArray = Cc["@mozilla.org/array;1"]
+                      .createInstance(Ci.nsIMutableArray);
+    var variant = Cc["@mozilla.org/variant;1"]
+                    .createInstance(Ci.nsIWritableVariant);
+    variant.setFromVariant(aBool);
+    argsArray.appendElement(variant, false);
+    return argsArray;
   },
 
   // Returns an nsIFile.

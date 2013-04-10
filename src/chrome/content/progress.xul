@@ -30,10 +30,11 @@
       </vbox>
       <separator orient="vertical" />
       <vbox>
-        <label id="progressHeading" value="&torprogress.dialog.title;" />
+        <label id="progressHeading" value="&torprogress.heading;" />
         <description id="progressDesc" />
       </vbox>
     </hbox>
     <progressmeter id="progressMeter" mode="determined" value="0" />
+    <label id="progressPleaseWait" value="&torprogress.pleaseWait;" hidden="true" />
   </vbox>
 </dialog>
