@@ -200,7 +200,9 @@ TorProcessService.prototype =
 
     try
     {
-      // TODO: how can we control the CWD for tor?   Needs to match firefox dir.
+      // Ideally, we would cd to the Firefox application directory before
+      // starting tor (but we don't know how to do that).  Instead, we
+      // rely on the TBB launcher to start Firefox from the right place.
       var exeFile = this._getTorFile("tor");
       var torrcFile = this._getTorFile("torrc");
       var dataDir = this._getTorFile("tordatadir");
@@ -231,7 +233,6 @@ TorProcessService.prototype =
       args.push(torrcFile.path);
       args.push("DataDirectory");
       args.push(dataDir.path);
-// TODO: are there any charset issues with path?
       args.push("HashedControlPassword");
       args.push(hashedPassword);
 

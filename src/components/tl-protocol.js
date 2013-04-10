@@ -48,7 +48,7 @@ function TorProtocolService()
       this.mControlPassword = env.get("TOR_CONTROL_PASSWD");
     else if (env.exists("TOR_CONTROL_COOKIE_AUTH_FILE"))
     {
-      // TODO: test this code path.
+      // TODO: test this code path (TOR_CONTROL_COOKIE_AUTH_FILE).
       var cookiePath = env.get("TOR_CONTROL_COOKIE_AUTH_FILE");
       if ("" != cookiePath)
         this.mControlPassword = this._read_authentication_cookie(cookiePath);
