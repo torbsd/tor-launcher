@@ -131,10 +131,11 @@ TorProtocolService.prototype =
   // Public Constants and Methods ////////////////////////////////////////////
   kCmdStatusOK: 250,
 
-  // Returns hashed Tor password string or null if an error occurs.
-  TorGetHashedPassword: function()
+  // Returns Tor password string or null if an error occurs.
+  TorGetPassword: function(aPleaseHash)
   {
-    return this._hashPassword(this.mControlPassword);
+    var pw = this.mControlPassword;
+    return (aPleaseHash) ? this._hashPassword(pw) : pw;
   },
 
   // NOTE: Many Tor protocol functions return a reply object, which is a

@@ -206,7 +206,7 @@ TorProcessService.prototype =
       var exeFile = this._getTorFile("tor");
       var torrcFile = this._getTorFile("torrc");
       var dataDir = this._getTorFile("tordatadir");
-      var hashedPassword = this.mProtocolSvc.TorGetHashedPassword();
+      var hashedPassword = this.mProtocolSvc.TorGetPassword(true);
 
       var detailsKey;
       if (!exeFile)
