@@ -303,7 +303,7 @@ TorProcessService.prototype =
       this.mTorProcess = p;
       this.mTorProcessStartTime = Date.now();
 
-      this._waitForTorProcessStartup();
+      this._monitorTorProcessStartup();
 
       if (isInitialBootstrap)
       {
@@ -342,7 +342,7 @@ TorProcessService.prototype =
     }
   }, // _startTor()
 
-  _waitForTorProcessStartup: function()
+  _monitorTorProcessStartup: function()
   {
     this.mControlConnDelayMS = this.kInitialControlConnDelayMS;
     this.mControlConnTimer = Cc["@mozilla.org/timer;1"]

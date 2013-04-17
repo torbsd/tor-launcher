@@ -112,9 +112,6 @@ var gObserver = {
       var labelText = (statusObj.SUMMARY) ? statusObj.SUMMARY : "";
       var percentComplete = (statusObj.PROGRESS) ? statusObj.PROGRESS : 0;
 
-      var desc = document.getElementById("progressDesc");
-      if (desc)
-        desc.textContent = labelText;
       var meter = document.getElementById("progressMeter");
       if (meter)
         meter.value = percentComplete;
@@ -127,7 +124,21 @@ var gObserver = {
         window.setTimeout(function() { closeThisWindow(true); }, 250);
       }
       else if (statusObj._errorOccurred)
-        closeThisWindow(false);
+      {
+        if (statusObj.WARNING)
+          labelText = statusObj.WARNING;
+
+        if (meter)
+          meter.setAttribute("hidden", true);
+
+        var pleaseWait = document.getElementById("progressPleaseWait");
+        if (pleaseWait)
+          pleaseWait.setAttribute("hidden", true);
+      }
+
+      var desc = document.getElementById("progressDesc");
+      if (labelText && desc)
+        desc.textContent = labelText;
     }
   },
 };
