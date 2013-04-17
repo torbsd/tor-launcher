@@ -7,16 +7,12 @@
         <em:creator>The Tor Project, Inc.</em:creator>
         <em:contributor>Pearl Crescent, LLC</em:contributor>
         <em:id>torlauncher@torproject.org</em:id>
-        <em:version>0.1.0pre-alpha</em:version>
+        <em:version>0.1.1pre-alpha</em:version>
         <em:homepageURL>https://www.torproject.org/projects/torbrowser.html.en?TODO</em:homepageURL>
 <!--
         <em:optionsURL>chrome://torlauncher/content/preferences.xul</em:optionsURL>
 -->
         <em:iconURL>chrome://torbutton/skin/tor.png</em:iconURL>
-<!--
-        <em:updateURL>https://www.torproject.org/torlauncherTODO/update17esr.rdf</em:updateURL>
--->
-      <!--  <em:updateKey></em:updateKey> -->
         <!-- firefox -->
         <em:targetApplication>
             <Description>
