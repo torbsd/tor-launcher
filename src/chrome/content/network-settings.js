@@ -359,9 +359,10 @@ function applySettings()
 
     gProtocolSvc.TorSendCommand("SAVECONF");
 
-    // Start bootstrap monitor before we open the modal progress dialog.
-    gTorProcessService.TorMonitorBootstrap(true);
-    openProgressDialog();
+    gIsBootstrapComplete = gTorProcessService.TorIsBootstrapDone;
+    if (!gIsBootstrapComplete)
+      openProgressDialog();
+
     if (gIsBootstrapComplete)
       close();
   }

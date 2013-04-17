@@ -34,8 +34,6 @@ TorProcessService.prototype =
   kInitialControlConnDelayMS: 25,
   kMaxControlConnRetryMS: 500,
   kControlConnTimeoutMS: 30000, // Wait at most 30 seconds for tor to start.
-  kInitialMonitorDelayMS: 1000, // TODO: how can we avoid this delay?
-  kMonitorDelayMS: 200,
 
   // nsISupports implementation.
   QueryInterface: function(aIID)
@@ -67,6 +65,7 @@ TorProcessService.prototype =
   {
     const kOpenNetworkSettingsTopic = "TorOpenNetworkSettings";
     const kUserQuitTopic = "TorUserRequestedQuit";
+    const kBootstrapStatusTopic = "TorBootstrapStatus";
 
     if (!this.mObsSvc)
     {
@@ -79,6 +78,7 @@ TorProcessService.prototype =
       this.mObsSvc.addObserver(this, "quit-application-granted", false);
       this.mObsSvc.addObserver(this, kOpenNetworkSettingsTopic, false);
       this.mObsSvc.addObserver(this, kUserQuitTopic, false);
+      this.mObsSvc.addObserver(this, kBootstrapStatusTopic, false);
 
       if (TorLauncherUtil.shouldStartAndOwnTor)
         this._startTor();
@@ -89,7 +89,7 @@ TorProcessService.prototype =
       this.mObsSvc.removeObserver(this, "quit-application-granted");
       this.mObsSvc.removeObserver(this, kOpenNetworkSettingsTopic);
       this.mObsSvc.removeObserver(this, kUserQuitTopic);
-      this.TorMonitorBootstrap(false);
+      this.mObsSvc.removeObserver(this, kBootstrapStatusTopic);
       if (this.mTorProcess)
       {
         TorLauncherLogger.log(4, "Shutting down tor process (pid "
@@ -112,7 +112,6 @@ TorProcessService.prototype =
         this.mControlConnTimer = null;
       }
 
-      this.TorMonitorBootstrap(false);
       this.mTorProcess = null;
 
       this.mObsSvc.notifyObservers(null, "TorProcessExited", null);
@@ -135,10 +134,7 @@ TorProcessService.prototype =
           this.mIsTorProcessReady = true;
           this.mProtocolSvc.TorStartEventMonitor();
 
-          var isInitialBootstrap =
-                     TorLauncherUtil.getBoolPref(this.kPrefPromptAtStartup);
-          if (!isInitialBootstrap)
-            this.TorMonitorBootstrap(true);
+          this.mProtocolSvc.TorRetrieveBootstrapStatus();
 
           this.mObsSvc.notifyObservers(null, "TorProcessIsReady", null);
         }
@@ -161,16 +157,9 @@ TorProcessService.prototype =
                                       this.mControlConnTimer .TYPE_ONE_SHOT);
         }
       }
-      else if (aSubject == this.mTimer)
-      {
-        this._checkBootStrapStatus();
-        if (this.mTimer)
-        {
-          this.mTimer.init(this, this.kMonitorDelayMS,
-                           this.mTimer.TYPE_ONE_SHOT);
-        }
-      }
     }
+    else if (kBootstrapStatusTopic == aTopic)
+      this._processBootstrapStatus(aSubject.wrappedJSObject);
     else if (kOpenNetworkSettingsTopic == aTopic)
       this._openNetworkSettings(false);
     else if (kUserQuitTopic == aTopic)
@@ -209,40 +198,22 @@ TorProcessService.prototype =
 
   lockFactory: function (aDoLock) {},
 
+
   // Public Properties and Methods ///////////////////////////////////////////
   get TorIsProcessReady()
   {
     return (this.mTorProcess) ? this.mIsTorProcessReady : false;
   },
 
-  TorMonitorBootstrap: function(aEnable)
+  get TorIsBootstrapDone()
   {
-    if (!this.mProtocolSvc)
-      return;
-
-    if (!aEnable)
-    {
-      if (this.mTimer)
-      {
-        this.mTimer.cancel();
-        this.mTimer = null;
-      }
-
-      return;
-    }
-
-    if (this.mTimer)
-      return;
-
-    this.mTimer = Cc["@mozilla.org/timer;1"]
-                            .createInstance(Ci.nsITimer);
-    this.mTimer.init(this, this.kInitialMonitorDelayMS,
-                     this.mTimer.TYPE_ONE_SHOT);
+    return this.mIsBootstrapDone;
   },
 
 
   // Private Member Variables ////////////////////////////////////////////////
   mIsTorProcessReady: false,
+  mIsBootstrapDone: false,
   mIsQuitting: false,
   mObsSvc: null,
   mProtocolSvc: null,
@@ -251,7 +222,6 @@ TorProcessService.prototype =
   mTBBTopDir: null,     // nsIFile for top of TBB installation (cached)
   mControlConnTimer: null,
   mControlConnDelayMS: 0,
-  mTimer: null,
   mQuitSoon: false,     // Quit was requested by the user; do so soon.
 
 
@@ -373,39 +343,32 @@ TorProcessService.prototype =
                                 this.mControlConnTimer.TYPE_ONE_SHOT);
   },
 
-  _checkBootStrapStatus: function()
+  _processBootstrapStatus: function(aStatusObj)
   {
-    var statusObj = this.mProtocolSvc.TorGetBootStrapStatus();
-    if (!statusObj)
+    if (!aStatusObj)
       return;
 
-    statusObj._errorOccurred = (("WARN" == statusObj.TYPE) &&
-                                ("warn" == statusObj.RECOMMENDATION));
-
-    // Notify observers.
-    if (this.mObsSvc)
-    {
-      statusObj.wrappedJSObject = statusObj;
-      this.mObsSvc.notifyObservers(statusObj, "TorBootstrapStatus", null);
-    }
-
     // TODO: keep viewable log of RECOMMENDATION == "ignore" messages.
-    if (100 == statusObj.PROGRESS)
+    if (100 == aStatusObj.PROGRESS)
     {
-      this.TorMonitorBootstrap(false);
+      this.mIsBootstrapDone = true;
       TorLauncherUtil.setBoolPref(this.kPrefPromptAtStartup, false);
     }
-    else if (statusObj._errorOccurred)
+    else
     {
-      this.TorMonitorBootstrap(false);
-      TorLauncherUtil.setBoolPref(this.kPrefPromptAtStartup, true);
-      TorLauncherLogger.log(5, "Tor bootstrap error: " + statusObj.WARNING);
+      this.mIsBootstrapDone = false;
 
-      var s = TorLauncherUtil.getFormattedLocalizedString(
-                             "tor_bootstrap_failed", [statusObj.WARNING], 1);
-      TorLauncherUtil.showAlert(null, s);
+      if (aStatusObj._errorOccurred)
+      {
+        TorLauncherUtil.setBoolPref(this.kPrefPromptAtStartup, true);
+        TorLauncherLogger.log(5, "Tor bootstrap error: " + aStatusObj.WARNING);
+
+        var s = TorLauncherUtil.getFormattedLocalizedString(
+                               "tor_bootstrap_failed", [aStatusObj.WARNING], 1);
+        TorLauncherUtil.showAlert(null, s);
+      }
     }
-  }, // _checkBootstrapStatus()
+  }, // _processBootstrapStatus()
 
   // Blocks until network settings dialog is closed.
   _openNetworkSettings: function(aIsInitialBootstrap)

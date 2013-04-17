@@ -4,7 +4,8 @@
 //
 // vim: set sw=2 sts=2 ts=8 et syntax=javascript:
 
-// Notes: decided to avoid IDL/xpt since it will complicate build process
+// To avoid deadlock due to JavaScript threading limitations, this component
+// should never make a direct call into the process component.
 
 const Cc = Components.classes;
 const Ci = Components.interfaces;
@@ -246,6 +247,26 @@ TorProtocolService.prototype =
     return this.TorSendCommand("SETCONF", cmdArgs);
   }, // TorSetConf()
 
+  // If successful, sends a "TorBootstrapStatus" notification.
+  TorRetrieveBootstrapStatus: function()
+  {
+    var cmd = "GETINFO";
+    var key = "status/bootstrap-phase";
+    var reply = this.TorSendCommand(cmd, key);
+    if (!this.TorCommandSucceeded(reply))
+    {
+      TorLauncherLogger.log(4, "TorRetrieveBootstrapStatus: command failed");
+      return;
+    }
+
+    // A typical reply looks like:
+    //  250-status/bootstrap-phase=NOTICE BOOTSTRAP PROGRESS=100 TAG=done SUMMARY="Done"
+    //  250 OK
+    reply = this._parseReply(cmd, key, reply);
+    if (reply.lineArray)
+      this._parseBootstrapStatus(reply.lineArray[0]);
+  },
+
   // If successful, returns a JS object with these fields:
   //   status.TYPE            -- "NOTICE" or "WARN"
   //   status.PROGRESS        -- integer
@@ -255,65 +276,70 @@ TorProtocolService.prototype =
   //   status.REASON          -- string (optional)
   //   status.COUNT           -- integer (optional)
   //   status.RECOMMENDATION  -- string (optional)
+  // A "TorBootstrapStatus" notification is also sent.
   // Returns null upon failure.
-  TorGetBootStrapStatus: function()
+  _parseBootstrapStatus: function(aStatusMsg)
   {
-    var cmd = "GETINFO";
-    var key = "status/bootstrap-phase";
-    var reply = this.TorSendCommand(cmd, key);
-    if (!this.TorCommandSucceeded(reply))
+    if (!aStatusMsg || (0 == aStatusMsg.length))
+      return null;
+
+    var sawBootstrap = false;
+    var sawCircuitEstablished = false;
+    var statusObj = {};
+    statusObj.TYPE = "NOTICE";
+
+    // The following code assumes that this is a one-line response.
+    var paramArray = this._splitReplyLine(aStatusMsg);
+    for (var i = 0; i < paramArray.length; ++i)
     {
-      TorLauncherLogger.log(4, "TorGetBootStrapStatus: command failed");
+      var tokenAndVal = paramArray[i];
+      var token, val;
+      var idx = tokenAndVal.indexOf('=');
+      if (idx < 0)
+        token = tokenAndVal;
+      else
+      {
+        token = tokenAndVal.substring(0, idx);
+        var valObj = {};
+        if (!this._strUnescape(tokenAndVal.substring(idx + 1), valObj))
+          continue; // skip this token/value pair.
+
+        val = valObj.result;
+      }
+
+      if ("BOOTSTRAP" == token)
+        sawBootstrap = true;
+      else if ("CIRCUIT_ESTABLISHED" == token)
+        sawCircuitEstablished = true;
+      else if (("WARN" == token) || ("NOTICE" == token))
+        statusObj.TYPE = token;
+      else if (("COUNT" == token) || ("PROGRESS" == token))
+        statusObj[token] = parseInt(val, 10);
+      else
+        statusObj[token] = val;
+    }
+
+    if (!sawBootstrap)
+    {
+      if (sawCircuitEstablished)
+        TorLauncherLogger.log(2, "_parseBootstrapStatus: CIRCUIT_ESTABLISHED");
+      else
+        TorLauncherLogger.log(4, "_parseBootstrapStatus: missing BOOTSTRAP");
+
       return null;
     }
 
-    // A typical reply looks like:
-    //  250-status/bootstrap-phase=NOTICE BOOTSTRAP PROGRESS=100 TAG=done SUMMARY="Done"
-    //  250 OK
-    reply = this._parseReply(cmd, key, reply);
-    if (reply.lineArray)
-    {
-      var sawBootstrap = false;
-      var statusObj = {};
-      statusObj.TYPE = "NOTICE";
+    // this._dumpObj("BootstrapStatus", statusObj);
+    statusObj._errorOccurred = (("WARN" == statusObj.TYPE) &&
+                                ("warn" == statusObj.RECOMMENDATION));
 
-      // The following code assumes that this is a one-line response.
-      var paramArray = this._splitReplyLine(reply.lineArray[0]);
-      for (var i = 0; i < paramArray.length; ++i)
-      {
-        var tokenAndVal = paramArray[i];
-        var token, val;
-        var idx = tokenAndVal.indexOf('=');
-        if (idx < 0)
-          token = tokenAndVal;
-        else
-        {
-          token = tokenAndVal.substring(0, idx);
-          var valObj = {};
-          if (!this._strUnescape(tokenAndVal.substring(idx + 1), valObj))
-            continue; // skip this token/value pair.
-
-          val = valObj.result;
-        }
-
-        if ("BOOTSTRAP" == token)
-          sawBootstrap = true;
-        else if (("WARN" == token) || ("NOTICE" == token))
-          statusObj.TYPE = token;
-        else if (("COUNT" == token) || ("PROGRESS" == token))
-          statusObj[token] = parseInt(val, 10);
-        else
-          statusObj[token] = val;
-      }
-
-      if (!sawBootstrap)
-        TorLauncherLogger.log(4, "TorGetBootStrapStatus: missing BOOTSTRAP");
-      else
-        this._dumpObj("BootstrapStatus", statusObj); // TODO: remove this.
-    }
-
+    // Notify observers.
+    var obsSvc = Cc["@mozilla.org/observer-service;1"]
+                   .getService(Ci.nsIObserverService);
+    statusObj.wrappedJSObject = statusObj;
+    obsSvc.notifyObservers(statusObj, "TorBootstrapStatus", null);
     return statusObj;
-  }, // TorGetBootStrapStatus()
+  }, // _parseBootstrapStatus()
 
   // Executes a command on the control port.
   // Return a reply object or null if a fatal error occurs.
@@ -422,7 +448,6 @@ TorProtocolService.prototype =
 
 
   // Private Member Variables ////////////////////////////////////////////////
-  mObsSvc: null,
   mControlPort: null,
   mControlHost: null,
   mControlPassword: null,     // JS string that contains hex-encoded password.
@@ -1136,6 +1161,7 @@ TorProtocolService.prototype =
     if ((idx > 0))
     {
       let eventType = s.substring(0, idx);
+      let msg = s.substr(idx + 1);
       switch (eventType)
       {
         case "DEBUG":
@@ -1144,13 +1170,14 @@ TorProtocolService.prototype =
         case "WARN":
         case "ERR":
           var now = new Date();
-          let logObj = { date: now, type: eventType, msg: s.substr(idx) };
+          let logObj = { date: now, type: eventType, msg: msg };
           if (!this.mTorLog)
             this.mTorLog = [];
           this.mTorLog.push(logObj);
           break;
         case "STATUS_CLIENT":
-          /*FALLTHRU*/
+          this._parseBootstrapStatus(msg);
+          break;
         default:
           this._dumpObj(eventType + "_event", aReply);
       }
