@@ -358,6 +358,7 @@ function applySettings()
     this.setConfAndReportErrors(settings);
 
     gProtocolSvc.TorSendCommand("SAVECONF");
+    gTorProcessService.TorClearBootstrapError();
 
     gIsBootstrapComplete = gTorProcessService.TorIsBootstrapDone;
     if (!gIsBootstrapComplete)

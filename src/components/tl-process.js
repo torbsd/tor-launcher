@@ -210,6 +210,12 @@ TorProcessService.prototype =
     return this.mIsBootstrapDone;
   },
 
+  TorClearBootstrapError: function()
+  {
+    this.mLastTorWarningPhase = null;
+    this.mLastTorWarningText = null;
+  },
+
 
   // Private Member Variables ////////////////////////////////////////////////
   mIsTorProcessReady: false,
@@ -223,6 +229,8 @@ TorProcessService.prototype =
   mControlConnTimer: null,
   mControlConnDelayMS: 0,
   mQuitSoon: false,     // Quit was requested by the user; do so soon.
+  mLastTorWarningPhase: null,
+  mLastTorWarningText: null,
 
 
   // Private Methods /////////////////////////////////////////////////////////
@@ -363,9 +371,16 @@ TorProcessService.prototype =
         TorLauncherUtil.setBoolPref(this.kPrefPromptAtStartup, true);
         TorLauncherLogger.log(5, "Tor bootstrap error: " + aStatusObj.WARNING);
 
-        var s = TorLauncherUtil.getFormattedLocalizedString(
+        if ((aStatusObj.TAG != this.mLastTorWarningPhase) ||
+            (aStatusObj.WARNING != this.mLastTorWarningText))
+        {
+          var s = TorLauncherUtil.getFormattedLocalizedString(
                                "tor_bootstrap_failed", [aStatusObj.WARNING], 1);
-        TorLauncherUtil.showAlert(null, s);
+          TorLauncherUtil.showAlert(null, s);
+
+          this.mLastTorWarningPhase = aStatusObj.TAG;
+          this.mLastTorWarningText = aStatusObj.WARNING;
+        }
       }
     }
   }, // _processBootstrapStatus()
