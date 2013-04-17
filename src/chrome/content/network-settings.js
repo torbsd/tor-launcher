@@ -82,17 +82,18 @@ function initDialog()
   gObsService = Cc["@mozilla.org/observer-service;1"]
                   .getService(Ci.nsIObserverService);
 
-  if (gTorProcessService.TorIsProcessReady)
+  if (TorLauncherUtil.shouldStartAndOwnTor &&
+      !gTorProcessService.TorIsProcessReady)
   {
-    showOrHideSettings(true, false);
-    readTorSettings();
-  }
-  else
-  { 
-    showOrHideSettings(false, true);
+    showOrHideSettings(false, true);  // Show "Waiting for tor to start"
     gObsService.addObserver(gObserver, kTorProcessReadyTopic, false);
     gObsService.addObserver(gObserver, kTorProcessExitedTopic, false);
     gObsService.addObserver(gObserver, kTorProcessDidNotStartTopic, false);
+  }
+  else
+  { 
+    showOrHideSettings(true, false);
+    readTorSettings();
   }
 
   TorLauncherLogger.log(2, "initDialog done");
