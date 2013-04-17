@@ -374,12 +374,12 @@ TorProcessService.prototype =
         if ((aStatusObj.TAG != this.mLastTorWarningPhase) ||
             (aStatusObj.WARNING != this.mLastTorWarningText))
         {
+          this.mLastTorWarningPhase = aStatusObj.TAG;
+          this.mLastTorWarningText = aStatusObj.WARNING;
+
           var s = TorLauncherUtil.getFormattedLocalizedString(
                                "tor_bootstrap_failed", [aStatusObj.WARNING], 1);
           TorLauncherUtil.showAlert(null, s);
-
-          this.mLastTorWarningPhase = aStatusObj.TAG;
-          this.mLastTorWarningText = aStatusObj.WARNING;
         }
       }
     }
