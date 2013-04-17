@@ -36,7 +36,9 @@ let TorLauncherUtil =  // Public
       {
         var wm = Cc["@mozilla.org/appshell/window-mediator;1"]
                    .getService(Ci.nsIWindowMediator);
-        aParentWindow = wm.getMostRecentWindow("navigator:browser");
+        aParentWindow = wm.getMostRecentWindow("TorLauncher:NetworkSettings");
+        if (!aParentWindow)
+          aParentWindow = wm.getMostRecentWindow("navigator:browser");
       }
 
       var ps = Cc["@mozilla.org/embedcomp/prompt-service;1"]
