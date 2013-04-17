@@ -6,7 +6,7 @@
  */
 
 dialog {
-  width: 592px;
+  width: 635px;
   height: 440px;
   font: -moz-dialog;
 }
@@ -31,4 +31,13 @@ dialog.initialBootstrap #tbb-header {
   list-style-image: url("chrome://torlauncher/skin/tbb-logo.png");
   width: 120px;
   height: 100px;
+}
+
+#startingTor {
+  min-height: 300px;
+}
+
+#startingTor label {
+  font-size: 120%;
+  font-weight: bold;
 }

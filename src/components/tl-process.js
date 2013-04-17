@@ -31,6 +31,9 @@ TorProcessService.prototype =
   kClassID: Components.ID("{FE7B4CAF-BCF4-4848-8BFF-EFA66C9AFDA1}"),
 
   kPrefPromptAtStartup: "extensions.torlauncher.prompt_at_startup",
+  kInitialControlConnDelayMS: 25,
+  kMaxControlConnRetryMS: 500,
+  kControlConnTimeoutMS: 30000, // Wait at most 30 seconds for tor to start.
   kInitialMonitorDelayMS: 1000, // TODO: how can we avoid this delay?
   kMonitorDelayMS: 200,
 
@@ -103,8 +106,16 @@ TorProcessService.prototype =
     }
     else if (("process-failed" == aTopic) || ("process-finished" == aTopic))
     {
+      if (this.mControlConnTimer)
+      {
+        this.mControlConnTimer.cancel();
+        this.mControlConnTimer = null;
+      }
+
       this.TorMonitorBootstrap(false);
       this.mTorProcess = null;
+
+      this.mObsSvc.notifyObservers(null, "TorProcessExited", null);
 
       if (!this.mIsQuitting)
       {
@@ -115,9 +126,50 @@ TorProcessService.prototype =
     }
     else if ("timer-callback" == aTopic)
     {
-      this._checkBootStrapStatus();
-      if (this.mTimer)
-        this.mTimer.init(this, this.kMonitorDelayMS, this.mTimer.TYPE_ONE_SHOT);
+      if (aSubject == this.mControlConnTimer)
+      {
+        var haveConnection = this.mProtocolSvc.TorHaveControlConnection();
+        if (haveConnection)
+        {
+          this.mControlConnTimer = null;
+          this.mIsTorProcessReady = true;
+          this.mProtocolSvc.TorStartEventMonitor();
+
+          var isInitialBootstrap =
+                     TorLauncherUtil.getBoolPref(this.kPrefPromptAtStartup);
+          if (!isInitialBootstrap)
+            this.TorMonitorBootstrap(true);
+
+          this.mObsSvc.notifyObservers(null, "TorProcessIsReady", null);
+        }
+        else if ((Date.now() - this.mTorProcessStartTime)
+                 > this.kControlConnTimeoutMS)
+        {
+          this.mObsSvc.notifyObservers(null, "TorProcessDidNotStart", null);
+          var s = TorLauncherUtil.getLocalizedString("tor_controlconn_failed");
+          TorLauncherUtil.showAlert(null, s);
+          TorLauncherLogger.log(4, s);
+        }
+        else
+        {
+          this.mControlConnDelayMS *= 2;
+          if (this.mControlConnDelayMS > this.kMaxControlConnRetryMS)
+            this.mControlConnDelayMS = this.kMaxControlConnRetryMS;
+          this.mControlConnTimer = Cc["@mozilla.org/timer;1"]
+                                  .createInstance(Ci.nsITimer);
+          this.mControlConnTimer.init(this, this.mControlConnDelayMS,
+                                      this.mControlConnTimer .TYPE_ONE_SHOT);
+        }
+      }
+      else if (aSubject == this.mTimer)
+      {
+        this._checkBootStrapStatus();
+        if (this.mTimer)
+        {
+          this.mTimer.init(this, this.kMonitorDelayMS,
+                           this.mTimer.TYPE_ONE_SHOT);
+        }
+      }
     }
     else if (kOpenNetworkSettingsTopic == aTopic)
       this._openNetworkSettings(false);
@@ -157,7 +209,12 @@ TorProcessService.prototype =
 
   lockFactory: function (aDoLock) {},
 
-  // Public Constants and Methods ////////////////////////////////////////////
+  // Public Properties and Methods ///////////////////////////////////////////
+  get TorIsProcessReady()
+  {
+    return (this.mTorProcess) ? this.mIsTorProcessReady : false;
+  },
+
   TorMonitorBootstrap: function(aEnable)
   {
     if (!this.mProtocolSvc)
@@ -177,24 +234,32 @@ TorProcessService.prototype =
     if (this.mTimer)
       return;
 
-    this.mTimer = Components.classes["@mozilla.org/timer;1"]
-                            .createInstance(Components.interfaces.nsITimer);
+    this.mTimer = Cc["@mozilla.org/timer;1"]
+                            .createInstance(Ci.nsITimer);
     this.mTimer.init(this, this.kInitialMonitorDelayMS,
                      this.mTimer.TYPE_ONE_SHOT);
   },
 
+
   // Private Member Variables ////////////////////////////////////////////////
+  mIsTorProcessReady: false,
   mIsQuitting: false,
   mObsSvc: null,
   mProtocolSvc: null,
   mTorProcess: null,    // nsIProcess
+  mTorProcessStartTime: null, // JS Date.now()
   mTBBTopDir: null,     // nsIFile for top of TBB installation (cached)
+  mControlConnTimer: null,
+  mControlConnDelayMS: 0,
   mTimer: null,
   mQuitSoon: false,     // Quit was requested by the user; do so soon.
+
 
   // Private Methods /////////////////////////////////////////////////////////
   _startTor: function()
   {
+    this.mIsTorProcessReady = false;
+
     var isInitialBootstrap =
                      TorLauncherUtil.getBoolPref(this.kPrefPromptAtStartup);
 
@@ -249,8 +314,7 @@ TorProcessService.prototype =
         args.push("1");
       }
 
-      var p = Components.classes["@mozilla.org/process/util;1"]
-                        .createInstance(Components.interfaces.nsIProcess);
+      var p = Cc["@mozilla.org/process/util;1"].createInstance(Ci.nsIProcess);
       p.init(exeFile);
 
       TorLauncherLogger.log(2, "Starting " + exeFile.path);
@@ -259,6 +323,9 @@ TorProcessService.prototype =
 
       p.runAsync(args, args.length, this, false);
       this.mTorProcess = p;
+      this.mTorProcessStartTime = Date.now();
+
+      this._waitForTorProcessStartup();
 
       if (isInitialBootstrap)
       {
@@ -273,10 +340,7 @@ TorProcessService.prototype =
           this._openNetworkSettings(true); // Blocks until dialog is closed.
       }
       else
-      {
-        this.TorMonitorBootstrap(true);
         this._openProgressDialog();
-      }
 
       // If the user pressed "Quit" within settings/progress, exit.
       if (this.mQuitSoon) try
@@ -299,6 +363,15 @@ TorProcessService.prototype =
       TorLauncherLogger.safelog(4, "_startTor error: ", e);
     }
   }, // _startTor()
+
+  _waitForTorProcessStartup: function()
+  {
+    this.mControlConnDelayMS = this.kInitialControlConnDelayMS;
+    this.mControlConnTimer = Cc["@mozilla.org/timer;1"]
+                               .createInstance(Ci.nsITimer);
+    this.mControlConnTimer.init(this, this.mControlConnDelayMS,
+                                this.mControlConnTimer.TYPE_ONE_SHOT);
+  },
 
   _checkBootStrapStatus: function()
   {

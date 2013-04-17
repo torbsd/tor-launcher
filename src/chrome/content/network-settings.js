@@ -15,6 +15,10 @@ XPCOMUtils.defineLazyModuleGetter(this, "TorLauncherUtil",
 XPCOMUtils.defineLazyModuleGetter(this, "TorLauncherLogger",
                           "resource://torlauncher/modules/tl-logger.jsm");
 
+const kTorProcessReadyTopic = "TorProcessIsReady";
+const kTorProcessExitedTopic = "TorProcessExited";
+const kTorProcessDidNotStartTopic = "TorProcessDidNotStart";
+
 const kUseProxyCheckbox = "useProxy";
 const kProxyTypeMenulist = "proxyType";
 const kProxyAddr = "proxyAddr";
@@ -39,13 +43,13 @@ const kTorConfKeyBridgeList = "Bridge";
 
 var gProtocolSvc = null;
 var gTorProcessService = null;
+var gObsService = null;
 var gIsInitialBootstrap = false;
 var gIsBootstrapComplete = false;
 
 
 function initDialog()
 {
-  var okBtn = document.documentElement.getButton("accept");
   gIsInitialBootstrap = window.arguments[0];
   if (gIsInitialBootstrap)
   {
@@ -55,10 +59,9 @@ function initDialog()
     var quitKey = (TorLauncherUtil.isWindows) ? "quit_win" : "quit";
     cancelBtn.label = TorLauncherUtil.getLocalizedString(quitKey);
 
+    var okBtn = document.documentElement.getButton("accept");
     okBtn.label = TorLauncherUtil.getLocalizedString("connect");
   }
-
-  okBtn.focus();
 
   try
   {
@@ -76,8 +79,50 @@ function initDialog()
   }
   catch (e) { dump(e + "\n"); }
 
-  TorLauncherLogger.log(2, "initDialog retrieving tor settings " +
-                             "----------------------------------------------");
+  gObsService = Cc["@mozilla.org/observer-service;1"]
+                  .getService(Ci.nsIObserverService);
+
+  if (gTorProcessService.TorIsProcessReady)
+  {
+    showOrHideSettings(true, false);
+    readTorSettings();
+  }
+  else
+  { 
+    showOrHideSettings(false, true);
+    gObsService.addObserver(gObserver, kTorProcessReadyTopic, false);
+    gObsService.addObserver(gObserver, kTorProcessExitedTopic, false);
+    gObsService.addObserver(gObserver, kTorProcessDidNotStartTopic, false);
+  }
+
+  TorLauncherLogger.log(2, "initDialog done");
+}
+
+
+var gObserver = {
+  observe: function(aSubject, aTopic, aData)
+  {
+    gObsService.removeObserver(gObserver, kTorProcessReadyTopic);
+    gObsService.removeObserver(gObserver, kTorProcessExitedTopic);
+    gObsService.removeObserver(gObserver, kTorProcessDidNotStartTopic);
+
+    if (kTorProcessReadyTopic == aTopic)
+    {
+      showOrHideSettings(true, false);
+      readTorSettings();
+    }
+    else if (kTorProcessDidNotStartTopic == aTopic)
+      showOrHideSettings(false, false);
+    else
+      close();
+  }
+};
+
+
+function readTorSettings()
+{
+  TorLauncherLogger.log(2, "readTorSettings " +
+                            "----------------------------------------------");
 
   var didSucceed = false;
   try
@@ -86,14 +131,12 @@ function initDialog()
     didSucceed = initProxySettings() && initFirewallSettings() &&
                  initBridgeSettings();
   }
-  catch (e) { TorLauncherLogger.safelog(4, "Error in initDialog: ", e); }
+  catch (e) { TorLauncherLogger.safelog(4, "Error in readTorSettings: ", e); }
 
   if (!didSucceed)
   {
     // Unable to communicate with tor.  Hide settings and display an error.
-    setElemValue(kUseProxyCheckbox, false);
-    setElemValue(kUseFirewallPortsCheckbox, false);
-    setElemValue(kUseBridgesCheckbox, false);
+    showOrHideSettings(false, false);
 
     setTimeout(function()
         {
@@ -105,10 +148,43 @@ function initDialog()
           close();
         }, 0);
   }
-
-  TorLauncherLogger.log(2, "initDialog done\n\n\n");
+  TorLauncherLogger.log(2, "readTorSettings done");
 }
 
+
+function showOrHideSettings(aShow, aIsStartingTor)
+{
+  showOrHideElem("settings", aShow);
+  showOrHideElem("startingTor", !aShow && aIsStartingTor);
+
+  var okBtn = document.documentElement.getButton("accept");
+  if (okBtn)
+  {
+    if (aShow)
+    {
+      okBtn.removeAttribute("hidden");
+      okBtn.focus();
+    }
+    else
+      okBtn.setAttribute("hidden", true);
+  }
+}
+
+
+function showOrHideElem(aID, aShow)
+{
+  if (!aID)
+    return;
+
+  var e = document.getElementById(aID);
+  if (e)
+  {
+    if (aShow)
+      e.removeAttribute("hidden");
+    else
+      e.setAttribute("hidden", true);
+  }
+}
 
 function onCancel()
 {
@@ -120,6 +196,14 @@ function onCancel()
   } catch (e) {}
 
   return true;
+}
+
+
+function onCopyLog()
+{
+  var chSvc = Cc["@mozilla.org/widget/clipboardhelper;1"]
+                             .getService(Ci.nsIClipboardHelper);
+  chSvc.copyString(gProtocolSvc.TorGetLog());
 }
 
 
@@ -281,7 +365,7 @@ function applySettings()
       close();
   }
 
-  TorLauncherLogger.log(2, "applySettings done\n\n\n");
+  TorLauncherLogger.log(2, "applySettings done");
 
   return false;
 }

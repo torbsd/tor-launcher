@@ -5,6 +5,8 @@
 <!ENTITY torsettings.prompt3 "If so, choose those options for further configuration.">
 <!ENTITY torsettings.prompt4 "If not, just click Connect.">
 
+<!ENTITY torsettings.startingTor "Waiting for Tor to start…">
+
 <!ENTITY torsettings.useProxy.checkbox "I use a proxy to access the Internet">
 <!ENTITY torsettings.useProxy.address "Address:">
 <!ENTITY torsettings.useProxy.port "Port:">
@@ -18,3 +20,4 @@
 <!ENTITY torsettings.firewall.allowedPorts "Allowed Ports:">
 <!ENTITY torsettings.useBridges.checkbox "My ISP blocks connections to the Tor network">
 <!ENTITY torsettings.useBridges.label "Enter one or more bridge relays in the form address:port.">
+<!ENTITY torsettings.copyLog "Copy Tor Log To Clipboard">

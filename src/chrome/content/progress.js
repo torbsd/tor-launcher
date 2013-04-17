@@ -7,6 +7,7 @@ const Cc = Components.classes;
 const Ci = Components.interfaces;
 const Cu = Components.utils;
 
+const kTorProcessExitedTopic = "TorProcessExited";
 const kBootstrapStatusTopic = "TorBootstrapStatus";
 
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
@@ -23,7 +24,8 @@ function initDialog()
   {
     gObsSvc = Cc["@mozilla.org/observer-service;1"]
                   .getService(Ci.nsIObserverService);
-    gObsSvc.addObserver(BootstrapStatusObserver, kBootstrapStatusTopic, false);
+    gObsSvc.addObserver(gObserver, kTorProcessExitedTopic, false);
+    gObsSvc.addObserver(gObserver, kBootstrapStatusTopic, false);
   }
   catch (e) {}
 
@@ -57,7 +59,10 @@ function initDialog()
 function cleanup()
 {
   if (gObsSvc)
-    gObsSvc.removeObserver(BootstrapStatusObserver, kBootstrapStatusTopic);
+  {
+    gObsSvc.removeObserver(gObserver, kTorProcessExitedTopic);
+    gObsSvc.removeObserver(gObserver, kBootstrapStatusTopic);
+  }
 }
 
 
@@ -92,11 +97,16 @@ function onCancel()
 }
 
 
-var BootstrapStatusObserver = {
+var gObserver = {
   // nsIObserver implementation.
   observe: function(aSubject, aTopic, aParam)
   {
-    if (kBootstrapStatusTopic == aTopic)
+    if (kTorProcessExitedTopic == aTopic)
+    {
+      onCancel();
+      window.close();
+    }
+    else if (kBootstrapStatusTopic == aTopic)
     {
       var statusObj = aSubject.wrappedJSObject;
       var labelText = (statusObj.SUMMARY) ? statusObj.SUMMARY : "";

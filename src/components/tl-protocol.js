@@ -130,6 +130,7 @@ TorProtocolService.prototype =
 
   // Public Constants and Methods ////////////////////////////////////////////
   kCmdStatusOK: 250,
+  kCmdStatusEventNotification: 650,
 
   // Returns Tor password string or null if an error occurs.
   TorGetPassword: function(aPleaseHash)
@@ -352,8 +353,73 @@ TorProtocolService.prototype =
   // TorCleanupConnection() is called during browser shutdown.
   TorCleanupConnection: function()
   {
-      this._closeConnection();
+    this._closeConnection();
+    this._closeConnection(this.mEventMonitorConnection);
+    this.mEventMonitorConnection = null;
   },
+
+  TorStartEventMonitor: function()
+  {
+    if (this.mEventMonitorConnection)
+      return;
+
+    var conn = this._openAuthenticatedConnection(true);
+    // TODO: optionally monitor INFO and DEBUG log messages.
+    var events = "STATUS_CLIENT NOTICE WARN ERR";
+    var reply = this._sendCommand(conn, "SETEVENTS", events);
+    if (!this.TorCommandSucceeded(reply))
+    {
+      TorLauncherLogger.log(4, "SETEVENTS failed");
+      this._closeConnection(conn);
+      return;
+    }
+
+    this.mEventMonitorConnection = conn;
+    this._waitForEventData();
+  },
+
+  // Returns captured log message as a text string (one message per line).
+  TorGetLog: function()
+  {
+    let s = "";
+    if (this.mTorLog)
+    {
+      let dateFmtSvc = Cc["@mozilla.org/intl/scriptabledateformat;1"]
+                      .getService(Ci.nsIScriptableDateFormat);
+      let dateFormat = dateFmtSvc.dateFormatShort;
+      let timeFormat = dateFmtSvc.timeFormatSecondsForce24Hour;
+      for (let i = 0; i < this.mTorLog.length; ++i)
+      {
+        let logObj = this.mTorLog[i];
+        let secs = logObj.date.getSeconds();
+        let timeStr = dateFmtSvc.FormatDateTime("", dateFormat, timeFormat,
+                         logObj.date.getFullYear(), logObj.date.getMonth() + 1,
+                             logObj.date.getDate(), logObj.date.getHours(),
+                             logObj.date.getMinutes(), secs);
+        if (' ' == timeStr.substr(-1))
+          timeStr = timeStr.substr(0, timeStr.length - 1);
+        let fracSecsStr = "" + logObj.date.getMilliseconds();
+        while (fracSecsStr.length < 3)
+          fracSecsStr += "0";
+        timeStr += '.' + fracSecsStr;
+
+        s += timeStr + " [" + logObj.type + "] " + logObj.msg + "\n";
+      }
+    }
+
+    return s;
+  },
+
+
+  // Return true if a control connection is established (will create a
+  // connection if necessary).
+  TorHaveControlConnection: function()
+  {
+    var conn = this._getConnection();
+    this._returnConnection(conn);
+    return (conn != null);
+  },
+
 
   // Private Member Variables ////////////////////////////////////////////////
   mObsSvc: null,
@@ -361,16 +427,22 @@ TorProtocolService.prototype =
   mControlHost: null,
   mControlPassword: null,     // JS string that contains hex-encoded password.
   mControlConnection: null,   // This is cached and reused.
+  mEventMonitorConnection: null,
+  mEventMonitorBuffer: null,
+  mEventMonitorInProgressReply: null,
+  mTorLog: null,      // Array of objects with date, type, and msg properties.
+
   mCheckPasswordHash: false,  // set to true to perform a unit test
 
   // Private Methods /////////////////////////////////////////////////////////
 
   // Returns a JS object that contains these fields:
-  //   inUse      // Boolean
-  //   useCount   // Integer
-  //   socket     // nsISocketTransport
-  //   inStream   // nsIBinaryInputStream
-  //   outStream  // nsIBinaryOutputStream
+  //   inUse        // Boolean
+  //   useCount     // Integer
+  //   socket       // nsISocketTransport
+  //   inStream     // nsIInputStream
+  //   binInStream  // nsIBinaryInputStream
+  //   binOutStream // nsIBinaryOutputStream
   _getConnection: function()
   {
     if (this.mControlConnection)
@@ -382,8 +454,7 @@ TorProtocolService.prototype =
       }
     }
     else
-      this.mControlConnection = this._openAuthenticatedConnection();
-
+      this.mControlConnection = this._openAuthenticatedConnection(false);
 
     if (this.mControlConnection)
       this.mControlConnection.inUse = true;
@@ -397,7 +468,7 @@ TorProtocolService.prototype =
       this.mControlConnection.inUse = false;
   },
 
-  _openAuthenticatedConnection: function()
+  _openAuthenticatedConnection: function(aIsEventConnection)
   {
     var conn;
     try
@@ -408,18 +479,19 @@ TorProtocolService.prototype =
                                  this.mControlHost + ":" + this.mControlPort);
       var socket = sts.createTransport(null, 0, this.mControlHost,
                                        this.mControlPort, null);
-      const kFlags = socket.OPEN_BLOCKING | socket.OPEN_UNBUFFERED;
-      var input = socket.openInputStream(kFlags, 0, 0);
-      var output = socket.openOutputStream(kFlags, 0, 0);
+      var flags = (aIsEventConnection) ? 0
+                              : socket.OPEN_BLOCKING | socket.OPEN_UNBUFFERED;
+      var inStream = socket.openInputStream(flags, 0, 0);
+      var outStream = socket.openOutputStream(flags, 0, 0);
 
-      var inputStream  = Cc["@mozilla.org/binaryinputstream;1"]
+      var binInStream  = Cc["@mozilla.org/binaryinputstream;1"]
                            .createInstance(Ci.nsIBinaryInputStream);
-      var outputStream = Cc["@mozilla.org/binaryoutputstream;1"]
+      var binOutStream = Cc["@mozilla.org/binaryoutputstream;1"]
                            .createInstance(Ci.nsIBinaryOutputStream);
-      inputStream.setInputStream(input);
-      outputStream.setOutputStream(output);
-      conn = { useCount: 0, socket: socket,
-               inStream: inputStream, outStream: outputStream };
+      binInStream.setInputStream(inStream);
+      binOutStream.setOutputStream(outStream);
+      conn = { useCount: 0, socket: socket, inStream: inStream,
+               binInStream: binInStream, binOutStream: binOutStream };
 
       // AUTHENTICATE
       var pwdArg = this._strEscape(this.mControlPassword);
@@ -437,7 +509,7 @@ TorProtocolService.prototype =
         return null;
       }
 
-      if (TorLauncherUtil.shouldStartAndOwnTor)
+      if (!aIsEventConnection && TorLauncherUtil.shouldStartAndOwnTor)
       {
         // Try to become the primary controller (TAKEOWNERSHIP).
         reply = this._sendCommand(conn, "TAKEOWNERSHIP", null);
@@ -487,53 +559,85 @@ TorProtocolService.prototype =
       cmd += "\r\n";
 
       ++aConn.useCount;
-      aConn.outStream.writeBytes(cmd, cmd.length);
-      reply = this._torReadReply(aConn.inStream);
+      aConn.binOutStream.writeBytes(cmd, cmd.length);
+      reply = this._torReadReply(aConn.binInStream);
     }
 
     return reply;
   },
 
-  // Returns a reply object.
+  // Returns a reply object.  Blocks until entire reply has been received.
   _torReadReply: function(aInput)
   {
     var replyObj = {};
-    replyObj.statusCode = 0;
-    replyObj.lineArray = [];
-
-    var sepChar = '';
     do
     {
-      // TODO: handle + separators (data)
       var line = this._torReadLine(aInput);
       TorLauncherLogger.safelog(2, "Command response: ", line);
-      if (line.length < 4)
-      {
-        TorLauncherLogger.safelog(4, "Unexpected response: ", line);
-        return null;
-      }
+    } while (!this._parseOneReplyLine(line, replyObj));
 
-      replyObj.statusCode = parseInt(line.substr(0, 3), 10);
-      sepChar = line.charAt(3);
-      var s = (line.length < 5) ? "" : line.substr(4);
-      if (s != "OK")  // Include all lines except simple "250 OK" ones.
-        replyObj.lineArray.push(s);
-    } while (sepChar != ' ');
-
-    return replyObj;
+    return (replyObj._parseError) ? null : replyObj;
   },
 
+  // Returns a string.  Blocks until a line has been received.
   _torReadLine: function(aInput)
   {
     var str = "";
-    var bytes;
-    while ((bytes = aInput.readBytes(1)) != "\n")
-      str += bytes;
+    while(true)
+    {
+      try
+      {
+// TODO: readBytes() will sometimes hang if the control connection is opened
+// immediately after tor opens its listener socket.  Why?
+        let bytes = aInput.readBytes(1);
+        if ('\n' == bytes)
+          break;
+
+        str += bytes;
+      }
+      catch (e)
+      {
+        if (e.result != Cr.NS_BASE_STREAM_WOULD_BLOCK)
+          throw e;
+      }
+    }
 
     var len = str.length;
     if ((len > 0) && ('\r' == str.substr(len - 1)))
       str = str.substr(0, len - 1);
     return str;
+  },
+
+  // Returns false if more lines are needed.  The first time, callers
+  // should pass an empty aReplyObj.
+  // Parsing errors are indicated by aReplyObj._parseError = true.
+  _parseOneReplyLine: function(aLine, aReplyObj)
+  {
+    if (!aLine || !aReplyObj)
+      return false;
+
+    if (!("_parseError" in aReplyObj))
+    {
+      aReplyObj.statusCode = 0;
+      aReplyObj.lineArray = [];
+      aReplyObj._parseError = false;
+    }
+
+    if (aLine.length < 4)
+    {
+      TorLauncherLogger.safelog(4, "Unexpected response: ", aLine);
+      aReplyObj._parseError = true;
+      return true;
+    }
+
+    // TODO: handle + separators (data)
+    aReplyObj.statusCode = parseInt(aLine.substr(0, 3), 10);
+    var s = (aLine.length < 5) ? "" : aLine.substr(4);
+     // Include all lines except simple "250 OK" ones.
+    if ((aReplyObj.statusCode != this.kCmdStatusOK) || (s != "OK"))
+      aReplyObj.lineArray.push(s);
+
+    return (aLine.charAt(3) == ' ');
   },
 
   // _parseReply() understands simple GETCONF and GETINFO replies.
@@ -948,6 +1052,110 @@ TorProtocolService.prototype =
     return this.mRNGService;
   },
 
+  _waitForEventData: function()
+  {
+    if (!this.mEventMonitorConnection)
+      return;
+
+    var _this = this;
+    var eventReader = // An implementation of nsIInputStreamCallback.
+    {
+      onInputStreamReady: function(aInStream)
+      {
+        if (_this.mEventMonitorConnection.inStream != aInStream)
+          return;
+
+        var binStream = _this.mEventMonitorConnection.binInStream;
+        var bytes = binStream.readBytes(binStream.available());
+        if (!_this.mEventMonitorBuffer)
+          _this.mEventMonitorBuffer = bytes;
+        else
+          _this.mEventMonitorBuffer += bytes;
+        _this._processEventData();
+
+        _this._waitForEventData();
+      }
+    };
+
+    var curThread = Cc["@mozilla.org/thread-manager;1"].getService()
+                      .currentThread;
+    var asyncInStream = this.mEventMonitorConnection.inStream
+                            .QueryInterface(Ci.nsIAsyncInputStream);
+    asyncInStream.asyncWait(eventReader, 0, 0, curThread);
+  },
+
+  _processEventData: function()
+  {
+    var replyData = this.mEventMonitorBuffer;
+    if (!replyData)
+      return;
+
+    var idx = -1;
+    do
+    {
+      idx = replyData.indexOf('\n');
+      if (idx >= 0)
+      {
+        let line = replyData.substring(0, idx);
+        replyData = replyData.substring(idx + 1);
+        let len = line.length;
+        if ((len > 0) && ('\r' == line.substr(len - 1)))
+          line = line.substr(0, len - 1);
+
+        TorLauncherLogger.safelog(2, "Event response: ", line);
+        if (!this.mEventMonitorInProgressReply)
+          this.mEventMonitorInProgressReply = {};
+        var replyObj = this.mEventMonitorInProgressReply;
+        var isComplete = this._parseOneReplyLine(line, replyObj);
+        if (isComplete)
+        {
+          this._processEventReply(replyObj);
+          this.mEventMonitorInProgressReply = null;
+        }
+      }
+    } while ((idx >= 0) && replyData)
+
+    this.mEventMonitorBuffer = replyData;
+  },
+
+  _processEventReply: function(aReply)
+  {
+    if (aReply._parseError || (0 == aReply.lineArray.length))
+      return;
+
+    if (aReply.statusCode != this.kCmdStatusEventNotification)
+    {
+      TorLauncherLogger.log(4, "Unexpected event status code: "
+                               + aReply.statusCode);
+      return;
+    }
+
+    // TODO: do we need to handle multiple lines?
+    let s = aReply.lineArray[0];
+    let idx = s.indexOf(' ');
+    if ((idx > 0))
+    {
+      let eventType = s.substring(0, idx);
+      switch (eventType)
+      {
+        case "DEBUG":
+        case "INFO":
+        case "NOTICE":
+        case "WARN":
+        case "ERR":
+          var now = new Date();
+          let logObj = { date: now, type: eventType, msg: s.substr(idx) };
+          if (!this.mTorLog)
+            this.mTorLog = [];
+          this.mTorLog.push(logObj);
+          break;
+        case "STATUS_CLIENT":
+          /*FALLTHRU*/
+        default:
+          this._dumpObj(eventType + "_event", aReply);
+      }
+    }
+  },
 
   // Debugging Methods ///////////////////////////////////////////////////////
   _dumpObj: function(aObjDesc, aObj)
@@ -962,7 +1170,16 @@ TorProtocolService.prototype =
     }
 
     for (var prop in aObj)
-      dump(aObjDesc + "." + prop + ": " + aObj[prop] + "\n");
+    {
+      let val = aObj[prop];
+      if (Array.isArray(val))
+      {
+        for (let i = 0; i < val.length; ++i)
+          dump(aObjDesc + "." + prop + "[" + i + "]: " + val + "\n");
+      }
+      else
+        dump(aObjDesc + "." + prop + ": " + val + "\n");
+    }
   },
 
   endOfObject: true
