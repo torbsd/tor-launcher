@@ -21,3 +21,8 @@
 <!ENTITY torsettings.useBridges.checkbox "My ISP blocks connections to the Tor network">
 <!ENTITY torsettings.useBridges.label "Enter one or more bridge relays in the form address:port.">
 <!ENTITY torsettings.copyLog "Copy Tor Log To Clipboard">
+<!ENTITY torsettings.bridgeHelpTitle "Bridge Relay Help">
+<!ENTITY torsettings.bridgeHelp1 "Bridge relays (or 'bridges' for short) are Tor relays that aren't listed in the main directory. Since there is no complete public list of them, even if your ISP is filtering connections to all the known Tor relays they probably won't be able to block all the bridges.">
+<!ENTITY torsettings.bridgeHelp2 "To obtain some bridge relays, use a web browser to visit the following page:  https://bridges.torproject.org">
+
+<!ENTITY torsettings.bridgeHelp3 "Another way to find public bridge addresses is to send mail to bridges@torproject.org with the line 'get bridges' by itself in the body of the message. However, so we can make it harder for an attacker to learn lots of bridge addresses, you must send this request from an email address at one of the following domains: gmail.com or yahoo.com.">

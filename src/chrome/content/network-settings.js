@@ -46,6 +46,8 @@ var gTorProcessService = null;
 var gObsService = null;
 var gIsInitialBootstrap = false;
 var gIsBootstrapComplete = false;
+var gRestoreAfterHelpPanelID = null;
+var gRestoreAfterCancelBtnLabel = null;
 
 
 function initDialog()
@@ -85,14 +87,14 @@ function initDialog()
   if (TorLauncherUtil.shouldStartAndOwnTor &&
       !gTorProcessService.TorIsProcessReady)
   {
-    showOrHideSettings(false, true);  // Show "Waiting for tor to start"
+    showPanel("startingTor");
     gObsService.addObserver(gObserver, kTorProcessReadyTopic, false);
     gObsService.addObserver(gObserver, kTorProcessExitedTopic, false);
     gObsService.addObserver(gObserver, kTorProcessDidNotStartTopic, false);
   }
   else
   { 
-    showOrHideSettings(true, false);
+    showPanel("settings");
     readTorSettings();
   }
 
@@ -109,11 +111,11 @@ var gObserver = {
 
     if (kTorProcessReadyTopic == aTopic)
     {
-      showOrHideSettings(true, false);
+      showPanel("settings");
       readTorSettings();
     }
     else if (kTorProcessDidNotStartTopic == aTopic)
-      showOrHideSettings(false, false);
+      showPanel("errorPanel");
     else
       close();
   }
@@ -137,7 +139,7 @@ function readTorSettings()
   if (!didSucceed)
   {
     // Unable to communicate with tor.  Hide settings and display an error.
-    showOrHideSettings(false, false);
+    showPanel("errorPanel");
 
     setTimeout(function()
         {
@@ -153,42 +155,45 @@ function readTorSettings()
 }
 
 
-function showOrHideSettings(aShow, aIsStartingTor)
+function showPanel(aPanelID)
 {
-  showOrHideElem("settings", aShow);
-  showOrHideElem("startingTor", !aShow && aIsStartingTor);
+  var deckElem = document.getElementById("deck");
+  if (deckElem)
+    deckElem.selectedPanel = document.getElementById(aPanelID);
 
-  var okBtn = document.documentElement.getButton("accept");
-  if (okBtn)
-  {
-    if (aShow)
-    {
-      okBtn.removeAttribute("hidden");
-      okBtn.focus();
-    }
-    else
-      okBtn.setAttribute("hidden", true);
-  }
+  showOrHideButton("accept", (aPanelID == "settings"), true);
+  showOrHideButton("extra1", (aPanelID != "bridgeHelp"), false);
 }
 
 
-function showOrHideElem(aID, aShow)
+function showOrHideButton(aID, aShow, aFocus)
 {
   if (!aID)
     return;
 
-  var e = document.getElementById(aID);
-  if (e)
+  var btn = document.documentElement.getButton(aID);
+  if (btn)
   {
     if (aShow)
-      e.removeAttribute("hidden");
+    {
+      btn.removeAttribute("hidden");
+      if (aFocus)
+        btn.focus()
+    }
     else
-      e.setAttribute("hidden", true);
+      btn.setAttribute("hidden", true);
   }
 }
 
+
 function onCancel()
 {
+  if (gRestoreAfterHelpPanelID) // Is help open?
+  {
+    closeHelp();
+    return false;
+  }
+
   if (gIsInitialBootstrap) try
   {
     var obsSvc = Cc["@mozilla.org/observer-service;1"]
@@ -205,6 +210,44 @@ function onCopyLog()
   var chSvc = Cc["@mozilla.org/widget/clipboardhelper;1"]
                              .getService(Ci.nsIClipboardHelper);
   chSvc.copyString(gProtocolSvc.TorGetLog());
+}
+
+
+function onOpenHelp()
+{
+  if (gRestoreAfterHelpPanelID) // Already open?
+    return;
+
+  var deckElem = document.getElementById("deck");
+  if (!deckElem)
+    return;
+
+  gRestoreAfterHelpPanelID = deckElem.selectedPanel.id;
+  var cancelBtn = document.documentElement.getButton("cancel");
+  if (cancelBtn)
+  {
+    gRestoreAfterCancelBtnLabel = cancelBtn.label;
+    cancelBtn.label = TorLauncherUtil.getLocalizedString("done");
+  }
+  else
+    gRestoreAfterCancelBtnLabel = null;
+
+    showPanel("bridgeHelp");
+}
+
+
+function closeHelp()
+{
+  if (!gRestoreAfterHelpPanelID)  // Already closed?
+    return;
+
+  var cancelBtn = document.documentElement.getButton("cancel");
+  if (cancelBtn && gRestoreAfterCancelBtnLabel)
+    cancelBtn.label = gRestoreAfterCancelBtnLabel;
+  gRestoreAfterCancelBtnLabel = null;
+  
+  showPanel(gRestoreAfterHelpPanelID);
+  gRestoreAfterHelpPanelID = null;
 }
 
 
