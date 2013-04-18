@@ -72,6 +72,8 @@ TorProtocolService.prototype =
   kServiceName : "Tor Launcher Protocol Service",
   kClassID: Components.ID("{4F476361-23FB-43EF-A427-B36A14D3208E}"),
 
+  kPrefMaxTorLogEntries: "extensions.torlauncher.max_tor_log_entries",
+
   // nsISupports implementation.
   QueryInterface: function(aIID)
   {
@@ -1173,6 +1175,13 @@ TorProtocolService.prototype =
           let logObj = { date: now, type: eventType, msg: msg };
           if (!this.mTorLog)
             this.mTorLog = [];
+          else
+          {
+            var maxEntries =
+                    TorLauncherUtil.getIntPref(this.kPrefMaxTorLogEntries, 0);
+            if ((maxEntries > 0) && (this.mTorLog.length >= maxEntries))
+              this.mTorLog.splice(0, 1);
+          }
           this.mTorLog.push(logObj);
           break;
         case "STATUS_CLIENT":

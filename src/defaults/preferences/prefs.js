@@ -1,5 +1,6 @@
 pref("extensions.torlauncher.loglevel", 4);  // 1=verbose, 2=debug, 3=info, 4=note, 5=warn
 pref("extensions.torlauncher.logmethod", 1);  // 0=stdout, 1=errorconsole, 2=debuglog
+pref("extensions.torlauncher.max_tor_log_entries", 1000);
 
 pref("extensions.torlauncher.control_host", "127.0.0.1");
 pref("extensions.torlauncher.control_port", 9151);
