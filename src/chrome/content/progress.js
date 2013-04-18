@@ -38,9 +38,15 @@ function initDialog()
       gOpenerCallbackFunc = window.arguments[1];
   }
 
-  // If this dialog was not opened from network settings, change Cancel to Quit.
-  if (!gOpenerCallbackFunc)
+  if (gOpenerCallbackFunc)
   {
+    // Dialog was opened from network settings: hide Open Settings button.
+    var extraBtn = document.documentElement.getButton("extra1");
+    extraBtn.setAttribute("hidden", true);
+  }
+  else
+  {
+    // Dialog was not opened from network settings: change Cancel to Quit.
     var cancelBtn = document.documentElement.getButton("cancel");
     var quitKey = (TorLauncherUtil.isWindows) ? "quit_win" : "quit";
     cancelBtn.label = TorLauncherUtil.getLocalizedString(quitKey);
@@ -97,12 +103,21 @@ function onCancel()
 }
 
 
+function onOpenSettings()
+{
+  cleanup();
+  window.close();
+}
+
+
 var gObserver = {
   // nsIObserver implementation.
   observe: function(aSubject, aTopic, aParam)
   {
     if (kTorProcessExitedTopic == aTopic)
     {
+      // TODO: provide a way to access tor log e.g., leave this dialog open
+      //       and display the open settings button.
       onCancel();
       window.close();
     }

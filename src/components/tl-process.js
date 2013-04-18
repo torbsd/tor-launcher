@@ -318,7 +318,14 @@ TorProcessService.prototype =
           this._openNetworkSettings(true); // Blocks until dialog is closed.
       }
       else
+      {
         this._openProgressDialog();
+
+        // Assume that the "Open Settings" button was pressed if Quit was
+        // not pressed and bootstrapping did not finish.
+        if (!this.mQuitSoon && !this.TorIsBootstrapDone)
+          this._openNetworkSettings(true);
+      }
 
       // If the user pressed "Quit" within settings/progress, exit.
       if (this.mQuitSoon) try
