@@ -12,7 +12,6 @@
 <!--
         <em:optionsURL>chrome://torlauncher/content/preferences.xul</em:optionsURL>
 -->
-        <em:iconURL>chrome://torbutton/skin/tor.png</em:iconURL>
         <!-- firefox -->
         <em:targetApplication>
             <Description>
