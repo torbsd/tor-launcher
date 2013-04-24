@@ -93,7 +93,8 @@
     </vbox>
   </wizardpage>
 
-  <wizardpage label=" " pageid="bridges" onextra1="onCopyLog();">
+  <wizardpage label=" " pageid="bridges" onextra1="onCopyLog();"
+              onpageshow="showOrHideButton('finish', true, true)">
     <vbox class="tbb-logo-box" align="start">
       <image class="tbb-logo" />
     </vbox>
