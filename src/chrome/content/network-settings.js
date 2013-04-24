@@ -18,6 +18,7 @@ XPCOMUtils.defineLazyModuleGetter(this, "TorLauncherLogger",
 const kTorProcessReadyTopic = "TorProcessIsReady";
 const kTorProcessExitedTopic = "TorProcessExited";
 const kTorProcessDidNotStartTopic = "TorProcessDidNotStart";
+const kTorBootstrapErrorTopic = "TorBootstrapError";
 
 const kWizardProxyRadioGroup = "proxyRadioGroup";
 const kWizardFirewallRadioGroup = "firewallRadioGroup";
@@ -54,10 +55,10 @@ var gRestoreAfterHelpPanelID = null;
 
 function initDialog()
 {
+  var cancelBtn = document.documentElement.getButton("cancel");
   gIsInitialBootstrap = window.arguments[0];
   if (gIsInitialBootstrap)
   {
-    var cancelBtn = document.documentElement.getButton("cancel");
     if (cancelBtn)
     {
       var quitKey = (TorLauncherUtil.isWindows) ? "quit_win" : "quit";
@@ -88,13 +89,26 @@ function initDialog()
   gObsService = Cc["@mozilla.org/observer-service;1"]
                   .getService(Ci.nsIObserverService);
 
-  var haveWizard = (getWizard() != null);
+  var wizardElem = getWizard();
+  var haveWizard = (wizardElem != null);
   if (haveWizard)
   {
+    // Set "Copy Tor Log" label and move it after the Quit (cancel) button.
+    var copyLogBtn = document.documentElement.getButton("extra1");
+    if (copyLogBtn)
+    {
+      copyLogBtn.label = wizardElem.getAttribute("buttonlabelextra1");
+      if (cancelBtn && !TorLauncherUtil.isWindows)
+        cancelBtn.parentNode.insertBefore(copyLogBtn, cancelBtn.nextSibling);
+    }
+
+    // Use "Connect" as the finish button label (on the last wizard page)..
     var finishBtn = document.documentElement.getButton("finish");
     if (finishBtn)
       finishBtn.label = TorLauncherUtil.getLocalizedString("connect");
   }
+
+  gObsService.addObserver(gObserver, kTorBootstrapErrorTopic, false);
 
   if (TorLauncherUtil.shouldStartAndOwnTor &&
       !gTorProcessService.TorIsProcessReady)
@@ -154,6 +168,13 @@ function onWizardFirewallNext(aWizPage)
 var gObserver = {
   observe: function(aSubject, aTopic, aData)
   {
+    if (kTorBootstrapErrorTopic == aTopic)
+    {
+      wizardShowCopyLogButton();
+      return;
+    }
+
+    // Process events that only occur once.
     gObsService.removeObserver(gObserver, kTorProcessReadyTopic);
     gObsService.removeObserver(gObserver, kTorProcessExitedTopic);
     gObsService.removeObserver(gObserver, kTorProcessDidNotStartTopic);
@@ -170,8 +191,8 @@ var gObserver = {
       readTorSettings();
     }
     else if (kTorProcessDidNotStartTopic == aTopic)
-      showPanel("errorPanel");
-    else
+      showErrorPanel();
+    else // kTorProcessExitedTopic
       close();
   }
 };
@@ -194,7 +215,7 @@ function readTorSettings()
   if (!didSucceed)
   {
     // Unable to communicate with tor.  Hide settings and display an error.
-    showPanel("errorPanel");
+    showErrorPanel();
 
     setTimeout(function()
         {
@@ -222,6 +243,27 @@ function showPanel(aPanelID)
     getWizard().goTo(aPanelID);
 
   showOrHideButton("accept", (aPanelID == "settings"), true);
+}
+
+
+function showErrorPanel()
+{
+    showPanel("errorPanel");
+    wizardShowCopyLogButton();
+}
+
+
+function wizardShowCopyLogButton()
+{
+  if (getWizard())
+  {
+    var copyLogBtn = document.documentElement.getButton("extra1");
+    if (copyLogBtn)
+    {
+      copyLogBtn.setAttribute("wizardCanCopyLog", true);
+      copyLogBtn.removeAttribute("hidden");
+    }
+  }
 }
 
 
@@ -327,6 +369,7 @@ function onOpenHelp()
   {
     showOrHideButton("cancel", false, false);
     showOrHideButton("back", false, false);
+    showOrHideButton("extra1", false, false);
     overrideButtonLabel("next", "done");
   }
   else
@@ -345,6 +388,9 @@ function closeHelp()
   {
     showOrHideButton("cancel", true, false);
     showOrHideButton("back", true, false);
+    var copyLogBtn = document.documentElement.getButton("extra1");
+    if (copyLogBtn && copyLogBtn.hasAttribute("wizardCanCopyLog"))
+      copyLogBtn.removeAttribute("hidden");
     restoreButtonLabel("next");
   }
   else
@@ -775,6 +821,9 @@ function showSaveSettingsAlert(aDetails)
   var s = TorLauncherUtil.getFormattedLocalizedString(
                                   "failed_to_save_settings", [aDetails], 1);
   TorLauncherUtil.showAlert(window, s);
+
+  showOrHideButton("extra1", true, false);
+  gWizIsCopyLogBtnShowing = true;
 }
 
 

@@ -18,6 +18,7 @@
         title="&torsettings.dialog.title;"
         windowtype="TorLauncher:NetworkSettings"
         persist="screenX screenY"
+        buttonlabelextra1="&torsettings.copyLog;"
         onwizardfinish="return applySettings();"
         onwizardcancel="return onCancel();"
         onload="initDialog();">
@@ -25,7 +26,7 @@
   <script type="application/x-javascript"
           src="chrome://torlauncher/content/network-settings.js"/>
 
-  <wizardpage label=" " pageid="proxy" next="firewall"
+  <wizardpage label=" " pageid="proxy" next="firewall" onextra1="onCopyLog();"
               onpageadvanced="return onWizardProxyNext(this);">
     <hbox class="tbb-header">
       <vbox class="tbb-logo-box" align="start">
@@ -51,7 +52,7 @@
     </hbox>
   </wizardpage>
 
-  <wizardpage pageid="proxyYES" next="firewall"
+  <wizardpage pageid="proxyYES" next="firewall" onextra1="onCopyLog();"
               onpageadvanced="return (getAndValidateProxySettings() != null)">
     <vbox class="tbb-logo-box" align="start">
       <image class="tbb-logo" />
@@ -61,7 +62,7 @@
     <groupbox id="proxySpecificSettings" />
   </wizardpage>
 
-  <wizardpage pageid="firewall" next="bridges"
+  <wizardpage pageid="firewall" next="bridges" onextra1="onCopyLog();"
               onpageadvanced="return onWizardFirewallNext(this);">
     <vbox class="tbb-logo-box" align="start">
       <image class="tbb-logo" />
@@ -80,7 +81,7 @@
     </hbox>
   </wizardpage>
 
-  <wizardpage pageid="firewallYES" next="bridges"
+  <wizardpage pageid="firewallYES" next="bridges" onextra1="onCopyLog();"
               onpageadvanced="return (getAndValidateFirewallSettings() != null)">
     <vbox class="tbb-logo-box" align="start">
       <image class="tbb-logo" />
@@ -92,7 +93,7 @@
     </vbox>
   </wizardpage>
 
-  <wizardpage label=" " pageid="bridges">
+  <wizardpage label=" " pageid="bridges" onextra1="onCopyLog();">
     <vbox class="tbb-logo-box" align="start">
       <image class="tbb-logo" />
     </vbox>
@@ -113,7 +114,8 @@
     <spring flex="1" />
   </wizardpage>
 
-  <wizardpage label=" " pageid="errorPanel" next="notUsed">
+  <wizardpage label=" " pageid="errorPanel" next="notUsed"
+              onextra1="onCopyLog();">
   </wizardpage>
 
   <wizardpage class="help"  label=" " pageid="bridgeHelp" next="notUsed"

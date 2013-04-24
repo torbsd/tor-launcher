@@ -387,6 +387,9 @@ TorProcessService.prototype =
           var s = TorLauncherUtil.getFormattedLocalizedString(
                                "tor_bootstrap_failed", [aStatusObj.WARNING], 1);
           TorLauncherUtil.showAlert(null, s);
+        
+          this.mObsSvc.notifyObservers(null, "TorBootstrapError",
+                                       aStatusObj.WARNING);
         }
       }
     }
