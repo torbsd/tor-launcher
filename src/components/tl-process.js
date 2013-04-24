@@ -395,13 +395,15 @@ TorProcessService.prototype =
   // Blocks until network settings dialog is closed.
   _openNetworkSettings: function(aIsInitialBootstrap)
   {
-    const kChromeURL = "chrome://torlauncher/content/network-settings.xul";
+    const kSettingsURL = "chrome://torlauncher/content/network-settings.xul";
+    const kWizardURL = "chrome://torlauncher/content/network-settings-wizard.xul";
 
     var wwSvc = Cc["@mozilla.org/embedcomp/window-watcher;1"]
                   .getService(Ci.nsIWindowWatcher);
     var winFeatures = "chrome,dialog=yes,modal,all";
     var argsArray = this._createOpenWindowArgsArray(aIsInitialBootstrap);
-    wwSvc.openWindow(null, kChromeURL, "_blank", winFeatures, argsArray);
+    var url = (aIsInitialBootstrap) ? kWizardURL : kSettingsURL;
+    wwSvc.openWindow(null, url, "_blank", winFeatures, argsArray);
   },
 
   _openProgressDialog: function()

@@ -11,6 +11,8 @@
 
 <!DOCTYPE overlay SYSTEM "chrome://torlauncher/locale/network-settings.dtd">
 
+<?xul-overlay href="chrome://torlauncher/content/network-settings-overlay.xul"?>
+
 <dialog id="TorNetworkSettings"
         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
         title="&torsettings.dialog.title;"
@@ -30,110 +32,25 @@
   <deck id="deck">
     <vbox id="settings">
       <vbox>
-        <hbox id="tbb-header">
-          <vbox>
-            <spacer flex="1" />
-            <image id="tbb-logo" />
-            <spacer flex="1" />
-          </vbox>
-          <separator orient="vertical" />
-          <groupbox>
-            <description>&torsettings.prompt1;</description>
-            <separator orient="horizontal" class="thin" />
-            <description>&torsettings.prompt2;</description>
-            <description>&torsettings.prompt3;</description>
-            <description>&torsettings.prompt4;</description>
-          </groupbox>
-        </hbox>
         <separator orient="horizontal" class="thin" />
         <checkbox id="useProxy" groupboxID="proxySpecificSettings"
                   label="&torsettings.useProxy.checkbox;"
                   oncommand="toggleElemUI(this)"/>
-        <groupbox id="proxySpecificSettings">
-          <grid flex="1">
-            <columns>
-              <column/>
-              <column/>
-            </columns>
-            <rows>
-              <row align="center">
-                <label value="&torsettings.useProxy.address;" control="proxyAddr"
-                       style="text-align:right" />
-                <hbox align="center">
-                  <textbox id="proxyAddr" size="30" flex="1" />
-                  <label value="&torsettings.useProxy.port;" control="proxyPort"/>
-                  <textbox id="proxyPort" size="5" />
-                </hbox>
-              </row>
-              <row align="center">
-                <label value="&torsettings.useProxy.username;"
-                       control="proxyUsername" style="text-align:right" />
-                <hbox align="center">
-                  <textbox id="proxyUsername" flex="1" />
-                  <label value="&torsettings.useProxy.password;"
-                         control="proxyPassword"/>
-                  <textbox id="proxyPassword" type="password" />
-                </hbox>
-              </row>
-              <row align="center">
-                <label value="&torsettings.useProxy.type;" control="proxyType"
-                       style="text-align:right" />
-                <hbox align="center">
-                  <menulist id="proxyType">
-                    <menupopup id="proxyType_menuPopup">
-                      <menuitem label="&torsettings.useProxy.type.socks4;"
-                                value="SOCKS4"/>
-                      <menuitem label="&torsettings.useProxy.type.socks5;"
-                                value="SOCKS5"/>
-                      <menuitem label="&torsettings.useProxy.type.http;"
-                                value="HTTP"/>
-                    </menupopup>
-                  </menulist>
-                </hbox>
-              </row>
-            </rows>
-          </grid>
-        </groupbox>
+        <groupbox id="proxySpecificSettings" />
       </vbox>
 
       <vbox>
         <checkbox id="useFirewallPorts" groupboxID="firewallSpecificSettings"
                   label="&torsettings.firewall.checkbox;"
                   oncommand="toggleElemUI(this)"/>
-        <groupbox id="firewallSpecificSettings">
-          <hbox align="center">
-            <label value="&torsettings.firewall.allowedPorts;"
-                   control="firewallAllowedPorts"/>
-            <textbox id="firewallAllowedPorts" value="80,443" />
-          </hbox>
-        </groupbox>
+        <groupbox id="firewallSpecificSettings" />
       </vbox>
 
       <vbox>
         <checkbox id="useBridges" groupboxID="bridgeSpecificSettings"
                   label="&torsettings.useBridges.checkbox;"
                   oncommand="toggleElemUI(this);" />
-        <groupbox id="bridgeSpecificSettings">
-          <hbox>
-            <vbox flex="1">
-              <hbox align="center">
-                <button dlgtype="help"/>
-                <label value="&torsettings.useBridges.label;" control="bridgeList"/>
-              </hbox>
-              <textbox id="bridgeList" multiline="true" rows="4" />
-            </vbox>
-    <!--
-            <vbox>
-              <button id="copyBridgeList" label="Copy TODO" style="width: 20px"
-                      oncommand="copyBridgeList();"/>
-              <button id="pasteBridgeList" label="Paste TODO" style="width: 20px"
-                      oncommand="pasteBridgeList();"/>
-              <button id="howToFindBridges" label="How can I find bridges? TODO" style="width: 20px"
-                        oncommand="findBridgeList();"/>
-            </vbox>
-    -->
-          </hbox>
-        </groupbox>
+        <groupbox id="bridgeSpecificSettings" />
       </vbox>
     </vbox>
     <vbox id="startingTor">
@@ -145,13 +62,13 @@
       </hbox>
       <spring flex="1" />
     </vbox>
-    <vbox id="bridgeHelp">
+    <vbox id="errorPanel"/>
+    <vbox id="bridgeHelp" class="help">
       <hbox align="middle"><label>&torsettings.bridgeHelpTitle;</label></hbox>
       <description>&torsettings.bridgeHelp1;</description>
       <description>&torsettings.bridgeHelp2;</description>
       <description>&torsettings.bridgeHelp3;</description>
     </vbox>
-    <vbox id="errorPanel"/>
   </deck>
   <spring />
 </dialog>

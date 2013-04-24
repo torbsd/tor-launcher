@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<!--
+   - Copyright (c) 2013, The Tor Project, Inc.
+   - See LICENSE for licensing information.
+   - vim: set sw=2 sts=2 ts=8 et syntax=xml:
+  -->
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?> 
+<?xml-stylesheet href="chrome://torlauncher/skin/network-settings.css"
+                 type="text/css"?>
+
+<!DOCTYPE overlay SYSTEM "chrome://torlauncher/locale/network-settings.dtd">
+
+<?xul-overlay href="chrome://torlauncher/content/network-settings-overlay.xul"?>
+
+<wizard id="TorNetworkSettings"
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        title="&torsettings.dialog.title;"
+        windowtype="TorLauncher:NetworkSettings"
+        persist="screenX screenY"
+        onwizardfinish="return applySettings();"
+        onwizardcancel="return onCancel();"
+        onload="initDialog();">
+
+  <script type="application/x-javascript"
+          src="chrome://torlauncher/content/network-settings.js"/>
+
+  <wizardpage label=" " pageid="proxy" next="firewall"
+              onpageadvanced="return onWizardProxyNext(this);">
+    <hbox class="tbb-header">
+      <vbox class="tbb-logo-box" align="start">
+        <image class="tbb-logo" />
+      </vbox>
+      <separator orient="vertical" />
+      <groupbox flex="1">
+        <description>&torsettings.prompt;</description>
+        <separator orient="horizontal" class="thin" />
+      </groupbox>
+    </hbox>
+    <separator />
+    <hbox>
+      <vbox flex="1">
+        <label class="question">&torSettings.proxyQuestion;</label>
+        <radiogroup id="proxyRadioGroup">
+          <radio id="proxyRadioYes" label="&torSettings.yes;" />
+          <radio id="proxyRadioNo" label="&torSettings.no;" selected="true" />
+        </radiogroup>
+        <description class="questionHelp">&torSettings.proxyHelp;
+        </description>
+      </vbox>
+    </hbox>
+  </wizardpage>
+
+  <wizardpage pageid="proxyYES" next="firewall"
+              onpageadvanced="return (getAndValidateProxySettings() != null)">
+    <vbox class="tbb-logo-box" align="start">
+      <image class="tbb-logo" />
+    </vbox>
+    <separator />
+    <label class="instructions">&torSettings.enterProxy;</label>
+    <groupbox id="proxySpecificSettings" />
+  </wizardpage>
+
+  <wizardpage pageid="firewall" next="bridges"
+              onpageadvanced="return onWizardFirewallNext(this);">
+    <vbox class="tbb-logo-box" align="start">
+      <image class="tbb-logo" />
+    </vbox>
+    <separator />
+    <hbox>
+      <vbox flex="1">
+        <label class="question">&torSettings.firewallQuestion;</label>
+        <radiogroup id="firewallRadioGroup">
+          <radio id="firewallRadioYes" label="&torSettings.yes;" />
+          <radio id="firewallRadioNo" label="&torSettings.no;" selected="true" />
+        </radiogroup>
+        <description class="questionHelp">&torSettings.firewallHelp;
+        </description>
+      </vbox>
+    </hbox>
+  </wizardpage>
+
+  <wizardpage pageid="firewallYES" next="bridges"
+              onpageadvanced="return (getAndValidateFirewallSettings() != null)">
+    <vbox class="tbb-logo-box" align="start">
+      <image class="tbb-logo" />
+    </vbox>
+    <separator />
+    <vbox>
+      <label class="instructions">&torSettings.enterFirewall;</label>
+      <groupbox id="firewallSpecificSettings" />
+    </vbox>
+  </wizardpage>
+
+  <wizardpage label=" " pageid="bridges">
+    <vbox class="tbb-logo-box" align="start">
+      <image class="tbb-logo" />
+    </vbox>
+    <separator />
+    <vbox>
+      <label class="question">&torSettings.bridgeQuestion;</label>
+      <groupbox id="bridgeSpecificSettings" />
+    </vbox>
+  </wizardpage>
+
+  <wizardpage label=" " pageid="startingTor" next="proxy">
+    <spring flex="1" />
+    <hbox>
+      <spring flex="1" />
+      <label value="&torsettings.startingTor;"/>
+      <spring flex="1" />
+    </hbox>
+    <spring flex="1" />
+  </wizardpage>
+
+  <wizardpage label=" " pageid="errorPanel" next="notUsed">
+  </wizardpage>
+
+  <wizardpage class="help"  label=" " pageid="bridgeHelp" next="notUsed"
+              onpageadvanced="closeHelp(); return false;">
+    <hbox align="middle"><label>&torsettings.bridgeHelpTitle;</label></hbox>
+    <description>&torsettings.bridgeHelp1;</description>
+    <description>&torsettings.bridgeHelp2;</description>
+    <description>&torsettings.bridgeHelp3;</description>
+  </wizardpage>
+
+</wizard>

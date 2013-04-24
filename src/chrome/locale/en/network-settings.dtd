@@ -1,14 +1,30 @@
 <!ENTITY torsettings.dialog.title "Tor Settings">
 
-<!ENTITY torsettings.prompt1 "Before the Tor Browser attempts to connect to the Internet, we need you to provide some information abour your Internet connection.">
-<!ENTITY torsettings.prompt2 "Do you any of the options below apply to you?">
-<!ENTITY torsettings.prompt3 "If so, choose those options for further configuration.">
-<!ENTITY torsettings.prompt4 "If not, just click Connect.">
+<!-- For "first run" wizard: -->
+
+<!ENTITY torsettings.prompt "Before the Tor Browser attempts to connect to the Internet, we need you to provide some information about your Internet connection.">
+
+<!ENTITY torSettings.yes "Yes">
+<!ENTITY torSettings.no "No">
+
+<!ENTITY torSettings.proxyQuestion "Do you use a proxy to access the Internet?">
+<!-- see https://www.torproject.org/docs/proxychain.html.en -->
+<!ENTITY torSettings.proxyHelp "TODO Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ullamcorper dolor eget purus imperdiet quis ultrices massa tempor. Sed mattis tincidunt justo nec vehicula. Praesent fermentum quam vel neque congue imperdiet. Nam tincidunt sollicitudin neque, eu sodales quam eleifend at. Suspendisse potenti.">
+<!ENTITY torSettings.enterProxy "Enter your proxy settings.">
+<!ENTITY torSettings.firewallQuestion "Does your Internet connection go through a firewall that only allows you to connect to certain ports?">
+<!ENTITY torSettings.firewallHelp "TODO Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ullamcorper dolor eget purus imperdiet quis ultrices massa tempor. Sed mattis tincidunt justo nec vehicula. Praesent fermentum quam vel neque congue imperdiet. Nam tincidunt sollicitudin neque, eu sodales quam eleifend at. Suspendisse potenti.">
+<!ENTITY torSettings.enterFirewall "Enter a comma-separated list of ports allowed by your firewall.">
+<!ENTITY torSettings.bridgeQuestion "If your ISP (Internet Service Provider) blocks connections to the Tor network, you will need to use bridge relays.">
+
+<!-- Other: -->
 
 <!ENTITY torsettings.startingTor "Waiting for Tor to start…">
 
+<!ENTITY torsettings.optional "Optional">
+
 <!ENTITY torsettings.useProxy.checkbox "I use a proxy to access the Internet">
 <!ENTITY torsettings.useProxy.address "Address:">
+<!ENTITY torsettings.useProxy.address.placeholder "IP address or hostname">
 <!ENTITY torsettings.useProxy.port "Port:">
 <!ENTITY torsettings.useProxy.username "Username:">
 <!ENTITY torsettings.useProxy.password "Password:">

@@ -6,31 +6,55 @@
  */
 
 dialog {
-  width: 635px;
+  width: 520px;
   height: 440px;
   font: -moz-dialog;
 }
 
-dialog.initialBootstrap {
-  height: 574px;
+wizard {
+  width: 540px;
+  font: -moz-dialog;
+  padding-top: 0px;
 }
 
-#tbb-header groupbox {
-  width: 450px;
+wizard label {
+  margin: 0px;
 }
 
-#tbb-header {
-  display: none;
+wizard radiogroup {
+  margin: 5px 0px 8px 25px;
 }
 
-dialog.initialBootstrap #tbb-header {
-  display: -moz-box;
+.tbb-header groupbox {
+  margin-left: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
-#tbb-logo {
+.question {
+  font-weight: bold;
+}
+
+.questionHelp {
+  margin-right: 20px;
+}
+
+.instructions {
+  margin-bottom: 8px;
+}
+
+button.firstAnswer {
+  margin-top: 0px;
+}
+
+.tbb-logo-box {
+  height: 80px;
+}
+
+.tbb-logo {
   list-style-image: url("chrome://torlauncher/skin/tbb-logo.png");
-  width: 120px;
-  height: 100px;
+  width: 198px;
+  height: 70px;
 }
 
 #startingTor {
@@ -42,16 +66,17 @@ dialog.initialBootstrap #tbb-header {
   font-weight: bold;
 }
 
-#bridgeHelp {
+dialog .help {
   margin: 30px;
 }
 
-#bridgeHelp label {
+.help label {
   font-size: 120%;
   font-weight: bold;
   margin: 0px 0px 20px 0px;
 }
 
+.help description,
 #bridgeHelp description {
   margin-bottom: 15px;
 }

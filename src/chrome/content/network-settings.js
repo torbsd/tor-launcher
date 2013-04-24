@@ -19,6 +19,9 @@ const kTorProcessReadyTopic = "TorProcessIsReady";
 const kTorProcessExitedTopic = "TorProcessExited";
 const kTorProcessDidNotStartTopic = "TorProcessDidNotStart";
 
+const kWizardProxyRadioGroup = "proxyRadioGroup";
+const kWizardFirewallRadioGroup = "firewallRadioGroup";
+
 const kUseProxyCheckbox = "useProxy";
 const kProxyTypeMenulist = "proxyType";
 const kProxyAddr = "proxyAddr";
@@ -47,7 +50,6 @@ var gObsService = null;
 var gIsInitialBootstrap = false;
 var gIsBootstrapComplete = false;
 var gRestoreAfterHelpPanelID = null;
-var gRestoreAfterCancelBtnLabel = null;
 
 
 function initDialog()
@@ -55,14 +57,16 @@ function initDialog()
   gIsInitialBootstrap = window.arguments[0];
   if (gIsInitialBootstrap)
   {
-    document.documentElement.setAttribute("class", "initialBootstrap");
-
     var cancelBtn = document.documentElement.getButton("cancel");
-    var quitKey = (TorLauncherUtil.isWindows) ? "quit_win" : "quit";
-    cancelBtn.label = TorLauncherUtil.getLocalizedString(quitKey);
+    if (cancelBtn)
+    {
+      var quitKey = (TorLauncherUtil.isWindows) ? "quit_win" : "quit";
+      cancelBtn.label = TorLauncherUtil.getLocalizedString(quitKey);
+    }
 
     var okBtn = document.documentElement.getButton("accept");
-    okBtn.label = TorLauncherUtil.getLocalizedString("connect");
+    if (okBtn)
+      okBtn.label = TorLauncherUtil.getLocalizedString("connect");
   }
 
   try
@@ -84,21 +88,66 @@ function initDialog()
   gObsService = Cc["@mozilla.org/observer-service;1"]
                   .getService(Ci.nsIObserverService);
 
+  var haveWizard = (getWizard() != null);
+  if (haveWizard)
+  {
+    var finishBtn = document.documentElement.getButton("finish");
+    if (finishBtn)
+      finishBtn.label = TorLauncherUtil.getLocalizedString("connect");
+  }
+
   if (TorLauncherUtil.shouldStartAndOwnTor &&
       !gTorProcessService.TorIsProcessReady)
   {
     showPanel("startingTor");
+    if (haveWizard)
+    {
+      showOrHideButton("back", false, false);
+      showOrHideButton("next", false, false);
+    }
+
     gObsService.addObserver(gObserver, kTorProcessReadyTopic, false);
     gObsService.addObserver(gObserver, kTorProcessExitedTopic, false);
     gObsService.addObserver(gObserver, kTorProcessDidNotStartTopic, false);
   }
   else
-  { 
+  {
     showPanel("settings");
     readTorSettings();
   }
 
   TorLauncherLogger.log(2, "initDialog done");
+}
+
+
+function getWizard()
+{
+  var elem = document.getElementById("TorNetworkSettings");
+  return (elem && (elem.tagName == "wizard")) ? elem : null;
+}
+
+
+function onWizardProxyNext(aWizPage)
+{
+  if (aWizPage)
+  {
+    var hasProxy = getElemValue("proxyRadioYes", false);
+    aWizPage.next = (hasProxy) ? "proxyYES" : "firewall";
+  }
+
+  return true;
+}
+
+
+function onWizardFirewallNext(aWizPage)
+{
+  if (aWizPage)
+  {
+    var hasFirewall = getElemValue("firewallRadioYes", false);
+    aWizPage.next = (hasFirewall) ? "firewallYES" : "bridges";
+  }
+
+  return true;
 }
 
 
@@ -111,7 +160,13 @@ var gObserver = {
 
     if (kTorProcessReadyTopic == aTopic)
     {
-      showPanel("settings");
+      var haveWizard = (getWizard() != null);
+      showPanel(haveWizard ? "proxy" : "settings");
+      if (haveWizard)
+      {
+        showOrHideButton("back", true, false);
+        showOrHideButton("next", true, false);
+      }
       readTorSettings();
     }
     else if (kTorProcessDidNotStartTopic == aTopic)
@@ -159,29 +214,73 @@ function showPanel(aPanelID)
 {
   var deckElem = document.getElementById("deck");
   if (deckElem)
+  {
     deckElem.selectedPanel = document.getElementById(aPanelID);
+    showOrHideButton("extra1", (aPanelID != "bridgeHelp"), false);
+  }
+  else
+    getWizard().goTo(aPanelID);
 
   showOrHideButton("accept", (aPanelID == "settings"), true);
-  showOrHideButton("extra1", (aPanelID != "bridgeHelp"), false);
 }
 
 
 function showOrHideButton(aID, aShow, aFocus)
 {
-  if (!aID)
-    return;
+  var btn = setButtonAttr(aID, "hidden", !aShow);
+  if (btn && aFocus)
+    btn.focus()
+}
+
+
+// Returns the button element (if found).
+function enableButton(aID, aEnable)
+{
+  return setButtonAttr(aID, "disabled", !aEnable);
+}
+
+
+// Returns the button element (if found).
+function setButtonAttr(aID, aAttr, aValue)
+{
+  if (!aID || !aAttr)
+    return null;
 
   var btn = document.documentElement.getButton(aID);
   if (btn)
   {
-    if (aShow)
-    {
-      btn.removeAttribute("hidden");
-      if (aFocus)
-        btn.focus()
-    }
+    if (aValue)
+      btn.setAttribute(aAttr, aValue);
     else
-      btn.setAttribute("hidden", true);
+      btn.removeAttribute(aAttr);
+  }
+
+  return btn;
+}
+
+
+function overrideButtonLabel(aID, aLabelKey)
+{
+  var btn = document.documentElement.getButton(aID);
+  if (btn)
+  {
+    btn.setAttribute("origLabel", btn.label);
+    btn.label = TorLauncherUtil.getLocalizedString(aLabelKey);
+  }
+}
+
+
+function restoreButtonLabel(aID)
+{
+  var btn = document.documentElement.getButton(aID);
+  if (btn)
+  {
+    var oldLabel = btn.getAttribute("origLabel");
+    if (oldLabel)
+    {
+      btn.label = oldLabel;
+      btn.removeAttribute("origLabel");
+    }
   }
 }
 
@@ -219,20 +318,21 @@ function onOpenHelp()
     return;
 
   var deckElem = document.getElementById("deck");
-  if (!deckElem)
-    return;
+  if (deckElem)
+    gRestoreAfterHelpPanelID = deckElem.selectedPanel.id;
+  else
+    gRestoreAfterHelpPanelID = getWizard().currentPage.pageid;
 
-  gRestoreAfterHelpPanelID = deckElem.selectedPanel.id;
-  var cancelBtn = document.documentElement.getButton("cancel");
-  if (cancelBtn)
+  if (getWizard())
   {
-    gRestoreAfterCancelBtnLabel = cancelBtn.label;
-    cancelBtn.label = TorLauncherUtil.getLocalizedString("done");
+    showOrHideButton("cancel", false, false);
+    showOrHideButton("back", false, false);
+    overrideButtonLabel("next", "done");
   }
   else
-    gRestoreAfterCancelBtnLabel = null;
+    overrideButtonLabel("cancel", "done");
 
-    showPanel("bridgeHelp");
+  showPanel("bridgeHelp");
 }
 
 
@@ -241,11 +341,15 @@ function closeHelp()
   if (!gRestoreAfterHelpPanelID)  // Already closed?
     return;
 
-  var cancelBtn = document.documentElement.getButton("cancel");
-  if (cancelBtn && gRestoreAfterCancelBtnLabel)
-    cancelBtn.label = gRestoreAfterCancelBtnLabel;
-  gRestoreAfterCancelBtnLabel = null;
-  
+  if (getWizard())
+  {
+    showOrHideButton("cancel", true, false);
+    showOrHideButton("back", true, false);
+    restoreButtonLabel("next");
+  }
+  else
+    restoreButtonLabel("cancel");
+
   showPanel(gRestoreAfterHelpPanelID);
   gRestoreAfterHelpPanelID = null;
 }
@@ -310,7 +414,9 @@ function initProxySettings()
     }
   }
 
-  setElemValue(kUseProxyCheckbox, (proxyType != undefined));
+  var haveProxy = (proxyType != undefined);
+  setYesNoRadioValue(kWizardProxyRadioGroup, haveProxy);
+  setElemValue(kUseProxyCheckbox, haveProxy);
   setElemValue(kProxyTypeMenulist, proxyType);
 
   var proxyAddr, proxyPort;
@@ -354,7 +460,9 @@ function initFirewallSettings()
     }
   }
 
-  setElemValue(kUseFirewallPortsCheckbox, (allowedPorts != undefined));
+  var haveFirewall = (allowedPorts != undefined);
+  setYesNoRadioValue(kWizardFirewallRadioGroup, haveFirewall);
+  setElemValue(kUseFirewallPortsCheckbox, haveFirewall);
   if (allowedPorts)
     setElemValue(kFirewallAllowedPorts, allowedPorts);
 
@@ -435,6 +543,17 @@ function onProgressDialogClose(aBootstrapCompleted)
 // Returns true if settings were successfully applied.
 function applyProxySettings()
 {
+  var settings = getAndValidateProxySettings();
+  if (!settings)
+    return false;
+
+  return this.setConfAndReportErrors(settings);
+}
+
+
+// Return a settings object if successful and null if not.
+function getAndValidateProxySettings()
+{
   // TODO: validate user-entered data.  See Vidalia's NetworkPage::save()
 
   var settings = {};
@@ -446,7 +565,8 @@ function applyProxySettings()
   settings[kTorConfKeyHTTPSProxyAuthenticator] = null;
 
   var proxyType, proxyAddrPort, proxyUsername, proxyPassword;
-  var useProxy = getElemValue(kUseProxyCheckbox, false);
+  var useProxy = (getWizard()) ? getYesNoRadioValue(kWizardProxyRadioGroup)
+                               : getElemValue(kUseProxyCheckbox, false);
   if (useProxy)
   {
     proxyAddrPort = createColonStr(getElemValue(kProxyAddr, null),
@@ -454,14 +574,14 @@ function applyProxySettings()
     if (!proxyAddrPort)
     {
       reportValidationError("error_proxy_addr_missing");
-      return false;
+      return null;
     }
 
     proxyType = getElemValue(kProxyTypeMenulist, null);
     if (!proxyType)
     {
       reportValidationError("error_proxy_type_missing");
-      return false;
+      return null;
     }
 
     if ("SOCKS4" != proxyType)
@@ -489,7 +609,7 @@ function applyProxySettings()
                                   createColonStr(proxyUsername, proxyPassword);
   }
 
-  return this.setConfAndReportErrors(settings);
+  return settings;
 } // applyProxySettings
 
 
@@ -502,12 +622,25 @@ function reportValidationError(aStrKey)
 // Returns true if settings were successfully applied.
 function applyFirewallSettings()
 {
+  var settings = getAndValidateFirewallSettings();
+  if (!settings)
+    return false;
+
+  return this.setConfAndReportErrors(settings);
+}
+
+
+// Return a settings object if successful and null if not.
+function getAndValidateFirewallSettings()
+{
   // TODO: validate user-entered data.  See Vidalia's NetworkPage::save()
 
   var settings = {};
   settings[kTorConfKeyReachableAddresses] = null;
 
-  var useFirewallPorts = getElemValue(kUseFirewallPortsCheckbox, false);
+  var useFirewallPorts = (getWizard())
+                            ? getYesNoRadioValue(kWizardFirewallRadioGroup)
+                            : getElemValue(kUseFirewallPortsCheckbox, false);
   var allowedPorts = getElemValue(kFirewallAllowedPorts, null);
   if (useFirewallPorts && allowedPorts)
   {
@@ -529,25 +662,37 @@ function applyFirewallSettings()
       settings[kTorConfKeyReachableAddresses] = portsConfStr;
   }
 
-  return this.setConfAndReportErrors(settings);
+  return settings;
 }
 
 
 // Returns true if settings were successfully applied.
 function applyBridgeSettings()
 {
+  var settings = getAndValidateBridgeSettings();
+  if (!settings)
+    return false;
+
+  return this.setConfAndReportErrors(settings);
+}
+
+
+// Return a settings object if successful and null if not.
+function getAndValidateBridgeSettings()
+{
   var settings = {};
   settings[kTorConfKeyUseBridges] = null;
   settings[kTorConfKeyBridgeList] = null;
 
-  var useBridges = getElemValue(kUseBridgesCheckbox, false);
   var bridgeStr = getElemValue(kBridgeList, null);
+  var useBridges = (getWizard()) ? (bridgeStr && (0 != bridgeStr.length))
+                                  : getElemValue(kUseBridgesCheckbox, false);
 
   var bridgeList = parseAndValidateBridges(bridgeStr);
   if (useBridges && !bridgeList)
   {
     reportValidationError("error_bridges_missing");
-    return false;
+    return null;
   }
 
   setElemValue(kBridgeList, bridgeList);
@@ -557,7 +702,7 @@ function applyBridgeSettings()
     settings[kTorConfKeyBridgeList] = bridgeList;
   }
 
-  return this.setConfAndReportErrors(settings);
+  return settings;
 }
 
 
@@ -665,7 +810,8 @@ function setElemValue(aID, aValue)
 }
 
 
-// Returns a Boolean (for checkboxes) or a string (textbox and menulist).
+// Returns a Boolean (for checkboxes/radio buttons) or a
+// string (textbox and menulist).
 // Leading and trailing white space is trimmed from strings.
 function getElemValue(aID, aDefaultValue)
 {
@@ -678,6 +824,9 @@ function getElemValue(aID, aDefaultValue)
       case "checkbox":
         rv = elem.checked;
         break;
+      case "radio":
+        rv = elem.selected;
+        break;
       case "textbox":
       case "menulist":
         rv = elem.value;
@@ -689,6 +838,23 @@ function getElemValue(aID, aDefaultValue)
     rv = rv.trim();
 
   return rv;
+}
+
+
+// This assumes that first radio button is yes.
+function setYesNoRadioValue(aGroupID, aIsYes)
+{
+  var elem = document.getElementById(aGroupID);
+  if (elem)
+    elem.selectedIndex = (aIsYes) ? 0 : 1;
+}
+
+
+// This assumes that first radio button is yes.
+function getYesNoRadioValue(aGroupID)
+{
+  var elem = document.getElementById(aGroupID);
+  return (elem) ? (0 == elem.selectedIndex) : false;
 }
 
 
