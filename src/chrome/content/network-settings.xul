@@ -70,5 +70,6 @@
       <description>&torsettings.bridgeHelp3;</description>
     </vbox>
   </deck>
-  <spring />
+  <spring flex="1" />
+  <label id="forAssistance" />
 </dialog>

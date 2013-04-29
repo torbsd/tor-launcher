@@ -15,6 +15,9 @@ XPCOMUtils.defineLazyModuleGetter(this, "TorLauncherUtil",
 XPCOMUtils.defineLazyModuleGetter(this, "TorLauncherLogger",
                           "resource://torlauncher/modules/tl-logger.jsm");
 
+
+const kSupportAddr = "help@rt.torproject.org";
+
 const kTorProcessReadyTopic = "TorProcessIsReady";
 const kTorProcessExitedTopic = "TorProcessExited";
 const kTorProcessDidNotStartTopic = "TorProcessDidNotStart";
@@ -55,6 +58,13 @@ var gRestoreAfterHelpPanelID = null;
 
 function initDialog()
 {
+  var forAssistance = document.getElementById("forAssistance");
+  if (forAssistance)
+  {
+    forAssistance.textContent = TorLauncherUtil.getFormattedLocalizedString(
+                                        "forAssistance", [kSupportAddr], 1);
+  }
+
   var cancelBtn = document.documentElement.getButton("cancel");
   gIsInitialBootstrap = window.arguments[0];
   if (gIsInitialBootstrap)

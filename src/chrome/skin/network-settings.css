@@ -7,14 +7,22 @@
 
 dialog {
   width: 520px;
-  height: 440px;
+  height: 464px;
   font: -moz-dialog;
 }
 
 wizard {
   width: 540px;
+  height: 410px;
   font: -moz-dialog;
   padding-top: 0px;
+}
+
+#forAssistance {
+  margin-bottom: 6px;
+  -moz-user-select: text;
+  -moz-user-focus: normal;
+  cursor: text;
 }
 
 wizard label {

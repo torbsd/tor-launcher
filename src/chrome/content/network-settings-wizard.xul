@@ -35,7 +35,6 @@
       <separator orient="vertical" />
       <groupbox flex="1">
         <description>&torsettings.prompt;</description>
-        <separator orient="horizontal" class="thin" />
       </groupbox>
     </hbox>
     <separator />
@@ -127,4 +126,7 @@
     <description>&torsettings.bridgeHelp3;</description>
   </wizardpage>
 
+  <hbox pack="start">
+    <label id="forAssistance" />
+  </hbox>
 </wizard>
