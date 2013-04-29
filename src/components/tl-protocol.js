@@ -392,6 +392,13 @@ TorProtocolService.prototype =
       return;
 
     var conn = this._openAuthenticatedConnection(true);
+    if (!conn)
+    {
+      TorLauncherLogger.log(4,
+              "TorStartEventMonitor failed to create control port connection");
+      return;
+    }
+
     // TODO: optionally monitor INFO and DEBUG log messages.
     var events = "STATUS_CLIENT NOTICE WARN ERR";
     var reply = this._sendCommand(conn, "SETEVENTS", events);
@@ -506,10 +513,21 @@ TorProtocolService.prototype =
                                  this.mControlHost + ":" + this.mControlPort);
       var socket = sts.createTransport(null, 0, this.mControlHost,
                                        this.mControlPort, null);
+
+      // Our event monitor connection is non-blocking and unbuffered (an
+      // asyncWait() call is used so we only read data when we know that
+      // some is available).
+      // Our main control connection is blocking and unbuffered (using
+      // buffering may prevent data from being sent before we enter a
+      // blocking readBytes() call.
       var flags = (aIsEventConnection) ? 0
                               : socket.OPEN_BLOCKING | socket.OPEN_UNBUFFERED;
-      var inStream = socket.openInputStream(flags, 0, 0);
-      var outStream = socket.openOutputStream(flags, 0, 0);
+      // If using a blocking socket, we set segment size and count to 1 to
+      // avoid buffering inside the Mozilla code.  See Tor ticket # 8642.
+      var segSize = (aIsEventConnection) ? 0 : 1;
+      var segCount = (aIsEventConnection) ? 0 : 1;
+      var inStream = socket.openInputStream(flags, segSize, segCount);
+      var outStream = socket.openOutputStream(flags, segSize, segCount);
 
       var binInStream  = Cc["@mozilla.org/binaryinputstream;1"]
                            .createInstance(Ci.nsIBinaryInputStream);
@@ -574,6 +592,21 @@ TorProtocolService.prototype =
       this.mControlConnection = null;
   },
 
+  _setSocketTimeout: function(aConn)
+  {
+    if (aConn && aConn.socket)
+      aConn.socket.setTimeout(Ci.nsISocketTransport.TIMEOUT_READ_WRITE, 15);
+  },
+
+  _clearSocketTimeout: function(aConn)
+  {
+    if (aConn && aConn.socket)
+    {
+      var secs = Math.pow(2,32) - 1; // UINT32_MAX
+      aConn.socket.setTimeout(Ci.nsISocketTransport.TIMEOUT_READ_WRITE, secs);
+    }
+  },
+
   _sendCommand: function(aConn, aCmd, aArgs)
   {
     var reply;
@@ -586,8 +619,11 @@ TorProtocolService.prototype =
       cmd += "\r\n";
 
       ++aConn.useCount;
+      this._setSocketTimeout(aConn);
+      // TODO: should handle NS_BASE_STREAM_WOULD_BLOCK here.
       aConn.binOutStream.writeBytes(cmd, cmd.length);
       reply = this._torReadReply(aConn.binInStream);
+      this._clearSocketTimeout(aConn);
     }
 
     return reply;
