@@ -112,6 +112,9 @@ function initDialog()
         cancelBtn.parentNode.insertBefore(copyLogBtn, cancelBtn.nextSibling);
     }
 
+    if (gTorProcessService.TorBootstrapErrorOccurred)
+      wizardShowCopyLogButton();
+
     // Use "Connect" as the finish button label (on the last wizard page)..
     var finishBtn = document.documentElement.getButton("finish");
     if (finishBtn)

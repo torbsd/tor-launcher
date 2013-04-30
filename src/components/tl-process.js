@@ -210,6 +210,12 @@ TorProcessService.prototype =
     return this.mIsBootstrapDone;
   },
 
+  get TorBootstrapErrorOccurred()
+  {
+    return this.mBootstrapErrorOccurred;
+  },
+
+
   TorClearBootstrapError: function()
   {
     this.mLastTorWarningPhase = null;
@@ -220,6 +226,7 @@ TorProcessService.prototype =
   // Private Member Variables ////////////////////////////////////////////////
   mIsTorProcessReady: false,
   mIsBootstrapDone: false,
+  mBootstrapErrorOccurred: false,
   mIsQuitting: false,
   mObsSvc: null,
   mProtocolSvc: null,
@@ -359,6 +366,7 @@ TorProcessService.prototype =
     if (100 == aStatusObj.PROGRESS)
     {
       this.mIsBootstrapDone = true;
+      this.mBootstrapErrorOccurred = false;
       TorLauncherUtil.setBoolPref(this.kPrefPromptAtStartup, false);
     }
     else
@@ -367,6 +375,7 @@ TorProcessService.prototype =
 
       if (aStatusObj._errorOccurred)
       {
+        this.mBootstrapErrorOccurred = true;
         TorLauncherUtil.setBoolPref(this.kPrefPromptAtStartup, true);
         TorLauncherLogger.log(5, "Tor bootstrap error: " + aStatusObj.WARNING);
 
