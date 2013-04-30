@@ -307,13 +307,6 @@ TorProcessService.prototype =
 
       if (isInitialBootstrap)
       {
-        // TODO: Sometimes the code in network-settings.js tries to retrieve
-        //       Tor settings (via GETCONF) before the Tor process has time
-        //       to open its control port listener.  We either need to add
-        //       a short delay here, find a way to monitor Tor to know when
-        //       it is ready to accept control port connections, or we need
-        //       to delay before retry inside TorSendCommand()... which is
-        //       difficult b/c that is a synchronous API.
         if (this.mProtocolSvc)
           this._openNetworkSettings(true); // Blocks until dialog is closed.
       }
@@ -363,7 +356,6 @@ TorProcessService.prototype =
     if (!aStatusObj)
       return;
 
-    // TODO: keep viewable log of RECOMMENDATION == "ignore" messages.
     if (100 == aStatusObj.PROGRESS)
     {
       this.mIsBootstrapDone = true;
