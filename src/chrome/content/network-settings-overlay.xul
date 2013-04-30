@@ -29,13 +29,15 @@
           </hbox>
         </row>
         <row align="center">
-          <label value="&torsettings.useProxy.username;"
+          <label id="proxyUsernameLabel"
+                 value="&torsettings.useProxy.username;"
                  control="proxyUsername" style="text-align:right" />
           <hbox align="center">
             <textbox id="proxyUsername" size="14" flex="1"
                      placeholder="&torsettings.optional;" />
             <separator orient="vertical" />
-            <label value="&torsettings.useProxy.password;"
+            <label id="proxyPasswordLabel"
+                   value="&torsettings.useProxy.password;"
                    control="proxyPassword"/>
             <textbox id="proxyPassword" size="14" type="password"
                      placeholder="&torsettings.optional;" />
@@ -45,7 +47,7 @@
           <label value="&torsettings.useProxy.type;" control="proxyType"
                  style="text-align:right" />
           <hbox align="center">
-            <menulist id="proxyType">
+            <menulist id="proxyType" oncommand="onProxyTypeChange()">
               <menupopup id="proxyType_menuPopup">
                 <menuitem label="&torsettings.useProxy.type.socks4;"
                           value="SOCKS4"/>

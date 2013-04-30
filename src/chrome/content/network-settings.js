@@ -311,6 +311,38 @@ function setButtonAttr(aID, aAttr, aValue)
 }
 
 
+function enableTextBox(aID, aEnable)
+{
+  if (!aID)
+    return;
+
+  var textbox = document.getElementById(aID);
+  if (textbox)
+  {
+    var label = document.getElementById(aID + "Label");
+    if (aEnable)
+    {
+      if (label)
+        label.removeAttribute("disabled");
+
+      textbox.removeAttribute("disabled");
+      var s = textbox.getAttribute("origPlaceholder");
+      if (s)
+        textbox.setAttribute("placeholder", s);
+    }
+    else
+    {
+      if (label)
+        label.setAttribute("disabled", true);
+
+      textbox.setAttribute("disabled", true);
+      textbox.setAttribute("origPlaceholder", textbox.placeholder);
+      textbox.removeAttribute("placeholder");
+    }
+  }
+}
+
+
 function overrideButtonLabel(aID, aLabelKey)
 {
   var btn = document.documentElement.getButton(aID);
@@ -334,6 +366,15 @@ function restoreButtonLabel(aID)
       btn.removeAttribute("origLabel");
     }
   }
+}
+
+
+function onProxyTypeChange()
+{
+  var proxyType = getElemValue(kProxyTypeMenulist, null);
+  var mayHaveCredentials = (proxyType != "SOCKS4");
+  enableTextBox(kProxyUsername, mayHaveCredentials); 
+  enableTextBox(kProxyPassword, mayHaveCredentials); 
 }
 
 
@@ -423,7 +464,6 @@ function initProxySettings()
   {
     proxyType = "SOCKS4";
     proxyAddrPort = reply.retVal;
-    // TODO: disable user and password fields.
   }
   else
   {
@@ -474,6 +514,7 @@ function initProxySettings()
   setYesNoRadioValue(kWizardProxyRadioGroup, haveProxy);
   setElemValue(kUseProxyCheckbox, haveProxy);
   setElemValue(kProxyTypeMenulist, proxyType);
+  onProxyTypeChange();
 
   var proxyAddr, proxyPort;
   if (proxyAddrPort)
