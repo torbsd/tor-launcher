@@ -104,11 +104,11 @@ function initDialog()
   if (haveWizard)
   {
     // Set "Copy Tor Log" label and move it after the Quit (cancel) button.
-    var copyLogBtn = document.documentElement.getButton("extra1");
+    var copyLogBtn = document.documentElement.getButton("extra2");
     if (copyLogBtn)
     {
-      copyLogBtn.label = wizardElem.getAttribute("buttonlabelextra1");
-      if (cancelBtn && !TorLauncherUtil.isWindows)
+      copyLogBtn.label = wizardElem.getAttribute("buttonlabelextra2");
+      if (cancelBtn && TorLauncherUtil.isMac)
         cancelBtn.parentNode.insertBefore(copyLogBtn, cancelBtn.nextSibling);
     }
 
@@ -119,6 +119,19 @@ function initDialog()
     var finishBtn = document.documentElement.getButton("finish");
     if (finishBtn)
       finishBtn.label = TorLauncherUtil.getLocalizedString("connect");
+
+    // Add label and access key to Help button.
+    var helpBtn = document.documentElement.getButton("help");
+    if (helpBtn)
+    {
+      var strBundle = Cc["@mozilla.org/intl/stringbundle;1"]
+                    .getService(Ci.nsIStringBundleService)
+                    .createBundle("chrome://global/locale/dialog.properties");
+      helpBtn.setAttribute("label", strBundle.GetStringFromName("button-help"));
+      var accessKey = strBundle.GetStringFromName("accesskey-help");
+      if (accessKey)
+        helpBtn.setAttribute("accesskey", accessKey);
+    }
   }
 
   gObsService.addObserver(gObserver, kTorBootstrapErrorTopic, false);
@@ -250,7 +263,7 @@ function showPanel(aPanelID)
   if (deckElem)
   {
     deckElem.selectedPanel = document.getElementById(aPanelID);
-    showOrHideButton("extra1", (aPanelID != "bridgeHelp"), false);
+    showOrHideButton("extra2", (aPanelID != "bridgeHelp"), false);
   }
   else
     getWizard().goTo(aPanelID);
@@ -270,7 +283,7 @@ function wizardShowCopyLogButton()
 {
   if (getWizard())
   {
-    var copyLogBtn = document.documentElement.getButton("extra1");
+    var copyLogBtn = document.documentElement.getButton("extra2");
     if (copyLogBtn)
     {
       copyLogBtn.setAttribute("wizardCanCopyLog", true);
@@ -423,7 +436,7 @@ function onOpenHelp()
   {
     showOrHideButton("cancel", false, false);
     showOrHideButton("back", false, false);
-    showOrHideButton("extra1", false, false);
+    showOrHideButton("extra2", false, false);
     overrideButtonLabel("next", "done");
   }
   else
@@ -442,7 +455,7 @@ function closeHelp()
   {
     showOrHideButton("cancel", true, false);
     showOrHideButton("back", true, false);
-    var copyLogBtn = document.documentElement.getButton("extra1");
+    var copyLogBtn = document.documentElement.getButton("extra2");
     if (copyLogBtn && copyLogBtn.hasAttribute("wizardCanCopyLog"))
       copyLogBtn.removeAttribute("hidden");
     restoreButtonLabel("next");
@@ -876,7 +889,7 @@ function showSaveSettingsAlert(aDetails)
                                   "failed_to_save_settings", [aDetails], 1);
   TorLauncherUtil.showAlert(window, s);
 
-  showOrHideButton("extra1", true, false);
+  showOrHideButton("extra2", true, false);
   gWizIsCopyLogBtnShowing = true;
 }
 

@@ -41,7 +41,7 @@ function initDialog()
   if (gOpenerCallbackFunc)
   {
     // Dialog was opened from network settings: hide Open Settings button.
-    var extraBtn = document.documentElement.getButton("extra1");
+    var extraBtn = document.documentElement.getButton("extra2");
     extraBtn.setAttribute("hidden", true);
   }
   else

@@ -49,6 +49,7 @@
           <hbox align="center">
             <menulist id="proxyType" oncommand="onProxyTypeChange()">
               <menupopup id="proxyType_menuPopup">
+                <menuitem label="-" value="" selected="true" />
                 <menuitem label="&torsettings.useProxy.type.socks4;"
                           value="SOCKS4"/>
                 <menuitem label="&torsettings.useProxy.type.socks5;"

@@ -18,7 +18,15 @@ wizard {
   padding-top: 0px;
 }
 
+.wizard-page-box {
+  padding: 0px;
+  margin: 20px;
+}
+
+wizard .wizard-header { display: none; }
+
 #forAssistance {
+  margin-left: 12px;
   margin-bottom: 6px;
   -moz-user-select: text;
   -moz-user-focus: normal;

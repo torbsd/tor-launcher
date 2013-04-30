@@ -18,11 +18,11 @@
         title="&torsettings.dialog.title;"
         windowtype="TorLauncher:NetworkSettings"
         persist="screenX screenY"
-        buttons="accept,cancel,extra1,help"
-        buttonlabelextra1="&torsettings.copyLog;"
+        buttons="accept,cancel,extra2,help"
+        buttonlabelextra2="&torsettings.copyLog;"
         ondialogaccept="return applySettings();"
         ondialogcancel="return onCancel();"
-        ondialogextra1="onCopyLog();"
+        ondialogextra2="onCopyLog();"
         ondialoghelp="onOpenHelp();"
         onload="initDialog();">
 

@@ -16,10 +16,10 @@
         title="&torprogress.dialog.title;"
         windowtype="TorLauncher:Progress"
         persist="screenX screenY"
-        buttons="cancel,extra1"
-        buttonlabelextra1="&torprogress.openSettings;"
+        buttons="cancel,extra2"
+        buttonlabelextra2="&torprogress.openSettings;"
         ondialogcancel="return onCancel();"
-        ondialogextra1="onOpenSettings();"
+        ondialogextra2="onOpenSettings();"
         onload="initDialog();">
 
     <script type="application/x-javascript"
