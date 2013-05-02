@@ -9,12 +9,12 @@
 
 <!ENTITY torSettings.proxyQuestion "Do you use a proxy to access the Internet?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "TODO Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ullamcorper dolor eget purus imperdiet quis ultrices massa tempor. Sed mattis tincidunt justo nec vehicula. Praesent fermentum quam vel neque congue imperdiet. Nam tincidunt sollicitudin neque, eu sodales quam eleifend at. Suspendisse potenti.">
+<!ENTITY torSettings.proxyHelp "If you are not sure how to answer this question, look at the Internet settings in another browser to see whether you are using a proxy.">
 <!ENTITY torSettings.enterProxy "Enter your proxy settings.">
 <!ENTITY torSettings.firewallQuestion "Does your Internet connection go through a firewall that only allows you to connect to certain ports?">
-<!ENTITY torSettings.firewallHelp "TODO Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ullamcorper dolor eget purus imperdiet quis ultrices massa tempor. Sed mattis tincidunt justo nec vehicula. Praesent fermentum quam vel neque congue imperdiet. Nam tincidunt sollicitudin neque, eu sodales quam eleifend at. Suspendisse potenti.">
-<!ENTITY torSettings.enterFirewall "Enter a comma-separated list of ports allowed by your firewall.">
-<!ENTITY torSettings.bridgeQuestion "If your ISP (Internet Service Provider) blocks connections to the Tor network, you will need to use bridge relays.">
+<!ENTITY torSettings.firewallHelp "If you are not sure how to answer this question, choose No. If you encounter problems, change this setting.">
+<!ENTITY torSettings.enterFirewall "Enter a comma-separated list of ports that are allowed by your firewall.">
+<!ENTITY torSettings.bridgeQuestion "If your Internet Service Provider (ISP) blocks connections to the Tor network, you will need to use bridge relays.">
 
 <!-- Other: -->
 
@@ -34,11 +34,13 @@
 <!ENTITY torsettings.useProxy.type.http "HTTP / HTTPS">
 <!ENTITY torsettings.firewall.checkbox "My firewall only lets me connect to certain ports">
 <!ENTITY torsettings.firewall.allowedPorts "Allowed Ports:">
-<!ENTITY torsettings.useBridges.checkbox "My ISP blocks connections to the Tor network">
+<!ENTITY torsettings.useBridges.checkbox "My Internet Service Provider (ISP) blocks connections to the Tor network">
 <!ENTITY torsettings.useBridges.label "Enter one or more bridge relays in the form address:port.">
+<!ENTITY torsettings.useBridges.placeholder "address:port">
+
 <!ENTITY torsettings.copyLog "Copy Tor Log To Clipboard">
 <!ENTITY torsettings.bridgeHelpTitle "Bridge Relay Help">
-<!ENTITY torsettings.bridgeHelp1 "Bridge relays (or 'bridges' for short) are Tor relays that aren't listed in the main directory. Since there is no complete public list of them, even if your ISP is filtering connections to all the known Tor relays they probably won't be able to block all the bridges.">
+<!ENTITY torsettings.bridgeHelp1 "If you are unable to connect to the Tor network, it could be that your Internet Service Provider (ISP) is blocking Tor.  Often, you can work around this problem by using Tor Bridges which are hidden relays that are more difficult to block.">
 <!ENTITY torsettings.bridgeHelp2 "To obtain some bridge relays, use a web browser to visit the following page:  https://bridges.torproject.org">
 
 <!ENTITY torsettings.bridgeHelp3 "Another way to find public bridge addresses is to send mail to bridges@torproject.org with the line 'get bridges' by itself in the body of the message. However, so we can make it harder for an attacker to learn lots of bridge addresses, you must send this request from an email address at one of the following domains: gmail.com or yahoo.com.">

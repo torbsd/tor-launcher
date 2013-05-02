@@ -79,7 +79,8 @@
           <button dlgtype="help" oncommand="onOpenHelp()" />
           <label value="&torsettings.useBridges.label;" control="bridgeList"/>
         </hbox>
-        <textbox id="bridgeList" multiline="true" rows="3" />
+        <textbox id="bridgeList" multiline="true" rows="3"
+                 placeholder="&torsettings.useBridges.placeholder;" />
       </vbox>
 <!--
       <vbox>
