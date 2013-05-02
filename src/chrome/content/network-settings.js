@@ -432,6 +432,8 @@ function onOpenHelp()
   else
     gRestoreAfterHelpPanelID = getWizard().currentPage.pageid;
 
+  showPanel("bridgeHelp");
+
   if (getWizard())
   {
     showOrHideButton("cancel", false, false);
@@ -441,8 +443,6 @@ function onOpenHelp()
   }
   else
     overrideButtonLabel("cancel", "done");
-
-  showPanel("bridgeHelp");
 }
 
 
