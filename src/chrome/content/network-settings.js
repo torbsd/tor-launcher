@@ -389,8 +389,8 @@ function onProxyTypeChange()
 {
   var proxyType = getElemValue(kProxyTypeMenulist, null);
   var mayHaveCredentials = (proxyType != "SOCKS4");
-  enableTextBox(kProxyUsername, mayHaveCredentials); 
-  enableTextBox(kProxyPassword, mayHaveCredentials); 
+  enableTextBox(kProxyUsername, mayHaveCredentials);
+  enableTextBox(kProxyPassword, mayHaveCredentials);
 }
 
 
@@ -619,7 +619,7 @@ function applySettings()
   {
     var settings = {};
     settings[kTorConfKeyDisableNetwork] = "0";
-    this.setConfAndReportErrors(settings);
+    this.setConfAndReportErrors(settings, null);
 
     gProtocolSvc.TorSendCommand("SAVECONF");
     gTorProcessService.TorClearBootstrapError();
@@ -660,7 +660,7 @@ function applyProxySettings()
   if (!settings)
     return false;
 
-  return this.setConfAndReportErrors(settings);
+  return this.setConfAndReportErrors(settings, "proxyYES");
 }
 
 
@@ -739,7 +739,7 @@ function applyFirewallSettings()
   if (!settings)
     return false;
 
-  return this.setConfAndReportErrors(settings);
+  return this.setConfAndReportErrors(settings, "firewallYES");
 }
 
 
@@ -786,7 +786,7 @@ function applyBridgeSettings()
   if (!settings)
     return false;
 
-  return this.setConfAndReportErrors(settings);
+  return this.setConfAndReportErrors(settings, "bridges");
 }
 
 
@@ -856,7 +856,7 @@ function parseAndValidateBridges(aStr)
 
 
 // Returns true if successful.
-function setConfAndReportErrors(aSettingsObj)
+function setConfAndReportErrors(aSettingsObj, aShowOnErrorPanelID)
 {
   var reply = gProtocolSvc.TorSetConf(aSettingsObj);
   var didSucceed = gProtocolSvc.TorCommandSucceeded(reply);
@@ -871,6 +871,23 @@ function setConfAndReportErrors(aSettingsObj)
           details += '\n';
         details += reply.lineArray[i];
       }
+    }
+
+    if (aShowOnErrorPanelID)
+    {
+      var wizardElem = getWizard();
+      if (wizardElem) try
+      {
+        const kMaxTries = 10;
+        for (var count = 0;
+             ((count < kMaxTries) &&
+              (wizardElem.currentPage.pageid != aShowOnErrorPanelID) &&
+              wizardElem.canRewind);
+             ++count)
+        {
+          wizardElem.rewind();
+        }
+      } catch (e) {}
     }
 
     showSaveSettingsAlert(details);
