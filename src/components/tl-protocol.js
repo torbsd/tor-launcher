@@ -423,6 +423,7 @@ TorProtocolService.prototype =
                       .getService(Ci.nsIScriptableDateFormat);
       let dateFormat = dateFmtSvc.dateFormatShort;
       let timeFormat = dateFmtSvc.timeFormatSecondsForce24Hour;
+      let eol = (TorLauncherUtil.isWindows) ? "\r\n" : "\n";
       for (let i = 0; i < this.mTorLog.length; ++i)
       {
         let logObj = this.mTorLog[i];
@@ -438,7 +439,7 @@ TorProtocolService.prototype =
           fracSecsStr += "0";
         timeStr += '.' + fracSecsStr;
 
-        s += timeStr + " [" + logObj.type + "] " + logObj.msg + "\n";
+        s += timeStr + " [" + logObj.type + "] " + logObj.msg + eol;
       }
     }
 
