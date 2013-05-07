@@ -68,6 +68,7 @@
       <description>&torsettings.bridgeHelp1;</description>
       <description>&torsettings.bridgeHelp2;</description>
       <description>&torsettings.bridgeHelp3;</description>
+      <description class="endOfHelp">&torsettings.bridgeHelp4;</description>
     </vbox>
   </deck>
   <spring flex="1" />

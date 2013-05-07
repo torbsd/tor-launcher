@@ -26,9 +26,8 @@
   <script type="application/x-javascript"
           src="chrome://torlauncher/content/network-settings.js"/>
 
-  <wizardpage label=" " pageid="proxy" next="firewall" onextra2="onCopyLog();"
-              onpageshow="showOrHideButton('next', true, true)"
-              onpageadvanced="return onWizardProxyNext(this);">
+  <wizardpage label=" " pageid="first" next="proxy" onextra2="onCopyLog();"
+              onpageshow="setTimeout(function() { showWizardNavButtons(false); }, 0);">
     <hbox class="tbb-header">
       <vbox class="tbb-logo-box" align="start">
         <image class="tbb-logo" />
@@ -38,6 +37,26 @@
         <description>&torsettings.prompt;</description>
       </groupbox>
     </hbox>
+    <separator />
+    <vbox class="firstResponses" align="start">
+      <label class="question">&torSettings.firstQuestion;</label>
+      <separator/>
+      <label>&torSettings.configurePrompt1;</label>
+      <label>&torSettings.configurePrompt2;</label>
+      <button label="&torSettings.configure;" oncommand="onWizardConfigure();"/>
+      <separator class="tall"/>
+      <label>&torSettings.connectPrompt1;</label>
+      <label>&torSettings.connectPrompt2;</label>
+      <button label="&torSettings.connect;" oncommand="useSettings();"/>
+    </vbox>
+  </wizardpage>
+
+  <wizardpage label=" " pageid="proxy" next="firewall" onextra2="onCopyLog();"
+              onpageshow="showWizardNavButtons(true);"
+              onpageadvanced="return onWizardProxyNext(this);">
+    <vbox class="tbb-logo-box" align="start">
+      <image class="tbb-logo" />
+    </vbox>
     <separator />
     <hbox>
       <vbox flex="1">
@@ -106,7 +125,7 @@
     </vbox>
   </wizardpage>
 
-  <wizardpage label=" " pageid="startingTor" next="proxy">
+  <wizardpage label=" " pageid="startingTor" next="first">
     <spring flex="1" />
     <hbox>
       <spring flex="1" />
@@ -126,6 +145,7 @@
     <description>&torsettings.bridgeHelp1;</description>
     <description>&torsettings.bridgeHelp2;</description>
     <description>&torsettings.bridgeHelp3;</description>
+    <description class="endOfHelp">&torsettings.bridgeHelp4;</description>
   </wizardpage>
 
   <hbox pack="start">

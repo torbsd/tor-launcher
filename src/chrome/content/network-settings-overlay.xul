@@ -18,6 +18,23 @@
       </columns>
       <rows>
         <row align="center">
+          <label value="&torsettings.useProxy.type;" control="proxyType"
+                 style="text-align:right" />
+          <hbox align="center">
+            <menulist id="proxyType" oncommand="onProxyTypeChange()">
+              <menupopup id="proxyType_menuPopup">
+                <menuitem label="-" value="" selected="true" />
+                <menuitem label="&torsettings.useProxy.type.socks4;"
+                          value="SOCKS4"/>
+                <menuitem label="&torsettings.useProxy.type.socks5;"
+                          value="SOCKS5"/>
+                <menuitem label="&torsettings.useProxy.type.http;"
+                          value="HTTP"/>
+              </menupopup>
+            </menulist>
+          </hbox>
+        </row>
+        <row align="center">
           <label value="&torsettings.useProxy.address;" control="proxyAddr"
                  style="text-align:right" />
           <hbox align="center">
@@ -41,23 +58,6 @@
                    control="proxyPassword"/>
             <textbox id="proxyPassword" size="14" type="password"
                      placeholder="&torsettings.optional;" />
-          </hbox>
-        </row>
-        <row align="center">
-          <label value="&torsettings.useProxy.type;" control="proxyType"
-                 style="text-align:right" />
-          <hbox align="center">
-            <menulist id="proxyType" oncommand="onProxyTypeChange()">
-              <menupopup id="proxyType_menuPopup">
-                <menuitem label="-" value="" selected="true" />
-                <menuitem label="&torsettings.useProxy.type.socks4;"
-                          value="SOCKS4"/>
-                <menuitem label="&torsettings.useProxy.type.socks5;"
-                          value="SOCKS5"/>
-                <menuitem label="&torsettings.useProxy.type.http;"
-                          value="HTTP"/>
-              </menupopup>
-            </menulist>
           </hbox>
         </row>
       </rows>

@@ -6,14 +6,14 @@
  */
 
 dialog {
-  width: 545px;
+  width: 580px;
   height: 464px;
   font: -moz-dialog;
 }
 
 wizard {
   width: 540px;
-  height: 400px;
+  height: 440px;
   font: -moz-dialog;
   padding-top: 0px;
 }
@@ -45,6 +45,15 @@ wizard radiogroup {
   margin-left: 0px;
   margin-top: 0px;
   margin-bottom: 0px;
+}
+
+.firstResponses button {
+  min-width: 85px;
+  margin-top: 9px;
+}
+
+separator.tall {
+  height: 2.1em;
 }
 
 .question {
@@ -92,7 +101,13 @@ dialog .help {
   margin: 0px 0px 20px 0px;
 }
 
-.help description,
-#bridgeHelp description {
+.help description {
   margin-bottom: 15px;
+  -moz-user-select: text;
+  -moz-user-focus: normal;
+  cursor: text;
+}
+
+.help description.endOfHelp {
+  margin-bottom: 0px;
 }

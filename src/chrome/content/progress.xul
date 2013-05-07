@@ -38,6 +38,7 @@
       </vbox>
     </hbox>
     <progressmeter id="progressMeter" mode="determined" value="0" />
-    <label id="progressPleaseWait" value="&torprogress.pleaseWait;" hidden="true" />
+    <description id="progressPleaseWait"
+                 hidden="true">&torprogress.pleaseWait;</description>
   </vbox>
 </dialog>

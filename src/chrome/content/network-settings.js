@@ -167,6 +167,12 @@ function getWizard()
 }
 
 
+function onWizardConfigure()
+{
+  getWizard().advance("proxy");
+}
+
+
 function onWizardProxyNext(aWizPage)
 {
   if (aWizPage)
@@ -191,6 +197,13 @@ function onWizardFirewallNext(aWizPage)
 }
 
 
+function showWizardNavButtons(aShow)
+{
+  showOrHideButton("back", aShow, false);
+  showOrHideButton("next", aShow, false);
+}
+
+
 var gObserver = {
   observe: function(aSubject, aTopic, aData)
   {
@@ -208,7 +221,7 @@ var gObserver = {
     if (kTorProcessReadyTopic == aTopic)
     {
       var haveWizard = (getWizard() != null);
-      showPanel(haveWizard ? "proxy" : "settings");
+      showPanel(haveWizard ? "first" : "settings");
       if (haveWizard)
       {
         showOrHideButton("back", true, false);
@@ -616,27 +629,30 @@ function applySettings()
   catch (e) { TorLauncherLogger.safelog(4, "Error in applySettings: ", e); }
 
   if (didSucceed)
-  {
-    var settings = {};
-    settings[kTorConfKeyDisableNetwork] = "0";
-    this.setConfAndReportErrors(settings, null);
-
-    gProtocolSvc.TorSendCommand("SAVECONF");
-    gTorProcessService.TorClearBootstrapError();
-
-    gIsBootstrapComplete = gTorProcessService.TorIsBootstrapDone;
-    if (!gIsBootstrapComplete)
-      openProgressDialog();
-
-    if (gIsBootstrapComplete)
-      close();
-  }
+    useSettings();
 
   TorLauncherLogger.log(2, "applySettings done");
 
   return false;
 }
 
+
+function useSettings()
+{
+  var settings = {};
+  settings[kTorConfKeyDisableNetwork] = "0";
+  this.setConfAndReportErrors(settings, null);
+
+  gProtocolSvc.TorSendCommand("SAVECONF");
+  gTorProcessService.TorClearBootstrapError();
+
+  gIsBootstrapComplete = gTorProcessService.TorIsBootstrapDone;
+  if (!gIsBootstrapComplete)
+    openProgressDialog();
+
+  if (gIsBootstrapComplete)
+    close();
+}
 
 function openProgressDialog()
 {
