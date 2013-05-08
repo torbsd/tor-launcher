@@ -58,6 +58,10 @@ var gRestoreAfterHelpPanelID = null;
 
 function initDialog()
 {
+  var isWindows = TorLauncherUtil.isWindows;
+  if (isWindows)
+    document.documentElement.setAttribute("class", "os-windows");
+
   var forAssistance = document.getElementById("forAssistance");
   if (forAssistance)
   {
@@ -71,7 +75,7 @@ function initDialog()
   {
     if (cancelBtn)
     {
-      var quitKey = (TorLauncherUtil.isWindows) ? "quit_win" : "quit";
+      var quitKey = isWindows ? "quit_win" : "quit";
       cancelBtn.label = TorLauncherUtil.getLocalizedString(quitKey);
     }
 
