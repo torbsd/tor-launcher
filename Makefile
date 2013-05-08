@@ -1,7 +1,7 @@
 ### Copyright (c) 2013, The Tor Project, Inc.
 ### See src/LICENSE for licensing information.
 
-EXT_NAME=torlauncher
+EXT_NAME=tor-launcher
 XPI_NAME:=$(shell echo "$(EXT_NAME)-`grep em:version src/install.rdf | sed -e 's/[<>]/	/g' | cut -f3`.xpi")
 
 AVAIL_TARGETS=help package clean
