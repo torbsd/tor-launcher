@@ -41,13 +41,13 @@
     <vbox class="firstResponses" align="start">
       <label class="question">&torSettings.firstQuestion;</label>
       <separator/>
-      <label>&torSettings.configurePrompt1;</label>
-      <label>&torSettings.configurePrompt2;</label>
-      <button label="&torSettings.configure;" oncommand="onWizardConfigure();"/>
-      <separator class="tall"/>
       <label>&torSettings.connectPrompt1;</label>
       <label>&torSettings.connectPrompt2;</label>
       <button label="&torSettings.connect;" oncommand="useSettings();"/>
+      <separator class="tall"/>
+      <label>&torSettings.configurePrompt1;</label>
+      <label>&torSettings.configurePrompt2;</label>
+      <button label="&torSettings.configure;" oncommand="onWizardConfigure();"/>
     </vbox>
   </wizardpage>
 

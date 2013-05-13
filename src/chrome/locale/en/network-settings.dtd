@@ -8,7 +8,7 @@
 <!ENTITY torSettings.no "No">
 
 <!ENTITY torSettings.firstQuestion "Which of the following best describes your situation?">
-<!ENTITY torSettings.configurePrompt1 "This computer's Internet connection is censored, proxied, or filtered.">
+<!ENTITY torSettings.configurePrompt1 "This computer's Internet connection is censored, filtered, or proxied.">
 <!ENTITY torSettings.configurePrompt2 "I need to configure network settings.">
 <!ENTITY torSettings.configure "Configure">
 <!ENTITY torSettings.connectPrompt1 "This computer's Internet connection is clear of obstacles.">
