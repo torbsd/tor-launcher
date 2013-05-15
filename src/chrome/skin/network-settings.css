@@ -6,26 +6,25 @@
  */
 
 dialog {
-  width: 580px;
-  height: 464px;
+  width: 45em;
+  height: 36em;
   font: -moz-dialog;
 }
 
 dialog.os-windows {
-  width: 540px;
-  height: 435px;
+  width: 49em;
 }
 
 wizard {
-  width: 540px;
-  height: 440px;
+  width: 43em;
+  height: 33em;
   font: -moz-dialog;
   padding-top: 0px;
 }
 
 wizard.os-windows {
-  width: 490px;
-  height: 420px;
+  width: 45em;
+  height: 39em;
 }
 
 .wizard-page-box {
