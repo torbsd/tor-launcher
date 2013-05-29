@@ -1,0 +1,54 @@
+<!ENTITY torsettings.dialog.title "Paramètres réseaux de Tor">
+
+<!-- For "first run" wizard: -->
+
+<!ENTITY torsettings.prompt "">
+
+<!ENTITY torSettings.yes "Oui">
+<!ENTITY torSettings.no "Non">
+
+<!ENTITY torSettings.firstQuestion "">
+<!ENTITY torSettings.configurePrompt1 "">
+<!ENTITY torSettings.configurePrompt2 "">
+<!ENTITY torSettings.configure "">
+<!ENTITY torSettings.connectPrompt1 "">
+<!ENTITY torSettings.connectPrompt2 "">
+<!ENTITY torSettings.connect "Connecter">
+
+<!ENTITY torSettings.proxyQuestion "">
+<!-- see https://www.torproject.org/docs/proxychain.html.en -->
+<!ENTITY torSettings.proxyHelp "">
+<!ENTITY torSettings.enterProxy "">
+<!ENTITY torSettings.firewallQuestion "">
+<!ENTITY torSettings.firewallHelp "">
+<!ENTITY torSettings.enterFirewall "">
+<!ENTITY torSettings.bridgeQuestion "">
+
+<!-- Other: -->
+
+<!ENTITY torsettings.startingTor "En attente du démarrage de Tor...">
+
+<!ENTITY torsettings.optional "Optionnel">
+
+<!ENTITY torsettings.useProxy.checkbox "">
+<!ENTITY torsettings.useProxy.type "">
+<!ENTITY torsettings.useProxy.address "Adresse :">
+<!ENTITY torsettings.useProxy.address.placeholder "Adresse IP ou nom d'hôte">
+<!ENTITY torsettings.useProxy.port "Port :">
+<!ENTITY torsettings.useProxy.username "Nom d'utilisateur :">
+<!ENTITY torsettings.useProxy.password "Mot de passe :">
+<!ENTITY torsettings.useProxy.type.socks4 "SOCKS 4">
+<!ENTITY torsettings.useProxy.type.socks5 "SOCKS 5">
+<!ENTITY torsettings.useProxy.type.http "HTTP / HTTPS">
+<!ENTITY torsettings.firewall.checkbox "">
+<!ENTITY torsettings.firewall.allowedPorts "Ports autorisés :">
+<!ENTITY torsettings.useBridges.checkbox "Mon Fournisseur d'Accès Internet (FAI) bloque les connexions au réseau Tor">
+<!ENTITY torsettings.useBridges.label "Entrez une ou plusieurs passerelles relais sous la forme adresse:port">
+<!ENTITY torsettings.useBridges.placeholder "adresse:port">
+
+<!ENTITY torsettings.copyLog "Copier les logs de Tor dans le Press-papier">
+<!ENTITY torsettings.bridgeHelpTitle "Aide pour les passerelles relais">
+<!ENTITY torsettings.bridgeHelp1 "">
+<!ENTITY torsettings.bridgeHelp2 "Pour obtenir quelques passerelles relais utilisez un navigateur web pour aller sur la page suivante : https://bridges.torproject.org">
+<!ENTITY torsettings.bridgeHelp3 "">
+<!ENTITY torsettings.bridgeHelp4 "">

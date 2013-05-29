@@ -1,0 +1,54 @@
+<!ENTITY torsettings.dialog.title "تنظیمات شبکه تور">
+
+<!-- For "first run" wizard: -->
+
+<!ENTITY torsettings.prompt "">
+
+<!ENTITY torSettings.yes "بله">
+<!ENTITY torSettings.no "نه">
+
+<!ENTITY torSettings.firstQuestion "">
+<!ENTITY torSettings.configurePrompt1 "">
+<!ENTITY torSettings.configurePrompt2 "">
+<!ENTITY torSettings.configure "">
+<!ENTITY torSettings.connectPrompt1 "">
+<!ENTITY torSettings.connectPrompt2 "">
+<!ENTITY torSettings.connect "">
+
+<!ENTITY torSettings.proxyQuestion "">
+<!-- see https://www.torproject.org/docs/proxychain.html.en -->
+<!ENTITY torSettings.proxyHelp "">
+<!ENTITY torSettings.enterProxy "">
+<!ENTITY torSettings.firewallQuestion "">
+<!ENTITY torSettings.firewallHelp "">
+<!ENTITY torSettings.enterFirewall "">
+<!ENTITY torSettings.bridgeQuestion "">
+
+<!-- Other: -->
+
+<!ENTITY torsettings.startingTor "">
+
+<!ENTITY torsettings.optional "">
+
+<!ENTITY torsettings.useProxy.checkbox "">
+<!ENTITY torsettings.useProxy.type "">
+<!ENTITY torsettings.useProxy.address "آدرس:">
+<!ENTITY torsettings.useProxy.address.placeholder "">
+<!ENTITY torsettings.useProxy.port "پورت:">
+<!ENTITY torsettings.useProxy.username "نام کاربری:">
+<!ENTITY torsettings.useProxy.password "رمز عبور">
+<!ENTITY torsettings.useProxy.type.socks4 "ساکس ۴">
+<!ENTITY torsettings.useProxy.type.socks5 "ساکس ۵">
+<!ENTITY torsettings.useProxy.type.http "HTTP / HTTPS">
+<!ENTITY torsettings.firewall.checkbox "">
+<!ENTITY torsettings.firewall.allowedPorts "پورت های مجاز:">
+<!ENTITY torsettings.useBridges.checkbox "">
+<!ENTITY torsettings.useBridges.label "">
+<!ENTITY torsettings.useBridges.placeholder "">
+
+<!ENTITY torsettings.copyLog "">
+<!ENTITY torsettings.bridgeHelpTitle "">
+<!ENTITY torsettings.bridgeHelp1 "">
+<!ENTITY torsettings.bridgeHelp2 "">
+<!ENTITY torsettings.bridgeHelp3 "">
+<!ENTITY torsettings.bridgeHelp4 "">

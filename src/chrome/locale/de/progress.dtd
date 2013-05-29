@@ -1,0 +1,4 @@
+<!ENTITY torprogress.dialog.title "Tor Status">
+<!ENTITY torprogress.openSettings "Einstellungen Öffnen">
+<!ENTITY torprogress.heading "Verbindung zum Tor-Netzwerk herstellen">
+<!ENTITY torprogress.pleaseWait "Der Tor-Browser wird sich öffnen, sobald eine Verbind zum Tor-Netzwerk hergestellt ist.">
