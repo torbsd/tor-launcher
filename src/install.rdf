@@ -7,7 +7,7 @@
         <em:creator>The Tor Project, Inc.</em:creator>
         <em:contributor>Pearl Crescent, LLC</em:contributor>
         <em:id>tor-launcher@torproject.org</em:id>
-        <em:version>0.2pre-alpha</em:version>
+        <em:version>0.2-alpha</em:version>
         <em:homepageURL>https://www.torproject.org/projects/torbrowser.html</em:homepageURL>
 <!--
         <em:optionsURL>chrome://torlauncher/content/preferences.xul</em:optionsURL>
