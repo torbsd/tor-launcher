@@ -2,9 +2,9 @@
 
 BUNDLE_LOCALES="de es fa fr it ko nl pl pt ru vi zh-CN"
 
-if [ -d translations ];
+if [ -d translation ];
 then
-  cd translations
+  cd translation
   git fetch origin
   cd ..
 else
