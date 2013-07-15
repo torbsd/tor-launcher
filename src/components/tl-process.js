@@ -537,7 +537,23 @@ TorProcessService.prototype =
 
   _getpid: function()
   {
+    // Use nsIXULRuntime.processID if it is available.
+    var pid = 0;
+
     try
+    {
+      var xreSvc = Cc["@mozilla.org/xre/app-info;1"]
+                     .getService(Ci.nsIXULRuntime);
+      pid = xreSvc.processID;
+    }
+    catch (e)
+    {
+      TorLauncherLogger.safelog(2, "failed to get process ID via XUL runtime:",
+                                e);
+    }
+
+    // Try libc.getpid() via js-ctypes.
+    if (!pid) try
     {
       var getpid;
       if (TorLauncherUtil.isMac)
@@ -566,14 +582,14 @@ TorProcessService.prototype =
         getpid = libc.declare("getpid", ctypes.default_abi, ctypes.int);
       }
 
-      return getpid();
+      pid = getpid();
     }
     catch(e)
     {
       TorLauncherLogger.safelog(4, "unable to get process ID: ", e);
     }
 
-    return 0;
+    return pid;
   },
 
   endOfObject: true
