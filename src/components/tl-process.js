@@ -8,7 +8,8 @@ const Ci = Components.interfaces;
 const Cr = Components.results;
 const Cu = Components.utils;
 
-Cu.import("resource://gre/modules/ctypes.jsm");
+// ctypes can be disabled at build time
+try { Cu.import("resource://gre/modules/ctypes.jsm"); } catch(e) {}
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 
 XPCOMUtils.defineLazyModuleGetter(this, "TorLauncherUtil",
