@@ -268,6 +268,7 @@ TorProcessService.prototype =
       // rely on the TBB launcher to start Firefox from the right place.
       var exeFile = this._getTorFile("tor");
       var torrcFile = this._getTorFile("torrc");
+      var torrcDefaultsFile = this._getTorFile("torrc-defaults");
       var dataDir = this._getTorFile("tordatadir");
       var hashedPassword = this.mProtocolSvc.TorGetPassword(true);
 
@@ -292,6 +293,11 @@ TorProcessService.prototype =
       }
 
       var args = [];
+      if (torrcDefaultsFile)
+      {
+        args.push("--defaults-torrc");
+        args.push(torrcDefaultsFile.path);
+      }
       args.push("-f");
       args.push(torrcFile.path);
       args.push("DataDirectory");
@@ -468,28 +474,23 @@ TorProcessService.prototype =
     else
     {
       // Get default path.
-      if (TorLauncherUtil.isMac)
+      if (TorLauncherUtil.isWindows)
       {
         if ("tor" == aTorFileType)
-          path = "Contents/MacOS/tor";
-        else if ("torrc" == aTorFileType)
-          path = "Library/Vidalia/torrc";
-        else if ("tordatadir" == aTorFileType)
-          path = "Contents/Resources/Data/Tor/";
-      }
-      else if (TorLauncherUtil.isWindows)
-      {
-        if ("tor" == aTorFileType)
-          path = "App\\tor.exe";
+          path = "Tor\\tor.exe";
+        else if ("torrc-defaults" == aTorFileType)
+          path = "Data\\Tor\\torrc-defaults";
         else if ("torrc" == aTorFileType)
           path = "Data\\Tor\\torrc";
         else if ("tordatadir" == aTorFileType)
           path = "Data\\Tor";
       }
-      else // Linux and others.
+      else // Linux, Mac OS and others.
       {
         if ("tor" == aTorFileType)
-          path = "App/tor";
+          path = "Tor/tor";
+        else if ("torrc-defaults" == aTorFileType)
+          path = "Data/Tor/torrc-defaults";
         else if ("torrc" == aTorFileType)
           path = "Data/Tor/torrc";
         else if ("tordatadir" == aTorFileType)
@@ -522,13 +523,9 @@ TorProcessService.prototype =
           else
           {
             // For Firefox, paths are relative to the top of the TBB install.
-            var tbbBrowserDepth = 0;
+            var tbbBrowserDepth = 1; // Windows and Linux
             if (TorLauncherUtil.isMac)
-              tbbBrowserDepth = 5;
-            else if (TorLauncherUtil.isWindows)
-              tbbBrowserDepth = 3;
-            else // Linux and others.
-              tbbBrowserDepth = 2;
+              tbbBrowserDepth += 4;
 
             topDir = Cc["@mozilla.org/file/directory_service;1"]
                     .getService(Ci.nsIProperties).get("CurProcD", Ci.nsIFile);
