@@ -292,6 +292,9 @@ TorProcessService.prototype =
         return;
       }
 
+      var geoipFile = dataDir.clone();
+      geoipFile.append("geoip");
+
       var args = [];
       if (torrcDefaultsFile)
       {
@@ -302,6 +305,8 @@ TorProcessService.prototype =
       args.push(torrcFile.path);
       args.push("DataDirectory");
       args.push(dataDir.path);
+      args.push("GeoIPFile");
+      args.push(geoipFile.path);
       args.push("HashedControlPassword");
       args.push(hashedPassword);
 
