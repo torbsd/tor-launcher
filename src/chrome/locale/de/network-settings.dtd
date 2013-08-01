@@ -2,13 +2,13 @@
 
 <!-- For "first run" wizard: -->
 
-<!ENTITY torsettings.prompt "Bevor das Tor Browser Bundle versucht eine Verbindung zum Tor-Netzwerk herzustellen, müssen Sie Informationen über ihren Interneanschluss bereitstellen.">
+<!ENTITY torsettings.prompt "Bevor das Tor Browser Bundle versucht eine Verbindung zum Tor-Netzwerk herzustellen, müssen Sie Informationen über ihren Internetanschluss bereitstellen.">
 
 <!ENTITY torSettings.yes "Ja">
 <!ENTITY torSettings.no "Nein">
 
 <!ENTITY torSettings.firstQuestion "Welches der nachfolgenden beschreibt ihre Situation am besten?">
-<!ENTITY torSettings.configurePrompt1 "Die Internetverbindung dieses Computers ist Zensiert, Gefiltert oder benötigt einen Proxy">
+<!ENTITY torSettings.configurePrompt1 "Die Internetverbindung dieses Computers ist zensiert, gefiltert oder benötigt einen Proxy.">
 <!ENTITY torSettings.configurePrompt2 "Ich muss die Netzwerkeinstellungen konfigurieren.">
 <!ENTITY torSettings.configure "Konfiguriere">
 <!ENTITY torSettings.connectPrompt1 "Die Internetverbindung dieses Computers ist frei von Hindernissen.">
@@ -26,7 +26,7 @@
 
 <!-- Other: -->
 
-<!ENTITY torsettings.startingTor "Warte auf Tor start...">
+<!ENTITY torsettings.startingTor "Warte auf den Start von Tor …">
 
 <!ENTITY torsettings.optional "Optional">
 
@@ -43,12 +43,12 @@
 <!ENTITY torsettings.firewall.checkbox "Die Verbindung dieses Computers geht durch eine Firewall, die nur bestimmte Ports zulässt">
 <!ENTITY torsettings.firewall.allowedPorts "Erlaubte Ports:">
 <!ENTITY torsettings.useBridges.checkbox "Mein Internet Service Provider (ISP) blockiert Verbindungen zum Tor-Netzwerk">
-<!ENTITY torsettings.useBridges.label "Eine oder mehrere Bidges im Format Adresse:Port hinzufügen.">
+<!ENTITY torsettings.useBridges.label "Eine oder mehrere Bridges im Format Adresse:Port hinzufügen.">
 <!ENTITY torsettings.useBridges.placeholder "Adresse:Port">
 
 <!ENTITY torsettings.copyLog "Tor-Log in die Zwischenablage kopieren">
-<!ENTITY torsettings.bridgeHelpTitle "Hilfe zu Bridge-Relais">
+<!ENTITY torsettings.bridgeHelpTitle "Hilfe zu Bridge-Relays">
 <!ENTITY torsettings.bridgeHelp1 "Sollten Sie sich nicht mit dem Tor-Netzwerk verbinden können, ist es möglich das ihr ISP oder eine andere Organisation Tor blockiert.&amp;#160; Dieses Problem kann meist mit der benutzung von Bridge-Relais, die versteckt und damit schwerer zu blocken sind, umgangen werden.">
-<!ENTITY torsettings.bridgeHelp2 "Um einige Bridge-Relais zu erhalten, besuchen Sie mit dem Browser folgende Seite: https://bridges.torproject.org">
+<!ENTITY torsettings.bridgeHelp2 "Um einige Bridge-Relays zu erhalten, besuchen Sie mit dem Browser folgende Seite: https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3 "Eine andere Möglichkeit an Bridge-Relais zu kommen, ist eine Email mit dem inhalt 'get bridges' and bridges@torproject.org zu schicken.&amp;#160; Allerdings muss diese Email, um es potentiellen angreifern schwerer zu machen, von einer der folgenden Adressen geschickt werden: gmail.com oder yahoo.com">
 <!ENTITY torsettings.bridgeHelp4 "Bridge-Relais können auch mithilfe einer Email an help@rt.torproject.org angefordert werden.">
