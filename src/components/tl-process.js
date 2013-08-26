@@ -307,7 +307,7 @@ TorProcessService.prototype =
       for (var i = 0; i < args.length; ++i)
         TorLauncherLogger.log(2, "  " + args[i]);
 
-      p.runAsync(args, args.length, this, false);
+      p.runwAsync(args, args.length, this, false);
       this.mTorProcess = p;
       this.mTorProcessStartTime = Date.now();
 
