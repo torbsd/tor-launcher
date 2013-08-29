@@ -613,7 +613,7 @@ function initBridgeSettings()
   if (!gProtocolSvc.TorCommandSucceeded(bridgeReply))
     return false;
 
-  setElemValue(kBridgeList, bridgeReply.lineArray);
+  setBridgeListElemValue(bridgeReply.lineArray);
 
   return true;
 }
@@ -828,7 +828,7 @@ function getAndValidateBridgeSettings()
     return null;
   }
 
-  setElemValue(kBridgeList, bridgeList);
+  setBridgeListElemValue(bridgeList);
   if (useBridges && bridgeList)
   {
     settings[kTorConfKeyUseBridges] = true;
@@ -856,19 +856,7 @@ function parseAndValidateBridges(aStr)
   for (var i = 0; i < tmpArray.length; i++)
   {
     let s = tmpArray[i].trim(); // Remove extraneous whitespace.
-    if (s.indexOf(' ') >= 0)
-    {
-      // Handle a space-separated list of bridge specs.
-      var tmpArray2 = s.split(' ');
-      for (var j = 0; j < tmpArray2.length; ++j)
-      {
-        let s2 = tmpArray2[j];
-        if (s2.length > 0)
-          resultArray.push(s2);
-      }
-    }
-    else if (s.length > 0)
-      resultArray.push(s);
+    resultArray.push(s);
   }
 
   return (0 == resultArray.length) ? null : resultArray;
@@ -960,6 +948,26 @@ function setElemValue(aID, aValue)
         break;
     }
   }
+}
+
+
+function setBridgeListElemValue(aBridgeArray)
+{
+  // To be consistent with bridges.torproject.org, pre-pend "bridge" to
+  // each line as it is displayed in the UI.
+  var bridgeList = [];
+  for (var i = 0; i < aBridgeArray.length; ++i)
+  {
+    var s = aBridgeArray[i].trim();
+    if (s.length > 0)
+    {
+      if (s.toLowerCase().indexOf("bridge") != 0)
+        s = "bridge " + s;
+      bridgeList.push(s);
+    }
+  }
+
+  setElemValue(kBridgeList, bridgeList);
 }
 
 
