@@ -22,6 +22,7 @@ const kTorProcessReadyTopic = "TorProcessIsReady";
 const kTorProcessExitedTopic = "TorProcessExited";
 const kTorProcessDidNotStartTopic = "TorProcessDidNotStart";
 const kTorBootstrapErrorTopic = "TorBootstrapError";
+const kTorLogHasWarnOrErr = "TorLogHasWarnOrErr";
 
 const kWizardProxyRadioGroup = "proxyRadioGroup";
 const kWizardFirewallRadioGroup = "firewallRadioGroup";
@@ -116,8 +117,11 @@ function initDialog()
         cancelBtn.parentNode.insertBefore(copyLogBtn, cancelBtn.nextSibling);
     }
 
-    if (gTorProcessService.TorBootstrapErrorOccurred)
+    if (gTorProcessService.TorBootstrapErrorOccurred ||
+        gProtocolSvc.TorLogHasWarnOrErr)
+    {
       wizardShowCopyLogButton();
+    }
 
     // Use "Connect" as the finish button label (on the last wizard page)..
     var finishBtn = document.documentElement.getButton("finish");
@@ -139,6 +143,7 @@ function initDialog()
   }
 
   gObsService.addObserver(gObserver, kTorBootstrapErrorTopic, false);
+  gObsService.addObserver(gObserver, kTorLogHasWarnOrErr, false);
 
   if (TorLauncherUtil.shouldStartAndOwnTor &&
       !gTorProcessService.TorIsProcessReady)
@@ -211,7 +216,7 @@ function showWizardNavButtons(aShow)
 var gObserver = {
   observe: function(aSubject, aTopic, aData)
   {
-    if (kTorBootstrapErrorTopic == aTopic)
+    if ((kTorBootstrapErrorTopic == aTopic) || (kTorLogHasWarnOrErr == aTopic))
     {
       wizardShowCopyLogButton();
       return;
@@ -956,14 +961,17 @@ function setBridgeListElemValue(aBridgeArray)
   // To be consistent with bridges.torproject.org, pre-pend "bridge" to
   // each line as it is displayed in the UI.
   var bridgeList = [];
-  for (var i = 0; i < aBridgeArray.length; ++i)
+  if (aBridgeArray)
   {
-    var s = aBridgeArray[i].trim();
-    if (s.length > 0)
+    for (var i = 0; i < aBridgeArray.length; ++i)
     {
-      if (s.toLowerCase().indexOf("bridge") != 0)
-        s = "bridge " + s;
-      bridgeList.push(s);
+      var s = aBridgeArray[i].trim();
+      if (s.length > 0)
+      {
+        if (s.toLowerCase().indexOf("bridge") != 0)
+          s = "bridge " + s;
+        bridgeList.push(s);
+      }
     }
   }
 

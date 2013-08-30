@@ -413,6 +413,22 @@ TorProtocolService.prototype =
     this._waitForEventData();
   },
 
+  // Returns true if the log messages we have captured contain WARN or ERR.
+  get TorLogHasWarnOrErr()
+  {
+    if (!this.mTorLog)
+      return false;
+
+    for (var i = this.mTorLog.length - 1; i >= 0; i--)
+    {
+      var logObj = this.mTorLog[i];
+      if ((logObj.type == "WARN") || (logObj.type == "ERR"))
+        return true;
+    }
+
+    return false;
+  },
+
   // Returns captured log message as a text string (one message per line).
   TorGetLog: function()
   {
@@ -1203,11 +1219,16 @@ TorProtocolService.prototype =
       let msg = s.substr(idx + 1);
       switch (eventType)
       {
+        case "WARN":
+        case "ERR":
+          // Notify so that Copy Log can be enabled.
+          var obsSvc = Cc["@mozilla.org/observer-service;1"]
+                         .getService(Ci.nsIObserverService);
+          obsSvc.notifyObservers(null, "TorLogHasWarnOrErr", null);
+          // fallthru
         case "DEBUG":
         case "INFO":
         case "NOTICE":
-        case "WARN":
-        case "ERR":
           var now = new Date();
           let logObj = { date: now, type: eventType, msg: msg };
           if (!this.mTorLog)
