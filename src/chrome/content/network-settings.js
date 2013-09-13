@@ -144,19 +144,14 @@ function initDialog()
 
   gObsService.addObserver(gObserver, kTorBootstrapErrorTopic, false);
   gObsService.addObserver(gObserver, kTorLogHasWarnOrErrTopic, false);
+  gObsService.addObserver(gObserver, kTorProcessExitedTopic, false);
 
+  var status = gTorProcessService.TorProcessStatus;
   if (TorLauncherUtil.shouldStartAndOwnTor &&
-      !gTorProcessService.TorIsProcessReady)
+     (status != gTorProcessService.kStatusRunning))
   {
-    showPanel("startingTor");
-    if (haveWizard)
-    {
-      showOrHideButton("back", false, false);
-      showOrHideButton("next", false, false);
-    }
-
+    showStartingTorPanel(status == gTorProcessService.kStatusExited);
     gObsService.addObserver(gObserver, kTorProcessReadyTopic, false);
-    gObsService.addObserver(gObserver, kTorProcessExitedTopic, false);
     gObsService.addObserver(gObserver, kTorProcessDidNotStartTopic, false);
   }
   else
@@ -223,13 +218,9 @@ var gObserver = {
       return;
     }
 
-    // Process events that only occur once.
-    gObsService.removeObserver(gObserver, kTorProcessReadyTopic);
-    gObsService.removeObserver(gObserver, kTorProcessExitedTopic);
-    gObsService.removeObserver(gObserver, kTorProcessDidNotStartTopic);
-
     if (kTorProcessReadyTopic == aTopic)
     {
+      gObsService.removeObserver(gObserver, kTorProcessReadyTopic);
       var haveWizard = (getWizard() != null);
       showPanel(haveWizard ? "first" : "settings");
       if (haveWizard)
@@ -240,9 +231,15 @@ var gObserver = {
       readTorSettings();
     }
     else if (kTorProcessDidNotStartTopic == aTopic)
+    {
+      gObsService.removeObserver(gObserver, kTorProcessDidNotStartTopic);
       showErrorPanel();
-    else // kTorProcessExitedTopic
-      close();
+    }
+    else if (kTorProcessExitedTopic == aTopic)
+    {
+      gObsService.removeObserver(gObserver, kTorProcessExitedTopic);
+      showStartingTorPanel(true);
+    }
   }
 };
 
@@ -292,6 +289,33 @@ function showPanel(aPanelID)
     getWizard().goTo(aPanelID);
 
   showOrHideButton("accept", (aPanelID == "settings"), true);
+}
+
+
+function showStartingTorPanel(aTorExited)
+{
+  if (aTorExited)
+  {
+    // Show "Tor exited; please restart" message and Restart button.
+    var elem = document.getElementById("startingTorMessage");
+    if (elem)
+    {
+      var s1 = TorLauncherUtil.getLocalizedString("tor_exited");
+      var s2 = TorLauncherUtil.getLocalizedString("please_restart_app");
+      elem.textContent = s1 + "\n\n" + s2;
+    }
+    var btn = document.getElementById("restartButton");
+    if (btn)
+      btn.removeAttribute("hidden");
+  }
+
+  showPanel("startingTor");
+  var haveWizard = (getWizard() != null);
+  if (haveWizard)
+  {
+    showOrHideButton("back", false, false);
+    showOrHideButton("next", false, false);
+  }
 }
 
 
@@ -422,6 +446,31 @@ function onProxyTypeChange()
   var mayHaveCredentials = (proxyType != "SOCKS4");
   enableTextBox(kProxyUsername, mayHaveCredentials);
   enableTextBox(kProxyPassword, mayHaveCredentials);
+}
+
+
+function onRestartApp()
+{
+  if (gIsInitialBootstrap)
+  {
+    // If the browser has not fully started yet, we cannot use the app startup
+    // service to restart it... so we use a delayed approach.
+    try
+    {
+      var obsSvc = Cc["@mozilla.org/observer-service;1"]
+                     .getService(Ci.nsIObserverService);
+      obsSvc.notifyObservers(null, "TorUserRequestedQuit", "restart");
+
+      window.close();
+    } catch (e) {}
+  }
+  else
+  {
+    // Restart now.
+    var asSvc = Cc["@mozilla.org/toolkit/app-startup;1"]
+                  .getService(Ci.nsIAppStartup);
+    asSvc.quit(asSvc.eAttemptQuit | asSvc.eRestart);
+  }
 }
 
 

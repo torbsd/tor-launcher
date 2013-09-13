@@ -95,9 +95,15 @@ button.firstAnswer {
   min-height: 300px;
 }
 
-#startingTor label {
+wizardpage[pageid="startingTor"] description,
+#startingTor description {
   font-size: 120%;
   font-weight: bold;
+  white-space: pre-wrap;
+}
+
+#restartButton {
+  margin-top: 20px;
 }
 
 dialog .help {

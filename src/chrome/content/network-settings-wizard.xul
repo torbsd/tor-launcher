@@ -129,7 +129,13 @@
     <spring flex="1" />
     <hbox>
       <spring flex="1" />
-      <label value="&torsettings.startingTor;"/>
+      <description id="startingTorMessage">&torsettings.startingTor;</description>
+      <spring flex="1" />
+    </hbox>
+    <hbox>
+      <spring flex="1" />
+      <button id="restartButton" label="&torsettings.restart;" hidden="true"
+              oncommand="onRestartApp()" />
       <spring flex="1" />
     </hbox>
     <spring flex="1" />

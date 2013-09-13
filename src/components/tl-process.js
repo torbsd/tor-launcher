@@ -36,6 +36,11 @@ TorProcessService.prototype =
   kMaxControlConnRetryMS: 500,
   kControlConnTimeoutMS: 30000, // Wait at most 30 seconds for tor to start.
 
+  kStatusUnknown: 0, // Tor process status.
+  kStatusStarting: 1,
+  kStatusRunning: 2,
+  kStatusExited: 3,  // Exited or failed to start.
+
   // nsISupports implementation.
   QueryInterface: function(aIID)
   {
@@ -114,6 +119,7 @@ TorProcessService.prototype =
       }
 
       this.mTorProcess = null;
+      this.mTorProcessStatus = this.kStatusExited;
 
       this.mObsSvc.notifyObservers(null, "TorProcessExited", null);
 
@@ -132,7 +138,7 @@ TorProcessService.prototype =
         if (haveConnection)
         {
           this.mControlConnTimer = null;
-          this.mIsTorProcessReady = true;
+          this.mTorProcessStatus = this.kStatusRunning;
           this.mProtocolSvc.TorStartEventMonitor();
 
           this.mProtocolSvc.TorRetrieveBootstrapStatus();
@@ -164,7 +170,10 @@ TorProcessService.prototype =
     else if (kOpenNetworkSettingsTopic == aTopic)
       this._openNetworkSettings(false);
     else if (kUserQuitTopic == aTopic)
+    {
       this.mQuitSoon = true;
+      this.mRestartWithQuit = ("restart" == aParam);
+    }
   },
 
   canUnload: function(aCompMgr) { return true; },
@@ -201,9 +210,9 @@ TorProcessService.prototype =
 
 
   // Public Properties and Methods ///////////////////////////////////////////
-  get TorIsProcessReady()
+  get TorProcessStatus()
   {
-    return (this.mTorProcess) ? this.mIsTorProcessReady : false;
+    return this.mTorProcessStatus;
   },
 
   get TorIsBootstrapDone()
@@ -225,7 +234,7 @@ TorProcessService.prototype =
 
 
   // Private Member Variables ////////////////////////////////////////////////
-  mIsTorProcessReady: false,
+  mTorProcessStatus: 0,  // kStatusUnknown
   mIsBootstrapDone: false,
   mBootstrapErrorOccurred: false,
   mIsQuitting: false,
@@ -237,6 +246,7 @@ TorProcessService.prototype =
   mControlConnTimer: null,
   mControlConnDelayMS: 0,
   mQuitSoon: false,     // Quit was requested by the user; do so soon.
+  mRestartWithQuit: false,
   mLastTorWarningPhase: null,
   mLastTorWarningText: null,
 
@@ -244,7 +254,7 @@ TorProcessService.prototype =
   // Private Methods /////////////////////////////////////////////////////////
   _startTor: function()
   {
-    this.mIsTorProcessReady = false;
+    this.mTorProcessStatus = this.kStatusUnknown;
 
     var isInitialBootstrap =
                      TorLauncherUtil.getBoolPref(this.kPrefPromptAtStartup);
@@ -300,6 +310,8 @@ TorProcessService.prototype =
         args.push("1");
       }
 
+      this.mTorProcessStatus = this.kStatusStarting;
+
       var p = Cc["@mozilla.org/process/util;1"].createInstance(Ci.nsIProcess);
       p.init(exeFile);
 
@@ -335,7 +347,10 @@ TorProcessService.prototype =
 
         var asSvc = Cc["@mozilla.org/toolkit/app-startup;1"]
                       .getService(Ci.nsIAppStartup);
-        asSvc.quit(asSvc.eAttemptQuit);
+        var flags = asSvc.eAttemptQuit;
+        if (this.mRestartWithQuit) 
+          flags |= asSvc.eRestart;
+        asSvc.quit(flags);
       }
       catch (e)
       {
@@ -344,6 +359,7 @@ TorProcessService.prototype =
     }
     catch (e)
     {
+      this.mTorProcessStatus = this.kStatusExited;
       var s = TorLauncherUtil.getLocalizedString("tor_failed_to_start");
       TorLauncherUtil.showAlert(null, s);
       TorLauncherLogger.safelog(4, "_startTor error: ", e);
