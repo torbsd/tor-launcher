@@ -9,6 +9,7 @@ const Cu = Components.utils;
 
 const kTorProcessExitedTopic = "TorProcessExited";
 const kBootstrapStatusTopic = "TorBootstrapStatus";
+const kTorLogHasWarnOrErrTopic = "TorLogHasWarnOrErr";
 
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 XPCOMUtils.defineLazyModuleGetter(this, "TorLauncherUtil",
@@ -26,6 +27,7 @@ function initDialog()
                   .getService(Ci.nsIObserverService);
     gObsSvc.addObserver(gObserver, kTorProcessExitedTopic, false);
     gObsSvc.addObserver(gObserver, kBootstrapStatusTopic, false);
+    gObsSvc.addObserver(gObserver, kTorLogHasWarnOrErrTopic, false);
   }
   catch (e) {}
 
@@ -68,6 +70,7 @@ function cleanup()
   {
     gObsSvc.removeObserver(gObserver, kTorProcessExitedTopic);
     gObsSvc.removeObserver(gObserver, kBootstrapStatusTopic);
+    gObsSvc.removeObserver(gObserver, kTorLogHasWarnOrErrTopic);
   }
 }
 
@@ -154,6 +157,14 @@ var gObserver = {
       var desc = document.getElementById("progressDesc");
       if (labelText && desc)
         desc.textContent = labelText;
+    }
+    else if (kTorLogHasWarnOrErrTopic == aTopic)
+    {
+      var extra2Btn = document.documentElement.getButton("extra2");
+      var clz = extra2Btn.getAttribute("class");
+      extra2Btn.setAttribute("class", clz ? clz + " torWarning" : "torWarning");
+
+      // TODO: show error / warning message in this dialog?
     }
   },
 };

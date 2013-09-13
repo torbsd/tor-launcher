@@ -128,3 +128,12 @@ dialog .help {
 {
   font-size: 120%;
 }
+
+.torWarning {
+  list-style-image: url("chrome://torlauncher/skin/warning.png");
+}
+
+/* Ensure that our caution icon is always shown on GTK-based platforms. */
+.torWarning .button-icon {
+  display: inline !important;
+}

@@ -22,7 +22,7 @@ const kTorProcessReadyTopic = "TorProcessIsReady";
 const kTorProcessExitedTopic = "TorProcessExited";
 const kTorProcessDidNotStartTopic = "TorProcessDidNotStart";
 const kTorBootstrapErrorTopic = "TorBootstrapError";
-const kTorLogHasWarnOrErr = "TorLogHasWarnOrErr";
+const kTorLogHasWarnOrErrTopic = "TorLogHasWarnOrErr";
 
 const kWizardProxyRadioGroup = "proxyRadioGroup";
 const kWizardFirewallRadioGroup = "firewallRadioGroup";
@@ -120,7 +120,7 @@ function initDialog()
     if (gTorProcessService.TorBootstrapErrorOccurred ||
         gProtocolSvc.TorLogHasWarnOrErr)
     {
-      wizardShowCopyLogButton();
+      showCopyLogButton(true);
     }
 
     // Use "Connect" as the finish button label (on the last wizard page)..
@@ -143,7 +143,7 @@ function initDialog()
   }
 
   gObsService.addObserver(gObserver, kTorBootstrapErrorTopic, false);
-  gObsService.addObserver(gObserver, kTorLogHasWarnOrErr, false);
+  gObsService.addObserver(gObserver, kTorLogHasWarnOrErrTopic, false);
 
   if (TorLauncherUtil.shouldStartAndOwnTor &&
       !gTorProcessService.TorIsProcessReady)
@@ -216,9 +216,10 @@ function showWizardNavButtons(aShow)
 var gObserver = {
   observe: function(aSubject, aTopic, aData)
   {
-    if ((kTorBootstrapErrorTopic == aTopic) || (kTorLogHasWarnOrErr == aTopic))
+    if ((kTorBootstrapErrorTopic == aTopic) ||
+         (kTorLogHasWarnOrErrTopic == aTopic))
     {
-      wizardShowCopyLogButton();
+      showCopyLogButton(true);
       return;
     }
 
@@ -296,20 +297,28 @@ function showPanel(aPanelID)
 
 function showErrorPanel()
 {
-    showPanel("errorPanel");
-    wizardShowCopyLogButton();
+  showPanel("errorPanel");
+  var haveErrorOrWarning = (gTorProcessService.TorBootstrapErrorOccurred ||
+                            gProtocolSvc.TorLogHasWarnOrErr)
+  showCopyLogButton(haveErrorOrWarning);
 }
 
 
-function wizardShowCopyLogButton()
+function showCopyLogButton(aHaveErrorOrWarning)
 {
-  if (getWizard())
+  var copyLogBtn = document.documentElement.getButton("extra2");
+  if (copyLogBtn)
   {
-    var copyLogBtn = document.documentElement.getButton("extra2");
-    if (copyLogBtn)
-    {
+    if (getWizard())
       copyLogBtn.setAttribute("wizardCanCopyLog", true);
-      copyLogBtn.removeAttribute("hidden");
+
+    copyLogBtn.removeAttribute("hidden");
+
+    if (aHaveErrorOrWarning)
+    {
+      var clz = copyLogBtn.getAttribute("class");
+      copyLogBtn.setAttribute("class", clz ? clz + " torWarning"
+                                           : "torWarning");
     }
   }
 }
