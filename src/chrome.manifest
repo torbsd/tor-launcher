@@ -125,7 +125,7 @@ locale torlauncher zu chrome/locale/zu/
 
 skin torlauncher classic/1.0 chrome/skin/
 
-resource torlauncher /
+resource torlauncher ./
 
 # Firefox 4-style component registration
 component {4F476361-23FB-43EF-A427-B36A14D3208E} components/tl-protocol.js
