@@ -27,6 +27,7 @@
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "">
+<!ENTITY torsettings.restart "프로그램 다시 시작">
 
 <!ENTITY torsettings.optional "">
 

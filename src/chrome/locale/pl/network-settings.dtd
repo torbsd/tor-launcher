@@ -27,6 +27,7 @@
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "Uruchamianie oprogramowania Tor">
+<!ENTITY torsettings.restart "Restart">
 
 <!ENTITY torsettings.optional "(opcjonalnie)">
 
@@ -43,8 +44,8 @@
 <!ENTITY torsettings.firewall.checkbox "Ten komputer pozwala na połączenie z ustalonymi portami">
 <!ENTITY torsettings.firewall.allowedPorts "Dozwolone porty:">
 <!ENTITY torsettings.useBridges.checkbox "Mój dostawca internetu blokuje połączenia do sieci Tor">
-<!ENTITY torsettings.useBridges.label "Wpisz jeden lub więcej adresów mostków w postaci adres:port">
-<!ENTITY torsettings.useBridges.placeholder "adres:port">
+<!ENTITY torsettings.useBridges.label "">
+<!ENTITY torsettings.useBridges.placeholder "">
 
 <!ENTITY torsettings.copyLog "Skopiuj log do schowka">
 <!ENTITY torsettings.bridgeHelpTitle "Pomoc Przekaźników Mostkowych">

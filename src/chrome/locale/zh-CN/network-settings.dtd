@@ -27,6 +27,7 @@
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "等待 Tor 启动...">
+<!ENTITY torsettings.restart "重新启动">
 
 <!ENTITY torsettings.optional "可选">
 
@@ -43,8 +44,8 @@
 <!ENTITY torsettings.firewall.checkbox "该计算机的防火墙仅允许特定端口的互联网连接">
 <!ENTITY torsettings.firewall.allowedPorts "允许的端口：">
 <!ENTITY torsettings.useBridges.checkbox "我的互联网服务提供商 (ISP) 封锁了 Tor 网络连接">
-<!ENTITY torsettings.useBridges.label "请以“地址:端口”的格式输入一个或多个网桥中继。">
-<!ENTITY torsettings.useBridges.placeholder "地址:端口">
+<!ENTITY torsettings.useBridges.label "输入一个或多个网桥中继(一行一个)。">
+<!ENTITY torsettings.useBridges.placeholder "地址:端口或 obfs 网桥地址:端口">
 
 <!ENTITY torsettings.copyLog "请将 Tor 日志复制到剪贴板">
 <!ENTITY torsettings.bridgeHelpTitle "网桥中继帮助">

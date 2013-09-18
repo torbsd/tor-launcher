@@ -27,6 +27,7 @@
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "In attesa di avviare Tor...">
+<!ENTITY torsettings.restart "Riavvia">
 
 <!ENTITY torsettings.optional "Facoltativo">
 
@@ -43,8 +44,8 @@
 <!ENTITY torsettings.firewall.checkbox "Questo computer passa attraverso un firewall che permette le connessioni solo ad alcune porte">
 <!ENTITY torsettings.firewall.allowedPorts "Porte consentite:">
 <!ENTITY torsettings.useBridges.checkbox "Il mio fornitore di servizi Internet (ISP) blocca le connessioni alla rete Tor">
-<!ENTITY torsettings.useBridges.label "Inserisci uno o più ponti relé nella forma indirizzo:porta.">
-<!ENTITY torsettings.useBridges.placeholder "indirizzo:porta">
+<!ENTITY torsettings.useBridges.label "">
+<!ENTITY torsettings.useBridges.placeholder "">
 
 <!ENTITY torsettings.copyLog "Copia il log di Tor negli &quot;appunti&quot; di sistema">
 <!ENTITY torsettings.bridgeHelpTitle "Aiuto per i ponti relé">

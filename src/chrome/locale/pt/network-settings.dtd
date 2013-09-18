@@ -13,7 +13,7 @@
 <!ENTITY torSettings.configure "">
 <!ENTITY torSettings.connectPrompt1 "">
 <!ENTITY torSettings.connectPrompt2 "">
-<!ENTITY torSettings.connect "">
+<!ENTITY torSettings.connect "Ligar">
 
 <!ENTITY torSettings.proxyQuestion "">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
@@ -27,6 +27,7 @@
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "">
+<!ENTITY torsettings.restart "Reiniciar">
 
 <!ENTITY torsettings.optional "">
 

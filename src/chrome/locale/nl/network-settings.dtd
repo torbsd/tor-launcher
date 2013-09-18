@@ -27,6 +27,7 @@
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "Aan het wachten tot Tor gestart is...">
+<!ENTITY torsettings.restart "Herstart">
 
 <!ENTITY torsettings.optional "Optioneel">
 
@@ -43,8 +44,8 @@
 <!ENTITY torsettings.firewall.checkbox "Deze computer gebruikt een firewall die enkel verbindingen tot bepaalde poorten toestaat.">
 <!ENTITY torsettings.firewall.allowedPorts "Toegestane poorten:">
 <!ENTITY torsettings.useBridges.checkbox "Mijn Internet Service Provider (ISP) blokkeert verbindingen naar het Tor netwerk">
-<!ENTITY torsettings.useBridges.label "Voer één of meerdere bridge relays in volgens het formaat adres:poort.">
-<!ENTITY torsettings.useBridges.placeholder "adres:poort">
+<!ENTITY torsettings.useBridges.label "">
+<!ENTITY torsettings.useBridges.placeholder "">
 
 <!ENTITY torsettings.copyLog "Kopieer Tor log naar het klembord">
 <!ENTITY torsettings.bridgeHelpTitle "Bridge Relay Hulp">
