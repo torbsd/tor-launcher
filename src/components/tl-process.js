@@ -30,6 +30,8 @@ TorProcessService.prototype =
   kContractID : "@torproject.org/torlauncher-process-service;1",
   kServiceName : "Tor Launcher Process Service",
   kClassID: Components.ID("{FE7B4CAF-BCF4-4848-8BFF-EFA66C9AFDA1}"),
+  kThunderbirdID: "{3550f703-e582-4d05-9a08-453d09bdfdc6}",
+  kTorLauncherExtPath: "tor-launcher@torproject.org", // This could vary.
 
   kPrefPromptAtStartup: "extensions.torlauncher.prompt_at_startup",
   kInitialControlConnDelayMS: 25,
@@ -242,7 +244,7 @@ TorProcessService.prototype =
   mProtocolSvc: null,
   mTorProcess: null,    // nsIProcess
   mTorProcessStartTime: null, // JS Date.now()
-  mTBBTopDir: null,     // nsIFile for top of TBB installation (cached)
+  mTorFileBaseDir: null,      // nsIFile (cached)
   mControlConnTimer: null,
   mControlConnDelayMS: 0,
   mQuitSoon: false,     // Quit was requested by the user; do so soon.
@@ -503,29 +505,44 @@ TorProcessService.prototype =
       var f;
       if (isRelativePath)
       {
-        // Turn into an absolute path (relative to the top of the TBB install).
-        if (!this.mTBBTopDir)
+        // Turn into an absolute path.
+        if (!this.mTorFileBaseDir)
         {
-          var tbbBrowserDepth = 0;
-          if (TorLauncherUtil.isMac)
-            tbbBrowserDepth = 5;
-          else if (TorLauncherUtil.isWindows)
-            tbbBrowserDepth = 3;
-          else // Linux and others.
-            tbbBrowserDepth = 2;
-
-          var topDir = Cc["@mozilla.org/file/directory_service;1"]
-                      .getService(Ci.nsIProperties).get("CurProcD", Ci.nsIFile);
-          while (tbbBrowserDepth > 0)
+          var topDir;
+          var appInfo = Cc["@mozilla.org/xre/app-info;1"]
+                          .getService(Ci.nsIXULAppInfo);
+          if (appInfo.ID == this.kThunderbirdID)
           {
-            topDir = topDir.parent;
-            tbbBrowserDepth--;
+            // For Thunderbird, paths are relative to this extension's folder. 
+            topDir = Cc["@mozilla.org/file/directory_service;1"]
+                       .getService(Ci.nsIProperties).get("ProfD", Ci.nsIFile);
+            topDir.append("extensions");
+            topDir.append(this.kTorLauncherExtPath);
+          }
+          else
+          {
+            // For Firefox, paths are relative to the top of the TBB install.
+            var tbbBrowserDepth = 0;
+            if (TorLauncherUtil.isMac)
+              tbbBrowserDepth = 5;
+            else if (TorLauncherUtil.isWindows)
+              tbbBrowserDepth = 3;
+            else // Linux and others.
+              tbbBrowserDepth = 2;
+
+            topDir = Cc["@mozilla.org/file/directory_service;1"]
+                    .getService(Ci.nsIProperties).get("CurProcD", Ci.nsIFile);
+            while (tbbBrowserDepth > 0)
+            {
+              topDir = topDir.parent;
+              tbbBrowserDepth--;
+            }
           }
 
-          this.mTBBTopDir = topDir;
+          this.mTorFileBaseDir = topDir;
         }
 
-        f = this.mTBBTopDir.clone();
+        f = this.mTorFileBaseDir.clone();
         f.appendRelativePath(path);
       }
       else
