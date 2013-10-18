@@ -528,7 +528,9 @@ TorProcessService.prototype =
           else
           {
             // For Firefox, paths are relative to the top of the TBB install.
-            var tbbBrowserDepth = 1; // Windows and Linux
+            // In FF21+, CurProcD is the "browser" directory that is next to
+            // the firefox binary, e.g., <TorFileBaseDir>/Browser/browser
+            var tbbBrowserDepth = 2; // Windows and Linux
             if (TorLauncherUtil.isMac)
               tbbBrowserDepth += 4;
 
