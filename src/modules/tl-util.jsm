@@ -26,6 +26,15 @@ let TorLauncherUtil =  // Public
     return ("WINNT" == TLUtilInternal._OS);
   },
 
+  isAppVersionAtLeast: function(aVersion)
+  {
+    var appInfo = Cc["@mozilla.org/xre/app-info;1"]
+                    .getService(Ci.nsIXULAppInfo);
+    var vc = Cc["@mozilla.org/xpcom/version-comparator;1"]
+               .getService(Ci.nsIVersionComparator);
+    return (vc.compare(appInfo.version, aVersion) >= 0);
+  },
+
   // Error Reporting / Prompting
   showAlert: function(aParentWindow, aMsg)
   {
