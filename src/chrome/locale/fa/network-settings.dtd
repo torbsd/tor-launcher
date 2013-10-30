@@ -2,23 +2,23 @@
 
 <!-- For "first run" wizard: -->
 
-<!ENTITY torsettings.prompt "">
+<!ENTITY torsettings.prompt "پیش از آغاز اتصال بسته تور به شبکه تور، نیاز است شما اطلاعاتی درباره اتصال اینترنت این رایانه ارائه کنید">
 
 <!ENTITY torSettings.yes "بله">
 <!ENTITY torSettings.no "نه">
 
-<!ENTITY torSettings.firstQuestion "">
+<!ENTITY torSettings.firstQuestion "کدام یک از موارد زیر وضعیت شما را بهتر بیان می‌کند؟">
 <!ENTITY torSettings.configurePrompt1 "">
 <!ENTITY torSettings.configurePrompt2 "">
 <!ENTITY torSettings.configure "پیکربندی">
 <!ENTITY torSettings.connectPrompt1 "">
-<!ENTITY torSettings.connectPrompt2 "">
+<!ENTITY torSettings.connectPrompt2 "تمایل دارم مستقیما به شبکه‌ی تور متصل شوم.">
 <!ENTITY torSettings.connect "اتصال">
 
-<!ENTITY torSettings.proxyQuestion "">
+<!ENTITY torSettings.proxyQuestion "آیا این رایانه برای اتصال به اینترنت نیاز به استفاده از پراکسی دارد؟">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
 <!ENTITY torSettings.proxyHelp "">
-<!ENTITY torSettings.enterProxy "">
+<!ENTITY torSettings.enterProxy "تنظیمات پراکسی را وارد کنید.">
 <!ENTITY torSettings.firewallQuestion "">
 <!ENTITY torSettings.firewallHelp "">
 <!ENTITY torSettings.enterFirewall "">
@@ -26,12 +26,12 @@
 
 <!-- Other: -->
 
-<!ENTITY torsettings.startingTor "">
+<!ENTITY torsettings.startingTor "در انتظار آغاز به کار تور...">
 <!ENTITY torsettings.restart "شروع دوباره">
 
 <!ENTITY torsettings.optional "اختیاری">
 
-<!ENTITY torsettings.useProxy.checkbox "">
+<!ENTITY torsettings.useProxy.checkbox "این رایانه برای اتصال به اینترنت نیاز به استفاده از پراکسی دارد.">
 <!ENTITY torsettings.useProxy.type "نوع پراکسی:">
 <!ENTITY torsettings.useProxy.address "آدرس:">
 <!ENTITY torsettings.useProxy.address.placeholder "آدرس آی پی یا نام میزبان">
@@ -43,11 +43,11 @@
 <!ENTITY torsettings.useProxy.type.http "HTTP / HTTPS">
 <!ENTITY torsettings.firewall.checkbox "">
 <!ENTITY torsettings.firewall.allowedPorts "پورت های مجاز:">
-<!ENTITY torsettings.useBridges.checkbox "">
+<!ENTITY torsettings.useBridges.checkbox "‫سرویس دهنده اینترنت (ISP) من اتصال به شبکه تور را مسدود می‌کند.">
 <!ENTITY torsettings.useBridges.label "">
 <!ENTITY torsettings.useBridges.placeholder "">
 
-<!ENTITY torsettings.copyLog "">
+<!ENTITY torsettings.copyLog "کپی گزارش وقایع تور">
 <!ENTITY torsettings.bridgeHelpTitle "">
 <!ENTITY torsettings.bridgeHelp1 "">
 <!ENTITY torsettings.bridgeHelp2 "">
