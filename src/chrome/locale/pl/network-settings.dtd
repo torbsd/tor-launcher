@@ -44,8 +44,8 @@
 <!ENTITY torsettings.firewall.checkbox "Ten komputer pozwala na połączenie z ustalonymi portami">
 <!ENTITY torsettings.firewall.allowedPorts "Dozwolone porty:">
 <!ENTITY torsettings.useBridges.checkbox "Mój dostawca internetu blokuje połączenia do sieci Tor">
-<!ENTITY torsettings.useBridges.label "">
-<!ENTITY torsettings.useBridges.placeholder "">
+<!ENTITY torsettings.useBridges.label "Dodaj jeden lub więcej przekaźników mostowych (jeden w każdej linijce)">
+<!ENTITY torsettings.useBridges.placeholder "adres:port ALBO transport adres:port">
 
 <!ENTITY torsettings.copyLog "Skopiuj log do schowka">
 <!ENTITY torsettings.bridgeHelpTitle "Pomoc Przekaźników Mostkowych">

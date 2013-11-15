@@ -1,6 +1,6 @@
 #!/bin/sh
 
-BUNDLE_LOCALES="de es fa fr it ko nl pl pt ru vi zh-CN"
+BUNDLE_LOCALES="de es fa fr it ja ko nl pl pt ru vi zh-CN"
 
 if [ -d translation ];
 then
