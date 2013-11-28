@@ -31,6 +31,7 @@ TorProcessService.prototype =
   kServiceName : "Tor Launcher Process Service",
   kClassID: Components.ID("{FE7B4CAF-BCF4-4848-8BFF-EFA66C9AFDA1}"),
   kThunderbirdID: "{3550f703-e582-4d05-9a08-453d09bdfdc6}",
+  kInstantbirdID: "{33cb9019-c295-46dd-be21-8c4936574bee}",
   kTorLauncherExtPath: "tor-launcher@torproject.org", // This could vary.
 
   kPrefPromptAtStartup: "extensions.torlauncher.prompt_at_startup",
@@ -517,9 +518,9 @@ TorProcessService.prototype =
           var topDir;
           var appInfo = Cc["@mozilla.org/xre/app-info;1"]
                           .getService(Ci.nsIXULAppInfo);
-          if (appInfo.ID == this.kThunderbirdID)
+          if (appInfo.ID == this.kThunderbirdID || appInfo.ID == this.kInstantbirdID)
           {
-            // For Thunderbird, paths are relative to this extension's folder. 
+            // For Thunderbird and Instantbird, paths are relative to this extension's folder.
             topDir = Cc["@mozilla.org/file/directory_service;1"]
                        .getService(Ci.nsIProperties).get("ProfD", Ci.nsIFile);
             topDir.append("extensions");
