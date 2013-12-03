@@ -603,7 +603,14 @@ TorProtocolService.prototype =
       aConn = this.mControlConnection;
 
     if (aConn && aConn.socket)
-      aConn.socket.close(0);
+    {
+      if (aConn.binInStream)
+        aConn.binInStream.close();
+      if (aConn.binOutStream)
+        aConn.binOutStream.close();
+
+      aConn.socket.close(Cr.NS_OK);
+    }
 
     if (aConn == this.mControlConnection)
       this.mControlConnection = null;
@@ -1142,8 +1149,11 @@ TorProtocolService.prototype =
     {
       onInputStreamReady: function(aInStream)
       {
-        if (_this.mEventMonitorConnection.inStream != aInStream)
+        if (!_this.mEventMonitorConnection ||
+            (_this.mEventMonitorConnection.inStream != aInStream))
+        {
           return;
+        }
 
         var binStream = _this.mEventMonitorConnection.binInStream;
         var bytes = binStream.readBytes(binStream.available());
