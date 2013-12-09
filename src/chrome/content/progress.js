@@ -21,6 +21,21 @@ var gOpenerCallbackFunc; // Set when opened from network settings.
 
 function initDialog()
 {
+  // If tor bootstrap has already finished, just close the progress dialog.
+  // This situation can occur if bootstrapping is very fast and/or if this
+  // window opens slowly (observed with Adblock Plus installed).
+  try
+  {
+    var processSvc = Cc["@torproject.org/torlauncher-process-service;1"]
+                .getService(Ci.nsISupports).wrappedJSObject;
+    if (processSvc.TorIsBootstrapDone || processSvc.TorBootstrapErrorOccurred)
+    {
+      closeThisWindow(processSvc.TorIsBootstrapDone);
+      return;
+    }
+  }
+  catch (e) { dump(e + "\n"); }
+
   try
   {
     gObsSvc = Cc["@mozilla.org/observer-service;1"]
