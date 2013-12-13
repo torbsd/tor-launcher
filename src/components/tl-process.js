@@ -101,16 +101,20 @@ TorProcessService.prototype =
       this.mObsSvc.removeObserver(this, kBootstrapStatusTopic);
       if (this.mTorProcess)
       {
-        TorLauncherLogger.log(4, "Shutting down tor process (pid "
+        // We now rely on the TAKEOWNERSHIP feature to shut down tor when we
+        // close the control port connection.
+        //
+        // Previously, we sent a SIGNAL HALT command to the tor control port,
+        // but that caused hangs upon exit in the Firefox 24.x based browser.
+        // Apparently, Firefox does not like to process socket I/O while
+        // quitting if the browser did not finish starting up (e.g., when
+        // someone presses the Quit button on our Network Settings or progress
+        // window during startup).
+        TorLauncherLogger.log(4, "Disconnecting from tor process (pid "
                                    + this.mTorProcess.pid + ")");
-
-        var reply = this.mProtocolSvc.TorSendCommand("SIGNAL", "HALT");
-        if (!this.mProtocolSvc.TorCommandSucceeded(reply))
-          this.mTorProcess.kill();
+        this.mProtocolSvc.TorCleanupConnection();
 
         this.mTorProcess = null;
-
-        this.mProtocolSvc.TorCleanupConnection();
       }
     }
     else if (("process-failed" == aTopic) || ("process-finished" == aTopic))
