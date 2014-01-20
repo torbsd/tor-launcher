@@ -1,4 +1,4 @@
-// Copyright (c) 2013, The Tor Project, Inc.
+// Copyright (c) 2014, The Tor Project, Inc.
 // See LICENSE for licensing information.
 // TODO: Some code came from torbutton.js (pull in copyright and license?)
 //
@@ -313,7 +313,7 @@ TorProtocolService.prototype =
         sawBootstrap = true;
       else if ("CIRCUIT_ESTABLISHED" == token)
         sawCircuitEstablished = true;
-      else if (("WARN" == token) || ("NOTICE" == token))
+      else if (("WARN" == token) || ("NOTICE" == token) || ("ERR" == token))
         statusObj.TYPE = token;
       else if (("COUNT" == token) || ("PROGRESS" == token))
         statusObj[token] = parseInt(val, 10);
@@ -323,16 +323,13 @@ TorProtocolService.prototype =
 
     if (!sawBootstrap)
     {
-      if (sawCircuitEstablished)
-        TorLauncherLogger.log(2, "_parseBootstrapStatus: CIRCUIT_ESTABLISHED");
-      else
-        TorLauncherLogger.log(4, "_parseBootstrapStatus: missing BOOTSTRAP");
-
+      var logLevel = ("NOTICE" == statusObj.TYPE) ? 3 : 4;
+      TorLauncherLogger.log(logLevel, aStatusMsg);
       return null;
     }
 
     // this._dumpObj("BootstrapStatus", statusObj);
-    statusObj._errorOccurred = (("WARN" == statusObj.TYPE) &&
+    statusObj._errorOccurred = (("NOTICE" != statusObj.TYPE) &&
                                 ("warn" == statusObj.RECOMMENDATION));
 
     // Notify observers.
