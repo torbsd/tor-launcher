@@ -1,4 +1,4 @@
-// Copyright (c) 2013, The Tor Project, Inc.
+// Copyright (c) 2014, The Tor Project, Inc.
 // See LICENSE for licensing information.
 //
 // vim: set sw=2 sts=2 ts=8 et syntax=javascript:
@@ -142,7 +142,8 @@ var gObserver = {
     else if (kBootstrapStatusTopic == aTopic)
     {
       var statusObj = aSubject.wrappedJSObject;
-      var labelText = (statusObj.SUMMARY) ? statusObj.SUMMARY : "";
+      var labelText =
+                TorLauncherUtil.getLocalizedBootstrapStatus(statusObj, "TAG");
       var percentComplete = (statusObj.PROGRESS) ? statusObj.PROGRESS : 0;
 
       var meter = document.getElementById("progressMeter");
@@ -158,8 +159,9 @@ var gObserver = {
       }
       else if (statusObj._errorOccurred)
       {
-        if (statusObj.WARNING)
-          labelText = statusObj.WARNING;
+        var s = TorLauncherUtil.getLocalizedBootstrapStatus(statusObj, "REASON");
+        if (s)
+          labelText = s;
 
         if (meter)
           meter.setAttribute("hidden", true);

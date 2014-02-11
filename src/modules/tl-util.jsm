@@ -1,4 +1,4 @@
-// Copyright (c) 2013, The Tor Project, Inc.
+// Copyright (c) 2014, The Tor Project, Inc.
 // See LICENSE for licensing information.
 //
 // vim: set sw=2 sts=2 ts=8 et syntax=javascript:
@@ -92,6 +92,47 @@ let TorLauncherUtil =  // Public
     } catch(e) {}
 
     return aStringName;
+  },
+
+  getLocalizedBootstrapStatus: function(aStatusObj, aKeyword)
+  {
+    if (!aStatusObj || !aKeyword)
+      return "";
+
+    var result;
+    var fallbackStr;
+    if (aStatusObj[aKeyword])
+    {
+      var val = aStatusObj[aKeyword].toLowerCase();
+      var key;
+      if (aKeyword == "TAG")
+      {
+        if ("onehop_create" == val)
+          val = "handshake_dir";
+        else if ("circuit_create" == val)
+          val = "handshake_or";
+
+        key = "bootstrapStatus." + val;
+        fallbackStr = aStatusObj.SUMMARY;
+      }
+      else if (aKeyword == "REASON")
+      {
+        if ("connectreset" == val)
+          val = "connectrefused";
+
+        key = "bootstrapWarning." + val;
+        fallbackStr = aStatusObj.WARNING;
+      }
+
+      result = TorLauncherUtil.getLocalizedString(key);
+      if (result == key)
+        result = undefined;
+    }
+
+    if (!result)
+      result = fallbackStr;
+
+    return (result) ? result : "";
   },
 
   // Preferences

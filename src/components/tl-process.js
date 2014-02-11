@@ -1,4 +1,4 @@
-// Copyright (c) 2013, The Tor Project, Inc.
+// Copyright (c) 2014, The Tor Project, Inc.
 // See LICENSE for licensing information.
 //
 // vim: set sw=2 sts=2 ts=8 et syntax=javascript:
@@ -236,7 +236,7 @@ TorProcessService.prototype =
   TorClearBootstrapError: function()
   {
     this.mLastTorWarningPhase = null;
-    this.mLastTorWarningText = null;
+    this.mLastTorWarningReason = null;
   },
 
 
@@ -255,7 +255,7 @@ TorProcessService.prototype =
   mQuitSoon: false,     // Quit was requested by the user; do so soon.
   mRestartWithQuit: false,
   mLastTorWarningPhase: null,
-  mLastTorWarningText: null,
+  mLastTorWarningReason: null,
 
 
   // Private Methods /////////////////////////////////////////////////////////
@@ -412,20 +412,22 @@ TorProcessService.prototype =
       {
         this.mBootstrapErrorOccurred = true;
         TorLauncherUtil.setBoolPref(this.kPrefPromptAtStartup, true);
-        TorLauncherLogger.log(5, "Tor bootstrap error: " + aStatusObj.WARNING);
+        var reason = TorLauncherUtil.getLocalizedBootstrapStatus(aStatusObj,
+                                                                 "REASON");
+        TorLauncherLogger.log(5, "Tor bootstrap error: " + aStatusObj.REASON +
+                                 " (" + reason + ")");
 
         if ((aStatusObj.TAG != this.mLastTorWarningPhase) ||
-            (aStatusObj.WARNING != this.mLastTorWarningText))
+            (aStatusObj.REASON != this.mLastTorWarningReason))
         {
           this.mLastTorWarningPhase = aStatusObj.TAG;
-          this.mLastTorWarningText = aStatusObj.WARNING;
+          this.mLastTorWarningReason = aStatusObj.REASON;
 
           var s = TorLauncherUtil.getFormattedLocalizedString(
-                               "tor_bootstrap_failed", [aStatusObj.WARNING], 1);
+                                         "tor_bootstrap_failed", [reason], 1);
           TorLauncherUtil.showAlert(null, s);
         
-          this.mObsSvc.notifyObservers(null, "TorBootstrapError",
-                                       aStatusObj.WARNING);
+          this.mObsSvc.notifyObservers(null, "TorBootstrapError", reason);
         }
       }
     }
