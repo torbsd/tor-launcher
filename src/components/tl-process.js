@@ -412,10 +412,14 @@ TorProcessService.prototype =
       {
         this.mBootstrapErrorOccurred = true;
         TorLauncherUtil.setBoolPref(this.kPrefPromptAtStartup, true);
+        var phase = TorLauncherUtil.getLocalizedBootstrapStatus(aStatusObj,
+                                                                "TAG");
         var reason = TorLauncherUtil.getLocalizedBootstrapStatus(aStatusObj,
                                                                  "REASON");
-        TorLauncherLogger.log(5, "Tor bootstrap error: " + aStatusObj.REASON +
-                                 " (" + reason + ")");
+        var details = TorLauncherUtil.getFormattedLocalizedString(
+                          "tor_bootstrap_failed_details", [phase, reason], 2);
+        TorLauncherLogger.log(5, "Tor bootstrap error: [" + aStatusObj.TAG +
+                                 "/" + aStatusObj.REASON + "] " + details);
 
         if ((aStatusObj.TAG != this.mLastTorWarningPhase) ||
             (aStatusObj.REASON != this.mLastTorWarningReason))
@@ -423,9 +427,8 @@ TorProcessService.prototype =
           this.mLastTorWarningPhase = aStatusObj.TAG;
           this.mLastTorWarningReason = aStatusObj.REASON;
 
-          var s = TorLauncherUtil.getFormattedLocalizedString(
-                                         "tor_bootstrap_failed", [reason], 1);
-          TorLauncherUtil.showAlert(null, s);
+          var msg = TorLauncherUtil.getLocalizedString("tor_bootstrap_failed");
+          TorLauncherUtil.showAlert(null, msg + "\n\n" + details);
         
           this.mObsSvc.notifyObservers(null, "TorBootstrapError", reason);
         }
