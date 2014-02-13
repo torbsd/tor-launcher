@@ -11,8 +11,8 @@
 <!ENTITY torSettings.configurePrompt1 "Интернет-соединение этого компьютера цензурируется, фильтруется или находятся за прокси.">
 <!ENTITY torSettings.configurePrompt2 "Мне нужно настроить сетевые параметры.">
 <!ENTITY torSettings.configure "Настроить">
-<!ENTITY torSettings.connectPrompt1 "Интернет-соединение этого компьютера не имеет ограничений.">
 <!ENTITY torSettings.connectPrompt2 "Я бы хотел соединиться с сетью Tor напрямую.">
+<!ENTITY torSettings.connectPrompt3 "">
 <!ENTITY torSettings.connect "Соединиться">
 
 <!ENTITY torSettings.proxyQuestion "Этому компьютеру нужен прокси для доступа в Интернет?">

@@ -11,8 +11,8 @@
 <!ENTITY torSettings.configurePrompt1 "Die Internetverbindung dieses Rechner ist zensiert, gefiltert oder vermittelt.">
 <!ENTITY torSettings.configurePrompt2 "Ich muss die Netzwerkeinstellungen konfigurieren.">
 <!ENTITY torSettings.configure "Konfigurieren">
-<!ENTITY torSettings.connectPrompt1 "Die Internetverbindung dieses Rechners ist frei von Hindernissen.">
 <!ENTITY torSettings.connectPrompt2 "Ich würde gerne direkt eine Verbindung zum Tor-Netzwerk herstellen.">
+<!ENTITY torSettings.connectPrompt3 "">
 <!ENTITY torSettings.connect "Verbinden">
 
 <!ENTITY torSettings.proxyQuestion "Benötigt dieser Rechner einen Vermittlungsserver um eine Verbindung zum Internet herzustellen?">

@@ -11,8 +11,8 @@
 <!ENTITY torSettings.configurePrompt1 "A ligação à Internet deste computador está a ser censurada, filtrada ou utilizada através de um proxy.">
 <!ENTITY torSettings.configurePrompt2 "Preciso de configuar definições de rede.">
 <!ENTITY torSettings.configure "Configurar">
-<!ENTITY torSettings.connectPrompt1 "A ligação à Internet deste computador está livre de obstáculos.">
 <!ENTITY torSettings.connectPrompt2 "Gostaria de me ligar diretamente à rede Tor.">
+<!ENTITY torSettings.connectPrompt3 "">
 <!ENTITY torSettings.connect "Ligar">
 
 <!ENTITY torSettings.proxyQuestion "Este computador precisa de usar um proxy para aceder a Internet?">

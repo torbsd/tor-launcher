@@ -11,8 +11,8 @@
 <!ENTITY torSettings.configurePrompt1 "اینترنت استفاده شده در این رایانه ها سانسور شده٫فیلتر شده و یا عبور کرده از روی پراکسی می باشند.">
 <!ENTITY torSettings.configurePrompt2 "من نیاز به تنظیمات شبکه دارم.">
 <!ENTITY torSettings.configure "پیکربندی">
-<!ENTITY torSettings.connectPrompt1 "This computer's Internet connection is clear of obstacles.">
 <!ENTITY torSettings.connectPrompt2 "تمایل دارم مستقیما به شبکه‌ی تور متصل شوم.">
+<!ENTITY torSettings.connectPrompt3 "">
 <!ENTITY torSettings.connect "اتصال">
 
 <!ENTITY torSettings.proxyQuestion "آیا این رایانه برای اتصال به اینترنت نیاز به استفاده از پراکسی دارد؟">

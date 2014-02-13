@@ -11,8 +11,8 @@
 <!ENTITY torSettings.configurePrompt1 "このコンピュータのインターネット接続は検閲されているか、フィルターされているか、プロキシを通します。">
 <!ENTITY torSettings.configurePrompt2 "ネットワーク設定を構成する必要があります。">
 <!ENTITY torSettings.configure "構成">
-<!ENTITY torSettings.connectPrompt1 "このコンピュータのインターネット接続には障害がありません。">
 <!ENTITY torSettings.connectPrompt2 "Torネットワークへ直接接続したいです。">
+<!ENTITY torSettings.connectPrompt3 "">
 <!ENTITY torSettings.connect "接続">
 
 <!ENTITY torSettings.proxyQuestion "このコンピューターはインターネットにアクセスするのにProxyが必要ですか？">

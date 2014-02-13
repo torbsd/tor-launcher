@@ -11,8 +11,8 @@
 <!ENTITY torSettings.configurePrompt1 "该计算机的网络连接受到审查或过滤，或者需要使用代理。">
 <!ENTITY torSettings.configurePrompt2 "我需要配置网络设置。">
 <!ENTITY torSettings.configure "配置">
-<!ENTITY torSettings.connectPrompt1 "该计算机的网络连接毫无阻碍。">
 <!ENTITY torSettings.connectPrompt2 "我想要直接连接 Tor 网络。">
+<!ENTITY torSettings.connectPrompt3 "">
 <!ENTITY torSettings.connect "连接">
 
 <!ENTITY torSettings.proxyQuestion "该计算机是否需要通过代理访问互联网？">

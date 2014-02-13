@@ -11,8 +11,8 @@
 <!ENTITY torSettings.configurePrompt1 "La connexion Internet de cet ordinateur est censurée, filtrée ou nécessite un proxy.">
 <!ENTITY torSettings.configurePrompt2 "J'ai besoin de configurer les paramètres réseau. ">
 <!ENTITY torSettings.configure "Configurer">
-<!ENTITY torSettings.connectPrompt1 "Rien n'entrave la connexion Internet de cet ordinateur.">
 <!ENTITY torSettings.connectPrompt2 "Je souhaite me connecter directement au réseau Tor.">
+<!ENTITY torSettings.connectPrompt3 "">
 <!ENTITY torSettings.connect "Se connecter">
 
 <!ENTITY torSettings.proxyQuestion "Est-ce que cet ordinateur à besoin d'un proxy pour accéder à internet ?">

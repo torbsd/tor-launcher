@@ -11,8 +11,8 @@
 <!ENTITY torSettings.configurePrompt1 "Połączenie tego komputera jest cenzurowane, filtrowane lub przekierowywane.">
 <!ENTITY torSettings.configurePrompt2 "Potrzebuję dostosować ustawienia sieci.">
 <!ENTITY torSettings.configure "Konfiguruj">
-<!ENTITY torSettings.connectPrompt1 "Połączenie internetowe jest wolne od przeszkód.">
 <!ENTITY torSettings.connectPrompt2 "Chcę połączyć się bezpośrednio z siecią Tor.">
+<!ENTITY torSettings.connectPrompt3 "">
 <!ENTITY torSettings.connect "Połącz">
 
 <!ENTITY torSettings.proxyQuestion "Czy ten komputer potrzebuje proxy w celu połączenia się z Internetem?">

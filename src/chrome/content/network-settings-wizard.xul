@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!--
-   - Copyright (c) 2013, The Tor Project, Inc.
+   - Copyright (c) 2014, The Tor Project, Inc.
    - See LICENSE for licensing information.
    - vim: set sw=2 sts=2 ts=8 et syntax=xml:
   -->
@@ -41,8 +41,8 @@
     <vbox class="firstResponses" align="start">
       <label class="question">&torSettings.firstQuestion;</label>
       <separator/>
-      <label>&torSettings.connectPrompt1;</label>
       <label>&torSettings.connectPrompt2;</label>
+      <label>&torSettings.connectPrompt3;</label>
       <button label="&torSettings.connect;" oncommand="useSettings();"/>
       <separator class="tall"/>
       <label>&torSettings.configurePrompt1;</label>

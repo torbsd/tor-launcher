@@ -11,8 +11,8 @@
 <!ENTITY torSettings.configurePrompt1 " اتصال الإنترنت لهذا الكمبيوتر مُراقب، أو مصفى، أو يعمل ببروكسي.">
 <!ENTITY torSettings.configurePrompt2 "أحتاج إلي تكوين إعدادات الشبكة.">
 <!ENTITY torSettings.configure "تكوين">
-<!ENTITY torSettings.connectPrompt1 "اتصال الإنترنت لهذا الكمبيوتر خالي من العقبات.">
 <!ENTITY torSettings.connectPrompt2 "أود الاتصال مباشرة إلى شبكة تور.">
+<!ENTITY torSettings.connectPrompt3 "">
 <!ENTITY torSettings.connect "اتصل">
 
 <!ENTITY torSettings.proxyQuestion "هل يحتاج هذا الجهاز إلي بروكسي حتي يصل إلي شبكة الإنترنت؟">

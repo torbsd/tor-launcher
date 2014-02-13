@@ -11,8 +11,8 @@
 <!ENTITY torSettings.configurePrompt1 "">
 <!ENTITY torSettings.configurePrompt2 "">
 <!ENTITY torSettings.configure "">
-<!ENTITY torSettings.connectPrompt1 "">
 <!ENTITY torSettings.connectPrompt2 "">
+<!ENTITY torSettings.connectPrompt3 "">
 <!ENTITY torSettings.connect "">
 
 <!ENTITY torSettings.proxyQuestion "">

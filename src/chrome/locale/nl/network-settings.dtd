@@ -11,8 +11,8 @@
 <!ENTITY torSettings.configurePrompt1 "De internetverbinding van deze computer wordt gecensureerd, gefilterd of geproxyed.">
 <!ENTITY torSettings.configurePrompt2 "Ik moet netwerkinstellingen configureren.">
 <!ENTITY torSettings.configure "Configureer">
-<!ENTITY torSettings.connectPrompt1 "De internetverbinding van deze computer is vrij van obstakels.">
 <!ENTITY torSettings.connectPrompt2 "Ik zou graag rechtstreeks met het Tor netwerk verbinden.">
+<!ENTITY torSettings.connectPrompt3 "">
 <!ENTITY torSettings.connect "Verbind">
 
 <!ENTITY torSettings.proxyQuestion "Heeft deze computer een proxy nodig om met het internet te verbinden?">
