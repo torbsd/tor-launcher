@@ -49,7 +49,11 @@
 
 <!ENTITY torsettings.copyLog "کپی گزارش وقایع تور">
 <!ENTITY torsettings.bridgeHelpTitle "کمک برای پل ارتباطی">
-<!ENTITY torsettings.bridgeHelp1 "If you are unable to connect to the Tor network, it could be that your Internet Service Provider (ISP) or another agency is blocking Tor.&amp;#160; Often, you can work around this problem by using Tor Bridges which are hidden relays that are more difficult to block.">
+<!ENTITY torsettings.bridgeHelp1 "If you are unable to connect to the Tor network, it could be that your Internet Service Provider (ISP) or another agency is blocking Tor.&amp;#160; Often, you can work around this problem by using Tor Bridges which are unlisted relays that are more difficult to block.">
+<!ENTITY torsettings.bridgeHelp1B "">
+<!ENTITY torsettings.bridgeHelp2Heading "">
 <!ENTITY torsettings.bridgeHelp2 "برای بدست آوردن پل ارتباطی٫با استفاده از مرورگر وب به آدرس https://bridges.torproject.org مراجعه فرمایید.">
+<!ENTITY torsettings.bridgeHelp3Heading "">
 <!ENTITY torsettings.bridgeHelp3 "Another way to find public bridge addresses is to send mail to bridges@torproject.org with the line 'get bridges' by itself in the body of the message.&amp;#160; However, to make it harder for an attacker to learn a lot of bridge addresses, you must send this request from an email address at one of the following domains: gmail.com or yahoo.com.">
+<!ENTITY torsettings.bridgeHelp4Heading "">
 <!ENTITY torsettings.bridgeHelp4 "شما میتوانید با ارسال ایمیل به help@rt.torproject.org درخواست پل ارتباطی نمایید.">

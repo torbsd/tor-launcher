@@ -49,7 +49,11 @@
 
 <!ENTITY torsettings.copyLog "نسخ سجل تور إلي الحافظة">
 <!ENTITY torsettings.bridgeHelpTitle "المساعدة الخاصة بالجسور المُرحلة">
-<!ENTITY torsettings.bridgeHelp1 "قد يكون السبب في عدم قدرتك علي الاتصال بشبكة تورهو ان مزود خدمة الإنترنت الخاص بك (ISP) أو منظمة اخري يمنع محاولات الاتصال بشبكة تور. &amp;#160; وغالباً، تستطيع تخطي هذا المنع عن طريق استخدام جسور تور و الجسور عبارة عن مُرحلات مخفية صعب منعها.">
+<!ENTITY torsettings.bridgeHelp1 "قد يكون السبب في عدم قدرتك علي الاتصال بشبكة تورهو ان مزود خدمة الإنترنت الخاص بك (ISP) أو منظمة اخري يمنع محاولات الاتصال بشبكة تور. &#160; وغالباً، تستطيع تخطي هذا المنع عن طريق استخدام جسور تور و الجسور عبارة عن مُرحلات مخفية صعب منعها.">
+<!ENTITY torsettings.bridgeHelp1B "">
+<!ENTITY torsettings.bridgeHelp2Heading "">
 <!ENTITY torsettings.bridgeHelp2 "للحصول علي بعض الجسور، زر هذه الصفحة من خلال المتصفح: https://bridges.torproject.org">
-<!ENTITY torsettings.bridgeHelp3 "وهناك طريقة أخرى للعثور على عناوين الجسور العامة وهي إرسال بريد إلكتروني إلى bridges@torproject.org يحتوي علي 'get bridges' في قلب البريد.&amp;#160; و حتي تضمن وصول ذلك البريد لنا بنجاح استخدم إما gmail.com أو إما yahoo.com">
+<!ENTITY torsettings.bridgeHelp3Heading "">
+<!ENTITY torsettings.bridgeHelp3 "وهناك طريقة أخرى للعثور على عناوين الجسور العامة وهي إرسال بريد إلكتروني إلى bridges@torproject.org يحتوي علي 'get bridges' في قلب البريد.&#160; و حتي تضمن وصول ذلك البريد لنا بنجاح استخدم إما gmail.com أو إما yahoo.com">
+<!ENTITY torsettings.bridgeHelp4Heading "">
 <!ENTITY torsettings.bridgeHelp4 "يمكنك إيضاً طلب الجسور يإرسال بريد إلكتروني إلي help@rt.torproject.org.">

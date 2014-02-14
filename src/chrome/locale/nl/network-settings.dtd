@@ -50,6 +50,10 @@
 <!ENTITY torsettings.copyLog "Kopieer Tor log naar het klembord">
 <!ENTITY torsettings.bridgeHelpTitle "Bridge Relay Hulp">
 <!ENTITY torsettings.bridgeHelp1 "Als je niet kan verbinden met het Tor netwerk, dan is het mogelijk dat je Internet Service Provider (ISP) of en ander agentschap Tor &amp;#160; blokkeert. Vaak kan je dit probleem omzeilen door gebruik te maken van Tor Bridges. Dit zijn verborgen relays die moeilijker te blokkeren zijn.">
+<!ENTITY torsettings.bridgeHelp1B "">
+<!ENTITY torsettings.bridgeHelp2Heading "">
 <!ENTITY torsettings.bridgeHelp2 "Om enkele bridge relays te verkrijgen gebruik je een web browser om de volgende pagina te bezoeken: https://bridges.torproject.org">
+<!ENTITY torsettings.bridgeHelp3Heading "">
 <!ENTITY torsettings.bridgeHelp3 "Een andere manier om openbare bridge addressen te verkrijgen is door e-mail te sturen naar bridges@torproject.org met de woorden 'get bridges' als losstaande tekst in het berichtgedeelte van de e-mail. &amp;#160; Echter: om het moelijker te maken voor een aanvaller om veel bridge adressen te verkrijgen, moet je deze e-mail versturen vanaf een e-mailadres uit één van de volgende domeinen: gmail.com of yahoo.com.">
+<!ENTITY torsettings.bridgeHelp4Heading "">
 <!ENTITY torsettings.bridgeHelp4 "Je kan ook bridge relays opvragen door een e-mail te sturen naar help@rt.torproject.org.">

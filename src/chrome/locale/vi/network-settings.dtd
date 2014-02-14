@@ -50,6 +50,10 @@
 <!ENTITY torsettings.copyLog "">
 <!ENTITY torsettings.bridgeHelpTitle "">
 <!ENTITY torsettings.bridgeHelp1 "">
+<!ENTITY torsettings.bridgeHelp1B "">
+<!ENTITY torsettings.bridgeHelp2Heading "">
 <!ENTITY torsettings.bridgeHelp2 "">
+<!ENTITY torsettings.bridgeHelp3Heading "">
 <!ENTITY torsettings.bridgeHelp3 "">
+<!ENTITY torsettings.bridgeHelp4Heading "">
 <!ENTITY torsettings.bridgeHelp4 "">

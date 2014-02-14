@@ -50,6 +50,10 @@
 <!ENTITY torsettings.copyLog "Torのログをクリップボードにコピー">
 <!ENTITY torsettings.bridgeHelpTitle "ブリッジリレーのヘルプ">
 <!ENTITY torsettings.bridgeHelp1 "Torネットワークに接続できない場合、あなたのインターネットサービスプロバイダ(ISP)か別の代理店がTorをブロックしている可能性があります。&amp;#160; ブロックすることをより困難にする隠しリレーであるTorブリッジを使用することで、しばしばこの問題を回避出来ます。">
+<!ENTITY torsettings.bridgeHelp1B "">
+<!ENTITY torsettings.bridgeHelp2Heading "">
 <!ENTITY torsettings.bridgeHelp2 "いくつかブリッジリレーを入手するには、ウェブブラウザーを使用し、以下のページに行ってください: https://bridges.torproject.org">
+<!ENTITY torsettings.bridgeHelp3Heading "">
 <!ENTITY torsettings.bridgeHelp3 "パブリックなブリッジアドレスを見つけるもう一つの方法は、本文に&lt;b&gt;get bridges&lt;/b&gt;と記入したE-mailを bridges@torproject.org 宛に送信する ことです。&amp;#160; しかし、アタッカーがたくさんのブリッジアドレスを収集するのを困難にするため、 あなたは、gmail.comかyahoo.comのドメインのいずれかからこのリクエストを送らなければなりません。">
+<!ENTITY torsettings.bridgeHelp4Heading "">
 <!ENTITY torsettings.bridgeHelp4 "help@rt.torproject.org宛にメールを送信することでもブリッジリレーを要求できます。">

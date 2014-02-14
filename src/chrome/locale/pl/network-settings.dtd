@@ -50,6 +50,10 @@
 <!ENTITY torsettings.copyLog "Skopiuj log do schowka">
 <!ENTITY torsettings.bridgeHelpTitle "Pomoc Przekaźników Mostkowych">
 <!ENTITY torsettings.bridgeHelp1 "Jeśli nie możesz połączyć się z siecią Tor możliwe jest, że Twój dostawca internetu (ISP) blokuje Ci ten dostęp&amp;#160. Częstym rozwiązaniem jest użycie mostków Tora, w których ukryte są przekaźniki trudne do wykrycia.">
+<!ENTITY torsettings.bridgeHelp1B "">
+<!ENTITY torsettings.bridgeHelp2Heading "">
 <!ENTITY torsettings.bridgeHelp2 "W celu uzyskania przekaźników mostkowych skorzystać ze strony  https://bridges.torproject.org">
+<!ENTITY torsettings.bridgeHelp3Heading "">
 <!ENTITY torsettings.bridgeHelp3 "Inną drogą do znalezienia publicznych mostków jest wysłanie e-maila do bridges@torproject.org z poleceniem 'get bridges' w tytule wiadomości.&amp;#160; Jednakże, by utrudnić atakującym dostęp do wiedzy o mostkach musisz wysłać zapytanie z adresu o domenach: gmail.com lub yahoo.com.">
+<!ENTITY torsettings.bridgeHelp4Heading "">
 <!ENTITY torsettings.bridgeHelp4 "Możesz zgłosić mostki wysyłając e-maila do help@rt.torproject.org.">

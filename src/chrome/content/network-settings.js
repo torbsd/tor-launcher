@@ -520,6 +520,9 @@ function onOpenHelp()
     showOrHideButton("back", false, false);
     showOrHideButton("extra2", false, false);
     overrideButtonLabel("next", "done");
+    var forAssistance = document.getElementById("forAssistance");
+    if (forAssistance)
+      forAssistance.setAttribute("hidden", true);
   }
   else
     overrideButtonLabel("cancel", "done");
@@ -539,6 +542,9 @@ function closeHelp()
     if (copyLogBtn && copyLogBtn.hasAttribute("wizardCanCopyLog"))
       copyLogBtn.removeAttribute("hidden");
     restoreButtonLabel("next");
+    var forAssistance = document.getElementById("forAssistance");
+    if (forAssistance)
+      forAssistance.removeAttribute("hidden");
   }
   else
     restoreButtonLabel("cancel");

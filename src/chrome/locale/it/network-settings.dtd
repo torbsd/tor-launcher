@@ -50,6 +50,10 @@
 <!ENTITY torsettings.copyLog "Copia il log di Tor negli &quot;appunti&quot; di sistema">
 <!ENTITY torsettings.bridgeHelpTitle "Aiuto per i ponti relé">
 <!ENTITY torsettings.bridgeHelp1 "Se non riesci a connetterti alla rete Tor, potrebbe essere il tuo fornitore di servizi Internet (ISP), o un altro ente, che sta bloccando Tor.&amp;#160; Spesso è possibile aggirare questo problema utilizzando i ponti Tor: si tratta di relé nascosti, più difficili da bloccare.">
+<!ENTITY torsettings.bridgeHelp1B "">
+<!ENTITY torsettings.bridgeHelp2Heading "">
 <!ENTITY torsettings.bridgeHelp2 "Per ottenere una lista di ponti relé, visita con un browser web la seguente pagina: https://bridges.torproject.org">
+<!ENTITY torsettings.bridgeHelp3Heading "">
 <!ENTITY torsettings.bridgeHelp3 "Un altro modo per conoscere gli indirizzi dei ponti pubblici consiste nell'inviare una e-mail all'indirizzo bridges@torproject.org con il testo 'get bridges' nel corpo del messaggio.&amp;#160; Tuttavia, per rendere più difficile ad un utente malintenzionato il rilevamento di molti indirizzi dei ponti, devi inviare la richiesta da un indirizzo e-mail appartenente ad uno dei seguenti domini: gmail.com oppure yahoo.com.">
+<!ENTITY torsettings.bridgeHelp4Heading "">
 <!ENTITY torsettings.bridgeHelp4 "Una lista di ponti relé può essere ottenuta anche inviando una e-mail all'indirizzo help@rt.torproject.org.">
