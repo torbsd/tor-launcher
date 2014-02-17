@@ -90,7 +90,10 @@ TorProcessService.prototype =
       this.mObsSvc.addObserver(this, kBootstrapStatusTopic, false);
 
       if (TorLauncherUtil.shouldStartAndOwnTor)
+      {
         this._startTor();
+        this._controlTor();
+      }
     }
     else if ("quit-application-granted" == aTopic)
     {
@@ -340,7 +343,24 @@ TorProcessService.prototype =
       p.runwAsync(args, args.length, this, false);
       this.mTorProcess = p;
       this.mTorProcessStartTime = Date.now();
+    }
+    catch (e)
+    {
+      this.mTorProcessStatus = this.kStatusExited;
+      var s = TorLauncherUtil.getLocalizedString("tor_failed_to_start");
+      TorLauncherUtil.showAlert(null, s);
+      TorLauncherLogger.safelog(4, "_startTor error: ", e);
+    }
+  }, // _startTor()
 
+
+  _controlTor: function()
+  {
+    var isInitialBootstrap =
+          TorLauncherUtil.getBoolPref(this.kPrefPromptAtStartup);
+
+    try
+    {
       this._monitorTorProcessStartup();
 
       if (isInitialBootstrap)
@@ -378,11 +398,11 @@ TorProcessService.prototype =
     catch (e)
     {
       this.mTorProcessStatus = this.kStatusExited;
-      var s = TorLauncherUtil.getLocalizedString("tor_failed_to_start");
+      var s = TorLauncherUtil.getLocalizedString("tor_control_failed");
       TorLauncherUtil.showAlert(null, s);
-      TorLauncherLogger.safelog(4, "_startTor error: ", e);
+      TorLauncherLogger.safelog(4, "_controlTor error: ", e);
     }
-  }, // _startTor()
+  }, // controlTor()
 
   _monitorTorProcessStartup: function()
   {
