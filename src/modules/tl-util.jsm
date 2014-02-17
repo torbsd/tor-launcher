@@ -197,6 +197,22 @@ let TorLauncherUtil =  // Public
     return this.getBoolPref(kPrefStartTor, true);
   },
 
+  get shouldShowNetworkSettings()
+  {
+    const kPrefPromptAtStartup = "extensions.torlauncher.prompt_at_startup";
+    try
+    {
+      const kEnvForceShowNetConfig = "TOR_FORCE_NET_CONFIG";
+
+      var env = Cc["@mozilla.org/process/environment;1"]
+                  .getService(Ci.nsIEnvironment);
+      if (env.exists(kEnvForceShowNetConfig))
+        return ("1" == env.get(kEnvForceShowNetConfig));
+    } catch(e) {}
+
+    return this.getBoolPref(kPrefPromptAtStartup, true);
+  },
+
   get shouldOnlyConfigureTor()
   {
     const kPrefOnlyConfigureTor = "extensions.torlauncher.only_configure_tor";

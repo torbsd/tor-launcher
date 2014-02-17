@@ -270,9 +270,6 @@ TorProcessService.prototype =
   {
     this.mTorProcessStatus = this.kStatusUnknown;
 
-    var isInitialBootstrap =
-                     TorLauncherUtil.getBoolPref(this.kPrefPromptAtStartup);
-
     try
     {
       // Ideally, we would cd to the Firefox application directory before
@@ -329,7 +326,7 @@ TorProcessService.prototype =
         args.push("" + pid);
       }
 
-      if (isInitialBootstrap)
+      if (TorLauncherUtil.shouldShowNetworkSettings)
       {
         args.push("DisableNetwork");
         args.push("1");
@@ -360,14 +357,11 @@ TorProcessService.prototype =
 
   _controlTor: function()
   {
-    var isInitialBootstrap =
-          TorLauncherUtil.getBoolPref(this.kPrefPromptAtStartup);
-
     try
     {
       this._monitorTorProcessStartup();
 
-      if (isInitialBootstrap)
+      if (TorLauncherUtil.shouldShowNetworkSettings)
       {
         if (this.mProtocolSvc)
           this._openNetworkSettings(true); // Blocks until dialog is closed.
