@@ -568,7 +568,8 @@ TorProtocolService.prototype =
         return null;
       }
 
-      if (!aIsEventConnection && TorLauncherUtil.shouldStartAndOwnTor)
+      if (!aIsEventConnection && TorLauncherUtil.shouldStartAndOwnTor &&
+          !TorLauncherUtil.shouldOnlyConfigureTor)
       {
         // Try to become the primary controller (TAKEOWNERSHIP).
         reply = this._sendCommand(conn, "TAKEOWNERSHIP", null);

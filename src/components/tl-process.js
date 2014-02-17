@@ -89,7 +89,11 @@ TorProcessService.prototype =
       this.mObsSvc.addObserver(this, kUserQuitTopic, false);
       this.mObsSvc.addObserver(this, kBootstrapStatusTopic, false);
 
-      if (TorLauncherUtil.shouldStartAndOwnTor)
+      if (TorLauncherUtil.shouldOnlyConfigureTor)
+      {
+        this._controlTor();
+      }
+      else if (TorLauncherUtil.shouldStartAndOwnTor)
       {
         this._startTor();
         this._controlTor();
