@@ -7,7 +7,7 @@
 
 dialog {
   width: 45em;
-  height: 36em;
+  height: 39em;
   font: -moz-dialog;
 }
 
@@ -29,7 +29,7 @@ wizard.os-windows {
 
 .wizard-page-box {
   padding: 0px;
-  margin: 20px;
+  margin: 14px 20px 18px 20px;
 }
 
 wizard .wizard-header { display: none; }
@@ -90,6 +90,10 @@ button.firstAnswer {
   list-style-image: url("chrome://torlauncher/skin/tbb-logo.png");
   width: 198px;
   height: 70px;
+}
+
+#bridgeCustomEntry {
+  margin-left: 30px;
 }
 
 #startingTor {

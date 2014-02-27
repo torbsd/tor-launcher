@@ -27,7 +27,7 @@
           src="chrome://torlauncher/content/network-settings.js"/>
 
   <wizardpage label=" " pageid="first" next="proxy" onextra2="onCopyLog();"
-              onpageshow="setTimeout(function() { showWizardNavButtons(false); }, 0);">
+              onpageshow="setTimeout(function() { showWizardNavButtons(); }, 0);">
     <hbox class="tbb-header">
       <vbox class="tbb-logo-box" align="start">
         <image class="tbb-logo" />
@@ -52,7 +52,7 @@
   </wizardpage>
 
   <wizardpage label=" " pageid="proxy" next="firewall" onextra2="onCopyLog();"
-              onpageshow="showWizardNavButtons(true);"
+              onpageshow="showWizardNavButtons();"
               onpageadvanced="return onWizardProxyNext(this);">
     <vbox class="tbb-logo-box" align="start">
       <image class="tbb-logo" />
@@ -113,14 +113,34 @@
     </vbox>
   </wizardpage>
 
-  <wizardpage label=" " pageid="bridges" onextra2="onCopyLog();"
-              onpageshow="showOrHideButton('finish', true, true)">
+  <wizardpage pageid="bridges" onextra2="onCopyLog();"
+              onpageshow="onWizardUseBridgesRadioChange(this)">
+    <vbox class="tbb-logo-box" align="start">
+      <image class="tbb-logo" />
+    </vbox>
+    <separator />
+    <hbox>
+      <vbox flex="1">
+        <label class="question">&torSettings.bridgeQuestion;</label>
+        <radiogroup id="useBridgesRadioGroup"
+                    oncommand="onWizardUseBridgesRadioChange()">
+          <radio id="bridgesRadioYes" label="&torSettings.yes;" />
+          <radio id="bridgesRadioNo" label="&torSettings.no;" selected="true" />
+        </radiogroup>
+        <description class="questionHelp">&torSettings.bridgeHelp;
+        </description>
+      </vbox>
+    </hbox>
+  </wizardpage>
+
+  <wizardpage label=" " pageid="bridgeSettings" onextra2="onCopyLog();"
+              onpageshow="onWizardBridgeSettingsShow()">
     <vbox class="tbb-logo-box" align="start">
       <image class="tbb-logo" />
     </vbox>
     <separator />
     <vbox>
-      <label class="question">&torSettings.bridgeQuestion;</label>
+      <label class="question">&torSettings.bridgeSettingsPrompt;</label>
       <groupbox id="bridgeSpecificSettings" />
     </vbox>
   </wizardpage>

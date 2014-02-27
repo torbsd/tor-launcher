@@ -1,4 +1,4 @@
-// Copyright (c) 2013, The Tor Project, Inc.
+// Copyright (c) 2014, The Tor Project, Inc.
 // See LICENSE for licensing information.
 //
 // vim: set sw=2 sts=2 ts=8 et syntax=javascript:
@@ -15,6 +15,9 @@ XPCOMUtils.defineLazyModuleGetter(this, "TorLauncherUtil",
 XPCOMUtils.defineLazyModuleGetter(this, "TorLauncherLogger",
                           "resource://torlauncher/modules/tl-logger.jsm");
 
+const kPrefDefaultBridgeRecommendedType =
+                   "extensions.torlauncher.default_bridge_recommended_type";
+const kPrefDefaultBridgeType = "extensions.torlauncher.default_bridge_type";
 
 const kSupportAddr = "help@rt.torproject.org";
 
@@ -26,6 +29,7 @@ const kTorLogHasWarnOrErrTopic = "TorLogHasWarnOrErr";
 
 const kWizardProxyRadioGroup = "proxyRadioGroup";
 const kWizardFirewallRadioGroup = "firewallRadioGroup";
+const kWizardUseBridgesRadioGroup = "useBridgesRadioGroup";
 
 const kUseProxyCheckbox = "useProxy";
 const kProxyTypeMenulist = "proxyType";
@@ -36,6 +40,8 @@ const kProxyPassword = "proxyPassword";
 const kUseFirewallPortsCheckbox = "useFirewallPorts";
 const kFirewallAllowedPorts = "firewallAllowedPorts";
 const kUseBridgesCheckbox = "useBridges";
+const kDefaultBridgeTypeMenuList = "defaultBridgeType";
+const kCustomBridgesRadio = "bridgeRadioCustom";
 const kBridgeList = "bridgeList";
 
 const kTorConfKeyDisableNetwork = "DisableNetwork";
@@ -72,6 +78,11 @@ function initDialog()
 
   var cancelBtn = document.documentElement.getButton("cancel");
   gIsInitialBootstrap = window.arguments[0];
+
+  var startAtPanel;
+  if (window.arguments.length > 1)
+    startAtPanel = window.arguments[1];
+
   if (gIsInitialBootstrap)
   {
     if (cancelBtn)
@@ -142,6 +153,8 @@ function initDialog()
     }
   }
 
+  initDefaultBridgeTypeMenu();
+
   gObsService.addObserver(gObserver, kTorBootstrapErrorTopic, false);
   gObsService.addObserver(gObserver, kTorLogHasWarnOrErrTopic, false);
   gObsService.addObserver(gObserver, kTorProcessExitedTopic, false);
@@ -156,8 +169,12 @@ function initDialog()
   }
   else
   {
-    showPanel("settings");
     readTorSettings();
+
+    if (startAtPanel)
+      advanceToWizardPanel(startAtPanel);
+    else
+      showPanel();
   }
 
   TorLauncherLogger.log(2, "initDialog done");
@@ -201,10 +218,55 @@ function onWizardFirewallNext(aWizPage)
 }
 
 
-function showWizardNavButtons(aShow)
+function onWizardUseBridgesRadioChange(aWizPage)
 {
-  showOrHideButton("back", aShow, false);
-  showOrHideButton("next", aShow, false);
+  var wizard = getWizard();
+  if (!aWizPage)
+    aWizPage = wizard.currentPage;
+  if (aWizPage)
+  {
+    var useBridges = getElemValue("bridgesRadioYes", false);
+    aWizPage.next = (useBridges) ? "bridgeSettings" : "";
+    wizard.setAttribute("lastpage", !useBridges);
+    wizard._wizardButtons.onPageChange();
+  }
+}
+
+
+function onWizardBridgeSettingsShow()
+{
+  var wizard = getWizard();
+  wizard.setAttribute("lastpage", true);
+  wizard._wizardButtons.onPageChange();
+  var btn = document.documentElement.getButton("finish");
+  if (btn)
+    btn.focus();
+}
+
+
+function onCustomBridgesTextInput()
+{
+  var customBridges = document.getElementById(kCustomBridgesRadio);
+  if (customBridges)
+    customBridges.control.selectedItem = customBridges;
+}
+
+
+function onCustomBridges()
+{
+  var bridgeList = document.getElementById(kBridgeList);
+  if (bridgeList)
+    bridgeList.focus();
+}
+
+
+function showWizardNavButtons()
+{
+  var curPage = getWizard().currentPage;
+  var isFirstPage = ("first" == curPage.pageid);
+
+  showOrHideButton("back", !isFirstPage, false);
+  showOrHideButton("next", !isFirstPage && curPage.next, false);
 }
 
 
@@ -222,7 +284,7 @@ var gObserver = {
     {
       gObsService.removeObserver(gObserver, kTorProcessReadyTopic);
       var haveWizard = (getWizard() != null);
-      showPanel(haveWizard ? "first" : "settings");
+      showPanel();
       if (haveWizard)
       {
         showOrHideButton("back", true, false);
@@ -277,18 +339,44 @@ function readTorSettings()
 }
 
 
+// If aPanelID is undefined, the first panel is displayed.
 function showPanel(aPanelID)
 {
+  var wizard = getWizard();
+  if (!aPanelID)
+    aPanelID = (wizard) ? "first" : "settings";
+
   var deckElem = document.getElementById("deck");
   if (deckElem)
   {
     deckElem.selectedPanel = document.getElementById(aPanelID);
     showOrHideButton("extra2", (aPanelID != "bridgeHelp"), false);
   }
-  else
-    getWizard().goTo(aPanelID);
+  else if (wizard.currentPage.pageid != aPanelID)
+    wizard.goTo(aPanelID);
 
   showOrHideButton("accept", (aPanelID == "settings"), true);
+}
+
+
+// This function assumes that you are starting on the first page.
+function advanceToWizardPanel(aPanelID)
+{
+  var wizard = getWizard();
+  if (!wizard)
+    return;
+
+  onWizardConfigure(); // Equivalent to pressing "Configure"
+
+  const kMaxTries = 10;
+  for (var count = 0;
+       ((count < kMaxTries) &&
+        (wizard.currentPage.pageid != aPanelID) &&
+        wizard.canAdvance);
+       ++count)
+  {
+    wizard.advance();
+  }
 }
 
 
@@ -672,17 +760,50 @@ function initFirewallSettings()
 // Returns true if successful.
 function initBridgeSettings()
 {
-  var reply = gProtocolSvc.TorGetConfBool(kTorConfKeyUseBridges, false);
-  if (!gProtocolSvc.TorCommandSucceeded(reply))
-    return false;
+  var typeList = TorLauncherUtil.defaultBridgeTypes;
+  var canUseDefaultBridges = (typeList && (typeList.length > 0));
+  var defaultType = TorLauncherUtil.getCharPref(kPrefDefaultBridgeType);
+  var useDefault = canUseDefaultBridges && !!defaultType;
 
-  setElemValue(kUseBridgesCheckbox, reply.retVal);
+  // If not configured to use a default set of bridges, get UseBridges setting
+  // from tor.
+  var useBridges = useDefault;
+  if (!useDefault)
+  {
+    var reply = gProtocolSvc.TorGetConfBool(kTorConfKeyUseBridges, false);
+    if (!gProtocolSvc.TorCommandSucceeded(reply))
+      return false;
 
-  var bridgeReply = gProtocolSvc.TorGetConf(kTorConfKeyBridgeList);
-  if (!gProtocolSvc.TorCommandSucceeded(bridgeReply))
-    return false;
+    useBridges = reply.retVal;
 
-  setBridgeListElemValue(bridgeReply.lineArray);
+    // Get bridge list from tor.
+    var bridgeReply = gProtocolSvc.TorGetConf(kTorConfKeyBridgeList);
+    if (!gProtocolSvc.TorCommandSucceeded(bridgeReply))
+      return false;
+
+    if (!setBridgeListElemValue(bridgeReply.lineArray))
+    {
+      if (canUseDefaultBridges)
+        useDefault = true;  // We have no custom values... back to default.
+      else
+        useBridges = false; // No custom or default bridges are available.
+    }
+  }
+
+  setElemValue(kUseBridgesCheckbox, useBridges);
+  setYesNoRadioValue(kWizardUseBridgesRadioGroup, useBridges);
+
+  if (!canUseDefaultBridges)
+  {
+    var radioGroup = document.getElementById("bridgeTypeRadioGroup");
+    if (radioGroup)
+      radioGroup.setAttribute("hidden", true);
+  }
+
+  var radioID = (useDefault) ? "bridgeRadioDefault" : "bridgeRadioCustom";
+  var radio = document.getElementById(radioID);
+  if (radio)
+    radio.control.selectedItem = radio;
 
   return true;
 }
@@ -713,7 +834,7 @@ function applySettings()
 function useSettings()
 {
   var settings = {};
-  settings[kTorConfKeyDisableNetwork] = "0";
+  settings[kTorConfKeyDisableNetwork] = false;
   this.setConfAndReportErrors(settings, null);
 
   gProtocolSvc.TorSendCommand("SAVECONF");
@@ -868,6 +989,42 @@ function getAndValidateFirewallSettings()
 }
 
 
+function initDefaultBridgeTypeMenu()
+{
+  var menu = document.getElementById(kDefaultBridgeTypeMenuList);
+  if (!menu)
+    return;
+
+  menu.removeAllItems();
+
+  var typeArray = TorLauncherUtil.defaultBridgeTypes;
+  if (!typeArray || typeArray.length == 0)
+    return;
+
+  var recommendedType = TorLauncherUtil.getCharPref(
+                                      kPrefDefaultBridgeRecommendedType, null);
+  var selectedType = TorLauncherUtil.getCharPref(kPrefDefaultBridgeType, null);
+  if (!selectedType)
+    selectedType = recommendedType;
+
+  for (var i=0; i < typeArray.length; i++)
+  {
+    var bridgeType = typeArray[i];
+
+    var menuItemLabel = bridgeType;
+    if (bridgeType == recommendedType)
+    {
+      const key = "recommended_bridge";
+      menuItemLabel += " " + TorLauncherUtil.getLocalizedString(key);
+    }
+
+    var mi = menu.appendItem(menuItemLabel, bridgeType);
+    if (bridgeType == selectedType)
+      menu.selectedItem = mi;
+  }
+}
+
+
 // Returns true if settings were successfully applied.
 function applyBridgeSettings()
 {
@@ -875,7 +1032,7 @@ function applyBridgeSettings()
   if (!settings)
     return false;
 
-  return this.setConfAndReportErrors(settings, "bridges");
+  return this.setConfAndReportErrors(settings, "bridgeSettings");
 }
 
 
@@ -886,18 +1043,43 @@ function getAndValidateBridgeSettings()
   settings[kTorConfKeyUseBridges] = null;
   settings[kTorConfKeyBridgeList] = null;
 
-  var bridgeStr = getElemValue(kBridgeList, null);
-  var useBridges = (getWizard()) ? (bridgeStr && (0 != bridgeStr.length))
-                                  : getElemValue(kUseBridgesCheckbox, false);
+  var useBridges = (getWizard()) ? getElemValue("bridgesRadioYes", false)
+                                 : getElemValue(kUseBridgesCheckbox, false);
 
-  var bridgeList = parseAndValidateBridges(bridgeStr);
-  if (useBridges && !bridgeList)
+  var defaultBridgeType;
+  var bridgeList;
+  if (useBridges)
   {
-    reportValidationError("error_bridges_missing");
-    return null;
+    var useCustom = getElemValue(kCustomBridgesRadio, false);
+    if (useCustom)
+    {
+      var bridgeStr = getElemValue(kBridgeList, null);
+      bridgeList = parseAndValidateBridges(bridgeStr);
+      if (!bridgeList)
+      {
+        reportValidationError("error_bridges_missing");
+        return null;
+      }
+
+      setBridgeListElemValue(bridgeList);
+    }
+    else
+    {
+      defaultBridgeType = getElemValue(kDefaultBridgeTypeMenuList, null);
+      if (!defaultBridgeType)
+      {
+        reportValidationError("error_default_bridges_type_missing");
+        return null;
+      }
+    }
   }
 
-  setBridgeListElemValue(bridgeList);
+  // Since it returns a filterd list of bridges, TorLauncherUtil.defaultBridges
+  // must be called after setting the kPrefDefaultBridgeType pref.
+  TorLauncherUtil.setCharPref(kPrefDefaultBridgeType, defaultBridgeType);
+  if (defaultBridgeType)
+    bridgeList = TorLauncherUtil.defaultBridges;
+
   if (useBridges && bridgeList)
   {
     settings[kTorConfKeyUseBridges] = true;
@@ -935,21 +1117,10 @@ function parseAndValidateBridges(aStr)
 // Returns true if successful.
 function setConfAndReportErrors(aSettingsObj, aShowOnErrorPanelID)
 {
-  var reply = gProtocolSvc.TorSetConf(aSettingsObj);
-  var didSucceed = gProtocolSvc.TorCommandSucceeded(reply);
+  var errObj = {};
+  var didSucceed = gProtocolSvc.TorSetConfWithReply(aSettingsObj, errObj);
   if (!didSucceed)
   {
-    var details = "";
-    if (reply && reply.lineArray)
-    {
-      for (var i = 0; i < reply.lineArray.length; ++i)
-      {
-        if (i > 0)
-          details += '\n';
-        details += reply.lineArray[i];
-      }
-    }
-
     if (aShowOnErrorPanelID)
     {
       var wizardElem = getWizard();
@@ -967,7 +1138,7 @@ function setConfAndReportErrors(aSettingsObj, aShowOnErrorPanelID)
       } catch (e) {}
     }
 
-    showSaveSettingsAlert(details);
+    showSaveSettingsAlert(errObj.details);
   }
 
   return didSucceed;
@@ -976,13 +1147,7 @@ function setConfAndReportErrors(aSettingsObj, aShowOnErrorPanelID)
 
 function showSaveSettingsAlert(aDetails)
 {
-  if (!aDetails)
-     aDetails = TorLauncherUtil.getLocalizedString("ensure_tor_is_running");
-
-  var s = TorLauncherUtil.getFormattedLocalizedString(
-                                  "failed_to_save_settings", [aDetails], 1);
-  TorLauncherUtil.showAlert(window, s);
-
+  TorLauncherUtil.showSaveSettingsAlert(window, aDetails);
   showOrHideButton("extra2", true, false);
   gWizIsCopyLogBtnShowing = true;
 }
@@ -1020,6 +1185,7 @@ function setElemValue(aID, aValue)
 }
 
 
+// Returns true if one or more values were set.
 function setBridgeListElemValue(aBridgeArray)
 {
   // To be consistent with bridges.torproject.org, pre-pend "bridge" to
@@ -1040,6 +1206,7 @@ function setBridgeListElemValue(aBridgeArray)
   }
 
   setElemValue(kBridgeList, bridgeList);
+  return (bridgeList.length > 0);
 }
 
 

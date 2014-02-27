@@ -249,6 +249,32 @@ TorProtocolService.prototype =
     return this.TorSendCommand("SETCONF", cmdArgs);
   }, // TorSetConf()
 
+  // Returns true if successful.
+  // Upon failure, aErrorObj.details will be set to a string.
+  TorSetConfWithReply: function(aSettingsObj, aErrorObj)
+  {
+    var reply = this.TorSetConf(aSettingsObj);
+    var didSucceed = this.TorCommandSucceeded(reply);
+    if (!didSucceed)
+    {
+      var details = "";
+      if (reply && reply.lineArray)
+      {
+        for (var i = 0; i < reply.lineArray.length; ++i)
+        {
+          if (i > 0)
+            details += '\n';
+          details += reply.lineArray[i];
+        }
+      }
+
+      if (aErrorObj)
+        aErrorObj.details = details;
+    }
+
+    return didSucceed;
+  },
+
   // If successful, sends a "TorBootstrapStatus" notification.
   TorRetrieveBootstrapStatus: function()
   {

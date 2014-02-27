@@ -12,3 +12,10 @@ pref("extensions.torlauncher.prompt_at_startup", true);
 pref("extensions.torlauncher.tor_path", "");
 pref("extensions.torlauncher.torrc_path", "");
 pref("extensions.torlauncher.tordatadir_path", "");
+
+// Recommended default bridge type (can be set per localized bundle).
+// pref("extensions.torlauncher.default_bridge_recommended_type", "obfs3");
+
+// Default bridges.
+// pref("extensions.torlauncher.default_bridge.TYPE.1", "TYPE x.x.x.x:yy");
+// pref("extensions.torlauncher.default_bridge.TYPE.2", "TYPE x.x.x.x:yy");

@@ -61,6 +61,16 @@ let TorLauncherUtil =  // Public
     }
   },
 
+  showSaveSettingsAlert: function(aParentWindow, aDetails)
+  {
+    if (!aDetails)
+      aDetails = TorLauncherUtil.getLocalizedString("ensure_tor_is_running");
+
+    var s = TorLauncherUtil.getFormattedLocalizedString(
+                                  "failed_to_save_settings", [aDetails], 1);
+    this.showAlert(aParentWindow, s);
+  },
+
   // Localized Strings
 
   // "torlauncher." is prepended to aStringName.
@@ -181,6 +191,14 @@ let TorLauncherUtil =  // Public
     return rv;
   },
 
+  setCharPref: function(aPrefName, aVal)
+  {
+    try
+    {
+      TLUtilInternal.mPrefsSvc.setCharPref(aPrefName, aVal ? aVal : "");
+    } catch (e) {}
+  },
+
   get shouldStartAndOwnTor()
   {
     const kPrefStartTor = "extensions.torlauncher.start_tor";
@@ -227,6 +245,64 @@ let TorLauncherUtil =  // Public
     } catch(e) {}
 
     return this.getBoolPref(kPrefOnlyConfigureTor, false);
+  },
+
+  // Returns an array of strings or undefined if none are available.
+  get defaultBridgeTypes()
+  {
+    try
+    {
+      var prefBranch = Cc["@mozilla.org/preferences-service;1"]
+                           .getService(Ci.nsIPrefService)
+                           .getBranch("extensions.torlauncher.default_bridge.");
+      var childPrefs = prefBranch.getChildList("", []);
+      var typeArray = [];
+      for (var i = 0; i < childPrefs.length; ++i)
+      {
+        var s = childPrefs[i].replace(/\..*$/, "");
+        if (-1 == typeArray.lastIndexOf(s))
+          typeArray.push(s);
+      }
+
+      return typeArray.sort();
+    } catch(e) {};
+
+    return undefined;
+  },
+
+  // Returns an array of strings or undefined if none are available.
+  // The list is filtered by the default_bridge_type pref value.
+  get defaultBridges()
+  {
+    const kPrefName = "extensions.torlauncher.default_bridge_type";
+    var filterType = this.getCharPref(kPrefName);
+    if (!filterType)
+      return undefined;
+
+    try
+    {
+      var prefBranch = Cc["@mozilla.org/preferences-service;1"]
+                           .getService(Ci.nsIPrefService)
+                           .getBranch("extensions.torlauncher.default_bridge.");
+      var childPrefs = prefBranch.getChildList("", []);
+      var bridgeArray = [];
+      // The pref service seems to return the values in reverse order, so
+      // we compensate by traversing in reverse order.
+      for (var i = childPrefs.length - 1; i >= 0; --i)
+      {
+        var bridgeType = childPrefs[i].replace(/\..*$/, "");
+        if (bridgeType == filterType)
+        {
+          var s = prefBranch.getCharPref(childPrefs[i]);
+          if (s)
+            bridgeArray.push(s);
+        }
+      }
+
+      return bridgeArray;
+    } catch(e) {};
+
+    return undefined;
   },
 };
 

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!--
-   - Copyright (c) 2013, The Tor Project, Inc.
+   - Copyright (c) 2014, The Tor Project, Inc.
    - See LICENSE for licensing information.
    - vim: set sw=2 sts=2 ts=8 et syntax=xml:
   -->
@@ -74,24 +74,32 @@
   </groupbox>
 
   <groupbox id="bridgeSpecificSettings">
-    <hbox>
-      <vbox flex="1">
+    <hbox pack="end">
+      <radiogroup id="bridgeTypeRadioGroup" flex="1" style="margin: 0px">
         <hbox align="center">
-          <button dlgtype="help" oncommand="onOpenHelp()" />
-          <label value="&torsettings.useBridges.label;" control="bridgeList"/>
+          <radio id="bridgeRadioDefault"
+                 label="&torsettings.useBridges.default;" selected="true" />
+          <menulist id="defaultBridgeType" oncommand="onBridgeTypeChange()">
+            <menupopup id="defaultBridgeType_menuPopup" />
+          </menulist>
+          <spring/>
         </hbox>
-        <textbox id="bridgeList" multiline="true" rows="3"
-                 placeholder="&torsettings.useBridges.placeholder;" />
+        <spacer style="height: 0.5em" />
+
+        <radio id="bridgeRadioCustom" label="&torsettings.useBridges.custom;"
+               oncommand="onCustomBridges()" />
+      </radiogroup>
+      <vbox pack="start">
+        <button dlgtype="help" oncommand="onOpenHelp()" />
       </vbox>
-<!--
-      <vbox>
-        <button id="copyBridgeList" label="Copy TODO" style="width: 20px"
-                oncommand="copyBridgeList();"/>
-        <button id="pasteBridgeList" label="Paste TODO" style="width: 20px"
-                oncommand="pasteBridgeList();"/>
-      </vbox>
--->
     </hbox>
+    <vbox id="bridgeCustomEntry">
+      <label style="margin-top:0px;"
+             value="&torsettings.useBridges.label;" control="bridgeList"/>
+      <textbox id="bridgeList" multiline="true" rows="3"
+               oninput="onCustomBridgesTextInput();"
+               placeholder="&torsettings.useBridges.placeholder;" />
+    </vbox>
   </groupbox>
 
   <vbox id="bridgeHelpContent">
@@ -114,5 +122,4 @@
     </html:ol>
   </vbox>
 </overlay>
-
 

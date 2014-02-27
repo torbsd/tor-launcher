@@ -35,6 +35,8 @@ TorProcessService.prototype =
   kTorLauncherExtPath: "tor-launcher@torproject.org", // This could vary.
 
   kPrefPromptAtStartup: "extensions.torlauncher.prompt_at_startup",
+  kPrefDefaultBridgeType: "extensions.torlauncher.default_bridge_type",
+
   kInitialControlConnDelayMS: 25,
   kMaxControlConnRetryMS: 500,
   kControlConnTimeoutMS: 30000, // Wait at most 30 seconds for tor to start.
@@ -43,6 +45,10 @@ TorProcessService.prototype =
   kStatusStarting: 1,
   kStatusRunning: 2,
   kStatusExited: 3,  // Exited or failed to start.
+
+  kDefaultBridgesStatus_NotInUse: 0,
+  kDefaultBridgesStatus_InUse: 1,
+  kDefaultBridgesStatus_BadConfig: 2,
 
   // nsISupports implementation.
   QueryInterface: function(aIID)
@@ -156,6 +162,14 @@ TorProcessService.prototype =
           this.mProtocolSvc.TorStartEventMonitor();
 
           this.mProtocolSvc.TorRetrieveBootstrapStatus();
+
+          if (this._defaultBridgesStatus == this.kDefaultBridgesStatus_InUse)
+          {
+            // We configure default bridges each time we start tor in case
+            // new default bridge preference values are available (e.g., due
+            // to a TBB update).
+            this._configureDefaultBridges();
+          }
 
           this.mObsSvc.notifyObservers(null, "TorProcessIsReady", null);
         }
@@ -326,7 +340,23 @@ TorProcessService.prototype =
         args.push("" + pid);
       }
 
-      if (TorLauncherUtil.shouldShowNetworkSettings)
+      // Start tor with networking disabled if first run or if the
+      // "Use Default Bridges of Type" option is turned on.  Networking will
+      // be enabled after initial settings are chosen or after the default
+      // bridge settings have been configured.
+      var defaultBridgeType =
+                    TorLauncherUtil.getCharPref(this.kPrefDefaultBridgeType);
+      var bridgeConfigIsBad = (this._defaultBridgesStatus ==
+                               this.kDefaultBridgesStatus_BadConfig);
+      if (bridgeConfigIsBad)
+      {
+        var key = "error_bridge_bad_default_type";
+        var err = TorLauncherUtil.getFormattedLocalizedString(key,
+                                                     [defaultBridgeType], 1);
+        TorLauncherUtil.showAlert(null, err);
+      }
+
+      if (TorLauncherUtil.shouldShowNetworkSettings || defaultBridgeType)
       {
         args.push("DisableNetwork");
         args.push("1");
@@ -361,10 +391,16 @@ TorProcessService.prototype =
     {
       this._monitorTorProcessStartup();
 
-      if (TorLauncherUtil.shouldShowNetworkSettings)
+      var bridgeConfigIsBad = (this._defaultBridgesStatus ==
+                               this.kDefaultBridgesStatus_BadConfig);
+      if (TorLauncherUtil.shouldShowNetworkSettings || bridgeConfigIsBad)
       {
         if (this.mProtocolSvc)
-          this._openNetworkSettings(true); // Blocks until dialog is closed.
+        {
+          // Show network settings wizard.  Blocks until dialog is closed.
+          var panelID = (bridgeConfigIsBad) ? "bridgeSettings" : undefined;
+          this._openNetworkSettings(true, panelID);
+        }
       }
       else
       {
@@ -384,7 +420,7 @@ TorProcessService.prototype =
         var asSvc = Cc["@mozilla.org/toolkit/app-startup;1"]
                       .getService(Ci.nsIAppStartup);
         var flags = asSvc.eAttemptQuit;
-        if (this.mRestartWithQuit) 
+        if (this.mRestartWithQuit)
           flags |= asSvc.eRestart;
         asSvc.quit(flags);
       }
@@ -454,8 +490,47 @@ TorProcessService.prototype =
     }
   }, // _processBootstrapStatus()
 
+  // Returns a kDefaultBridgesStatus value.
+  get _defaultBridgesStatus()
+  {
+    var defaultBridgeType =
+                  TorLauncherUtil.getCharPref(this.kPrefDefaultBridgeType);
+    if (!defaultBridgeType)
+      return this.kDefaultBridgesStatus_NotInUse;
+
+    var bridgeArray = TorLauncherUtil.defaultBridges;
+    if (!bridgeArray || (0 == bridgeArray.length))
+      return this.kDefaultBridgesStatus_BadConfig;
+
+    return this.kDefaultBridgesStatus_InUse;
+  },
+
+  _configureDefaultBridges: function()
+  {
+    var settings = {};
+    var bridgeArray = TorLauncherUtil.defaultBridges;
+    var useBridges =  (bridgeArray &&  (bridgeArray.length > 0));
+    settings["UseBridges"] = useBridges;
+    settings["Bridge"] = bridgeArray;
+    var errObj = {};
+    var didSucceed = this.mProtocolSvc.TorSetConfWithReply(settings, errObj);
+
+    settings = {};
+    settings["DisableNetwork"] = false;
+    if (!this.mProtocolSvc.TorSetConfWithReply(settings,
+                                               (didSucceed) ? errObj : null))
+    {
+      didSucceed = false;
+    }
+
+    if (didSucceed)
+      this.mProtocolSvc.TorSendCommand("SAVECONF");
+    else
+      TorLauncherUtil.showSaveSettingsAlert(null, errObj.details);
+  },
+
   // Blocks until network settings dialog is closed.
-  _openNetworkSettings: function(aIsInitialBootstrap)
+  _openNetworkSettings: function(aIsInitialBootstrap, aStartAtWizardPanel)
   {
     const kSettingsURL = "chrome://torlauncher/content/network-settings.xul";
     const kWizardURL = "chrome://torlauncher/content/network-settings-wizard.xul";
@@ -463,7 +538,8 @@ TorProcessService.prototype =
     var wwSvc = Cc["@mozilla.org/embedcomp/window-watcher;1"]
                   .getService(Ci.nsIWindowWatcher);
     var winFeatures = "chrome,dialog=yes,modal,all";
-    var argsArray = this._createOpenWindowArgsArray(aIsInitialBootstrap);
+    var argsArray = this._createOpenWindowArgsArray(aIsInitialBootstrap,
+                                                    aStartAtWizardPanel);
     var url = (aIsInitialBootstrap) ? kWizardURL : kSettingsURL;
     wwSvc.openWindow(null, url, "_blank", winFeatures, argsArray);
   },
@@ -478,14 +554,23 @@ TorProcessService.prototype =
     wwSvc.openWindow(null, chromeURL, "_blank", winFeatures, argsArray);
   },
 
-  _createOpenWindowArgsArray: function(aBool)
+  _createOpenWindowArgsArray: function(aArg1, aArg2)
   {
     var argsArray = Cc["@mozilla.org/array;1"]
                       .createInstance(Ci.nsIMutableArray);
     var variant = Cc["@mozilla.org/variant;1"]
                     .createInstance(Ci.nsIWritableVariant);
-    variant.setFromVariant(aBool);
+    variant.setFromVariant(aArg1);
     argsArray.appendElement(variant, false);
+
+    if (aArg2)
+    {
+      variant = Cc["@mozilla.org/variant;1"]
+                    .createInstance(Ci.nsIWritableVariant);
+      variant.setFromVariant(aArg2);
+      argsArray.appendElement(variant, false);
+    }
+
     return argsArray;
   },
 
