@@ -15,7 +15,6 @@
 
 <wizard id="TorNetworkSettings"
         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
-        xmlns:html="http://www.w3.org/1999/xhtml"
         title="&torsettings.dialog.title;"
         windowtype="TorLauncher:NetworkSettings"
         persist="screenX screenY"
@@ -148,23 +147,7 @@
 
   <wizardpage class="help"  label=" " pageid="bridgeHelp" next="notUsed"
               onpageadvanced="closeHelp(); return false;">
-    <hbox align="middle"><label>&torsettings.bridgeHelpTitle;</label></hbox>
-    <description>&torsettings.bridgeHelp1;</description>
-    <description class="prelist">&torsettings.bridgeHelp1B;</description>
-    <html:ol>
-      <html:li>
-        <html:div class="heading">&torsettings.bridgeHelp2Heading;</html:div>
-        <html:div>&torsettings.bridgeHelp2;</html:div>
-      </html:li>
-      <html:li>
-        <html:div class="heading">&torsettings.bridgeHelp3Heading;</html:div>
-        <html:div>&torsettings.bridgeHelp3;</html:div>
-      </html:li>
-      <html:li>
-        <html:div class="heading">&torsettings.bridgeHelp4Heading;</html:div>
-        <html:div class="endOfHelp">&torsettings.bridgeHelp4;</html:div>
-      </html:li>
-    </html:ol>
+    <vbox id="bridgeHelpContent" />
   </wizardpage>
 
   <hbox pack="start">

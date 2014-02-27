@@ -8,7 +8,8 @@
 <!DOCTYPE overlay SYSTEM "chrome://torlauncher/locale/network-settings.dtd">
 
 <overlay id="TorNetworkSettingsOverlay"
-        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        xmlns:html="http://www.w3.org/1999/xhtml">
 
   <groupbox id="proxySpecificSettings">
     <grid flex="1">
@@ -92,6 +93,26 @@
 -->
     </hbox>
   </groupbox>
+
+  <vbox id="bridgeHelpContent">
+    <hbox align="middle"><label>&torsettings.bridgeHelpTitle;</label></hbox>
+    <description>&torsettings.bridgeHelp1;</description>
+    <description class="prelist">&torsettings.bridgeHelp1B;</description>
+    <html:ol>
+      <html:li>
+        <html:div class="heading">&torsettings.bridgeHelp2Heading;</html:div>
+        <html:div>&torsettings.bridgeHelp2;</html:div>
+      </html:li>
+      <html:li>
+        <html:div class="heading">&torsettings.bridgeHelp3Heading;</html:div>
+        <html:div>&torsettings.bridgeHelp3;</html:div>
+      </html:li>
+      <html:li>
+        <html:div class="heading">&torsettings.bridgeHelp4Heading;</html:div>
+        <html:div class="endOfHelp">&torsettings.bridgeHelp4;</html:div>
+      </html:li>
+    </html:ol>
+  </vbox>
 </overlay>
 
 
