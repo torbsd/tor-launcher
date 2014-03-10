@@ -46,8 +46,8 @@
 <!ENTITY torsettings.firewall.checkbox "This computer goes through a firewall that only allows connections to certain ports">
 <!ENTITY torsettings.firewall.allowedPorts "Allowed Ports:">
 <!ENTITY torsettings.useBridges.checkbox "My Internet Service Provider (ISP) blocks connections to the Tor network">
-<!ENTITY torsettings.useBridges.default "Use Default Bridges of Type">
-<!ENTITY torsettings.useBridges.custom "Use Custom Bridges">
+<!ENTITY torsettings.useBridges.default "Use default bridges of type">
+<!ENTITY torsettings.useBridges.custom "Use custom bridges">
 <!ENTITY torsettings.useBridges.label "Enter one or more bridge relays (one per line).">
 <!ENTITY torsettings.useBridges.placeholder "type address:port">
 
