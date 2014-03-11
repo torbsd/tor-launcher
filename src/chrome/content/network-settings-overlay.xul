@@ -81,7 +81,7 @@
           <hbox align="baseline">
            <spacer style="width: 1.9em" />
            <label value="&torsettings.useBridges.type;"
-              control="firewallAllowedPorts"/>
+                  control="defaultBridgeType" />
            <menulist id="defaultBridgeType" oncommand="onBridgeTypeChange()">
             <menupopup id="defaultBridgeType_menuPopup" />
            </menulist>
