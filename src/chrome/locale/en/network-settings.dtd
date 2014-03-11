@@ -1,8 +1,8 @@
-<!ENTITY torsettings.dialog.title "Tor Browser Network Settings">
+<!ENTITY torsettings.dialog.title "Tor Network Settings">
 
 <!-- For "first run" wizard: -->
 
-<!ENTITY torsettings.prompt "Before the Tor Browser tries to connect to the Tor network, you need to provide information about this computer's Internet connection.">
+<!ENTITY torsettings.prompt "Before you connect to the Tor network, you need to provide information about this computer's Internet connection.">
 
 <!ENTITY torSettings.yes "Yes">
 <!ENTITY torSettings.no "No">
