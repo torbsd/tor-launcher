@@ -249,14 +249,19 @@ function onCustomBridgesTextInput()
   var customBridges = document.getElementById(kCustomBridgesRadio);
   if (customBridges)
     customBridges.control.selectedItem = customBridges;
+  onBridgeTypeRadioChange();
 }
 
 
-function onCustomBridges()
+function onBridgeTypeRadioChange()
 {
-  var bridgeList = document.getElementById(kBridgeList);
-  if (bridgeList)
-    bridgeList.focus();
+  var useCustom = getElemValue(kCustomBridgesRadio, false);
+  enableElemWithLabel(kDefaultBridgeTypeMenuList, !useCustom);
+  enableElemWithLabel(kBridgeList + "Label", useCustom);
+  var focusElemID = (useCustom) ? kBridgeList : kDefaultBridgeTypeMenuList;
+  var elem = document.getElementById(focusElemID);
+  if (elem)
+    elem.focus();
 }
 
 
@@ -470,13 +475,14 @@ function setButtonAttr(aID, aAttr, aValue)
 }
 
 
-function enableTextBox(aID, aEnable)
+// Enables / disables aID as well as optional aID+"Label" element.
+function enableElemWithLabel(aID, aEnable)
 {
   if (!aID)
     return;
 
-  var textbox = document.getElementById(aID);
-  if (textbox)
+  var elem = document.getElementById(aID);
+  if (elem)
   {
     var label = document.getElementById(aID + "Label");
     if (aEnable)
@@ -484,17 +490,34 @@ function enableTextBox(aID, aEnable)
       if (label)
         label.removeAttribute("disabled");
 
-      textbox.removeAttribute("disabled");
-      var s = textbox.getAttribute("origPlaceholder");
-      if (s)
-        textbox.setAttribute("placeholder", s);
+      elem.removeAttribute("disabled");
     }
     else
     {
       if (label)
         label.setAttribute("disabled", true);
 
-      textbox.setAttribute("disabled", true);
+      elem.setAttribute("disabled", true);
+    }
+  }
+}
+
+
+// Removes placeholder text when disabled.
+function enableTextBox(aID, aEnable)
+{
+  enableElemWithLabel(aID, aEnable);
+  var textbox = document.getElementById(aID);
+  if (textbox)
+  {
+    if (aEnable)
+    {
+      var s = textbox.getAttribute("origPlaceholder");
+      if (s)
+        textbox.setAttribute("placeholder", s);
+    }
+    else
+    {
       textbox.setAttribute("origPlaceholder", textbox.placeholder);
       textbox.removeAttribute("placeholder");
     }
@@ -804,6 +827,7 @@ function initBridgeSettings()
   var radio = document.getElementById(radioID);
   if (radio)
     radio.control.selectedItem = radio;
+  onBridgeTypeRadioChange();
 
   return true;
 }
