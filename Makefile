@@ -8,7 +8,7 @@ STANDALONE_NAME=$(EXT_NAME)-standalone
 STANDALONE_TARBALL=$(shell echo "$(STANDALONE_NAME)-$(VERSION).tar.gz")
 REQUIRED_TRANSLATION_FILES=$(shell ls -1 src/chrome/locale/en/)
 
-AVAIL_TARGETS=help package standalone clean
+AVAIL_TARGETS=help package standalone import-translations clean
 
 ifeq ($(VERBOSE),1)
 	ZIP=zip
@@ -77,6 +77,9 @@ standalone:	pkg-prepare
 		-C "$(TMP)" "$(STANDALONE_NAME)"
 	@rm -rf "$(TMP)"
 	@echo "Created standalone package pkg/$(STANDALONE_TARBALL)"
+
+import-translations:
+	@( cd localization && ./import-translations.sh )
 
 clean:
 	@rm -f	"pkg/$(XPI_NAME)" \
