@@ -17,11 +17,11 @@ else
 	ZIP=zip -q
 	TAR=tar
 endif
- 
+
 help:
-	@echo "Available targets:";												\
-	for t in $(AVAIL_TARGETS); do											\
-		echo "  make $$t";													\
+	@echo "Available targets:"; \
+	for t in $(AVAIL_TARGETS); do \
+		echo "  make $$t"; \
 	done
 
 pkg-prepare:	clean
@@ -86,10 +86,10 @@ clean:
 		"pkg/$(STANDALONE_TARBALL)"
 
 zip:
-	@TMPFILE=/tmp/$(EXT_NAME)-`date '+%Y-%m-%d-%s'`.zip;			 		\
-	CURDIR=`pwd`;													   		\
-	BASEDIR=`basename $$CURDIR`;											\
-	cd ..; zip -q -r $$TMPFILE $$BASEDIR -x $$BASEDIR/build/\*;		 		\
+	@TMPFILE=/tmp/$(EXT_NAME)-`date '+%Y-%m-%d-%s'`.zip; \
+	CURDIR=`pwd`; \
+	BASEDIR=`basename $$CURDIR`; \
+	cd ..; zip -q -r $$TMPFILE $$BASEDIR -x $$BASEDIR/build/\*; \
 	rm $$TMPFILE
 
 .PHONY: help clean zip
