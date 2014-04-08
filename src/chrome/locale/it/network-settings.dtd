@@ -2,7 +2,7 @@
 
 <!-- For "first run" wizard: -->
 
-<!ENTITY torsettings.prompt "Before you connect to the Tor network, you need to provide information about this computer's Internet connection.">
+<!ENTITY torsettings.prompt "Prima di connetterti alla rete Tor, devi fornire le informazioni riguardo la connessione internet di questo computer.">
 
 <!ENTITY torSettings.yes "Sì">
 <!ENTITY torSettings.no "No">
@@ -22,7 +22,7 @@
 <!ENTITY torSettings.firewallQuestion "La connessione ad Internet di questo computer passa attraverso un firewall che permette le connessioni solo ad alcune porte?">
 <!ENTITY torSettings.firewallHelp "Se non sei sicuro su come rispondere a questa domanda, seleziona No. Nel caso in cui si verifichino problemi di connessione alla rete Tor, cambia queste impostazioni.">
 <!ENTITY torSettings.enterFirewall "Inserisci una lista di porte consentite dal firewall, separate da una virgola.">
-<!ENTITY torSettings.bridgeQuestion "Does your Internet Service Provider (ISP) block or otherwise censor connections to the Tor Network?">
+<!ENTITY torSettings.bridgeQuestion "Il tuo fornitore di servizi internet (ISP) blocca o censura la connessione alla rete Tor?">
 <!ENTITY torSettings.bridgeHelp "If you are not sure how to answer this question, choose No.&amp;#160; If you choose Yes, you will be asked to configure Tor Bridges, which are unlisted relays that make it more difficult to block connections to the Tor Network.">
 <!ENTITY torSettings.bridgeSettingsPrompt "You may use the provided set of bridges or you may obtain and enter a custom set of bridges.">
 
@@ -46,11 +46,12 @@
 <!ENTITY torsettings.firewall.checkbox "Questo computer passa attraverso un firewall che permette le connessioni solo ad alcune porte">
 <!ENTITY torsettings.firewall.allowedPorts "Porte consentite:">
 <!ENTITY torsettings.useBridges.checkbox "Il mio fornitore di servizi Internet (ISP) blocca le connessioni alla rete Tor">
-<!ENTITY torsettings.useBridges.default "Connect with provided bridges">
+<!ENTITY torsettings.useBridges.default "
+">
 <!ENTITY torsettings.useBridges.type "Tipo di trasporto:">
 <!ENTITY torsettings.useBridges.custom "Inserire bridge personaizzati">
 <!ENTITY torsettings.useBridges.label "Inserisci uno o più bridge relay (uno per riga)">
-<!ENTITY torsettings.useBridges.placeholder "type address:port">
+<!ENTITY torsettings.useBridges.placeholder "Tipo indirizzo:porta">
 
 <!ENTITY torsettings.copyLog "Copia il log di Tor negli &quot;appunti&quot; di sistema">
 <!ENTITY torsettings.bridgeHelpTitle "Aiuto per i ponti relé">

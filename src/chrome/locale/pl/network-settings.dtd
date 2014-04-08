@@ -22,7 +22,7 @@
 <!ENTITY torSettings.firewallQuestion "Czy połączenie internetowe Twojego komputera pozwala przejść przez zaporę sieciową w celu nawiązania połączenia z ustalonymi portami?">
 <!ENTITY torSettings.firewallHelp "Jeśli nie jesteś pewien jak odpowiedzieć na to pytanie, wybierz Nie. W przypadku wystąpienia problemów z połączeniem, zmień tą opcję.">
 <!ENTITY torSettings.enterFirewall "Wprowadź listę portów dozwolonych przez zaporę (kolejne porty oddzielaj przecinkiem).">
-<!ENTITY torSettings.bridgeQuestion "Czy Twój dostawca usług internetowych (ISP) blokuje lub ocenzurowuje połączenia sieci Tor?">
+<!ENTITY torSettings.bridgeQuestion "Czy Twój dostawca usług internetowych (ISP) blokuje lub cenzuruje połączenia sieci Tor?">
 <!ENTITY torSettings.bridgeHelp "Jeśli nie jesteś pewny odpowiedzi na to pytanie proszę wybrać odpowiedź Nie.&amp;#160; Jeśli wybierzesz Tak, to będziesz poproszony o skonfigurowanie mostków Tora, które nie są publicznie wymienione, dzięki czemu będzie trudniej zablokować połączenia do sieci Tor.">
 <!ENTITY torSettings.bridgeSettingsPrompt "Możesz wybrać dostępny zestaw mostków, albo możesz uzyskać i wprowadzić niestandardowy zestaw mostów.">
 
