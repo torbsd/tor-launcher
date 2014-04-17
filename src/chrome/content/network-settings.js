@@ -818,6 +818,10 @@ function initBridgeSettings()
 
   if (!canUseDefaultBridges)
   {
+    var label = document.getElementById("bridgeSettingsPrompt");
+    if (label)
+      label.setAttribute("hidden", true);
+
     var radioGroup = document.getElementById("bridgeTypeRadioGroup");
     if (radioGroup)
       radioGroup.setAttribute("hidden", true);
