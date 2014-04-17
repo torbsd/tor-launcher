@@ -74,7 +74,7 @@
   </groupbox>
 
   <groupbox id="bridgeSpecificSettings">
-    <hbox pack="end">
+    <hbox align="end" pack="end">
       <radiogroup id="bridgeTypeRadioGroup" flex="1" style="margin: 0px"
                   oncommand="onBridgeTypeRadioChange()">
         <radio id="bridgeRadioDefault"
@@ -91,12 +91,10 @@
         </hbox>
         <spacer style="height: 0.5em" />
 
-        <hbox align="baseline" flex="1">
-          <radio align="start" id="bridgeRadioCustom"
-                 label="&torsettings.useBridges.custom;" />
-          <button align="end" dlgtype="help" oncommand="onOpenHelp()" />
-        </hbox>
+        <radio align="start" id="bridgeRadioCustom"
+               label="&torsettings.useBridges.custom;" />
       </radiogroup>
+      <button dlgtype="help" oncommand="onOpenHelp()" />
     </hbox>
     <vbox id="bridgeCustomEntry">
       <label id="bridgeListLabel" style="margin-top:0px;"
