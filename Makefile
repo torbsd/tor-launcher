@@ -41,6 +41,7 @@ pkg-prepare:	clean
 	          [ -n "$(BUNDLE_LOCALES)" ] && \
 	          ! echo $(BUNDLE_LOCALES) | grep -qw `basename "$${d}"` \
 	        ); then \
+	       echo "Removing locale $${d} (missing resource $${f})"; \
 	       rm -rf "$${d}"; \
 	       break; \
 	     fi \
