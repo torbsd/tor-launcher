@@ -1,0 +1,4 @@
+<!ENTITY torprogress.dialog.title "Tor的狀態">
+<!ENTITY torprogress.openSettings "打開設定">
+<!ENTITY torprogress.heading "連接至Tor的網絡中">
+<!ENTITY torprogress.pleaseWait "跟Tor網絡連接, 請稍候。">

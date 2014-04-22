@@ -1,0 +1,4 @@
+<!ENTITY torprogress.dialog.title "Tor Status">
+<!ENTITY torprogress.openSettings "Åpne Innstillinger">
+<!ENTITY torprogress.heading "Kobler til Tor-nettverket">
+<!ENTITY torprogress.pleaseWait "Vennligst vent mens vi etablerer en forbindelse til Tor-nettverket.">

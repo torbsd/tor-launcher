@@ -1,0 +1,64 @@
+<!ENTITY torsettings.dialog.title "Tor Ρυθμίσεις Δικτύου ">
+
+<!-- For "first run" wizard: -->
+
+<!ENTITY torsettings.prompt "Before you connect to the Tor network, you need to provide information about this computer's Internet connection.">
+
+<!ENTITY torSettings.yes "Ναι">
+<!ENTITY torSettings.no "Οχι">
+
+<!ENTITY torSettings.firstQuestion "Ποιο από τα παρακάτω περιγράφει καλύτερα την κατάστασή σας;">
+<!ENTITY torSettings.configurePrompt1 "Σύνδεση στο διαδικτυο αυτού του υπολογιστή λογοκρινετε, φιλτραρετε ή εμποδιζετε γενικως. ">
+<!ENTITY torSettings.configurePrompt2 "I need to configure bridge, firewall, or proxy settings.">
+<!ENTITY torSettings.configure "Ρύθμιση ">
+<!ENTITY torSettings.connectPrompt2 "Θα ήθελα να συνδεθεί άμεσα με το δίκτυο Tor.">
+<!ENTITY torSettings.connectPrompt3 "This will work in most situations.">
+<!ENTITY torSettings.connect "Σύνδεση">
+
+<!ENTITY torSettings.proxyQuestion "Μήπως αυτός ο υπολογιστής πρέπει να χρησιμοποιήση έναν διακομιστή μεσολάβησης για πρόσβαση στο Διαδίκτυο;">
+<!-- see https://www.torproject.org/docs/proxychain.html.en -->
+<!ENTITY torSettings.proxyHelp "Εάν δεν είστε βέβαιοι πώς να απαντήσετε στο ερώτημα αυτό, δείτε τις ρυθμίσεις διαδικτυου σε άλλο φυλλομετρητή για να δείτε αν έχει ρυθμιστεί να χρησιμοποιεί διακομιστή μεσολάβησης.">
+<!ENTITY torSettings.enterProxy "Εισάγωγη των ρυθμίσεων διακομιστή μεσολάβησης.">
+<!ENTITY torSettings.firewallQuestion "Πηγαίνει μέσω ενός τείχους προστασίας που επιτρέπει μόνο συνδέσεις σε ορισμένες θύρες σύνδεσης Internet αυτού του υπολογιστή;">
+<!ENTITY torSettings.firewallHelp "Εάν δεν είστε βέβαιοι πώς να απαντήσετε στο ερώτημα αυτό, επιλέξτε Όχι. Εάν αντιμετωπίζετε προβλήματα με τη σύνδεση με το δίκτυο Tor, αλλάξτε αυτή τη ρύθμιση. ">
+<!ENTITY torSettings.enterFirewall "Πληκτρολογήστε μια λίστα διαχωρισμένη με κόμματα των θυρών που επιτρέπονται από το firewall.">
+<!ENTITY torSettings.bridgeQuestion "Does your Internet Service Provider (ISP) block or otherwise censor connections to the Tor Network?">
+<!ENTITY torSettings.bridgeHelp "If you are not sure how to answer this question, choose No.&amp;#160; If you choose Yes, you will be asked to configure Tor Bridges, which are unlisted relays that make it more difficult to block connections to the Tor Network.">
+<!ENTITY torSettings.bridgeSettingsPrompt "You may use the provided set of bridges or you may obtain and enter a custom set of bridges.">
+
+<!-- Other: -->
+
+<!ENTITY torsettings.startingTor "Αναμονή για να ξεκινήσει το Tor... ">
+<!ENTITY torsettings.restart "Επανεκκίνηση">
+
+<!ENTITY torsettings.optional "Προεραιτικα">
+
+<!ENTITY torsettings.useProxy.checkbox "Αυτός ο υπολογιστής θα πρέπει να χρησιμοποιήση έναν διακομιστή μεσολάβησης για πρόσβαση στο διαδικτυο">
+<!ENTITY torsettings.useProxy.type "Τύπος διακομιστή μεσολάβησης:">
+<!ENTITY torsettings.useProxy.address "Διεύθυνση:">
+<!ENTITY torsettings.useProxy.address.placeholder "Διεύθυνση ΙΡ η όνομα υπολογιστή ">
+<!ENTITY torsettings.useProxy.port "Θύρα συστήματος:">
+<!ENTITY torsettings.useProxy.username "Όνομα Χρήστη:">
+<!ENTITY torsettings.useProxy.password "Κωδικός:">
+<!ENTITY torsettings.useProxy.type.socks4 "SOCKS 4">
+<!ENTITY torsettings.useProxy.type.socks5 "SOCKS 5">
+<!ENTITY torsettings.useProxy.type.http "HTTP / HTTPS">
+<!ENTITY torsettings.firewall.checkbox "Το τείχος προστασίας μου με αφήνει να συνδέομαι μόνο σε συγκεκριμένες θύρες συστήματος">
+<!ENTITY torsettings.firewall.allowedPorts "Επιτρεπόμενες Θύρες:">
+<!ENTITY torsettings.useBridges.checkbox "Ο πάροχος διαδικτυου (ISP) μπλοκάρει τις συνδέσεις στο δίκτυο του Tor">
+<!ENTITY torsettings.useBridges.default "Connect with provided bridges">
+<!ENTITY torsettings.useBridges.type "Transport type:">
+<!ENTITY torsettings.useBridges.custom "Enter custom bridges">
+<!ENTITY torsettings.useBridges.label "Enter one or more bridge relays (one per line).">
+<!ENTITY torsettings.useBridges.placeholder "type address:port">
+
+<!ENTITY torsettings.copyLog "Αντιγραφή στο πρόχειρο">
+<!ENTITY torsettings.bridgeHelpTitle "Γεφυρες αναμεταδοτων Βοηθεια">
+<!ENTITY torsettings.bridgeHelp1 "If you are unable to connect to the Tor network, it could be that your Internet Service Provider (ISP) or another agency is blocking Tor.&amp;#160; Often, you can work around this problem by using Tor Bridges, which are unlisted relays that are more difficult to block.">
+<!ENTITY torsettings.bridgeHelp1B "You may use the preconfigured, provided set of bridge addresses or you may obtain a custom set of addresses by using one of these three methods:">
+<!ENTITY torsettings.bridgeHelp2Heading "Through the Web">
+<!ENTITY torsettings.bridgeHelp2 "Use a web browser to visit https://bridges.torproject.org">
+<!ENTITY torsettings.bridgeHelp3Heading "Through the Email Autoresponder">
+<!ENTITY torsettings.bridgeHelp3 "Send email to bridges@torproject.org with the line 'get bridges' by itself in the body of the message.&amp;#160; However, to make it harder for an attacker to learn a lot of bridge addresses, you must send this request from a gmail.com or yahoo.com email address.">
+<!ENTITY torsettings.bridgeHelp4Heading "Through the Help Desk">
+<!ENTITY torsettings.bridgeHelp4 "As a last resort, you can request bridge addresses by sending a polite email message to help@rt.torproject.org.&amp;#160; Please note that a person will need to respond to each request.">

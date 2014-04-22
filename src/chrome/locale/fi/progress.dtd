@@ -1,0 +1,4 @@
+<!ENTITY torprogress.dialog.title "Torin tila">
+<!ENTITY torprogress.openSettings "Avaa Asetukset">
+<!ENTITY torprogress.heading "Yhdistetään Tor-verkkoon">
+<!ENTITY torprogress.pleaseWait "Odota hetki, muodostaa yhteyttä Tor-verkkoon.">

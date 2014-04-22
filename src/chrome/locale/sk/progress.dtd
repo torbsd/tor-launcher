@@ -1,0 +1,4 @@
+<!ENTITY torprogress.dialog.title "Tor stav">
+<!ENTITY torprogress.openSettings "Otvor Nastavenia">
+<!ENTITY torprogress.heading "Pripájanie do siete Tor">
+<!ENTITY torprogress.pleaseWait "Prosíme počkajte kým nadviažeme spojenie so sieťou Toru.">

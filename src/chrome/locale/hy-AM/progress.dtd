@@ -1,0 +1,4 @@
+<!ENTITY torprogress.dialog.title "Tor-ի կարգավիճակը">
+<!ENTITY torprogress.openSettings "Բացել Կարգավորումները">
+<!ENTITY torprogress.heading "Միացում Tor ցանցին">
+<!ENTITY torprogress.pleaseWait "Please wait while we establish a connection to the Tor network.">

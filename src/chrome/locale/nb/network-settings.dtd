@@ -1,0 +1,66 @@
+<!ENTITY torsettings.dialog.title "Tor Nettverksinnstillinger">
+
+<!-- For "first run" wizard: -->
+
+<!ENTITY torsettings.prompt "Før du kan koble til Tor-nettverket, må du gi informasjon om denne datamaskinens internett-tilkobling.">
+
+<!ENTITY torSettings.yes "Ja">
+<!ENTITY torSettings.no "Nei">
+
+<!ENTITY torSettings.firstQuestion "Hvilket av følgende beskriver best din situasjon?">
+<!ENTITY torSettings.configurePrompt1 "Denne datamaskinens Internett-tilkobling er sensurert, filtrert, eller går gjennom en proxy.">
+<!ENTITY torSettings.configurePrompt2 "Jeg må konfigurere bro, brannmur eller proxy innstillinger.">
+<!ENTITY torSettings.configure "Konfigurer">
+<!ENTITY torSettings.connectPrompt2 "Jeg vil koble direkte til Tor-nettverket.">
+<!ENTITY torSettings.connectPrompt3 "Dette vil fungere i de fleste situasjoner.">
+<!ENTITY torSettings.connect "Koble til">
+
+<!ENTITY torSettings.proxyQuestion "Må denne datamaskinen bruke en proxy for å få tilgang til Internett?">
+<!-- see https://www.torproject.org/docs/proxychain.html.en -->
+<!ENTITY torSettings.proxyHelp "Hvis du ikke er sikker på hvordan du skal svare på dette spørsmålet, se på Internett-innstillingene i en annen nettleser for å se om den er konfigurert til å bruke en proxy.">
+<!ENTITY torSettings.enterProxy "Skriv inn proxy-innstillingene.">
+<!ENTITY torSettings.firewallQuestion "Går denne datamaskinens Internett-tilkobling gjennom en brannmur som kun tillater forbindelser til visse porter?">
+<!ENTITY torSettings.firewallHelp "Hvis du ikke er sikker på hvordan du skal svare på dette spørsmålet, velg nei. Hvis du støter på problemer med å koble til Tor-nettverket, endrer du denne innstillingen.">
+<!ENTITY torSettings.enterFirewall "Skriv inn en liste, adskilt med komma, over porter som er tillatt av brannmuren.">
+<!ENTITY torSettings.bridgeQuestion "Blokkerer eller sensurerer internettleverandøren (ISP) din tilkoblinger til Tor-nettverket?">
+<!ENTITY torSettings.bridgeHelp "Hvis du er usikker på hva du skal svare på dette spørsmålet, velg Nei.&amp;#160; Hvis du velger Ja, vil du bli bedt om å konfigurere Tor-broer, som er ulistede reléer som gjør det vanskeligere å blokkere tilkoblinger til Tor-nettverket.">
+<!ENTITY torSettings.bridgeSettingsPrompt "Du kan bruke de angitte broene eller du kan skaffe og oppgi egendefinerte broer.">
+
+<!-- Other: -->
+
+<!ENTITY torsettings.startingTor "Venter på at Tor skal starte...">
+<!ENTITY torsettings.restart "Start på nytt">
+
+<!ENTITY torsettings.optional "Valgfritt">
+
+<!ENTITY torsettings.useProxy.checkbox "Denne datamaskinen trenger å bruke en proxy for å få tilgang til Internett.">
+<!ENTITY torsettings.useProxy.type "Proxytype:">
+<!ENTITY torsettings.useProxy.address "Adresse:">
+<!ENTITY torsettings.useProxy.address.placeholder "IP-adresse, eller vertsnavn">
+<!ENTITY torsettings.useProxy.port "Port:">
+<!ENTITY torsettings.useProxy.username "Brukernavn:">
+<!ENTITY torsettings.useProxy.password "Passord:">
+<!ENTITY torsettings.useProxy.type.socks4 "SOCKS 4">
+<!ENTITY torsettings.useProxy.type.socks5 "SOCKS 5">
+<!ENTITY torsettings.useProxy.type.http "HTTP / HTTPS">
+<!ENTITY torsettings.firewall.checkbox "Denne datamaskinen går gjennom en brannmur som kun tillater tilkoblinger til visse porter">
+<!ENTITY torsettings.firewall.allowedPorts "Tillatte Porter:">
+<!ENTITY torsettings.useBridges.checkbox "Min Internettleverandør (ISP) blokkerer tilkoblinger til Tor-nettverket">
+<!ENTITY torsettings.useBridges.default "Koble til med angitte broer">
+<!ENTITY torsettings.useBridges.type "Tilkoblingstype:">
+<!ENTITY torsettings.useBridges.custom "Angi egendefinerte broer">
+<!ENTITY torsettings.useBridges.label "Skriv inn en, eller fler bro-reléer (èn pr linje).">
+<!ENTITY torsettings.useBridges.placeholder "type adresse:port">
+
+<!ENTITY torsettings.copyLog "Kopier Torloggen til Utklippstavlen">
+<!ENTITY torsettings.bridgeHelpTitle "Bro-relé Hjelp">
+<!ENTITY torsettings.bridgeHelp1 "Hvis du ikke får koblet til Tor-nettverket, kan det være at internettleverandøren din (ISP), eller et annet byrå/institusjon/etat blokkerer Tor.&amp;#160; Som regel kan du omgå dette problemet ved å bruke Tor-broer, som er ulistede reléer og derfor vanskeligere å blokkere.">
+<!ENTITY torsettings.bridgeHelp1B "Du kan bruke de prekonfigurerte, angitte bro-adressene eller du kan skaffe deg egendefinerte adresser ved å bruke en av følgende tre metoder:">
+<!ENTITY torsettings.bridgeHelp2Heading "Via nettet">
+<!ENTITY torsettings.bridgeHelp2 "Bruk en nettleser for å besøke https://bridges.torproject.org">
+<!ENTITY torsettings.bridgeHelp3Heading "Via e-post autosvar">
+<!ENTITY torsettings.bridgeHelp3 "Send e-post til bridges@torproject.org med tekstlinjen 'get bridges' som eneste innhold i e-posten.&amp;#160; 
+Men, for å gjøre det vanskeligere for en angriper å lære seg en masse bro-adresser, må du sende denne forespørselen fra en gmail.com eller yahoo.com adresse.">
+<!ENTITY torsettings.bridgeHelp4Heading "Via supporten">
+<!ENTITY torsettings.bridgeHelp4 "Som en siste utvei, kan du be om bro-adresser ved å sende en høflig e-post til help@rt.torproject.org.&amp;#160; 
+Tenk over at en person må svare på hver slik forespørsel.">

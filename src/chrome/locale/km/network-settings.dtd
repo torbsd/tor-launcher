@@ -1,0 +1,64 @@
+<!ENTITY torsettings.dialog.title "ការ​កំណត់​បណ្ដាញ Tor">
+
+<!-- For "first run" wizard: -->
+
+<!ENTITY torsettings.prompt "មុន​ពេល​អ្នកភ្ជាប់​ទៅបណ្ដាញ Tor អ្នកត្រូវ​ផ្ដល់​ព័ត៌មាន​អំពី​ការ​ភ្ជាប់​អ៊ីនធឺណិត​កុំព្យូទ័រ​នេះ។">
+
+<!ENTITY torSettings.yes "បាទ/ចាស">
+<!ENTITY torSettings.no "ទេ">
+
+<!ENTITY torSettings.firstQuestion "តើ​ការ​ពណ៌នា​ណា​មួយ​​​ដូច​ខា​ងក្រោម​នេះ​ល្អ​បំផុត​សម្រាប់ស្ថានភាព​របស់​អ្នក?">
+<!ENTITY torSettings.configurePrompt1 "ការ​ភ្ជាប់​អ៊ីនធឺណិត​កុំព្យូទ័រ​នេះ​ត្រូវ​បាន​កែ ច្រោះ ឬ​ដាក់​ប្រូកស៊ី។">
+<!ENTITY torSettings.configurePrompt2 "ខ្ញុំ​ត្រូវ​កំណត់​រចនាសម្ព័ន្ធ​ប្រ៊ីត, ជញ្ជាំង​ភ្លើង ឬ​ការ​កំណត់​ប្រូកស៊ី។">
+<!ENTITY torSettings.configure "កំណត់រចនាសម្ព័ន្ធ">
+<!ENTITY torSettings.connectPrompt2 "ខ្ញុំ​ចង់ភ្ជាប់​ដោយ​ផ្ទាល់ទៅ​បណ្ដាញ Tor ។">
+<!ENTITY torSettings.connectPrompt3 "វា​នឹង​ដំណើរការ​ក្នុងស្ថានភាព​ភាគ​ច្រើន។">
+<!ENTITY torSettings.connect "តភ្ជាប់">
+
+<!ENTITY torSettings.proxyQuestion "តើ​កុំព្យូទ័រ​នេះ​ត្រូវ​ប្រើប្រូកស៊ី ដើម្បី​ចូល​​អ៊ីនធឺណិតឬ?">
+<!-- see https://www.torproject.org/docs/proxychain.html.en -->
+<!ENTITY torSettings.proxyHelp "បើ​អ្នក​មិន​ប្រាកដ​អំពី​វិធី​ឆ្លើយ​សំណួរ​នេះ មើល​ការកំណត់​អ៊ីនធឺណិត​ក្នុង​កម្មវិធី​អ៊ីនធឺណិត​ផ្សេង ដើម្បីដឹង​ថាតើ​វា​ត្រូវ​បានកំណត់រចនាសម្ព័ន្ធ​ដើម្បី​ប្រើ​ប្រូកស៊ី​ដែរឬទេ។">
+<!ENTITY torSettings.enterProxy "បញ្ចូល​ការ​កំណត់​ប្រូកស៊ី។">
+<!ENTITY torSettings.firewallQuestion "តើ​​ការ​ភ្ជាប់​អ៊ីនធឺណិត​របស់​កុំព្យូទ័រ​នេះ​​ឆ្លង​កាត់ជញ្ជាំង​ភ្លើង​ដែល​អនុញ្ញាត​តែ​ការ​ភ្ជាប់​ទៅច្រក​ជាក់លាក់?">
+<!ENTITY torSettings.firewallHelp "បើ​អ្នក​មិន​ប្រាកដ​វិធី​ឆ្លើយត​សំណួរ​នេះ ជ្រើស ទេ។ បើ​អ្នក​មាន​បញ្ហា​ក្នុង​ការ​ភ្ជាប់​ទៅ​បណ្ដាញ Tor ប្ដូរ​ការ​កំណត់​នេះ។">
+<!ENTITY torSettings.enterFirewall "បញ្ជី​បញ្ជី​ច្រក​ដែល​បំបែក​ដោយ​សញ្ញា​ក្បៀស​ដែល​ត្រូវ​បាន​អនុញ្ញាត​ដោយជញ្ជាំង​ភ្លើង។">
+<!ENTITY torSettings.bridgeQuestion "តើ​ក្រុមហ៊ុន​ផ្ដល់​អ៊ីនធឺណិត​របស់​អ្នក (ISP) ទប់ស្កាត់ ឬ​បើ​មិន​ដូច្នេះ​ទេ​ការ​ភ្ជាប់​ឧបករណ៍​ចាប់​សញ្ញាទៅ​បណ្ដាញ Tor ?">
+<!ENTITY torSettings.bridgeHelp "បើ​អ្នក​ប្រាកដ​ពី​វិធី​ឆ្លើយ​សំណួរ​នេះ ជ្រើស​ទេ។ &amp;#160; បើ​អ្នក​ជ្រើស​បាទ/ចាស អ្នក​នឹង​ត្រូវ​បាន​ស្នើ​ឲ្យ​កំណត់​រចនាសម្ព័ន្ធ​ប៊្រីត Tor ដែល​​ជា​ការ​បញ្ជូន​បន្ត​មិន​បាន​រាយ​ដែល​ធ្វើ​ឲ្យ​វា​កាន់តែ​លំបាក​​ក្នុង​ការ​ទប់ស្កាត់​ការ​ភ្ជាប់​ទៅ​បណ្ដាញ Tor ។">
+<!ENTITY torSettings.bridgeSettingsPrompt "អ្នកអាច​ប្រើ​ការកំណត់ប៊្រីត​ដែល​បានផ្ដល់ ឬ​អ្នក​អាច​យក​ និង​បញ្ចូល​ការ​កំណត់ប៊្រីត​ផ្ទាល់​ខ្លួន។">
+
+<!-- Other: -->
+
+<!ENTITY torsettings.startingTor "កំពុង​រង់ចាំ Tor ចាប់ផ្ដើម...">
+<!ENTITY torsettings.restart "ចាប់ផ្ដើម​ឡើងវិញ">
+
+<!ENTITY torsettings.optional "ជា​ជម្រើស">
+
+<!ENTITY torsettings.useProxy.checkbox "កុំព្យូទ័រ​នេះ​ត្រូវ​ប្រើ​ប្រូកស៊ី ដើម្បី​ចូល​អ៊ីនធឺណិត">
+<!ENTITY torsettings.useProxy.type "ប្រភេទ​ប្រូកស៊ី៖">
+<!ENTITY torsettings.useProxy.address "អាយដ្ឋាន៖">
+<!ENTITY torsettings.useProxy.address.placeholder "អាសយដ្ឋាន IP ឬ​ឈ្មោះ​ម៉ាស៊ីន">
+<!ENTITY torsettings.useProxy.port "ច្រក៖">
+<!ENTITY torsettings.useProxy.username "ឈ្មោះ​អ្នក​ប្រើ៖">
+<!ENTITY torsettings.useProxy.password "ពាក្យ​សម្ងាត់៖">
+<!ENTITY torsettings.useProxy.type.socks4 "SOCKS 4">
+<!ENTITY torsettings.useProxy.type.socks5 "SOCKS 5">
+<!ENTITY torsettings.useProxy.type.http "HTTP / HTTPS">
+<!ENTITY torsettings.firewall.checkbox "កុំព្យូទ័រ​នេះ​ឆ្លង​កាត់ជញ្ជាំង​ភ្លើង​ដែល​អនុញ្ញាត​តែ​ការ​​ភ្ជាប់ទៅ​ច្រកជាក់លាក់">
+<!ENTITY torsettings.firewall.allowedPorts "ច្រក​បាន​អនុញ្ញាត៖">
+<!ENTITY torsettings.useBridges.checkbox "ក្រុមហ៊ុន​ផ្ដល់​សេវាកម្ម​អ៊ីនធឺណិត (ISP)​ របស់​ខ្ញុំ​ទប់ស្កាត់ការភ្ជាប់​ទៅ​បណ្ដាញ Tor ។">
+<!ENTITY torsettings.useBridges.default "ភ្ជាប់​ជា​មួយ​ប៊្រីត​បាន​ផ្ដល់">
+<!ENTITY torsettings.useBridges.type "ប្រភេទ​បញ្ជូន៖">
+<!ENTITY torsettings.useBridges.custom "បញ្ចូល​ប៊្រីត​ផ្ទាល់​ខ្លួន">
+<!ENTITY torsettings.useBridges.label "បញ្ចូល​ការ​បញ្ជូន​ប្រ៊ីត​បន្ត​មួយ ឬ​ច្រើន (មួយ​ក្នុង​មួយ​ជួរ)។">
+<!ENTITY torsettings.useBridges.placeholder "បញ្ចូល address:port">
+
+<!ENTITY torsettings.copyLog "ចម្លង​កំណត់ហេតុ Tor ទៅ​ក្ដារ​តម្បៀតខ្ទាស់">
+<!ENTITY torsettings.bridgeHelpTitle "ជំនួយ​បញ្ជូន​ប្រ៊ីត​បន្ត">
+<!ENTITY torsettings.bridgeHelp1 "បើ​អ្នក​មិន​អាច​ភ្ជាប់​ទៅបណ្ដាញ Tor វា​អាច​មកពី​ក្រុមហ៊ុន​ផ្ដល់សេវាកម្ម​អ៊ីនធឺណិត (ISP) ឬ​ភ្នាក់ងារ​ផ្សេង​​កំពុង​ទប់ស្កាត់ Tor ។ &amp;#160; ជា​រឿយៗ​អ្នក​អាច​ស្វែងយល់​ពី​បញ្ហា​នេះ ដោយ​ប្រើ​ប៊្រីត Tor ដែល​ត្រូវ​បាន​លាក់​ការ​បញ្ជូន​បន្ត​ដែល​ពិបាក​ទប់ស្កាត់។">
+<!ENTITY torsettings.bridgeHelp1B "អ្នកអាច​ប្រើ​ការ​កំណត់​រចនាសម្ព័ន្ធ​ជា​មុន ការកំណត់អាសយដ្ឋាន​ប៊្រីត​ដែល​បាន​ផ្ដល់ ឬ​អ្នកអាច​យក​ការ​កំណត់​អាសយដ្ឋាន​ផ្ទាល់ខ្លួន​ដោយ​ប្រើ​វិធី​មួយ​ក្នុង​ចំណោមវិធី​សាស្ត្រ​ទាំង​បី៖">
+<!ENTITY torsettings.bridgeHelp2Heading "តាម​រយៈ​បណ្ដាញ">
+<!ENTITY torsettings.bridgeHelp2 "ប្រើ​កម្មវិធីរុករកបណ្ដាញ ដើម្បីមើល https://bridges.torproject.org">
+<!ENTITY torsettings.bridgeHelp3Heading "តាមរយៈ​ការឆ្លើយតប​ដោយ​ស្វ័យ​ប្រវត្តិ​របស់​អ៊ីមែល">
+<!ENTITY torsettings.bridgeHelp3 "ផ្ញើ​អ៊ីមែល​ទៅ bridges@torproject.org ដោយ​មាន​ឃ្លា 'get bridges' ដោយ​ខ្លួន​វា​ក្នុង​តួ​សារ។&amp;#160; ទោះ​ជា​យ៉ាង​ណា​ក៏​ដោយ ដើម្បី​ធ្វើ​ឲ្យ​វា​​កាន់តែ​ពិបាក​សម្រាប់​អ្នក​វាយ​ប្រហារ ដើម្បី​សិក្សា​ច្រើន​អំពី​អាសយដ្ឋាន​​​ប៊្រីត អ្នក​ត្រូវ​ផ្ញើ​សំណើ​នេះ​ពី​អាសយដ្ឋាន gmail.com ឬ yahoo.com ។">
+<!ENTITY torsettings.bridgeHelp4Heading "តាមរយៈ​ជំនួយ​">
+<!ENTITY torsettings.bridgeHelp4 "នៅ​ជម្រើស​ចុងក្រោយ អ្នក​អាច​ស្នើ​​អាសយដ្ឋាន​ប៊្រីត​ដោយ​ផ្ញើ​សារ​អ៊ីមែល​គួរសម​ទៅ help@rt.torproject.org.&amp;#160; សូម​ចំណាំ​ថា មនុស្ស​​ម្នាក់​នឹង​ត្រូវ​ឆ្លើយតប​ទៅ​សំណើ​នីមួយៗ។">

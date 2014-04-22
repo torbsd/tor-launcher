@@ -1,0 +1,4 @@
+<!ENTITY torprogress.dialog.title "Tor Status">
+<!ENTITY torprogress.openSettings "Otvori Postavke">
+<!ENTITY torprogress.heading "Spajanje na Tor mrežu">
+<!ENTITY torprogress.pleaseWait "Molimo pričekajte dok ne uspostavimo vezu s Tor mrežom.">

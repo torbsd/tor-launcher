@@ -1,0 +1,4 @@
+<!ENTITY torprogress.dialog.title "Tor holati">
+<!ENTITY torprogress.openSettings "Moslamalarni ochish">
+<!ENTITY torprogress.heading "Tor tarmog'iga ulanish">
+<!ENTITY torprogress.pleaseWait "Please wait while we establish a connection to the Tor network.">

@@ -23,7 +23,7 @@
 <!ENTITY torSettings.firewallHelp "Si vous ne savez par comment répondre à cette question, choisissez Non. Vous pourrez changer ce paramètre plus tard en cas de problèmes de connexion au réseau Tor.">
 <!ENTITY torSettings.enterFirewall "Entrez la liste de ports, séparés par des virgules, qui sont autorisés par le pare-feu.">
 <!ENTITY torSettings.bridgeQuestion "Est-ce que votre Fournisseur d'Accès Internet (FAI) bloque les connexions au réseau Tor ?">
-<!ENTITY torSettings.bridgeHelp "Si vous ne savez pas comment répondre à cette question, choisissez le numéro &amp;#160; Si vous choisissez Oui, il vous sera demandé de configurer les bridges Tor qui sont des relais non listés et qui rendent plus difficile le blocage du réseau Tor.">
+<!ENTITY torSettings.bridgeHelp "Si vous ne savez pas comment répondre à cette question, choisissez Non.&amp;#160; Si vous choisissez Oui, il vous sera demandé de configurer les bridges Tor qui sont des relais non listés et qui rendent plus difficile le blocage du réseau Tor.">
 <!ENTITY torSettings.bridgeSettingsPrompt "Vous pouvez utiliser les bridges fournis ou bien saisir votre liste de bridges personnels.">
 
 <!-- Other: -->

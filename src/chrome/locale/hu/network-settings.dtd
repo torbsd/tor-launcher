@@ -1,0 +1,64 @@
+<!ENTITY torsettings.dialog.title "Tor hálózati beállítások">
+
+<!-- For "first run" wizard: -->
+
+<!ENTITY torsettings.prompt "Mielőtt a Tor hálózatra csatlakoznál, információt kell adj a számítógép internet kapcsolatáról.">
+
+<!ENTITY torSettings.yes "Igen">
+<!ENTITY torSettings.no "Nem">
+
+<!ENTITY torSettings.firstQuestion "A következők közül melyik illik jobban a szituációhoz?">
+<!ENTITY torSettings.configurePrompt1 "A számítógép internet kapcsolata cenzúrázott, szűrt vagy proxy-t használ.">
+<!ENTITY torSettings.configurePrompt2 "Konfigurálni kell a bridge, tűzfal vagy proxy beállításokat.">
+<!ENTITY torSettings.configure "Beállít">
+<!ENTITY torSettings.connectPrompt2 "Szeretnék közvetlenül kapcsolódni a Tor hálózathoz.">
+<!ENTITY torSettings.connectPrompt3 "A legtöbb esetben ez működni fog.">
+<!ENTITY torSettings.connect "Csatlakozás">
+
+<!ENTITY torSettings.proxyQuestion "A számítógépnek proxy használatára van szüksége az internet eléréséhez?">
+<!-- see https://www.torproject.org/docs/proxychain.html.en -->
+<!ENTITY torSettings.proxyHelp "Ha nem vagy biztos a válaszban nézd meg az Internet beállításokat egy másik böngészőben. Nézd meg van-e proxy használat beállítva.">
+<!ENTITY torSettings.enterProxy "Adja meg a proxy beállításokat.">
+<!ENTITY torSettings.firewallQuestion "Ezen számítógép internet kapcsolata tűzfalon halad át, mely csak bizonyos portokhoz enged csatlakozni?">
+<!ENTITY torSettings.firewallHelp "Nem biztos abban, hogy hogyan válaszoljon erre a kérdésre, válassza a 'Nem'-et. Ha problémákba ütközik a Tor hálózathoz való csatlakozáskor, változtassa meg ezt a beállítást.">
+<!ENTITY torSettings.enterFirewall "Gépelj be egy vesszővel elválasztott listát a portokról amik engedélyezve vannak a tűzfal által.">
+<!ENTITY torSettings.bridgeQuestion "Az internet szolgáltatód (ISP) blokkolja vagy cenzúrázza a kapcsolatot a Tor hálózathoz?">
+<!ENTITY torSettings.bridgeHelp "Ha nem vagy biztos a válaszban, válaszd a Nem-et.&amp;#160; Ha az Igen-t választod neked kell konfigurálni a Tor bridges amik nem listázott átjátszók és nehezebbé teszik a Tor hálózat kapcsolódásának a blokkolását.">
+<!ENTITY torSettings.bridgeSettingsPrompt "Használhatod a szolgáltatott bridge címeket vagy beszerezhetsz egyedi bridge címeket.">
+
+<!-- Other: -->
+
+<!ENTITY torsettings.startingTor "Várakozás a Tor indulására...">
+<!ENTITY torsettings.restart "Újraindítás">
+
+<!ENTITY torsettings.optional "Opcionális">
+
+<!ENTITY torsettings.useProxy.checkbox "A számítógépnek szüksége van a proxy használatára az internet kapcsolathoz.">
+<!ENTITY torsettings.useProxy.type "Proxy Típus:">
+<!ENTITY torsettings.useProxy.address "Cím:">
+<!ENTITY torsettings.useProxy.address.placeholder "IP cím vagy gépnév">
+<!ENTITY torsettings.useProxy.port "Port:">
+<!ENTITY torsettings.useProxy.username "Felhasználónév:">
+<!ENTITY torsettings.useProxy.password "Jelszó:">
+<!ENTITY torsettings.useProxy.type.socks4 "SOCKS 4">
+<!ENTITY torsettings.useProxy.type.socks5 "SOCKS 5">
+<!ENTITY torsettings.useProxy.type.http "HTTP / HTTPS">
+<!ENTITY torsettings.firewall.checkbox "A számítógép egy tűzfalon keresztül kommunikál ami csak adott portokon keresztül engedélyezi a kapcsolatotokat.">
+<!ENTITY torsettings.firewall.allowedPorts "Engedélyezett portok:">
+<!ENTITY torsettings.useBridges.checkbox "Az internet szolgáltatóm (ISP) blokkolja a Tor hálózathoz való csatlakozásokat">
+<!ENTITY torsettings.useBridges.default "Csatlakozás a szolgáltatott bridge címekkel.">
+<!ENTITY torsettings.useBridges.type "Átvitel típusa:">
+<!ENTITY torsettings.useBridges.custom "Addj meg egyedi bridge címeket">
+<!ENTITY torsettings.useBridges.label "Addj meg egy vagy több bridge relay címet (soronként egy)">
+<!ENTITY torsettings.useBridges.placeholder "Írd cím:port">
+
+<!ENTITY torsettings.copyLog "A Tor log Vágólapra másolása">
+<!ENTITY torsettings.bridgeHelpTitle "Híd kapcsoló súgó">
+<!ENTITY torsettings.bridgeHelp1 "Ha nem tudsz csatlakozni a Tor.&amp;#160; hálózathoz, akkor valószínű az internet szolgáltató (ISP) vagy egy másik szervezet blokkolja. Gyakran megkerülhető a probléma Tor bridges használatával. Ezek nem listázott átjátszók amiket sokkal nehezebb blokkolni.">
+<!ENTITY torsettings.bridgeHelp1B "Használhatod az előre beállított bridge címeket vagy beszerezhetsz egyedi címeket ezzel a három módszerrel:">
+<!ENTITY torsettings.bridgeHelp2Heading "Interneten keresztül">
+<!ENTITY torsettings.bridgeHelp2 "Használj egy böngészőt megnézni ezt az oldalt: https://bridges.torproject.org">
+<!ENTITY torsettings.bridgeHelp3Heading "Az automata email válaszok által.">
+<!ENTITY torsettings.bridgeHelp3 "Küldj emailt a bridges@torproject.org -ra a következő szöveggel: &quot;get bridges&quot; az emailben.&amp;#160; Hogy egy esetleges támadó információ szerzési esélyét nehezítse ezt az emailt egy gmail.com vagy yahoo.com email címről küldd.">
+<!ENTITY torsettings.bridgeHelp4Heading "A támogatáson keresztül.">
+<!ENTITY torsettings.bridgeHelp4 "Utolsó lehetőségként küldj egy udvarias bridge igénylő emailt ide: help@rt.torproject.org.&amp;#160; Légyszíves vedd figyelembe az adott személynek több emailt kell megválaszolnia.">

@@ -1,0 +1,64 @@
+<!ENTITY torsettings.dialog.title "Sieťové Nastavenia Tor">
+
+<!-- For "first run" wizard: -->
+
+<!ENTITY torsettings.prompt "Predtým než sa pripojíte k sieti Toru, potrebujete poskytnúť informácie o pripojení tohto počítača k Internetu.">
+
+<!ENTITY torSettings.yes "Áno">
+<!ENTITY torSettings.no "Nie">
+
+<!ENTITY torSettings.firstQuestion "Ktoré z nasledujúcich možností najlepšie opisuje Vašu situáciu?">
+<!ENTITY torSettings.configurePrompt1 "Internetové pripojenie tohto počítača je cenzurované, filtrované alebo sprostredkované.">
+<!ENTITY torSettings.configurePrompt2 "Potrebujem nakonfigurovať nastavenia mostu, firewallu alebo proxy.">
+<!ENTITY torSettings.configure "Konfigurácia">
+<!ENTITY torSettings.connectPrompt2 "Chcem sa pripojiť priamo do siete Tor.">
+<!ENTITY torSettings.connectPrompt3 "Toto bude vo väčšine prípadov fungovať.">
+<!ENTITY torSettings.connect "Pripojiť">
+
+<!ENTITY torSettings.proxyQuestion "Potrebuje tento počítač použiť proxy na prístup k Internetu?">
+<!-- see https://www.torproject.org/docs/proxychain.html.en -->
+<!ENTITY torSettings.proxyHelp "Ak si nieste istý ako odpovedať na túto otázku, pozrite sa či máte nastavené používanie proxy v inom Internetovom prehliadači.">
+<!ENTITY torSettings.enterProxy "Vstúpiť do nastavení proxy.">
+<!ENTITY torSettings.firewallQuestion "Používa Internetové pripojenie tohto počítača bránu firewall, ktorá povoľuje pripojenia len na niektoré porty?">
+<!ENTITY torSettings.firewallHelp "Ak si nieste istý ako odpovedať na túto otázku, zvoľte Nie. Ak narazíte na problémy s pripojením do siete Tor, zmeňte toto nastavenie.">
+<!ENTITY torSettings.enterFirewall "Vložte zoznam portov oddelený čiarkou, ktoré sú povolené firewallom.">
+<!ENTITY torSettings.bridgeQuestion "Blokuje alebo nejak cenzuruje váš Poskytovateľ Internetu (ISP) pripojenia k Sieti Tor?">
+<!ENTITY torSettings.bridgeHelp "Ak ste si nie istý ako zodpovedať túto otázku, zvoľte Nie.&amp;#160; Ak zvolíte Áno, budete vyzvaný na konfiguráciu Mostov Toru, čo sú nezaradené relé značne sťažujúce blokovanie pripojení k Sieti Tor.">
+<!ENTITY torSettings.bridgeSettingsPrompt "Môžete použiť poskytnutú sadu mostov alebo získať a vložiť vlastnú sadu.">
+
+<!-- Other: -->
+
+<!ENTITY torsettings.startingTor "Čakám kým sa Tor spustí...">
+<!ENTITY torsettings.restart "Reštart">
+
+<!ENTITY torsettings.optional "Voliteľné">
+
+<!ENTITY torsettings.useProxy.checkbox "Tento počítač potrebuje použiť proxy na prístup k Internetu">
+<!ENTITY torsettings.useProxy.type "Typ Proxy:">
+<!ENTITY torsettings.useProxy.address "Adresa:">
+<!ENTITY torsettings.useProxy.address.placeholder "IP adresa alebo názov hostiteľa">
+<!ENTITY torsettings.useProxy.port "Port:">
+<!ENTITY torsettings.useProxy.username "Už.názov:">
+<!ENTITY torsettings.useProxy.password "Heslo?">
+<!ENTITY torsettings.useProxy.type.socks4 "SOCKS 4">
+<!ENTITY torsettings.useProxy.type.socks5 "SOCKS 5">
+<!ENTITY torsettings.useProxy.type.http "HTTP / HTTPS">
+<!ENTITY torsettings.firewall.checkbox "Tento počítač ide cez firewall, ktorý povoľuje iba niektoré porty">
+<!ENTITY torsettings.firewall.allowedPorts "Povolené porty:">
+<!ENTITY torsettings.useBridges.checkbox "Môj Internetový provider (ISP) blokuje pripojenia do siete Toru">
+<!ENTITY torsettings.useBridges.default "Pripojiť sa s poskytnutými mostami">
+<!ENTITY torsettings.useBridges.type "Prepravný typ:">
+<!ENTITY torsettings.useBridges.custom "Vložiť vlastné mosty">
+<!ENTITY torsettings.useBridges.label "Vložte jedno alebo viacero relé premostení (každé do nového riadka).">
+<!ENTITY torsettings.useBridges.placeholder "zadajte adresu:port">
+
+<!ENTITY torsettings.copyLog "Skopírovať záznam Tor do schránky clipboard">
+<!ENTITY torsettings.bridgeHelpTitle "Nápoveda o relé premosteniach">
+<!ENTITY torsettings.bridgeHelp1 "Ak nie ste schopný sa pripojiť k sieti Toru, je možné, že vás blokuje váš Poskytovateľ Internetú (ISP) alebo nejaké iná agentúra. &amp;#160; Tento problém môžete často obísť použivaním Mostov Toru, čo sú nezaradené relé náročnejšie na blokovanie.">
+<!ENTITY torsettings.bridgeHelp1B "Môžete použiť prekonfigurovanú poskytnutú sadu mostových adries alebo vložiť vlastnú sadu adries použitím jednej z nasledujúcich metód:">
+<!ENTITY torsettings.bridgeHelp2Heading "Cez Web">
+<!ENTITY torsettings.bridgeHelp2 "Použite webový prehliadač na navštívenie https://bridges.torproject.org">
+<!ENTITY torsettings.bridgeHelp3Heading "Cez Email Autoresponder">
+<!ENTITY torsettings.bridgeHelp3 "Pošlite email na adresu bridges@torproject.org obsahujúcu jeden riadok 'get bridges' ako telo správy.&amp;#160; Avšak, aby bolo pre útočníkov náročnejšie odhaliť veľa mostových adries, musíte túto žiadosť poslať z emailovej adresy gmail.com alebo yahoo.com.">
+<!ENTITY torsettings.bridgeHelp4Heading "Cez Help Desk">
+<!ENTITY torsettings.bridgeHelp4 "Ako poslednú možnosť si môžete vyžiadať adresy mostov zaslaním zdvorilého emailu na adresu help@rt.torproject.org.&amp;#160; Prosíme berte na vedomie, že príslušná osoba musí odpovedať na každú jednu podobnú žiadosť.">
