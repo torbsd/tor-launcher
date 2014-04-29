@@ -367,6 +367,19 @@ TorProcessService.prototype =
         args.push("1");
       }
 
+      // On Windows, prepend the Tor program directory to PATH.  This is
+      // needed so that pluggable transports can find OpenSSL DLLs, etc.
+      // See https://trac.torproject.org/projects/tor/ticket/10845
+      if (TorLauncherUtil.isWindows)
+      {
+        var env = Cc["@mozilla.org/process/environment;1"]
+                    .getService(Ci.nsIEnvironment);
+        var path = exeFile.parent.path;
+        if (env.exists("PATH"))
+          path += ";" + env.get("PATH");
+        env.set("PATH", path);
+      }
+
       this.mTorProcessStatus = this.kStatusStarting;
 
       var p = Cc["@mozilla.org/process/util;1"].createInstance(Ci.nsIProcess);
@@ -646,7 +659,7 @@ TorProcessService.prototype =
           else
           {
             // For Firefox, paths are relative to the top of the TBB install.
-            var tbbBrowserDepth = 1; // Windows and Linux
+            var tbbBrowserDepth = 0; // Windows and Linux
             if (TorLauncherUtil.isAppVersionAtLeast("21.0"))
             {
               // In FF21+, CurProcD is the "browser" directory that is next to
@@ -654,7 +667,7 @@ TorProcessService.prototype =
               ++tbbBrowserDepth;
             }
             if (TorLauncherUtil.isMac)
-              tbbBrowserDepth += 4;
+              tbbBrowserDepth += 2;
 
             topDir = Cc["@mozilla.org/file/directory_service;1"]
                     .getService(Ci.nsIProperties).get("CurProcD", Ci.nsIFile);
@@ -667,6 +680,7 @@ TorProcessService.prototype =
             }
           }
 
+          topDir.append("TorBrowser");
           this.mTorFileBaseDir = topDir;
         }
 
