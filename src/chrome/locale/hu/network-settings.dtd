@@ -23,7 +23,7 @@
 <!ENTITY torSettings.firewallHelp "Nem biztos abban, hogy hogyan válaszoljon erre a kérdésre, válassza a 'Nem'-et. Ha problémákba ütközik a Tor hálózathoz való csatlakozáskor, változtassa meg ezt a beállítást.">
 <!ENTITY torSettings.enterFirewall "Gépelj be egy vesszővel elválasztott listát a portokról amik engedélyezve vannak a tűzfal által.">
 <!ENTITY torSettings.bridgeQuestion "Az internet szolgáltatód (ISP) blokkolja vagy cenzúrázza a kapcsolatot a Tor hálózathoz?">
-<!ENTITY torSettings.bridgeHelp "Ha nem vagy biztos a válaszban, válaszd a Nem-et.&amp;#160; Ha az Igen-t választod neked kell konfigurálni a Tor bridges amik nem listázott átjátszók és nehezebbé teszik a Tor hálózat kapcsolódásának a blokkolását.">
+<!ENTITY torSettings.bridgeHelp "Ha nem vagy biztos a válaszban, válaszd a Nem-et.&#160; Ha az Igen-t választod neked kell konfigurálni a Tor bridges amik nem listázott átjátszók és nehezebbé teszik a Tor hálózat kapcsolódásának a blokkolását.">
 <!ENTITY torSettings.bridgeSettingsPrompt "Használhatod a szolgáltatott bridge címeket vagy beszerezhetsz egyedi bridge címeket.">
 
 <!-- Other: -->
@@ -54,11 +54,11 @@
 
 <!ENTITY torsettings.copyLog "A Tor log Vágólapra másolása">
 <!ENTITY torsettings.bridgeHelpTitle "Híd kapcsoló súgó">
-<!ENTITY torsettings.bridgeHelp1 "Ha nem tudsz csatlakozni a Tor.&amp;#160; hálózathoz, akkor valószínű az internet szolgáltató (ISP) vagy egy másik szervezet blokkolja. Gyakran megkerülhető a probléma Tor bridges használatával. Ezek nem listázott átjátszók amiket sokkal nehezebb blokkolni.">
+<!ENTITY torsettings.bridgeHelp1 "Ha nem tudsz csatlakozni a Tor.&#160; hálózathoz, akkor valószínű az internet szolgáltató (ISP) vagy egy másik szervezet blokkolja. Gyakran megkerülhető a probléma Tor bridges használatával. Ezek nem listázott átjátszók amiket sokkal nehezebb blokkolni.">
 <!ENTITY torsettings.bridgeHelp1B "Használhatod az előre beállított bridge címeket vagy beszerezhetsz egyedi címeket ezzel a három módszerrel:">
 <!ENTITY torsettings.bridgeHelp2Heading "Interneten keresztül">
 <!ENTITY torsettings.bridgeHelp2 "Használj egy böngészőt megnézni ezt az oldalt: https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "Az automata email válaszok által.">
-<!ENTITY torsettings.bridgeHelp3 "Küldj emailt a bridges@torproject.org -ra a következő szöveggel: &quot;get bridges&quot; az emailben.&amp;#160; Hogy egy esetleges támadó információ szerzési esélyét nehezítse ezt az emailt egy gmail.com vagy yahoo.com email címről küldd.">
+<!ENTITY torsettings.bridgeHelp3 "Küldj emailt a bridges@torproject.org -ra a következő szöveggel: &quot;get bridges&quot; az emailben.&#160; Hogy egy esetleges támadó információ szerzési esélyét nehezítse ezt az emailt egy gmail.com vagy yahoo.com email címről küldd.">
 <!ENTITY torsettings.bridgeHelp4Heading "A támogatáson keresztül.">
-<!ENTITY torsettings.bridgeHelp4 "Utolsó lehetőségként küldj egy udvarias bridge igénylő emailt ide: help@rt.torproject.org.&amp;#160; Légyszíves vedd figyelembe az adott személynek több emailt kell megválaszolnia.">
+<!ENTITY torsettings.bridgeHelp4 "Utolsó lehetőségként küldj egy udvarias bridge igénylő emailt ide: help@rt.torproject.org.&#160; Légyszíves vedd figyelembe az adott személynek több emailt kell megválaszolnia.">

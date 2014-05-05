@@ -23,7 +23,7 @@
 <!ENTITY torSettings.firewallHelp "Si vous ne savez par comment répondre à cette question, choisissez Non. Si vous éprouvez des difficultés à vous connecter au réseau Tor, changer ce paramètre.">
 <!ENTITY torSettings.enterFirewall "Saisir une liste de ports, séparés par des virgules, qui sont autorisés par le pare-feu.">
 <!ENTITY torSettings.bridgeQuestion "Votre fournisseur de service Internet (FSI) bloque-t-il ou censure-t-il vos connexions au réseau Tor?">
-<!ENTITY torSettings.bridgeHelp "Si vous ne savez pas comment répondre à cette question, choisissez Non.&amp;#160; Si vous choisissez Oui, on vous demandera de configurer les ponts Tor qui sont des relais non listés rendant le bloquage des connexions au réseau Tor plus difficile.">
+<!ENTITY torSettings.bridgeHelp "Si vous ne savez pas comment répondre à cette question, choisissez Non.&#160; Si vous choisissez Oui, on vous demandera de configurer les ponts Tor qui sont des relais non listés rendant le bloquage des connexions au réseau Tor plus difficile.">
 <!ENTITY torSettings.bridgeSettingsPrompt "Vous pouvez utiliser le jeu de ponts fourni ou vous pouvez obtenir et saisir un jeu de ponts personnalisé.">
 
 <!-- Other: -->
@@ -54,11 +54,11 @@
 
 <!ENTITY torsettings.copyLog "Copier le journal de Tor dans le presse-papier">
 <!ENTITY torsettings.bridgeHelpTitle "Aide pour les relais-ponts">
-<!ENTITY torsettings.bridgeHelp1 "Si vous ne pouvez pas vous connecter au réseau Tor, il se peut que votre fournisseur d'accès à Internet (FAI) ou une autre agence bloque Tor.&amp;#160; Vous pouvez souvent le contourner en utilisant des ponts Tor qui sont des relais non répertoriés, plus difficiles à bloquer.">
+<!ENTITY torsettings.bridgeHelp1 "Si vous ne pouvez pas vous connecter au réseau Tor, il se peut que votre fournisseur d'accès à Internet (FAI) ou une autre agence bloque Tor.&#160; Vous pouvez souvent le contourner en utilisant des ponts Tor qui sont des relais non répertoriés, plus difficiles à bloquer.">
 <!ENTITY torsettings.bridgeHelp1B "Vous pouvez utiliser le jeu préconfiguré d'adresses de ponts fourni ou vous pouvez obtenir un jeu personnalisé d'adresses en utilisant une de ces trois méthodes :">
 <!ENTITY torsettings.bridgeHelp2Heading "par le Web">
 <!ENTITY torsettings.bridgeHelp2 "en utilisant un navigateur Web pour visiter https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "par le répondeur automatique de courriel">
-<!ENTITY torsettings.bridgeHelp3 "en envoyant un courriel à bridges@torproject.org avec la ligne « get bridges » seule dans le corps du message.&amp;#160; Cependant pour compliquer l'obtention des ces adresses de ponts pour un attaqueur, vous devez envoyer la demande depuis une adresse courriel  gmail.com ou yahoo.com.">
+<!ENTITY torsettings.bridgeHelp3 "en envoyant un courriel à bridges@torproject.org avec la ligne « get bridges » seule dans le corps du message.&#160; Cependant pour compliquer l'obtention des ces adresses de ponts pour un attaqueur, vous devez envoyer la demande depuis une adresse courriel  gmail.com ou yahoo.com.">
 <!ENTITY torsettings.bridgeHelp4Heading "par le centre d'assistance">
-<!ENTITY torsettings.bridgeHelp4 "en dernier recours, vous pouvez demander des adresses de ponts en envoyant un courriel poli à help@rt.torproject.org.&amp;#160; Veuillez remarquer qu'une personne devra répondre à chaque demande.">
+<!ENTITY torsettings.bridgeHelp4 "en dernier recours, vous pouvez demander des adresses de ponts en envoyant un courriel poli à help@rt.torproject.org.&#160; Veuillez remarquer qu'une personne devra répondre à chaque demande.">

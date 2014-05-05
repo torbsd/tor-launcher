@@ -23,7 +23,7 @@
 <!ENTITY torSettings.firewallHelp "Hvis du ikke er sikker på hvordan du skal svare på dette spørgsmål, vælg Nej. Hvis du løber ind i problemer med at forbinde til Tor netværket, skal du ændre denne indstilling.">
 <!ENTITY torSettings.enterFirewall "Indtast en komma-separeret liste over porte der er tilladt på firewallen.">
 <!ENTITY torSettings.bridgeQuestion "Blokerer eller censurerer din internetudbyder (ISP) forbindelser til Tor netværket?">
-<!ENTITY torSettings.bridgeHelp "Hvis du er usikker på svaret til dette spørgsmål, vælg No.&amp;#160; Hvis du vælger Ja, vil du blive bedt om at konfigurere Tor Broer, der er ulistede relays, som gør det sværere at blokere forbindelser til Tor Netværket.">
+<!ENTITY torSettings.bridgeHelp "Hvis du er usikker på svaret til dette spørgsmål, vælg No.&#160; Hvis du vælger Ja, vil du blive bedt om at konfigurere Tor Broer, der er ulistede relays, som gør det sværere at blokere forbindelser til Tor Netværket.">
 <!ENTITY torSettings.bridgeSettingsPrompt "Du kan bruge det tildelte sæt broer eller du kan hente og indtaste et skræddersyet sæt broer.">
 
 <!-- Other: -->
@@ -54,11 +54,11 @@
 
 <!ENTITY torsettings.copyLog "Kopier Tor loggen til udklipsholderen">
 <!ENTITY torsettings.bridgeHelpTitle "Bro-relæ hjælp">
-<!ENTITY torsettings.bridgeHelp1 "Hvis du ikke kan forbinde dig til Tor netværket er det muligt at din internet udbyder (ISP) eller anden myndighed blokerer Tor. &amp;#160; Det er ofte muligt at komme rundt om en blokade ved at bruge en Tor bro. En bro er et relæ som ikke er på den offentliggjorte liste og som derfor er sværere at blokkere.">
+<!ENTITY torsettings.bridgeHelp1 "Hvis du ikke kan forbinde dig til Tor netværket er det muligt at din internet udbyder (ISP) eller anden myndighed blokerer Tor. &#160; Det er ofte muligt at komme rundt om en blokade ved at bruge en Tor bro. En bro er et relæ som ikke er på den offentliggjorte liste og som derfor er sværere at blokkere.">
 <!ENTITY torsettings.bridgeHelp1B "Du kan bruge det pre-konfigurerede tildelte sæt af bro-adresser eller du kan hente et skræddersyet sæt adresser ved at bruge en af følgende tre metoder:">
 <!ENTITY torsettings.bridgeHelp2Heading "På nettet">
 <!ENTITY torsettings.bridgeHelp2 "Brug en browser og besøg https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "Via den automatiske email service">
-<!ENTITY torsettings.bridgeHelp3 "Send en email til bridges@torproject.org kun bestående af linjen 'get bridges' i indholdet.&amp;#160;  For at gøre det sværere at få kendskab til alle bro adresser med henblik på blokering er det kun muligt at sende fra en gmail.com eller yahoo.com email adresse.">
+<!ENTITY torsettings.bridgeHelp3 "Send en email til bridges@torproject.org kun bestående af linjen 'get bridges' i indholdet.&#160;  For at gøre det sværere at få kendskab til alle bro adresser med henblik på blokering er det kun muligt at sende fra en gmail.com eller yahoo.com email adresse.">
 <!ENTITY torsettings.bridgeHelp4Heading "Via vores Help Desk">
-<!ENTITY torsettings.bridgeHelp4 "Som en sidste mulighed kan du bede om at få en bro adresse tilsendt ved at sende en venlig email to help@rt.torproject.org.&amp;#160; Bemærk venligst at alle emails besvares manuelt.">
+<!ENTITY torsettings.bridgeHelp4 "Som en sidste mulighed kan du bede om at få en bro adresse tilsendt ved at sende en venlig email to help@rt.torproject.org.&#160; Bemærk venligst at alle emails besvares manuelt.">

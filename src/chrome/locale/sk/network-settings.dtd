@@ -23,7 +23,7 @@
 <!ENTITY torSettings.firewallHelp "Ak si nieste istý ako odpovedať na túto otázku, zvoľte Nie. Ak narazíte na problémy s pripojením do siete Tor, zmeňte toto nastavenie.">
 <!ENTITY torSettings.enterFirewall "Vložte zoznam portov oddelený čiarkou, ktoré sú povolené firewallom.">
 <!ENTITY torSettings.bridgeQuestion "Blokuje alebo nejak cenzuruje váš Poskytovateľ Internetu (ISP) pripojenia k Sieti Tor?">
-<!ENTITY torSettings.bridgeHelp "Ak ste si nie istý ako zodpovedať túto otázku, zvoľte Nie.&amp;#160; Ak zvolíte Áno, budete vyzvaný na konfiguráciu Mostov Toru, čo sú nezaradené relé značne sťažujúce blokovanie pripojení k Sieti Tor.">
+<!ENTITY torSettings.bridgeHelp "Ak ste si nie istý ako zodpovedať túto otázku, zvoľte Nie.&#160; Ak zvolíte Áno, budete vyzvaný na konfiguráciu Mostov Toru, čo sú nezaradené relé značne sťažujúce blokovanie pripojení k Sieti Tor.">
 <!ENTITY torSettings.bridgeSettingsPrompt "Môžete použiť poskytnutú sadu mostov alebo získať a vložiť vlastnú sadu.">
 
 <!-- Other: -->
@@ -54,11 +54,11 @@
 
 <!ENTITY torsettings.copyLog "Skopírovať záznam Tor do schránky clipboard">
 <!ENTITY torsettings.bridgeHelpTitle "Nápoveda o relé premosteniach">
-<!ENTITY torsettings.bridgeHelp1 "Ak nie ste schopný sa pripojiť k sieti Toru, je možné, že vás blokuje váš Poskytovateľ Internetú (ISP) alebo nejaké iná agentúra. &amp;#160; Tento problém môžete často obísť použivaním Mostov Toru, čo sú nezaradené relé náročnejšie na blokovanie.">
+<!ENTITY torsettings.bridgeHelp1 "Ak nie ste schopný sa pripojiť k sieti Toru, je možné, že vás blokuje váš Poskytovateľ Internetú (ISP) alebo nejaké iná agentúra. &#160; Tento problém môžete často obísť použivaním Mostov Toru, čo sú nezaradené relé náročnejšie na blokovanie.">
 <!ENTITY torsettings.bridgeHelp1B "Môžete použiť prekonfigurovanú poskytnutú sadu mostových adries alebo vložiť vlastnú sadu adries použitím jednej z nasledujúcich metód:">
 <!ENTITY torsettings.bridgeHelp2Heading "Cez Web">
 <!ENTITY torsettings.bridgeHelp2 "Použite webový prehliadač na navštívenie https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "Cez Email Autoresponder">
-<!ENTITY torsettings.bridgeHelp3 "Pošlite email na adresu bridges@torproject.org obsahujúcu jeden riadok 'get bridges' ako telo správy.&amp;#160; Avšak, aby bolo pre útočníkov náročnejšie odhaliť veľa mostových adries, musíte túto žiadosť poslať z emailovej adresy gmail.com alebo yahoo.com.">
+<!ENTITY torsettings.bridgeHelp3 "Pošlite email na adresu bridges@torproject.org obsahujúcu jeden riadok 'get bridges' ako telo správy.&#160; Avšak, aby bolo pre útočníkov náročnejšie odhaliť veľa mostových adries, musíte túto žiadosť poslať z emailovej adresy gmail.com alebo yahoo.com.">
 <!ENTITY torsettings.bridgeHelp4Heading "Cez Help Desk">
-<!ENTITY torsettings.bridgeHelp4 "Ako poslednú možnosť si môžete vyžiadať adresy mostov zaslaním zdvorilého emailu na adresu help@rt.torproject.org.&amp;#160; Prosíme berte na vedomie, že príslušná osoba musí odpovedať na každú jednu podobnú žiadosť.">
+<!ENTITY torsettings.bridgeHelp4 "Ako poslednú možnosť si môžete vyžiadať adresy mostov zaslaním zdvorilého emailu na adresu help@rt.torproject.org.&#160; Prosíme berte na vedomie, že príslušná osoba musí odpovedať na každú jednu podobnú žiadosť.">
