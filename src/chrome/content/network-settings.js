@@ -1186,27 +1186,27 @@ function setElemValue(aID, aValue)
   var elem = document.getElementById(aID);
   if (elem)
   {
+    var val = aValue;
     switch (elem.tagName)
     {
       case "checkbox":
-        elem.checked = aValue;
+        elem.checked = val;
         toggleElemUI(elem);
         break;
       case "textbox":
-        var s = aValue;
         if (Array.isArray(aValue))
         {
-          s = "";
+          val = "";
           for (var i = 0; i < aValue.length; ++i)
           {
-            if (s.length > 0)
-              s += '\n';
-            s += aValue[i];
+            if (val.length > 0)
+              val += '\n';
+            val += aValue[i];
           }
         }
         // fallthru
       case "menulist":
-        elem.value = (s) ? s : "";
+        elem.value = (val) ? val : "";
         break;
     }
   }
