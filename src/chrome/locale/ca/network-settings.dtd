@@ -2,27 +2,27 @@
 
 <!-- For "first run" wizard: -->
 
-<!ENTITY torsettings.prompt "Before you connect to the Tor network, you need to provide information about this computer's Internet connection.">
+<!ENTITY torsettings.prompt "Abans de connectar-te a la xarxa Thor, necessites introduir informació sobre el ordinador que fas servir per la connexió a internet.">
 
 <!ENTITY torSettings.yes "Sí">
 <!ENTITY torSettings.no "No">
 
 <!ENTITY torSettings.firstQuestion "Quina de les següuens descriula teva situació?">
 <!ENTITY torSettings.configurePrompt1 "This computer's Internet connection is censored, filtered, or proxied.">
-<!ENTITY torSettings.configurePrompt2 "I need to configure bridge, firewall, or proxy settings.">
+<!ENTITY torSettings.configurePrompt2 "Necessito configurar un pont, el tallafocs o els paràmetres del proxy.">
 <!ENTITY torSettings.configure "Configura">
 <!ENTITY torSettings.connectPrompt2 "M'agradaria conectar-me directament a la xarxa Tor.">
-<!ENTITY torSettings.connectPrompt3 "This will work in most situations.">
+<!ENTITY torSettings.connectPrompt3 "Això funciona en la majoria dels casos.">
 <!ENTITY torSettings.connect "Conectar">
 
 <!ENTITY torSettings.proxyQuestion "Necessita aquest ordinador usar un proxy per accedir a internet?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "If you are not sure how to answer this question, look at the Internet settings in another browser to see whether it is configured to use a proxy.">
+<!ENTITY torSettings.proxyHelp "Si no estas segur de com respondre a aquesta pregunta, observa els paràmetres d'Internet en un altre navegador per veure si està configurat per utilitzar un proxy.">
 <!ENTITY torSettings.enterProxy "Introdueix les opcions del proxy.">
-<!ENTITY torSettings.firewallQuestion "Does this computer's Internet connection go through a firewall that only allows connections to certain ports?">
-<!ENTITY torSettings.firewallHelp "If you are not sure how to answer this question, choose No. If you encounter problems connecting to the Tor network, change this setting.">
-<!ENTITY torSettings.enterFirewall "Enter a comma-separated list of ports that are allowed by the firewall.">
-<!ENTITY torSettings.bridgeQuestion "Does your Internet Service Provider (ISP) block or otherwise censor connections to the Tor Network?">
+<!ENTITY torSettings.firewallQuestion "La connexió d'aquest ordinador va a través d'un firewall que només permet les connexions per certs ports?">
+<!ENTITY torSettings.firewallHelp "Si no estas segur de com respondre a aquesta pregunta, selecciona no. Si tens problemes de connexió per la xarxa Tor, canvia aquest paràmetre.">
+<!ENTITY torSettings.enterFirewall "Escriviu una llista separada per comes dels ports que estan permesos pel proxy.">
+<!ENTITY torSettings.bridgeQuestion "El vostre proveïdor d'Internet (ISP) bloqueja o censura les connexions a la Xarxa Tor?">
 <!ENTITY torSettings.bridgeHelp "If you are not sure how to answer this question, choose No.&#160; If you choose Yes, you will be asked to configure Tor Bridges, which are unlisted relays that make it more difficult to block connections to the Tor Network.">
 <!ENTITY torSettings.bridgeSettingsPrompt "You may use the provided set of bridges or you may obtain and enter a custom set of bridges.">
 
@@ -34,7 +34,7 @@
 <!ENTITY torsettings.optional "Opcional
 ">
 
-<!ENTITY torsettings.useProxy.checkbox "This computer needs to use a proxy to access the Internet">
+<!ENTITY torsettings.useProxy.checkbox "Aquest ordinador ha de fer servir un proxy per accedir a Internet">
 <!ENTITY torsettings.useProxy.type "Tipus de Proxy:">
 <!ENTITY torsettings.useProxy.address "Adreça:">
 <!ENTITY torsettings.useProxy.address.placeholder "Direcció IP o nom del host">
@@ -44,21 +44,21 @@
 <!ENTITY torsettings.useProxy.type.socks4 "SOCKS 4">
 <!ENTITY torsettings.useProxy.type.socks5 "SOCKS 5">
 <!ENTITY torsettings.useProxy.type.http "HTTP / HTTPS">
-<!ENTITY torsettings.firewall.checkbox "This computer goes through a firewall that only allows connections to certain ports">
+<!ENTITY torsettings.firewall.checkbox "Aquest ordinador va a través d'un proxy que només permet connexions a certs ports">
 <!ENTITY torsettings.firewall.allowedPorts "Ports permesos:">
 <!ENTITY torsettings.useBridges.checkbox "El meu proveidor d'internet (ISP) bloqueja les conexions a la xarxa Tor">
 <!ENTITY torsettings.useBridges.default "Connect with provided bridges">
 <!ENTITY torsettings.useBridges.type "Transport type:">
 <!ENTITY torsettings.useBridges.custom "Enter custom bridges">
 <!ENTITY torsettings.useBridges.label "Entra en un o més repetidors (un per linia).">
-<!ENTITY torsettings.useBridges.placeholder "type address:port">
+<!ENTITY torsettings.useBridges.placeholder "introdueix adreça:port">
 
 <!ENTITY torsettings.copyLog "Copiar el Log al portapapers">
 <!ENTITY torsettings.bridgeHelpTitle "Ajuda Repetidors">
 <!ENTITY torsettings.bridgeHelp1 "If you are unable to connect to the Tor network, it could be that your Internet Service Provider (ISP) or another agency is blocking Tor.&#160; Often, you can work around this problem by using Tor Bridges, which are unlisted relays that are more difficult to block.">
 <!ENTITY torsettings.bridgeHelp1B "You may use the preconfigured, provided set of bridge addresses or you may obtain a custom set of addresses by using one of these three methods:">
 <!ENTITY torsettings.bridgeHelp2Heading "Through the Web">
-<!ENTITY torsettings.bridgeHelp2 "Use a web browser to visit https://bridges.torproject.org">
+<!ENTITY torsettings.bridgeHelp2 "Utilitza un navegador web o vés a: https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "Through the Email Autoresponder">
 <!ENTITY torsettings.bridgeHelp3 "Send email to bridges@torproject.org with the line 'get bridges' by itself in the body of the message.&#160; However, to make it harder for an attacker to learn a lot of bridge addresses, you must send this request from a gmail.com or yahoo.com email address.">
 <!ENTITY torsettings.bridgeHelp4Heading "Through the Help Desk">

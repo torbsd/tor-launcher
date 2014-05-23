@@ -50,7 +50,7 @@
 <!ENTITY torsettings.useBridges.type "Transport type:">
 <!ENTITY torsettings.useBridges.custom "Enter custom bridges">
 <!ENTITY torsettings.useBridges.label "Zadejte jedno nebo více mostních relé (jedno na řádek).">
-<!ENTITY torsettings.useBridges.placeholder "type address:port">
+<!ENTITY torsettings.useBridges.placeholder "zadej adresu:port">
 
 <!ENTITY torsettings.copyLog "Zkopíruj logový soubor Toru do schránky">
 <!ENTITY torsettings.bridgeHelpTitle "Nápověda o  mostních relé">

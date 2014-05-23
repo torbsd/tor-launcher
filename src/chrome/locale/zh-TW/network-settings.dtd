@@ -23,7 +23,7 @@
 <!ENTITY torSettings.firewallHelp "若您無法確定如何回答這個問題，請選擇「否」。若您在連結至 Tor 網路時遭遇問題，請再改變此設定。">
 <!ENTITY torSettings.enterFirewall "請輸入防火牆允許的連線埠（請以逗號分隔）。">
 <!ENTITY torSettings.bridgeQuestion "您的網路供應商 (ISP) 阻擋或者審查 Tor 網路連線？">
-<!ENTITY torSettings.bridgeHelp "如果你不知道如何回答這個問題，請選擇「否」&#160；如果你選擇選擇「是」，你將被要求設定Tor網橋，這可以讓阻擋客戶端與Tor伺服器的連接更困難。">
+<!ENTITY torSettings.bridgeHelp "如果你不知道如何回答這個問題，請選擇「否」&#160; 如果你選擇選擇「是」，你將被要求設定Tor網橋，這可以讓阻擋客戶端與Tor伺服器的連接更困難。">
 <!ENTITY torSettings.bridgeSettingsPrompt "您可以使用預設的網橋或者你可以使用自定義設置的網橋。">
 
 <!-- Other: -->
