@@ -318,6 +318,9 @@ TorProcessService.prototype =
       var geoipFile = dataDir.clone();
       geoipFile.append("geoip");
 
+      var geoip6File = dataDir.clone();
+      geoip6File.append("geoip6");
+
       var args = [];
       if (torrcDefaultsFile)
       {
@@ -330,6 +333,8 @@ TorProcessService.prototype =
       args.push(dataDir.path);
       args.push("GeoIPFile");
       args.push(geoipFile.path);
+      args.push("GeoIPv6File");
+      args.push(geoip6File.path);
       args.push("HashedControlPassword");
       args.push(hashedPassword);
 
