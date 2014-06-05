@@ -1,4 +1,4 @@
-<!ENTITY torsettings.dialog.title "Tor Network Settings">
+<!ENTITY torsettings.dialog.title "ਟੋਰ ਨੈੱਟਵਰਕ ਸੈਟਿੰਗ">
 
 <!-- For "first run" wizard: -->
 
@@ -9,11 +9,11 @@
 
 <!ENTITY torSettings.firstQuestion "Which of the following best describes your situation?">
 <!ENTITY torSettings.configurePrompt1 "This computer's Internet connection is censored, filtered, or proxied.">
-<!ENTITY torSettings.configurePrompt2 "I need to configure bridge, firewall, or proxy settings.">
-<!ENTITY torSettings.configure "Configure">
-<!ENTITY torSettings.connectPrompt2 "I would like to connect directly to the Tor network.">
-<!ENTITY torSettings.connectPrompt3 "This will work in most situations.">
-<!ENTITY torSettings.connect "Connect">
+<!ENTITY torSettings.configurePrompt2 "ਮੈਨੂੰ ਬਰਿਜ਼, ਫਾਇਰਵਾਲ ਜਾਂ ਪਰਾਕਸੀ ਸੈਟਿੰਗ ਦੀ ਸੰਰਚਨਾ ਕਰਨ ਦੀ ਲੋੜ ਹੈ।">
+<!ENTITY torSettings.configure "ਸੰਰਚਨਾ">
+<!ENTITY torSettings.connectPrompt2 "ਮੈਂ ਟੋਰ ਨੈੱਟਵਰਕ ਨਾਲ ਸਿੱਧਾ ਕੁਨੈਕਟ ਹੋਣਾ ਚਾਹੁੰਦਾ/ਚਾਹੁੰਦੀ ਹਾਂ।">
+<!ENTITY torSettings.connectPrompt3 "ਇਹ ਬਹੁਤੇ ਹਾਲਤਾਂ ਵਿੱਚ ਕੰਮ ਕਰੇਗਾ।">
+<!ENTITY torSettings.connect "ਕੁਨੈਕਟ ਕਰੋ">
 
 <!ENTITY torSettings.proxyQuestion "Does this computer need to use a proxy to access the Internet?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
@@ -28,17 +28,17 @@
 
 <!-- Other: -->
 
-<!ENTITY torsettings.startingTor "Waiting for Tor to start…">
-<!ENTITY torsettings.restart "Restart">
+<!ENTITY torsettings.startingTor "...ਟੋਰ ਸ਼ੁਰੂ ਹੋਣ ਤੱਕ ਉਡੀਕੋ">
+<!ENTITY torsettings.restart "ਮੁੜ-ਚਾਲੂ">
 
-<!ENTITY torsettings.optional "Optional">
+<!ENTITY torsettings.optional "ਚੋਣਵਾਂ">
 
-<!ENTITY torsettings.useProxy.checkbox "This computer needs to use a proxy to access the Internet">
-<!ENTITY torsettings.useProxy.type "Proxy Type:">
+<!ENTITY torsettings.useProxy.checkbox "ਇਹ ਕੰਪਿਊਟਰ ਨੂੰ ਇੰਟਰਨੈੱਟ ਵਰਤਣ ਲਈ ਪਰਾਕਸੀ ਦੀ ਲੋੜ ਹੈ">
+<!ENTITY torsettings.useProxy.type "ਪਰਾਕਸੀ ਕਿਸਮ:">
 <!ENTITY torsettings.useProxy.address "ਪਤਾ:">
-<!ENTITY torsettings.useProxy.address.placeholder "IP address or hostname">
+<!ENTITY torsettings.useProxy.address.placeholder "IP ਸਿਰਨਾਵਾਂ ਜਾਂ ਹੋਸਟ-ਨਾਂ">
 <!ENTITY torsettings.useProxy.port "Port:">
-<!ENTITY torsettings.useProxy.username "Username:">
+<!ENTITY torsettings.useProxy.username "ਯੂਜ਼ਰ-ਨਾਂ:">
 <!ENTITY torsettings.useProxy.password "ਪਾਸਵਰਡ:">
 <!ENTITY torsettings.useProxy.type.socks4 "SOCKS 4">
 <!ENTITY torsettings.useProxy.type.socks5 "SOCKS 5">
@@ -46,9 +46,9 @@
 <!ENTITY torsettings.firewall.checkbox "This computer goes through a firewall that only allows connections to certain ports">
 <!ENTITY torsettings.firewall.allowedPorts "Allowed Ports:">
 <!ENTITY torsettings.useBridges.checkbox "My Internet Service Provider (ISP) blocks connections to the Tor network">
-<!ENTITY torsettings.useBridges.default "Connect with provided bridges">
-<!ENTITY torsettings.useBridges.type "Transport type:">
-<!ENTITY torsettings.useBridges.custom "Enter custom bridges">
+<!ENTITY torsettings.useBridges.default "ਦਿੱਤੇ ਬਰਿਜ਼ ਰਾਹੀਂ ਕੁਨੈਕਟ">
+<!ENTITY torsettings.useBridges.type "ਟਰਾਂਸਪੋਰਟ ਕਿਸਮ:">
+<!ENTITY torsettings.useBridges.custom "ਪਸੰਦੀਦਾ ਬਰਿੱਜ਼ ਦਿਓ">
 <!ENTITY torsettings.useBridges.label "Enter one or more bridge relays (one per line).">
 <!ENTITY torsettings.useBridges.placeholder "type address:port">
 
@@ -56,9 +56,9 @@
 <!ENTITY torsettings.bridgeHelpTitle "Bridge Relay Help">
 <!ENTITY torsettings.bridgeHelp1 "If you are unable to connect to the Tor network, it could be that your Internet Service Provider (ISP) or another agency is blocking Tor.&#160; Often, you can work around this problem by using Tor Bridges, which are unlisted relays that are more difficult to block.">
 <!ENTITY torsettings.bridgeHelp1B "You may use the preconfigured, provided set of bridge addresses or you may obtain a custom set of addresses by using one of these three methods:">
-<!ENTITY torsettings.bridgeHelp2Heading "Through the Web">
+<!ENTITY torsettings.bridgeHelp2Heading "ਵੈੱਬ ਰਾਹੀਂ">
 <!ENTITY torsettings.bridgeHelp2 "Use a web browser to visit https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "Through the Email Autoresponder">
 <!ENTITY torsettings.bridgeHelp3 "Send email to bridges@torproject.org with the line 'get bridges' by itself in the body of the message.&#160; However, to make it harder for an attacker to learn a lot of bridge addresses, you must send this request from a gmail.com or yahoo.com email address.">
-<!ENTITY torsettings.bridgeHelp4Heading "Through the Help Desk">
+<!ENTITY torsettings.bridgeHelp4Heading "ਮੱਦਦ ਡੈਸਕ ਰਾਹੀਂ">
 <!ENTITY torsettings.bridgeHelp4 "As a last resort, you can request bridge addresses by sending a polite email message to help@rt.torproject.org.&#160; Please note that a person will need to respond to each request.">
