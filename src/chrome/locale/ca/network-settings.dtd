@@ -8,7 +8,7 @@
 <!ENTITY torSettings.no "No">
 
 <!ENTITY torSettings.firstQuestion "Quina de les següuens descriula teva situació?">
-<!ENTITY torSettings.configurePrompt1 "This computer's Internet connection is censored, filtered, or proxied.">
+<!ENTITY torSettings.configurePrompt1 "La connexió a internet d'aquest ordinador està censurada, filtrada o usa Proxys">
 <!ENTITY torSettings.configurePrompt2 "Necessito configurar un pont, el tallafocs o els paràmetres del proxy.">
 <!ENTITY torSettings.configure "Configura">
 <!ENTITY torSettings.connectPrompt2 "M'agradaria conectar-me directament a la xarxa Tor.">
@@ -24,7 +24,7 @@
 <!ENTITY torSettings.enterFirewall "Escriviu una llista separada per comes dels ports que estan permesos pel proxy.">
 <!ENTITY torSettings.bridgeQuestion "El vostre proveïdor d'Internet (ISP) bloqueja o censura les connexions a la Xarxa Tor?">
 <!ENTITY torSettings.bridgeHelp "If you are not sure how to answer this question, choose No.&#160; If you choose Yes, you will be asked to configure Tor Bridges, which are unlisted relays that make it more difficult to block connections to the Tor Network.">
-<!ENTITY torSettings.bridgeSettingsPrompt "You may use the provided set of bridges or you may obtain and enter a custom set of bridges.">
+<!ENTITY torSettings.bridgeSettingsPrompt "Hauries d'utilitzar el set de repetidors provist o customitzar el teu propi.">
 
 <!-- Other: -->
 
@@ -47,9 +47,9 @@
 <!ENTITY torsettings.firewall.checkbox "Aquest ordinador va a través d'un proxy que només permet connexions a certs ports">
 <!ENTITY torsettings.firewall.allowedPorts "Ports permesos:">
 <!ENTITY torsettings.useBridges.checkbox "El meu proveidor d'internet (ISP) bloqueja les conexions a la xarxa Tor">
-<!ENTITY torsettings.useBridges.default "Connect with provided bridges">
+<!ENTITY torsettings.useBridges.default "Connectar amb els repetidors porvistos.">
 <!ENTITY torsettings.useBridges.type "Transport type:">
-<!ENTITY torsettings.useBridges.custom "Enter custom bridges">
+<!ENTITY torsettings.useBridges.custom "Entra als repetidors customitzats.">
 <!ENTITY torsettings.useBridges.label "Entra en un o més repetidors (un per linia).">
 <!ENTITY torsettings.useBridges.placeholder "introdueix adreça:port">
 
@@ -57,9 +57,9 @@
 <!ENTITY torsettings.bridgeHelpTitle "Ajuda Repetidors">
 <!ENTITY torsettings.bridgeHelp1 "If you are unable to connect to the Tor network, it could be that your Internet Service Provider (ISP) or another agency is blocking Tor.&#160; Often, you can work around this problem by using Tor Bridges, which are unlisted relays that are more difficult to block.">
 <!ENTITY torsettings.bridgeHelp1B "You may use the preconfigured, provided set of bridge addresses or you may obtain a custom set of addresses by using one of these three methods:">
-<!ENTITY torsettings.bridgeHelp2Heading "Through the Web">
+<!ENTITY torsettings.bridgeHelp2Heading "A través del web">
 <!ENTITY torsettings.bridgeHelp2 "Utilitza un navegador web o vés a: https://bridges.torproject.org">
-<!ENTITY torsettings.bridgeHelp3Heading "Through the Email Autoresponder">
+<!ENTITY torsettings.bridgeHelp3Heading "A través del mail d'autorresposta.">
 <!ENTITY torsettings.bridgeHelp3 "Send email to bridges@torproject.org with the line 'get bridges' by itself in the body of the message.&#160; However, to make it harder for an attacker to learn a lot of bridge addresses, you must send this request from a gmail.com or yahoo.com email address.">
-<!ENTITY torsettings.bridgeHelp4Heading "Through the Help Desk">
-<!ENTITY torsettings.bridgeHelp4 "As a last resort, you can request bridge addresses by sending a polite email message to help@rt.torproject.org.&#160; Please note that a person will need to respond to each request.">
+<!ENTITY torsettings.bridgeHelp4Heading "A través del Escriptori d'Ajuda">
+<!ENTITY torsettings.bridgeHelp4 "Com a última opció, pots demanar adreces de repetidors enviant un missatge a help@rt.torproject.org.&#160; siusplau recorda que serà una persona qui et respondrà, siguis pacient i amable.">

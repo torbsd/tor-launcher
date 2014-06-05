@@ -12,7 +12,7 @@
 <!ENTITY torSettings.configurePrompt2 "I need to configure bridge, firewall, or proxy settings.">
 <!ENTITY torSettings.configure "Configure">
 <!ENTITY torSettings.connectPrompt2 "I would like to connect directly to the Tor network.">
-<!ENTITY torSettings.connectPrompt3 "This will work in most situations.">
+<!ENTITY torSettings.connectPrompt3 "Tämä toimii monissa tilanteissa.">
 <!ENTITY torSettings.connect "Yhdistä">
 
 <!ENTITY torSettings.proxyQuestion "Tarvitseeko tämä tietokone proxya päästäkseen internettiin?">
@@ -22,19 +22,19 @@
 <!ENTITY torSettings.firewallQuestion "Does this computer's Internet connection go through a firewall that only allows connections to certain ports?">
 <!ENTITY torSettings.firewallHelp "Ellet ole varma kuinka vastata tähän kysymykseen, valitse Ei. Muuta tätä asetusta jos yhteyden saamisessa Tor-verkkoon on ongelmia.">
 <!ENTITY torSettings.enterFirewall "Luettele pilkuin erotettuina ne portit, jotka palomuuri sallii. ">
-<!ENTITY torSettings.bridgeQuestion "Does your Internet Service Provider (ISP) block or otherwise censor connections to the Tor Network?">
+<!ENTITY torSettings.bridgeQuestion "Sensuroiko tai estääkö sinun operaattorisi (ISP) yhteydet Tor-verkkoon?">
 <!ENTITY torSettings.bridgeHelp "If you are not sure how to answer this question, choose No.&#160; If you choose Yes, you will be asked to configure Tor Bridges, which are unlisted relays that make it more difficult to block connections to the Tor Network.">
 <!ENTITY torSettings.bridgeSettingsPrompt "You may use the provided set of bridges or you may obtain and enter a custom set of bridges.">
 
 <!-- Other: -->
 
-<!ENTITY torsettings.startingTor "Waiting for Tor to start…">
-<!ENTITY torsettings.restart "Käynnistä Vidalia uudelleen">
+<!ENTITY torsettings.startingTor "Odotetaan Torin käynnistymistä...">
+<!ENTITY torsettings.restart "Käynnistä uudelleen">
 
-<!ENTITY torsettings.optional "Optional">
+<!ENTITY torsettings.optional "Vaihtoehtoinen">
 
-<!ENTITY torsettings.useProxy.checkbox "This computer needs to use a proxy to access the Internet">
-<!ENTITY torsettings.useProxy.type "Proxy Type:">
+<!ENTITY torsettings.useProxy.checkbox "Tämä tietokone tarvitsee käyttää proxya päästäkseen internettiin.">
+<!ENTITY torsettings.useProxy.type "Proxy tyyppi:">
 <!ENTITY torsettings.useProxy.address "Osoite:">
 <!ENTITY torsettings.useProxy.address.placeholder "IP osoite tai isännän nimi">
 <!ENTITY torsettings.useProxy.port "Portti:">
@@ -45,7 +45,7 @@
 <!ENTITY torsettings.useProxy.type.http "HTTP / HTTPS">
 <!ENTITY torsettings.firewall.checkbox "Tämän tietokoneen palomuuri sallii yhteydet vain tiettyjen porttien kautta.">
 <!ENTITY torsettings.firewall.allowedPorts "Sallitut portit:">
-<!ENTITY torsettings.useBridges.checkbox "My Internet Service Provider (ISP) blocks connections to the Tor network">
+<!ENTITY torsettings.useBridges.checkbox "Minun internet-yhteyden tarjoaja (ISP) estää yhteydet Tor verkkoon.">
 <!ENTITY torsettings.useBridges.default "Connect with provided bridges">
 <!ENTITY torsettings.useBridges.type "Siirtotyyppi:">
 <!ENTITY torsettings.useBridges.custom "Enter custom bridges">
@@ -59,6 +59,6 @@
 <!ENTITY torsettings.bridgeHelp2Heading "Through the Web">
 <!ENTITY torsettings.bridgeHelp2 "Use a web browser to visit https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "Through the Email Autoresponder">
-<!ENTITY torsettings.bridgeHelp3 "Send email to bridges@torproject.org with the line 'get bridges' by itself in the body of the message.&#160; However, to make it harder for an attacker to learn a lot of bridge addresses, you must send this request from a gmail.com or yahoo.com email address.">
+<!ENTITY torsettings.bridgeHelp3 "Lähetä sähköpostia: bridges@torproject.org tekstin kanssa 'get bridges'  160">
 <!ENTITY torsettings.bridgeHelp4Heading "Through the Help Desk">
 <!ENTITY torsettings.bridgeHelp4 "As a last resort, you can request bridge addresses by sending a polite email message to help@rt.torproject.org.&#160; Please note that a person will need to respond to each request.">
