@@ -177,7 +177,47 @@ function initDialog()
       showPanel();
   }
 
+  // Resize this window to fit content.  sizeToContent() alone will not do
+  // the job (it has many limitations and it is buggy).
+  sizeToContent();
+  let w = maxWidthOfContent();
+  if (w)
+  {
+    let windowFrameWidth = window.outerWidth - window.innerWidth;
+    w += windowFrameWidth;
+
+    if (w > window.outerWidth)
+      window.resizeTo(w, window.outerHeight);
+  }
+
   TorLauncherLogger.log(2, "initDialog done");
+}
+
+
+// For now, we assume that the wizard buttons are the widest portion.
+// TODO: return a value for the settings dialog (non-wizard case).
+function maxWidthOfContent()
+{
+  let haveWizard = (getWizard() != null);
+  if (!haveWizard)
+    return undefined;
+
+  // Show all buttons so we can get an accurate width measurement.
+  // They will be hidden, as necessary, by the wizard.
+  let buttons = "back,next,cancel,extra2,help".split(',');
+  for (let i = 0; i < buttons.length; ++i)
+    showOrHideButton(buttons[i], true, false);
+
+  let btn = document.documentElement.getButton("cancel");
+  let btnContainer = btn.parentElement;
+
+  const kWarningIconWidth = 20; // skin/warning.png is 16 plus some margin
+  let r = btnContainer.getBoundingClientRect();
+
+  // Hide copy log button if appropriate.
+  restoreCopyLogVisibility();
+
+  return Math.ceil((2 * r.left) + r.width + kWarningIconWidth);
 }
 
 
@@ -434,10 +474,28 @@ function showCopyLogButton(aHaveErrorOrWarning)
     if (aHaveErrorOrWarning)
     {
       var clz = copyLogBtn.getAttribute("class");
-      copyLogBtn.setAttribute("class", clz ? clz + " torWarning"
-                                           : "torWarning");
+      if (!clz)
+        copyLogBtn.setAttribute("class", "torWarning");
+      else if (clz.indexOf("torWarning") < 0)
+        copyLogBtn.setAttribute("class", clz + " torWarning");
     }
   }
+}
+
+
+function restoreCopyLogVisibility()
+{
+  if (!getWizard())
+    return;
+
+  var copyLogBtn = document.documentElement.getButton("extra2");
+  if (!copyLogBtn)
+    return;
+
+  if (copyLogBtn.hasAttribute("wizardCanCopyLog"))
+    copyLogBtn.removeAttribute("hidden");
+  else
+    copyLogBtn.setAttribute("hidden", true);
 }
 
 
@@ -649,9 +707,7 @@ function closeHelp()
   {
     showOrHideButton("cancel", true, false);
     showOrHideButton("back", true, false);
-    var copyLogBtn = document.documentElement.getButton("extra2");
-    if (copyLogBtn && copyLogBtn.hasAttribute("wizardCanCopyLog"))
-      copyLogBtn.removeAttribute("hidden");
+    restoreCopyLogVisibility();
     restoreButtonLabel("next");
     var forAssistance = document.getElementById("forAssistance");
     if (forAssistance)
