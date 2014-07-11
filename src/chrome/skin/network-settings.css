@@ -89,8 +89,9 @@ button.firstAnswer {
 
 .tbb-logo {
   list-style-image: url("chrome://torlauncher/skin/tbb-logo.png");
-  width: 198px;
-  height: 70px;
+  width: 115px;
+  height: 80px;
+  margin-right: 20px;
 }
 
 #bridgeCustomEntry {
