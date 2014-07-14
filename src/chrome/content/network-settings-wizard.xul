@@ -26,8 +26,10 @@
   <script type="application/x-javascript"
           src="chrome://torlauncher/content/network-settings.js"/>
 
+  <!-- This page requires a setTimeout for onpageshow because it may be
+       shown first -->
   <wizardpage label=" " pageid="first" next="proxy" onextra2="onCopyLog();"
-              onpageshow="setTimeout(function() { showWizardNavButtons(); }, 0);">
+              onpageshow="setTimeout(function() { showWizardNavButtons(false); }, 0);">
     <hbox class="tbb-header">
       <vbox class="tbb-logo-box" align="start">
         <image class="tbb-logo" />
@@ -52,7 +54,7 @@
   </wizardpage>
 
   <wizardpage label=" " pageid="proxy" next="firewall" onextra2="onCopyLog();"
-              onpageshow="showWizardNavButtons();"
+              onpageshow="showWizardNavButtons(true);"
               onpageadvanced="return onWizardProxyNext(this);">
     <vbox class="tbb-logo-box" align="start">
       <image class="tbb-logo" />
@@ -146,7 +148,10 @@
     </vbox>
   </wizardpage>
 
-  <wizardpage label=" " pageid="startingTor" next="first">
+  <!-- This page requires a setTimeout for onpageshow because it may be
+       shown first -->
+  <wizardpage label=" " pageid="startingTor" next="notUsed"
+              onpageshow="setTimeout(function() { showWizardNavButtons(false); }, 0);">
     <spring flex="1" />
     <hbox>
       <spring flex="1" />
@@ -163,7 +168,15 @@
   </wizardpage>
 
   <wizardpage label=" " pageid="errorPanel" next="notUsed"
+              onpageshow="showWizardNavButtons(false);"
               onextra2="onCopyLog();">
+    <spring flex="1" />
+    <hbox>
+      <spring flex="1" />
+      <description id="errorPanelMessage" flex="1"/>
+      <spring flex="1" />
+    </hbox>
+    <spring flex="1" />
   </wizardpage>
 
   <wizardpage class="help"  label=" " pageid="bridgeHelp" next="notUsed"

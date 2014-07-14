@@ -176,8 +176,8 @@ TorProcessService.prototype =
         else if ((Date.now() - this.mTorProcessStartTime)
                  > this.kControlConnTimeoutMS)
         {
-          this.mObsSvc.notifyObservers(null, "TorProcessDidNotStart", null);
           var s = TorLauncherUtil.getLocalizedString("tor_controlconn_failed");
+          this.mObsSvc.notifyObservers(null, "TorProcessDidNotStart", s);
           TorLauncherUtil.showAlert(null, s);
           TorLauncherLogger.log(4, s);
         }

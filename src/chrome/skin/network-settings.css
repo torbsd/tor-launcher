@@ -103,6 +103,7 @@ button.firstAnswer {
 }
 
 wizardpage[pageid="startingTor"] description,
+wizardpage[pageid="errorPanel"] description,
 #startingTor description {
   font-size: 120%;
   font-weight: bold;

@@ -305,13 +305,10 @@ function onBridgeTypeRadioChange()
 }
 
 
-function showWizardNavButtons()
+function showWizardNavButtons(aShowBtns)
 {
-  var curPage = getWizard().currentPage;
-  var isFirstPage = ("first" == curPage.pageid);
-
-  showOrHideButton("back", !isFirstPage, false);
-  showOrHideButton("next", !isFirstPage && curPage.next, false);
+  showOrHideButton("back", aShowBtns, false);
+  showOrHideButton("next", aShowBtns, false);
 }
 
 
@@ -340,7 +337,7 @@ var gObserver = {
     else if (kTorProcessDidNotStartTopic == aTopic)
     {
       gObsService.removeObserver(gObserver, kTorProcessDidNotStartTopic);
-      showErrorPanel();
+      showErrorPanel(aData);
     }
     else if (kTorProcessExitedTopic == aTopic)
     {
@@ -443,18 +440,16 @@ function showStartingTorPanel(aTorExited)
   }
 
   showPanel("startingTor");
-  var haveWizard = (getWizard() != null);
-  if (haveWizard)
-  {
-    showOrHideButton("back", false, false);
-    showOrHideButton("next", false, false);
-  }
 }
 
 
-function showErrorPanel()
+function showErrorPanel(aErrorMsg)
 {
   showPanel("errorPanel");
+  var elem = document.getElementById("errorPanelMessage");
+  if (elem)
+    elem.textContent = (aErrorMsg) ? aErrorMsg : "";
+
   var haveErrorOrWarning = (gTorProcessService.TorBootstrapErrorOccurred ||
                             gProtocolSvc.TorLogHasWarnOrErr)
   showCopyLogButton(haveErrorOrWarning);
