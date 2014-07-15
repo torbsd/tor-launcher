@@ -1,4 +1,4 @@
-### Copyright (c) 2013, The Tor Project, Inc.
+### Copyright (c) 2014, The Tor Project, Inc.
 ### See src/LICENSE for licensing information.
 
 EXT_NAME=tor-launcher
@@ -28,6 +28,13 @@ pkg-prepare:	clean
 	@mkdir -p pkg
 	$(eval TMP="$(shell mktemp -d "/tmp/$(EXT_NAME).XXXXXX")")
 	@cp -a "src" "$(TMP)/$(EXT_NAME)"
+	@if [ -n "$(TL_LOGO)" ]; then \
+		if [ "$(TL_LOGO)" = "-" ]; then \
+			rm "$(TMP)/$(EXT_NAME)/chrome/skin/tbb-logo.png"; \
+		else \
+			cp -p "$(TL_LOGO)" "$(TMP)/$(EXT_NAME)/chrome/skin/tbb-logo.png"; \
+		fi \
+	fi
 	@cp -a chrome.manifest.in "$(TMP)/$(EXT_NAME)"/chrome.manifest
 	@mv "$(TMP)/$(EXT_NAME)"/chrome/locale/en \
 	    "$(TMP)/$(EXT_NAME)"/chrome/locale/en-US
