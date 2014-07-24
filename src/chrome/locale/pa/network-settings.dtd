@@ -29,7 +29,7 @@
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "...ਟੋਰ ਸ਼ੁਰੂ ਹੋਣ ਤੱਕ ਉਡੀਕੋ">
-<!ENTITY torsettings.restart "ਮੁੜ-ਚਾਲੂ">
+<!ENTITY torsettings.restartTor "Restart Tor">
 
 <!ENTITY torsettings.optional "ਚੋਣਵਾਂ">
 

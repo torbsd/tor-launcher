@@ -29,7 +29,7 @@
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "TOR ආරම්භ වනතුරු …">
-<!ENTITY torsettings.restart "යලි අරඹන්න">
+<!ENTITY torsettings.restartTor "Restart Tor">
 
 <!ENTITY torsettings.optional "අමතර">
 

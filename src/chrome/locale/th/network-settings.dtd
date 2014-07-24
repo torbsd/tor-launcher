@@ -29,7 +29,7 @@
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "รอให้ Tor เริ่มทำงาน...">
-<!ENTITY torsettings.restart "เริ่มทำงานใหม่">
+<!ENTITY torsettings.restartTor "Restart Tor">
 
 <!ENTITY torsettings.optional "ตัวเลือก">
 

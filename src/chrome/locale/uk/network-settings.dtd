@@ -29,7 +29,7 @@
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "Підключення до Tor...">
-<!ENTITY torsettings.restart "Перезавантажити">
+<!ENTITY torsettings.restartTor "Restart Tor">
 
 <!ENTITY torsettings.optional "Додатково">
 

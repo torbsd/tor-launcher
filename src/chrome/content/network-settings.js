@@ -24,6 +24,7 @@ const kSupportAddr = "help@rt.torproject.org";
 const kTorProcessReadyTopic = "TorProcessIsReady";
 const kTorProcessExitedTopic = "TorProcessExited";
 const kTorProcessDidNotStartTopic = "TorProcessDidNotStart";
+const kTorOpenProgressTopic = "TorOpenProgressDialog";
 const kTorBootstrapErrorTopic = "TorBootstrapError";
 const kTorLogHasWarnOrErrTopic = "TorLogHasWarnOrErr";
 
@@ -158,12 +159,16 @@ function initDialog()
   gObsService.addObserver(gObserver, kTorBootstrapErrorTopic, false);
   gObsService.addObserver(gObserver, kTorLogHasWarnOrErrTopic, false);
   gObsService.addObserver(gObserver, kTorProcessExitedTopic, false);
+  gObsService.addObserver(gObserver, kTorOpenProgressTopic, false);
 
   var status = gTorProcessService.TorProcessStatus;
   if (TorLauncherUtil.shouldStartAndOwnTor &&
      (status != gTorProcessService.kStatusRunning))
   {
-    showStartingTorPanel(status == gTorProcessService.kStatusExited);
+    if (status == gTorProcessService.kStatusExited)
+      showErrorMessage(true, null);
+    else
+      showStartingTorPanel();
     gObsService.addObserver(gObserver, kTorProcessReadyTopic, false);
     gObsService.addObserver(gObserver, kTorProcessDidNotStartTopic, false);
   }
@@ -337,12 +342,16 @@ var gObserver = {
     else if (kTorProcessDidNotStartTopic == aTopic)
     {
       gObsService.removeObserver(gObserver, kTorProcessDidNotStartTopic);
-      showErrorPanel(aData);
+      showErrorMessage(false, aData);
     }
     else if (kTorProcessExitedTopic == aTopic)
     {
       gObsService.removeObserver(gObserver, kTorProcessExitedTopic);
-      showStartingTorPanel(true);
+      showErrorMessage(true, null);
+    }
+    else if (kTorOpenProgressTopic == aTopic)
+    {
+      openProgressDialog();
     }
   }
 };
@@ -365,7 +374,7 @@ function readTorSettings()
   if (!didSucceed)
   {
     // Unable to communicate with tor.  Hide settings and display an error.
-    showErrorPanel();
+    showErrorMessage(false, null);
 
     setTimeout(function()
         {
@@ -422,33 +431,48 @@ function advanceToWizardPanel(aPanelID)
 }
 
 
-function showStartingTorPanel(aTorExited)
+function showStartingTorPanel()
 {
-  if (aTorExited)
+  var haveWizard = (getWizard() != null);
+  if (haveWizard)
   {
-    // Show "Tor exited; please restart" message and Restart button.
-    var elem = document.getElementById("startingTorMessage");
-    if (elem)
-    {
-      var s1 = TorLauncherUtil.getLocalizedString("tor_exited");
-      var s2 = TorLauncherUtil.getLocalizedString("please_restart_app");
-      elem.textContent = s1 + "\n\n" + s2;
-    }
-    var btn = document.getElementById("restartButton");
-    if (btn)
-      btn.removeAttribute("hidden");
+    showOrHideButton("back", false, false);
+    showOrHideButton("next", false, false);
   }
 
   showPanel("startingTor");
 }
 
 
-function showErrorPanel(aErrorMsg)
+function showErrorMessage(aTorExited, aErrorMsg)
 {
-  showPanel("errorPanel");
   var elem = document.getElementById("errorPanelMessage");
+  var btn = document.getElementById("restartTorButton");
+  if (aTorExited)
+  {
+    // Show "Tor exited" message and "Restart Tor" button.
+    aErrorMsg = TorLauncherUtil.getLocalizedString("tor_exited");
+
+    if (btn)
+      btn.removeAttribute("hidden");
+  }
+  else
+  {
+    if (btn)
+      btn.setAttribute("hidden", true);
+  }
+
   if (elem)
     elem.textContent = (aErrorMsg) ? aErrorMsg : "";
+
+  showPanel("errorPanel");
+
+  var haveWizard = (getWizard() != null);
+  if (haveWizard)
+  {
+    showOrHideButton("back", false, false);
+    showOrHideButton("next", false, false);
+  }
 
   var haveErrorOrWarning = (gTorProcessService.TorBootstrapErrorOccurred ||
                             gProtocolSvc.TorLogHasWarnOrErr)
@@ -613,28 +637,16 @@ function onProxyTypeChange()
 }
 
 
-function onRestartApp()
+// Called when user clicks "Restart Tor" button after tor unexpectedly quits.
+function onRestartTor()
 {
-  if (gIsInitialBootstrap)
-  {
-    // If the browser has not fully started yet, we cannot use the app startup
-    // service to restart it... so we use a delayed approach.
-    try
-    {
-      var obsSvc = Cc["@mozilla.org/observer-service;1"]
-                     .getService(Ci.nsIObserverService);
-      obsSvc.notifyObservers(null, "TorUserRequestedQuit", "restart");
+  // Re-add these observers in case they have been removed.
+  gObsService.addObserver(gObserver, kTorProcessReadyTopic, false);
+  gObsService.addObserver(gObserver, kTorProcessDidNotStartTopic, false);
+  gObsService.addObserver(gObserver, kTorProcessExitedTopic, false);
 
-      window.close();
-    } catch (e) {}
-  }
-  else
-  {
-    // Restart now.
-    var asSvc = Cc["@mozilla.org/toolkit/app-startup;1"]
-                  .getService(Ci.nsIAppStartup);
-    asSvc.quit(asSvc.eAttemptQuit | asSvc.eRestart);
-  }
+  gTorProcessService._startTor();
+  gTorProcessService._controlTor();
 }
 
 

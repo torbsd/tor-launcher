@@ -155,13 +155,7 @@
     <spring flex="1" />
     <hbox>
       <spring flex="1" />
-      <description id="startingTorMessage">&torsettings.startingTor;</description>
-      <spring flex="1" />
-    </hbox>
-    <hbox>
-      <spring flex="1" />
-      <button id="restartButton" label="&torsettings.restart;" hidden="true"
-              oncommand="onRestartApp()" />
+      <description>&torsettings.startingTor;</description>
       <spring flex="1" />
     </hbox>
     <spring flex="1" />
@@ -173,7 +167,14 @@
     <spring flex="1" />
     <hbox>
       <spring flex="1" />
-      <description id="errorPanelMessage" flex="1"/>
+      <description id="errorPanelMessage" />
+      <spring flex="1" />
+    </hbox>
+    <separator/>
+    <hbox>
+      <spring flex="1" />
+      <button id="restartTorButton" label="&torsettings.restartTor;" hidden="true"
+              oncommand="onRestartTor()" />
       <spring flex="1" />
     </hbox>
     <spring flex="1" />

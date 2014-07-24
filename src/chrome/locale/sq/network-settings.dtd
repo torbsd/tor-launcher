@@ -29,7 +29,7 @@
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "Duke pritur që Tor të nisë...">
-<!ENTITY torsettings.restart "Rihap">
+<!ENTITY torsettings.restartTor "Restart Tor">
 
 <!ENTITY torsettings.optional "Fakultativ">
 

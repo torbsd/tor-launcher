@@ -29,7 +29,7 @@
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "Esperando a que Tor arranque...">
-<!ENTITY torsettings.restart "Reiniciar">
+<!ENTITY torsettings.restartTor "Restart Tor">
 
 <!ENTITY torsettings.optional "Opcional">
 

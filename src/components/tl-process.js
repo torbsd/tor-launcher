@@ -140,14 +140,23 @@ TorProcessService.prototype =
 
       this.mTorProcess = null;
       this.mTorProcessStatus = this.kStatusExited;
+      this.mIsBootstrapDone = false;
 
       this.mObsSvc.notifyObservers(null, "TorProcessExited", null);
 
       if (!this.mIsQuitting)
       {
+        this.mProtocolSvc.TorCleanupConnection();
+
         var s = TorLauncherUtil.getLocalizedString("tor_exited");
-        TorLauncherUtil.showAlert(null, s);
         TorLauncherLogger.log(4, s);
+        s += "\n" + TorLauncherUtil.getLocalizedString("tor_connection_lost");
+        var btnLabel = TorLauncherUtil.getLocalizedString("reconnect");
+        if (TorLauncherUtil.showConfirm(null, s, btnLabel) && !this.mIsQuitting)
+        {
+          this._startTor();
+          this._controlTor();
+        }
       }
     }
     else if ("timer-callback" == aTopic)
@@ -420,6 +429,12 @@ TorProcessService.prototype =
           this._openNetworkSettings(true, panelID);
         }
       }
+      else if (this._networkSettingsWindow != null)
+      {
+        // If network settings is open, open progress dialog via notification.
+        if (this.mObsSvc)
+          this.mObsSvc.notifyObservers(null, "TorOpenProgressDialog", null);
+      }
       else
       {
         this._openProgressDialog();
@@ -547,9 +562,19 @@ TorProcessService.prototype =
       TorLauncherUtil.showSaveSettingsAlert(null, errObj.details);
   },
 
-  // Blocks until network settings dialog is closed.
+  // If this window is already open, put up "starting tor" panel, focus it and return.
+  // Otherwise, open the network settings dialog and block until it is closed.
   _openNetworkSettings: function(aIsInitialBootstrap, aStartAtWizardPanel)
   {
+    var win = this._networkSettingsWindow;
+    if (win)
+    {
+      // Return to "Starting tor" panel if being asked to open & dlog already exists.
+      win.showStartingTorPanel();
+      win.focus();
+      return;
+    }
+
     const kSettingsURL = "chrome://torlauncher/content/network-settings.xul";
     const kWizardURL = "chrome://torlauncher/content/network-settings-wizard.xul";
 
@@ -560,6 +585,13 @@ TorProcessService.prototype =
                                                     aStartAtWizardPanel);
     var url = (aIsInitialBootstrap) ? kWizardURL : kSettingsURL;
     wwSvc.openWindow(null, url, "_blank", winFeatures, argsArray);
+  },
+
+  get _networkSettingsWindow()
+  {
+    var wm = Cc["@mozilla.org/appshell/window-mediator;1"]
+               .getService(Ci.nsIWindowMediator);
+    return wm.getMostRecentWindow("TorLauncher:NetworkSettings");
   },
 
   _openProgressDialog: function()

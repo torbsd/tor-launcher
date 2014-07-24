@@ -27,7 +27,7 @@
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "">
-<!ENTITY torsettings.restart "">
+<!ENTITY torsettings.restartTor "">
 
 <!ENTITY torsettings.optional "">
 

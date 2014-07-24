@@ -29,7 +29,7 @@
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "Chờ đợi để Tor khởi động..">
-<!ENTITY torsettings.restart "Khởi động lại">
+<!ENTITY torsettings.restartTor "Restart Tor">
 
 <!ENTITY torsettings.optional "Tuỳ chọn">
 

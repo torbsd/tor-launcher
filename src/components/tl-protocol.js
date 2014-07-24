@@ -405,8 +405,7 @@ TorProtocolService.prototype =
   TorCleanupConnection: function()
   {
     this._closeConnection();
-    this._closeConnection(this.mEventMonitorConnection);
-    this.mEventMonitorConnection = null;
+    this._shutDownEventMonitor();
   },
 
   TorStartEventMonitor: function()
@@ -1163,6 +1162,17 @@ TorProtocolService.prototype =
     return this.mRNGService;
   },
 
+  _shutDownEventMonitor: function()
+  {
+    if (this.mEventMonitorConnection)
+    {
+      this._closeConnection(this.mEventMonitorConnection);
+      this.mEventMonitorConnection = null;
+      this.mEventMonitorBuffer = null;
+      this.mEventMonitorInProgressReply = null;
+    }
+  },
+
   _waitForEventData: function()
   {
     if (!this.mEventMonitorConnection)
@@ -1179,15 +1189,25 @@ TorProtocolService.prototype =
           return;
         }
 
-        var binStream = _this.mEventMonitorConnection.binInStream;
-        var bytes = binStream.readBytes(binStream.available());
-        if (!_this.mEventMonitorBuffer)
-          _this.mEventMonitorBuffer = bytes;
-        else
-          _this.mEventMonitorBuffer += bytes;
-        _this._processEventData();
+        try
+        {
+          var binStream = _this.mEventMonitorConnection.binInStream;
+          var bytes = binStream.readBytes(binStream.available());
+          if (!_this.mEventMonitorBuffer)
+            _this.mEventMonitorBuffer = bytes;
+          else
+            _this.mEventMonitorBuffer += bytes;
+          _this._processEventData();
 
-        _this._waitForEventData();
+          _this._waitForEventData();
+        }
+        catch (e)
+        {
+          // Probably we got here because tor exited.  If tor is restarted by
+          // Tor Launcher, the event monitor will be restarted too.
+          TorLauncherLogger.safelog(4, "Event monitor read error", e);
+          _this._shutDownEventMonitor();
+        }
       }
     };
 

@@ -29,7 +29,7 @@
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "Tor abiarazi dadin itxaroten...">
-<!ENTITY torsettings.restart "Berrabiarazi">
+<!ENTITY torsettings.restartTor "Restart Tor">
 
 <!ENTITY torsettings.optional "Hautazkoa">
 

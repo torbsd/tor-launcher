@@ -29,7 +29,7 @@
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "Venter på at Tor skal starte...">
-<!ENTITY torsettings.restart "Start på nytt">
+<!ENTITY torsettings.restartTor "Restart Tor">
 
 <!ENTITY torsettings.optional "Valgfritt">
 

@@ -29,7 +29,7 @@
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "Tor தொடங்குவதற்கு காத்திருக்கிறது...">
-<!ENTITY torsettings.restart "மறுதுவக்கு">
+<!ENTITY torsettings.restartTor "Restart Tor">
 
 <!ENTITY torsettings.optional "விருப்பத்தேர்வு">
 

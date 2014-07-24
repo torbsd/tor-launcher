@@ -29,7 +29,7 @@
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "Yn aros am Tor i gychwyn…">
-<!ENTITY torsettings.restart "Ailgychwyn">
+<!ENTITY torsettings.restartTor "Restart Tor">
 
 <!ENTITY torsettings.optional "Dewisiol">
 
