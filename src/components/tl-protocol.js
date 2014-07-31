@@ -25,6 +25,12 @@ function TorProtocolService()
 
   try
   {
+    this.mConsoleSvc = Cc["@mozilla.org/consoleservice;1"]
+                         .getService(Ci.nsIConsoleService);
+  } catch (e) {}
+
+  try
+  {
     var env = Cc["@mozilla.org/process/environment;1"]
                 .getService(Ci.nsIEnvironment);
 
@@ -496,6 +502,7 @@ TorProtocolService.prototype =
 
 
   // Private Member Variables ////////////////////////////////////////////////
+  mConsoleSvc: null,
   mControlPort: null,
   mControlHost: null,
   mControlPassword: null,     // JS string that contains hex-encoded password.
@@ -1295,6 +1302,15 @@ TorProtocolService.prototype =
               this.mTorLog.splice(0, 1);
           }
           this.mTorLog.push(logObj);
+
+          // We could use console.info(), console.error(), and console.warn()
+          // but when those functions are used the console output includes
+          // extraneous double quotes.  See Mozilla bug # 977586.
+          if (this.mConsoleSvc)
+          {
+            let s = "Tor " + logObj.type + ": " + logObj.msg;
+            this.mConsoleSvc.logStringMessage(s);
+          }
           break;
         case "STATUS_CLIENT":
           this._parseBootstrapStatus(msg);
