@@ -38,7 +38,7 @@
 <!ENTITY torsettings.useProxy.address "Адрĕс:">
 <!ENTITY torsettings.useProxy.address.placeholder "IP address or hostname">
 <!ENTITY torsettings.useProxy.port "Порчĕ:">
-<!ENTITY torsettings.useProxy.username "Username:">
+<!ENTITY torsettings.useProxy.username "Ячĕ:">
 <!ENTITY torsettings.useProxy.password "Кĕме сăмах:">
 <!ENTITY torsettings.useProxy.type.socks4 "SOCKS 4">
 <!ENTITY torsettings.useProxy.type.socks5 "SOCKS 5">

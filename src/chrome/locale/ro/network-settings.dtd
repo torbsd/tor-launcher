@@ -1,64 +1,64 @@
-<!ENTITY torsettings.dialog.title "Tor Network Settings">
+<!ENTITY torsettings.dialog.title "Setări rețea Tor">
 
 <!-- For "first run" wizard: -->
 
-<!ENTITY torsettings.prompt "Before you connect to the Tor network, you need to provide information about this computer's Internet connection.">
+<!ENTITY torsettings.prompt "Înainte de a vă conecta la rețeaua Tor, trebuie să oferiți informații despre conexiunea acestui computer la Internet.">
 
 <!ENTITY torSettings.yes "Da">
 <!ENTITY torSettings.no "Nu">
 
-<!ENTITY torSettings.firstQuestion "Which of the following best describes your situation?">
-<!ENTITY torSettings.configurePrompt1 "This computer's Internet connection is censored, filtered, or proxied.">
-<!ENTITY torSettings.configurePrompt2 "I need to configure bridge, firewall, or proxy settings.">
-<!ENTITY torSettings.configure "Configure">
-<!ENTITY torSettings.connectPrompt2 "I would like to connect directly to the Tor network.">
-<!ENTITY torSettings.connectPrompt3 "This will work in most situations.">
+<!ENTITY torSettings.firstQuestion "Care din următoarele descrie cel mai bine situația dvs?">
+<!ENTITY torSettings.configurePrompt1 "Conexiunea acestui computer la Internet este cenzurată, filtrată sau cu proxy.">
+<!ENTITY torSettings.configurePrompt2 "Trebuie să configurez punte, firewall sau proxy.">
+<!ENTITY torSettings.configure "Configuraţi ">
+<!ENTITY torSettings.connectPrompt2 "Vreau sa ma conectez direct la reţeaua Tor .">
+<!ENTITY torSettings.connectPrompt3 "Aceasta funcționează în cele mai multe situații.">
 <!ENTITY torSettings.connect "Conectare">
 
-<!ENTITY torSettings.proxyQuestion "Does this computer need to use a proxy to access the Internet?">
+<!ENTITY torSettings.proxyQuestion "Computerul dumneavoastră are nevoie de un proxy sa acceseze Internet-ul ?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "If you are not sure how to answer this question, look at the Internet settings in another browser to see whether it is configured to use a proxy.">
-<!ENTITY torSettings.enterProxy "Enter the proxy settings.">
-<!ENTITY torSettings.firewallQuestion "Does this computer's Internet connection go through a firewall that only allows connections to certain ports?">
-<!ENTITY torSettings.firewallHelp "If you are not sure how to answer this question, choose No. If you encounter problems connecting to the Tor network, change this setting.">
-<!ENTITY torSettings.enterFirewall "Enter a comma-separated list of ports that are allowed by the firewall.">
-<!ENTITY torSettings.bridgeQuestion "Does your Internet Service Provider (ISP) block or otherwise censor connections to the Tor Network?">
-<!ENTITY torSettings.bridgeHelp "If you are not sure how to answer this question, choose No.&#160; If you choose Yes, you will be asked to configure Tor Bridges, which are unlisted relays that make it more difficult to block connections to the Tor Network.">
-<!ENTITY torSettings.bridgeSettingsPrompt "You may use the provided set of bridges or you may obtain and enter a custom set of bridges.">
+<!ENTITY torSettings.proxyHelp "Dacă nu sînteți siguri cum să răspundeți la întrebarea aceasta, uitați-vă la setările de Internet din alt browser pentru a vedea dacă este configurat să folosească un proxy.">
+<!ENTITY torSettings.enterProxy "Introduceţi setările pentru proxy .">
+<!ENTITY torSettings.firewallQuestion "Conexiunea la Internet a acestui computer iese printr-un firewall care permite doar conexiuni către anumite porturi?">
+<!ENTITY torSettings.firewallHelp "Dacă nu sînteți sigur cum să răspundeți la această întrebare, alegeți Nu. Dacă întîlniți probleme conectîndu-vă la rețeaua Tor, schimbați aceste setări.">
+<!ENTITY torSettings.enterFirewall "Introduceți o listă separată cu virgule de porturi care sînt permise de firewall.">
+<!ENTITY torSettings.bridgeQuestion "Internet Service Providerul (ISP) dvs blochează sau cenzurează conexiunile către rețeaua Tor?">
+<!ENTITY torSettings.bridgeHelp "Dacă nu sînteți sigur cum să răspundeți la această întrebare, alegeți Nu.&#160; Dacă alegeți Da, vi se va cere să configurați punțile Tor, care sînt relayuri nelistate care fac mai dificilă blocarea conexiunilor la rețeaua Tor.">
+<!ENTITY torSettings.bridgeSettingsPrompt "Puteți folosi setul de punți oferit sau puteți obține și introduce un set particular de punți.">
 
 <!-- Other: -->
 
-<!ENTITY torsettings.startingTor "Waiting for Tor to start…">
-<!ENTITY torsettings.restartTor "Restart Tor">
+<!ENTITY torsettings.startingTor "Aștept Tor să pornească...">
+<!ENTITY torsettings.restartTor "Repornește Tor">
 
-<!ENTITY torsettings.optional "Optional">
+<!ENTITY torsettings.optional "Opțional">
 
-<!ENTITY torsettings.useProxy.checkbox "This computer needs to use a proxy to access the Internet">
-<!ENTITY torsettings.useProxy.type "Proxy Type:">
+<!ENTITY torsettings.useProxy.checkbox "Acest computer are nevoie să folosească un proxy pentru a accesa Internetul">
+<!ENTITY torsettings.useProxy.type "Tip proxy:">
 <!ENTITY torsettings.useProxy.address "Adresă:">
-<!ENTITY torsettings.useProxy.address.placeholder "IP address or hostname">
+<!ENTITY torsettings.useProxy.address.placeholder "Adresă IP sau hostname">
 <!ENTITY torsettings.useProxy.port "Port:">
 <!ENTITY torsettings.useProxy.username "Nume utilizator:">
 <!ENTITY torsettings.useProxy.password "Parola:">
 <!ENTITY torsettings.useProxy.type.socks4 "SOCKS 4">
 <!ENTITY torsettings.useProxy.type.socks5 "SOCKS 5">
 <!ENTITY torsettings.useProxy.type.http "HTTP / HTTPS">
-<!ENTITY torsettings.firewall.checkbox "This computer goes through a firewall that only allows connections to certain ports">
+<!ENTITY torsettings.firewall.checkbox "Acest computer iese printr-un firewall care permite doar conexiuni către anumite porturi">
 <!ENTITY torsettings.firewall.allowedPorts "Porturi permise:">
-<!ENTITY torsettings.useBridges.checkbox "My Internet Service Provider (ISP) blocks connections to the Tor network">
-<!ENTITY torsettings.useBridges.default "Connect with provided bridges">
-<!ENTITY torsettings.useBridges.type "Transport type:">
-<!ENTITY torsettings.useBridges.custom "Enter custom bridges">
-<!ENTITY torsettings.useBridges.label "Enter one or more bridge relays (one per line).">
-<!ENTITY torsettings.useBridges.placeholder "type address:port">
+<!ENTITY torsettings.useBridges.checkbox "Internet Service Providerul (ISP) meu blochează conexiunile către rețeaua Tor">
+<!ENTITY torsettings.useBridges.default "Conectați-vă punțile oferite">
+<!ENTITY torsettings.useBridges.type "Tip de transport:">
+<!ENTITY torsettings.useBridges.custom "Introduceți punți personalizate">
+<!ENTITY torsettings.useBridges.label "Introduceți una sau mai multe bridge relays (una pe linie).">
+<!ENTITY torsettings.useBridges.placeholder "scrieți adresă:port">
 
-<!ENTITY torsettings.copyLog "Copy Tor Log To Clipboard">
-<!ENTITY torsettings.bridgeHelpTitle "Bridge Relay Help">
-<!ENTITY torsettings.bridgeHelp1 "If you are unable to connect to the Tor network, it could be that your Internet Service Provider (ISP) or another agency is blocking Tor.&#160; Often, you can work around this problem by using Tor Bridges, which are unlisted relays that are more difficult to block.">
-<!ENTITY torsettings.bridgeHelp1B "You may use the preconfigured, provided set of bridge addresses or you may obtain a custom set of addresses by using one of these three methods:">
-<!ENTITY torsettings.bridgeHelp2Heading "Through the Web">
-<!ENTITY torsettings.bridgeHelp2 "Use a web browser to visit https://bridges.torproject.org">
-<!ENTITY torsettings.bridgeHelp3Heading "Through the Email Autoresponder">
-<!ENTITY torsettings.bridgeHelp3 "Send email to bridges@torproject.org with the line 'get bridges' by itself in the body of the message.&#160; However, to make it harder for an attacker to learn a lot of bridge addresses, you must send this request from a gmail.com or yahoo.com email address.">
-<!ENTITY torsettings.bridgeHelp4Heading "Through the Help Desk">
-<!ENTITY torsettings.bridgeHelp4 "As a last resort, you can request bridge addresses by sending a polite email message to help@rt.torproject.org.&#160; Please note that a person will need to respond to each request.">
+<!ENTITY torsettings.copyLog "Copiați jurnalul Tor în Clipboard">
+<!ENTITY torsettings.bridgeHelpTitle "Ajutor Bridge Relay">
+<!ENTITY torsettings.bridgeHelp1 "Dacă nu puteți să vă conectați la rețeaua tor, poate să fie din cauză că Internet Service Providerul (ISP) sau altă agenție blochează Tor.&#160; Des, puteți ocoli această problemă folosind Tor Bridges, care sînt relayuri nelistate, mai dificil de blocat.">
+<!ENTITY torsettings.bridgeHelp1B "Puteți folosi setul de adrese de punți preconfigurate oferite sau puteți obține un set personalizat de adrese folosind una din aceste trei metode:">
+<!ENTITY torsettings.bridgeHelp2Heading "Prin Web">
+<!ENTITY torsettings.bridgeHelp2 "Folosiți un webbrowser pentru a vizita https://bridges.torproject.org">
+<!ENTITY torsettings.bridgeHelp3Heading "Prin email automat">
+<!ENTITY torsettings.bridgeHelp3 "Trimiteți email la bridges@torproject.org cu 'get bridges' singură în corpul mesajului.&#160; Oricum, pentru a face mai greu pentru un atacator să afle multe adrese de punți, trebuie să trimiteți această cerere de la o adresă gmail.com sau yahoo.com.">
+<!ENTITY torsettings.bridgeHelp4Heading "Prin Help Desk">
+<!ENTITY torsettings.bridgeHelp4 "Ca o ultimă soluție, puteți cere adrese de punți trimițînd un email politicos la help@rt.torproject.org.&#160; Remarcați că o persoană trebuie să răspundă la fiecare cerere.">

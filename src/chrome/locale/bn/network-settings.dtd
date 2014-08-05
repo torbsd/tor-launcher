@@ -37,9 +37,9 @@
 <!ENTITY torsettings.useProxy.type "Proxy Type:">
 <!ENTITY torsettings.useProxy.address "Address:">
 <!ENTITY torsettings.useProxy.address.placeholder "IP address or hostname">
-<!ENTITY torsettings.useProxy.port "Port:">
-<!ENTITY torsettings.useProxy.username "Username:">
-<!ENTITY torsettings.useProxy.password "Password:">
+<!ENTITY torsettings.useProxy.port "পোর্ট:">
+<!ENTITY torsettings.useProxy.username "ব্যবহারকারী নাম:">
+<!ENTITY torsettings.useProxy.password "পাসওয়ার্ড:">
 <!ENTITY torsettings.useProxy.type.socks4 "SOCKS 4">
 <!ENTITY torsettings.useProxy.type.socks5 "SOCKS 5">
 <!ENTITY torsettings.useProxy.type.http "HTTP / HTTPS">

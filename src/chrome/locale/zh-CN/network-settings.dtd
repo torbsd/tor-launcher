@@ -29,7 +29,7 @@
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "等待 Tor 启动...">
-<!ENTITY torsettings.restartTor "Restart Tor">
+<!ENTITY torsettings.restartTor "重新启动 Tor">
 
 <!ENTITY torsettings.optional "可选">
 

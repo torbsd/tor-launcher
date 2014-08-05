@@ -29,7 +29,7 @@
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "Várakozás a Tor indulására...">
-<!ENTITY torsettings.restartTor "Restart Tor">
+<!ENTITY torsettings.restartTor "Tor újraindítása">
 
 <!ENTITY torsettings.optional "Opcionális">
 

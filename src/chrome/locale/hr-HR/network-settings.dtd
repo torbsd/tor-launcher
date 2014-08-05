@@ -2,17 +2,18 @@
 
 <!-- For "first run" wizard: -->
 
-<!ENTITY torsettings.prompt "Before you connect to the Tor network, you need to provide information about this computer's Internet connection.">
+<!ENTITY torsettings.prompt "Prije nego se spojite na Tor mrežu, trebate dati informacija o
+internetskoj vezi ovog računala.">
 
 <!ENTITY torSettings.yes "Da">
 <!ENTITY torSettings.no "Ne">
 
 <!ENTITY torSettings.firstQuestion "Koje od sljedećeg najbolje opisuje Vašu situaciju?">
 <!ENTITY torSettings.configurePrompt1 "Internetska veza ovog računala je cenzurirana, filtrirana ili prolazi kroz proxy.">
-<!ENTITY torSettings.configurePrompt2 "I need to configure bridge, firewall, or proxy settings.">
+<!ENTITY torSettings.configurePrompt2 "Trebam konfigurirati bridge, firewall ili proxy postavke.">
 <!ENTITY torSettings.configure "Podesi">
 <!ENTITY torSettings.connectPrompt2 "Želim se izravno spojiti na Tor mrežu.">
-<!ENTITY torSettings.connectPrompt3 "This will work in most situations.">
+<!ENTITY torSettings.connectPrompt3 "Ovo će raditi u većini situacija.">
 <!ENTITY torSettings.connect "Spajanje">
 
 <!ENTITY torSettings.proxyQuestion "Koristi li ovo računalo proxy za pristup Internetu?">
@@ -22,9 +23,11 @@
 <!ENTITY torSettings.firewallQuestion "Prolazi li Internet veza ovog računala kroz vatrozid koji dopušta spajanje samo na određene portove?">
 <!ENTITY torSettings.firewallHelp "Ako niste sigurni kako odgovoriti na ovo pitanje, odaberite &quot;Ne&quot;. Ako uočite probleme pri spajanju na Tor mrežu, promijenite ovu postavku.">
 <!ENTITY torSettings.enterFirewall "Unesite popis portova, odvojenih zarezom, koji su dopušteni na vatrozidu.">
-<!ENTITY torSettings.bridgeQuestion "Does your Internet Service Provider (ISP) block or otherwise censor connections to the Tor Network?">
-<!ENTITY torSettings.bridgeHelp "If you are not sure how to answer this question, choose No.&#160; If you choose Yes, you will be asked to configure Tor Bridges, which are unlisted relays that make it more difficult to block connections to the Tor Network.">
-<!ENTITY torSettings.bridgeSettingsPrompt "You may use the provided set of bridges or you may obtain and enter a custom set of bridges.">
+<!ENTITY torSettings.bridgeQuestion "Blokira li vaš Internet Service Provider (ISP) ili ikako cenzurira veze
+s Tor mrežom?">
+<!ENTITY torSettings.bridgeHelp "Ako niste sigurni kako da odgovorite na ovo pitanje, odaberite Ne.&#160; Ako odaberete Da, zatražit će vas da konfigurirate Tor Mostove, koji su neizlistani releji koji otežavaju
+blokiranje konekcija s Tor mrežom">
+<!ENTITY torSettings.bridgeSettingsPrompt "Možete koristiti osigurani set bridge adresa ili možete unijeti vlasiti set mostova.">
 
 <!-- Other: -->
 
@@ -46,19 +49,23 @@
 <!ENTITY torsettings.firewall.checkbox "Ovo računalo je iza vatrozida koji dopušta spajanje samo na određene portove">
 <!ENTITY torsettings.firewall.allowedPorts "Dozvoljeni portovi:">
 <!ENTITY torsettings.useBridges.checkbox "Moj pružatelj internetskih usluga (ISP) blokira veze prema Tor mreži">
-<!ENTITY torsettings.useBridges.default "Connect with provided bridges">
-<!ENTITY torsettings.useBridges.type "Transport type:">
-<!ENTITY torsettings.useBridges.custom "Enter custom bridges">
+<!ENTITY torsettings.useBridges.default "Spoji se s osiguranim mostovima">
+<!ENTITY torsettings.useBridges.type "Tip transporta:">
+<!ENTITY torsettings.useBridges.custom "Unesi vlastite mostove">
 <!ENTITY torsettings.useBridges.label "Unesite jedan ili više mostova (jedan po retku).">
 <!ENTITY torsettings.useBridges.placeholder "type address:port">
 
 <!ENTITY torsettings.copyLog "Kopiraj Tor zapisnik u međuspremnik">
 <!ENTITY torsettings.bridgeHelpTitle "Pomoć za bridge relej">
-<!ENTITY torsettings.bridgeHelp1 "If you are unable to connect to the Tor network, it could be that your Internet Service Provider (ISP) or another agency is blocking Tor.&#160; Often, you can work around this problem by using Tor Bridges, which are unlisted relays that are more difficult to block.">
-<!ENTITY torsettings.bridgeHelp1B "You may use the preconfigured, provided set of bridge addresses or you may obtain a custom set of addresses by using one of these three methods:">
-<!ENTITY torsettings.bridgeHelp2Heading "Through the Web">
-<!ENTITY torsettings.bridgeHelp2 "Use a web browser to visit https://bridges.torproject.org">
-<!ENTITY torsettings.bridgeHelp3Heading "Through the Email Autoresponder">
-<!ENTITY torsettings.bridgeHelp3 "Send email to bridges@torproject.org with the line 'get bridges' by itself in the body of the message.&#160; However, to make it harder for an attacker to learn a lot of bridge addresses, you must send this request from a gmail.com or yahoo.com email address.">
-<!ENTITY torsettings.bridgeHelp4Heading "Through the Help Desk">
-<!ENTITY torsettings.bridgeHelp4 "As a last resort, you can request bridge addresses by sending a polite email message to help@rt.torproject.org.&#160; Please note that a person will need to respond to each request.">
+<!ENTITY torsettings.bridgeHelp1 "Ako se ne možete spojiti na Tor mrežu, to može biti zato što vaš ISP ili druga agencija blokira Tor.&#160; Najčešće možete zaobići ovaj problem koristeći Tor Bridges, koji su neizlistani releji koje je teže blokirati.">
+<!ENTITY torsettings.bridgeHelp1B "Možete koristiti već konfigurirani, osigurani set bridge adresa ili možete dobiti
+vlastiti set adresa koristeći jednu od ove tri metode:">
+<!ENTITY torsettings.bridgeHelp2Heading "Kroz Web">
+<!ENTITY torsettings.bridgeHelp2 "Koristite web preglednik kako bi posjetili https://bridges.torproject.org">
+<!ENTITY torsettings.bridgeHelp3Heading "Kroz Email Autoresponder">
+<!ENTITY torsettings.bridgeHelp3 "Pošaljite email na bridges@torproject.org samo s tekstom 'get bridges' u sadržaju
+poruke.&#160; No, kako bi napadačima bilo teže naučiti mnogo bridge adresa, morate
+poslati ovaj zahtjev sa gmail.com ili yahoo.com email adrese.">
+<!ENTITY torsettings.bridgeHelp4Heading "Pomoću Help Deska">
+<!ENTITY torsettings.bridgeHelp4 "U najgorem slučaju, možete zatražiti bridge adrese tako što pošaljete pristojan email na help@rt.torproject.org.&#160; Imajte na umu da neće odgovoriti na svaki
+zahtjev.">
