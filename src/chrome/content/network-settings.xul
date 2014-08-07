@@ -24,7 +24,8 @@
         ondialogcancel="return onCancel();"
         ondialogextra2="onCopyLog();"
         ondialoghelp="onOpenHelp();"
-        onload="initDialog();">
+        onload="initDialog();"
+        onunload="deinitDialog();">
 
   <script type="application/x-javascript"
           src="chrome://torlauncher/content/network-settings.js"/>

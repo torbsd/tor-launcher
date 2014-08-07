@@ -62,6 +62,7 @@ var gObsService = null;
 var gIsInitialBootstrap = false;
 var gIsBootstrapComplete = false;
 var gRestoreAfterHelpPanelID = null;
+var gActiveTopics = [];  // Topics for which an observer is currently installed.
 
 
 function initDialog()
@@ -156,10 +157,10 @@ function initDialog()
 
   initDefaultBridgeTypeMenu();
 
-  gObsService.addObserver(gObserver, kTorBootstrapErrorTopic, false);
-  gObsService.addObserver(gObserver, kTorLogHasWarnOrErrTopic, false);
-  gObsService.addObserver(gObserver, kTorProcessExitedTopic, false);
-  gObsService.addObserver(gObserver, kTorOpenProgressTopic, false);
+  addObserver(kTorBootstrapErrorTopic);
+  addObserver(kTorLogHasWarnOrErrTopic);
+  addObserver(kTorProcessExitedTopic);
+  addObserver(kTorOpenProgressTopic);
 
   var status = gTorProcessService.TorProcessStatus;
   if (TorLauncherUtil.shouldStartAndOwnTor &&
@@ -169,8 +170,8 @@ function initDialog()
       showErrorMessage(true, null);
     else
       showStartingTorPanel();
-    gObsService.addObserver(gObserver, kTorProcessReadyTopic, false);
-    gObsService.addObserver(gObserver, kTorProcessDidNotStartTopic, false);
+    addObserver(kTorProcessReadyTopic);
+    addObserver(kTorProcessDidNotStartTopic);
   }
   else
   {
@@ -196,6 +197,12 @@ function initDialog()
   }
 
   TorLauncherLogger.log(2, "initDialog done");
+}
+
+
+function deinitDialog()
+{
+  removeAllObservers();
 }
 
 
@@ -329,7 +336,8 @@ var gObserver = {
 
     if (kTorProcessReadyTopic == aTopic)
     {
-      gObsService.removeObserver(gObserver, kTorProcessReadyTopic);
+      removeObserver(kTorProcessReadyTopic);
+      removeObserver(kTorProcessDidNotStartTopic);
       var haveWizard = (getWizard() != null);
       showPanel();
       if (haveWizard)
@@ -341,12 +349,13 @@ var gObserver = {
     }
     else if (kTorProcessDidNotStartTopic == aTopic)
     {
-      gObsService.removeObserver(gObserver, kTorProcessDidNotStartTopic);
+      removeObserver(kTorProcessReadyTopic);
+      removeObserver(kTorProcessDidNotStartTopic);
       showErrorMessage(false, aData);
     }
     else if (kTorProcessExitedTopic == aTopic)
     {
-      gObsService.removeObserver(gObserver, kTorProcessExitedTopic);
+      removeObserver(kTorProcessExitedTopic);
       showErrorMessage(true, null);
     }
     else if (kTorOpenProgressTopic == aTopic)
@@ -355,6 +364,37 @@ var gObserver = {
     }
   }
 };
+
+
+// addObserver() will not add two observers for the same topic.
+function addObserver(aTopic)
+{
+  if (gActiveTopics.indexOf(aTopic) < 0)
+  {
+    gObsService.addObserver(gObserver, aTopic, false);
+    gActiveTopics.push(aTopic);
+  }
+}
+
+
+function removeObserver(aTopic)
+{
+  let idx = gActiveTopics.indexOf(aTopic);
+  if (idx >= 0)
+  {
+    gObsService.removeObserver(gObserver, aTopic);
+    gActiveTopics.splice(idx, 1);
+  }
+}
+
+
+function removeAllObservers()
+{
+  for (let i = gActiveTopics.length - 1; i >= 0; --i)
+    gObsService.removeObserver(gObserver, gActiveTopics[i]);
+
+  gActiveTopics = [];
+}
 
 
 function readTorSettings()
@@ -641,9 +681,9 @@ function onProxyTypeChange()
 function onRestartTor()
 {
   // Re-add these observers in case they have been removed.
-  gObsService.addObserver(gObserver, kTorProcessReadyTopic, false);
-  gObsService.addObserver(gObserver, kTorProcessDidNotStartTopic, false);
-  gObsService.addObserver(gObserver, kTorProcessExitedTopic, false);
+  addObserver(kTorProcessReadyTopic);
+  addObserver(kTorProcessDidNotStartTopic);
+  addObserver(kTorProcessExitedTopic);
 
   gTorProcessService._startTor();
   gTorProcessService._controlTor();
