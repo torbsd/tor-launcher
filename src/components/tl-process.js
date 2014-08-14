@@ -148,11 +148,21 @@ TorProcessService.prototype =
       {
         this.mProtocolSvc.TorCleanupConnection();
 
-        var s = TorLauncherUtil.getLocalizedString("tor_exited");
+        var s = TorLauncherUtil.getLocalizedString("tor_exited") + "\n\n"
+                + TorLauncherUtil.getLocalizedString("tor_exited2");
         TorLauncherLogger.log(4, s);
-        s += "\n" + TorLauncherUtil.getLocalizedString("tor_connection_lost");
-        var btnLabel = TorLauncherUtil.getLocalizedString("reconnect");
-        if (TorLauncherUtil.showConfirm(null, s, btnLabel) && !this.mIsQuitting)
+        var defaultBtnLabel = TorLauncherUtil.getLocalizedString("restart_tor");
+        var cancelBtnLabel = "OK";
+        try
+        {
+          const kSysBundleURI = "chrome://global/locale/commonDialogs.properties";
+          var sysBundle = Cc["@mozilla.org/intl/stringbundle;1"]
+             .getService(Ci.nsIStringBundleService).createBundle(kSysBundleURI);
+          cancelBtnLabel = sysBundle.GetStringFromName(cancelBtnLabel);
+        } catch(e) {}
+
+        if (TorLauncherUtil.showConfirm(null, s, defaultBtnLabel, cancelBtnLabel)
+            && !this.mIsQuitting)
         {
           this._startTor();
           this._controlTor();

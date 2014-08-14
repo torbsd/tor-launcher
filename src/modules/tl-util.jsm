@@ -64,7 +64,8 @@ let TorLauncherUtil =  // Public
   // Returns true if user confirms; false if not.
   // Note that no prompt is shown (and false is returned) if the Network Settings
   // window is open.
-  showConfirm: function(aParentWindow, aMsg, aOKButtonLabel)
+  showConfirm: function(aParentWindow, aMsg, aDefaultButtonLabel,
+                        aCancelButtonLabel)
   {
     try
     {
@@ -84,11 +85,12 @@ let TorLauncherUtil =  // Public
       var title = this.getLocalizedString("error_title");
       var btnFlags = (ps.BUTTON_POS_0 * ps.BUTTON_TITLE_IS_STRING)
                      + ps.BUTTON_POS_0_DEFAULT
-                     + (ps.BUTTON_POS_1 * ps.BUTTON_TITLE_CANCEL);
+                     + (ps.BUTTON_POS_1 * ps.BUTTON_TITLE_IS_STRING);
 
       var notUsed = { value: false };
       var btnIndex =  ps.confirmEx(aParentWindow, title, aMsg, btnFlags,
-                                   aOKButtonLabel, null, null, null, notUsed);
+                                   aDefaultButtonLabel, aCancelButtonLabel,
+                                   null, null, notUsed);
       return (0 == btnIndex);
     }
     catch (e)

@@ -491,15 +491,20 @@ function showErrorMessage(aTorExited, aErrorMsg)
   if (aTorExited)
   {
     // Show "Tor exited" message and "Restart Tor" button.
-    aErrorMsg = TorLauncherUtil.getLocalizedString("tor_exited");
+    aErrorMsg = TorLauncherUtil.getLocalizedString("tor_exited")
+                + "\n\n" + TorLauncherUtil.getLocalizedString("tor_exited2");
 
     if (btn)
       btn.removeAttribute("hidden");
+    if (elem)
+      elem.style.textAlign = "start";
   }
   else
   {
     if (btn)
       btn.setAttribute("hidden", true);
+    if (elem)
+      elem.style.textAlign = "center";
   }
 
   if (elem)

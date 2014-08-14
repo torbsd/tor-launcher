@@ -67,7 +67,7 @@
       <spring flex="1" />
       <hbox>
         <spring flex="1" />
-        <description id="errorPanelMessage" />
+        <description id="errorPanelMessage" flex="1" />
         <spring flex="1" />
       </hbox>
       <separator/>
