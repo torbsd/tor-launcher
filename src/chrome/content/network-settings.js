@@ -439,10 +439,7 @@ function showPanel(aPanelID)
 
   var deckElem = document.getElementById("deck");
   if (deckElem)
-  {
     deckElem.selectedPanel = document.getElementById(aPanelID);
-    showOrHideButton("extra2", (aPanelID != "bridgeHelp"), false);
-  }
   else if (wizard.currentPage.pageid != aPanelID)
     wizard.goTo(aPanelID);
 
@@ -527,17 +524,19 @@ function showErrorMessage(aTorExited, aErrorMsg)
 
 function showCopyLogButton(aHaveErrorOrWarning)
 {
-  var copyLogBtn = document.documentElement.getButton("extra2");
+  let copyLogBtn = document.documentElement.getButton("extra2");
   if (copyLogBtn)
   {
-    if (getWizard())
+    let haveWizard = (getWizard() != null);
+    if (haveWizard)
       copyLogBtn.setAttribute("wizardCanCopyLog", true);
 
-    copyLogBtn.removeAttribute("hidden");
+    if (!gRestoreAfterHelpPanelID)
+      copyLogBtn.removeAttribute("hidden"); // Show button if help is not open.
 
     if (aHaveErrorOrWarning)
     {
-      var clz = copyLogBtn.getAttribute("class");
+      let clz = copyLogBtn.getAttribute("class");
       if (!clz)
         copyLogBtn.setAttribute("class", "torWarning");
       else if (clz.indexOf("torWarning") < 0)
@@ -549,14 +548,12 @@ function showCopyLogButton(aHaveErrorOrWarning)
 
 function restoreCopyLogVisibility()
 {
-  if (!getWizard())
-    return;
-
-  var copyLogBtn = document.documentElement.getButton("extra2");
+  let copyLogBtn = document.documentElement.getButton("extra2");
   if (!copyLogBtn)
     return;
 
-  if (copyLogBtn.hasAttribute("wizardCanCopyLog"))
+  // Always show button in non-wizard case; conditionally in wizard.
+  if (!getWizard() || copyLogBtn.hasAttribute("wizardCanCopyLog"))
     copyLogBtn.removeAttribute("hidden");
   else
     copyLogBtn.setAttribute("hidden", true);
@@ -735,11 +732,12 @@ function onOpenHelp()
 
   showPanel("bridgeHelp");
 
+  showOrHideButton("extra2", false, false); // Hide "Copy Tor Log To Clipboard"
+
   if (getWizard())
   {
     showOrHideButton("cancel", false, false);
     showOrHideButton("back", false, false);
-    showOrHideButton("extra2", false, false);
     overrideButtonLabel("next", "done");
     var forAssistance = document.getElementById("forAssistance");
     if (forAssistance)
@@ -755,11 +753,12 @@ function closeHelp()
   if (!gRestoreAfterHelpPanelID)  // Already closed?
     return;
 
+  restoreCopyLogVisibility();
+
   if (getWizard())
   {
     showOrHideButton("cancel", true, false);
     showOrHideButton("back", true, false);
-    restoreCopyLogVisibility();
     restoreButtonLabel("next");
     var forAssistance = document.getElementById("forAssistance");
     if (forAssistance)
