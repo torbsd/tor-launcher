@@ -189,4 +189,5 @@
   <hbox pack="start">
     <label id="forAssistance" />
   </hbox>
+  <panel id="copyLogFeedbackPanel" />
 </wizard>

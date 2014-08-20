@@ -713,9 +713,30 @@ function onCancel()
 
 function onCopyLog()
 {
+  // Copy tor log messages to the system clipboard.
   var chSvc = Cc["@mozilla.org/widget/clipboardhelper;1"]
                              .getService(Ci.nsIClipboardHelper);
-  chSvc.copyString(gProtocolSvc.TorGetLog());
+  let countObj = { value: 0 };
+  chSvc.copyString(gProtocolSvc.TorGetLog(countObj));
+
+  // Display a feedback popup that fades away after a few seconds.
+  let forAssistance = document.getElementById("forAssistance");
+  let panel = document.getElementById("copyLogFeedbackPanel");
+  if (forAssistance && panel)
+  {
+    panel.firstChild.textContent = TorLauncherUtil.getFormattedLocalizedString(
+                                     "copiedNLogMessages", [countObj.value], 1);
+    let rectObj = forAssistance.getBoundingClientRect();
+    panel.openPopup(null, null, rectObj.left, rectObj.top, false, false);
+  }
+}
+
+
+function closeCopyLogFeedbackPanel()
+{
+  let panel = document.getElementById("copyLogFeedbackPanel");
+  if (panel && (panel.state =="open"))
+    panel.hidePopup();
 }
 
 

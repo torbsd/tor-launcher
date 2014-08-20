@@ -148,6 +148,11 @@ dialog .help {
   margin-bottom: 8px;
 }
 
+#copyLogFeedbackPanel {
+  margin: -15px 0px 0px 0px;
+  max-width: 34em;
+}
+
 /* Increase font size on Windows for readability */
 .os-windows div,
 .os-windows label,

@@ -124,5 +124,9 @@
       </html:li>
     </html:ol>
   </vbox>
+  <panel id="copyLogFeedbackPanel" type="arrow" fade="slow"
+         onclick="closeCopyLogFeedbackPanel()">
+     <description flex="1" />
+  </panel>
 </overlay>
 

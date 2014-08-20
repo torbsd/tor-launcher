@@ -85,4 +85,5 @@
   </deck>
   <spring flex="1" />
   <label id="forAssistance" />
+  <panel id="copyLogFeedbackPanel" />
 </dialog>

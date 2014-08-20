@@ -458,7 +458,8 @@ TorProtocolService.prototype =
   },
 
   // Returns captured log message as a text string (one message per line).
-  TorGetLog: function()
+  // If aCountObj is passed, aCountObj.value is set to the message count.
+  TorGetLog: function(aCountObj)
   {
     let s = "";
     if (this.mTorLog)
@@ -468,7 +469,10 @@ TorProtocolService.prototype =
       let dateFormat = dateFmtSvc.dateFormatShort;
       let timeFormat = dateFmtSvc.timeFormatSecondsForce24Hour;
       let eol = (TorLauncherUtil.isWindows) ? "\r\n" : "\n";
-      for (let i = 0; i < this.mTorLog.length; ++i)
+      let count = this.mTorLog.length;
+      if (aCountObj)
+        aCountObj.value = count;
+      for (let i = 0; i < count; ++i)
       {
         let logObj = this.mTorLog[i];
         let secs = logObj.date.getSeconds();
