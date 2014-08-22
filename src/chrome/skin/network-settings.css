@@ -17,15 +17,15 @@ dialog.os-windows {
 }
 
 wizard {
-  width: 43em;
-  height: 34em;
+  width: 45em;
+  height: 35em;
   font: -moz-dialog;
   padding-top: 0px;
 }
 
 wizard.os-windows {
-  width: 45em;
-  height: 39em;
+  width: 46em;
+  height: 41em;
 }
 
 .wizard-page-box {
