@@ -29,7 +29,6 @@ const kTorBootstrapErrorTopic = "TorBootstrapError";
 const kTorLogHasWarnOrErrTopic = "TorLogHasWarnOrErr";
 
 const kWizardProxyRadioGroup = "proxyRadioGroup";
-const kWizardFirewallRadioGroup = "firewallRadioGroup";
 const kWizardUseBridgesRadioGroup = "useBridgesRadioGroup";
 
 const kUseProxyCheckbox = "useProxy";
@@ -251,19 +250,7 @@ function onWizardProxyNext(aWizPage)
   if (aWizPage)
   {
     var hasProxy = getElemValue("proxyRadioYes", false);
-    aWizPage.next = (hasProxy) ? "proxyYES" : "firewall";
-  }
-
-  return true;
-}
-
-
-function onWizardFirewallNext(aWizPage)
-{
-  if (aWizPage)
-  {
-    var hasFirewall = getElemValue("firewallRadioYes", false);
-    aWizPage.next = (hasFirewall) ? "firewallYES" : "bridges";
+    aWizPage.next = (hasProxy) ? "proxyYES" : "bridges";
   }
 
   return true;
@@ -877,6 +864,9 @@ function initProxySettings()
 // Returns true if successful.
 function initFirewallSettings()
 {
+  if (getWizard())
+    return true;  // The wizard does not directly expose firewall settings.
+
   var allowedPorts;
   var reply = gProtocolSvc.TorGetConfStr(kTorConfKeyReachableAddresses, null);
   if (!gProtocolSvc.TorCommandSucceeded(reply))
@@ -899,7 +889,6 @@ function initFirewallSettings()
   }
 
   var haveFirewall = (allowedPorts != undefined);
-  setYesNoRadioValue(kWizardFirewallRadioGroup, haveFirewall);
   setElemValue(kUseFirewallPortsCheckbox, haveFirewall);
   if (allowedPorts)
     setElemValue(kFirewallAllowedPorts, allowedPorts);
@@ -991,7 +980,7 @@ function useSettings()
 {
   var settings = {};
   settings[kTorConfKeyDisableNetwork] = false;
-  this.setConfAndReportErrors(settings, null);
+  setConfAndReportErrors(settings, null);
 
   gProtocolSvc.TorSendCommand("SAVECONF");
   gTorProcessService.TorClearBootstrapError();
@@ -1026,7 +1015,7 @@ function applyProxySettings()
   if (!settings)
     return false;
 
-  return this.setConfAndReportErrors(settings, "proxyYES");
+  return setConfAndReportErrors(settings, "proxyYES");
 }
 
 
@@ -1044,9 +1033,7 @@ function getAndValidateProxySettings()
   settings[kTorConfKeyHTTPSProxyAuthenticator] = null;
 
   var proxyType, proxyAddrPort, proxyUsername, proxyPassword;
-  var useProxy = (getWizard()) ? getYesNoRadioValue(kWizardProxyRadioGroup)
-                               : getElemValue(kUseProxyCheckbox, false);
-  if (useProxy)
+  if (isProxyConfigured())
   {
     proxyAddrPort = createColonStr(getElemValue(kProxyAddr, null),
                                    getElemValue(kProxyPort, null));
@@ -1089,7 +1076,14 @@ function getAndValidateProxySettings()
   }
 
   return settings;
-} // applyProxySettings
+} // getAndValidateProxySettings
+
+
+function isProxyConfigured()
+{
+  return (getWizard()) ? getYesNoRadioValue(kWizardProxyRadioGroup)
+                       : getElemValue(kUseProxyCheckbox, false);
+}
 
 
 function reportValidationError(aStrKey)
@@ -1101,15 +1095,17 @@ function reportValidationError(aStrKey)
 // Returns true if settings were successfully applied.
 function applyFirewallSettings()
 {
-  var settings = getAndValidateFirewallSettings();
+  var settings = (getWizard()) ? getAutoFirewallSettings()
+                               : getAndValidateFirewallSettings();
   if (!settings)
     return false;
 
-  return this.setConfAndReportErrors(settings, "firewallYES");
+  return setConfAndReportErrors(settings, null);
 }
 
 
 // Return a settings object if successful and null if not.
+// Not used for the wizard.
 function getAndValidateFirewallSettings()
 {
   // TODO: validate user-entered data.  See Vidalia's NetworkPage::save()
@@ -1117,14 +1113,47 @@ function getAndValidateFirewallSettings()
   var settings = {};
   settings[kTorConfKeyReachableAddresses] = null;
 
-  var useFirewallPorts = (getWizard())
-                            ? getYesNoRadioValue(kWizardFirewallRadioGroup)
-                            : getElemValue(kUseFirewallPortsCheckbox, false);
-  var allowedPorts = getElemValue(kFirewallAllowedPorts, null);
-  if (useFirewallPorts && allowedPorts)
+  var allowedPorts = null;
+  if (getElemValue(kUseFirewallPortsCheckbox, false))
+    allowedPorts = getElemValue(kFirewallAllowedPorts, null);
+
+  return constructFirewallSettings(allowedPorts);
+}
+
+
+// Return a settings object if successful and null if not.
+// Only used for the wizard.
+function getAutoFirewallSettings()
+{
+  // In the wizard, we automatically set firewall ports (ReachableAddresses) to
+  // 80 and 443 if and only if the user has configured a proxy but no bridges.
+  // Rationale (from ticket #11405):
+  //   - Many proxies restrict which ports they will proxy for, so we want to
+  //     use a small set of ports in that case.
+  //
+  //   - In most other situations, tor will quickly find a bridge or guard on
+  //     port 443, so there is no need to limit which port may be used.
+  //
+  //   - People whose set of reachable ports are really esoteric will need to
+  //     be very patient or they will need to edit torrc manually... but that
+  //     is OK since we expect that situation to be very rare.
+  var allowedPorts = null;
+  if (isProxyConfigured() && !isBridgeConfigured())
+    allowedPorts = "80,443";
+
+  return constructFirewallSettings(allowedPorts);
+}
+
+
+function constructFirewallSettings(aAllowedPorts)
+{
+  var settings = {};
+  settings[kTorConfKeyReachableAddresses] = null;
+
+  if (aAllowedPorts)
   {
     var portsConfStr;
-    var portsArray = allowedPorts.split(',');
+    var portsArray = aAllowedPorts.split(',');
     for (var i = 0; i < portsArray.length; ++i)
     {
       var s = portsArray[i].trim();
@@ -1188,7 +1217,7 @@ function applyBridgeSettings()
   if (!settings)
     return false;
 
-  return this.setConfAndReportErrors(settings, "bridgeSettings");
+  return setConfAndReportErrors(settings, "bridgeSettings");
 }
 
 
@@ -1199,9 +1228,7 @@ function getAndValidateBridgeSettings()
   settings[kTorConfKeyUseBridges] = null;
   settings[kTorConfKeyBridgeList] = null;
 
-  var useBridges = (getWizard()) ? getElemValue("bridgesRadioYes", false)
-                                 : getElemValue(kUseBridgesCheckbox, false);
-
+  var useBridges = isBridgeConfigured();
   var defaultBridgeType;
   var bridgeList;
   if (useBridges)
@@ -1246,6 +1273,13 @@ function getAndValidateBridgeSettings()
 }
 
 
+function isBridgeConfigured()
+{
+  return (getWizard()) ? getElemValue("bridgesRadioYes", false)
+                       : getElemValue(kUseBridgesCheckbox, false);
+}
+
+
 // Returns an array or null.
 function parseAndValidateBridges(aStr)
 {
@@ -1271,6 +1305,7 @@ function parseAndValidateBridges(aStr)
 
 
 // Returns true if successful.
+// aShowOnErrorPanelID is only used when displaying the wizard.
 function setConfAndReportErrors(aSettingsObj, aShowOnErrorPanelID)
 {
   var errObj = {};

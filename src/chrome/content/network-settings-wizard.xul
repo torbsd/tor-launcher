@@ -54,7 +54,7 @@
     </vbox>
   </wizardpage>
 
-  <wizardpage label=" " pageid="proxy" next="firewall" onextra2="onCopyLog();"
+  <wizardpage label=" " pageid="proxy" next="bridges" onextra2="onCopyLog();"
               onpageshow="showWizardNavButtons(true);"
               onpageadvanced="return onWizardProxyNext(this);">
     <vbox class="tbb-logo-box" align="start">
@@ -74,7 +74,7 @@
     </hbox>
   </wizardpage>
 
-  <wizardpage pageid="proxyYES" next="firewall" onextra2="onCopyLog();"
+  <wizardpage pageid="proxyYES" next="bridges" onextra2="onCopyLog();"
               onpageadvanced="return (getAndValidateProxySettings() != null)">
     <vbox class="tbb-logo-box" align="start">
       <image class="tbb-logo" />
@@ -82,38 +82,6 @@
     <separator />
     <label class="instructions">&torSettings.enterProxy;</label>
     <groupbox id="proxySpecificSettings" />
-  </wizardpage>
-
-  <wizardpage pageid="firewall" next="bridges" onextra2="onCopyLog();"
-              onpageshow="showOrHideButton('next', true, true)"
-              onpageadvanced="return onWizardFirewallNext(this);">
-    <vbox class="tbb-logo-box" align="start">
-      <image class="tbb-logo" />
-    </vbox>
-    <separator />
-    <hbox>
-      <vbox flex="1">
-        <label class="question">&torSettings.firewallQuestion;</label>
-        <radiogroup id="firewallRadioGroup">
-          <radio id="firewallRadioYes" label="&torSettings.yes;" />
-          <radio id="firewallRadioNo" label="&torSettings.no;" selected="true" />
-        </radiogroup>
-        <description class="questionHelp">&torSettings.firewallHelp;
-        </description>
-      </vbox>
-    </hbox>
-  </wizardpage>
-
-  <wizardpage pageid="firewallYES" next="bridges" onextra2="onCopyLog();"
-              onpageadvanced="return (getAndValidateFirewallSettings() != null)">
-    <vbox class="tbb-logo-box" align="start">
-      <image class="tbb-logo" />
-    </vbox>
-    <separator />
-    <vbox>
-      <label class="instructions">&torSettings.enterFirewall;</label>
-      <groupbox id="firewallSpecificSettings" />
-    </vbox>
   </wizardpage>
 
   <wizardpage pageid="bridges" onextra2="onCopyLog();"
