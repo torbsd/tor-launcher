@@ -8,8 +8,8 @@
 <!ENTITY torSettings.no "Nee">
 
 <!ENTITY torSettings.firstQuestion "Welke van de volgende beschrijft het best jouw situatie?">
-<!ENTITY torSettings.configurePrompt1 "De internetverbinding van deze computer wordt gecensureerd, gefilterd of geproxyed.">
-<!ENTITY torSettings.configurePrompt2 "Ik moet bridge, firewall, of proxy instellingen wijzigen.">
+<!ENTITY torSettings.configurePrompt1 "This computer's Internet connection is censored or proxied.">
+<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or proxy settings.">
 <!ENTITY torSettings.configure "Configureer">
 <!ENTITY torSettings.connectPrompt2 "Ik zou graag rechtstreeks met het Tor netwerk verbinden.">
 <!ENTITY torSettings.connectPrompt3 "Dit zal in de meeste omstandigheden werken">
@@ -19,9 +19,6 @@
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
 <!ENTITY torSettings.proxyHelp "Als je niet zeker bent over het antwoord op deze vraag, bekijk dan de verbindingsinstellingen van een andere browser om te zien of die is ingesteld om gebruik te maken van een proxy.">
 <!ENTITY torSettings.enterProxy "Voer de proxy-instellingen in.">
-<!ENTITY torSettings.firewallQuestion "Loopt de internetverbinding van deze computer door een firewall die enkel toegang tot bepaalde poorten toestaat?">
-<!ENTITY torSettings.firewallHelp "Als je niet zeker bent hoe je deze vraag moet beantwoorden, kies dan Nee. Als je op problemen botst tijdens het verbinden met het Tor netwerk, verander dan deze instelling.">
-<!ENTITY torSettings.enterFirewall "Voer de poorten in die toegestaan zijn door de firewall, gescheiden door komma's.">
 <!ENTITY torSettings.bridgeQuestion "Doet je Internet Service Provider (ISP) het Tor netwerk verbieden of filteren?">
 <!ENTITY torSettings.bridgeHelp "Als je niet zeker weet hoe je deze vraag moet beantwoorden, kies dan Nee.&#160; Als je Ja kiest, moet je Tor bridges instellen, die doordat ze geen bekende relays zijn het dus moeilijker maken om verbinding te maken met het Tor Netwerk. ">
 <!ENTITY torSettings.bridgeSettingsPrompt "Je kunt de ingegeven bridges gebruiken, of je kunt een eigen bridge instellen. ">
@@ -59,6 +56,7 @@
 <!ENTITY torsettings.bridgeHelp2Heading "Door middel van het Web">
 <!ENTITY torsettings.bridgeHelp2 "Gebruik een browser om https://bridges.torproject.org te bezoeken">
 <!ENTITY torsettings.bridgeHelp3Heading "Door middel van de E-mail Autoresponder">
-<!ENTITY torsettings.bridgeHelp3 "Zend een e-mail naar bridges@torproject.org met als inhoud van de mail de tekst 'get bridges'.&#160; Let wel, om het aanvallers te bemoeilijken informatie te krijgen over bridge adressen, dient u uw aanvraag te versturen van een gmail.com of yahoo.com e-mailadres.">
+<!ENTITY torsettings.bridgeHelp3.emailDesc "Zend een e-mail naar bridges@torproject.org met als inhoud van de mail de tekst 'get bridges'.&#160; Let wel, om het aanvallers te bemoeilijken informatie te verkrijgen over bridge adressen, dient u uw aanvraag te versturen van een gmail.com of yahoo.com e-mailadres( gerangschikt in voorkeurs volgorde).">
+<!ENTITY torsettings.bridgeHelp3.emailList "https://www.riseup.net, https://mail.google.com, or https://mail.yahoo.com">
 <!ENTITY torsettings.bridgeHelp4Heading "Door middel van de helpdesk">
 <!ENTITY torsettings.bridgeHelp4 "Als laatste redmiddel, kan u bridge adressen aanvraag door een zeer vriendelijke e-mail te sturen naar help@rt.torproject.org.&#160; Houd er wel rekening mee dat deze persoon elke aanvraag moet behandelen.">

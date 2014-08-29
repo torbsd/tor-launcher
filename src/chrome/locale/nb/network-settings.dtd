@@ -8,8 +8,8 @@
 <!ENTITY torSettings.no "Nei">
 
 <!ENTITY torSettings.firstQuestion "Hvilket av følgende beskriver best din situasjon?">
-<!ENTITY torSettings.configurePrompt1 "Denne datamaskinens Internett-tilkobling er sensurert, filtrert, eller går gjennom en proxy.">
-<!ENTITY torSettings.configurePrompt2 "Jeg må konfigurere bro, brannmur eller proxy innstillinger.">
+<!ENTITY torSettings.configurePrompt1 "This computer's Internet connection is censored or proxied.">
+<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or proxy settings.">
 <!ENTITY torSettings.configure "Konfigurer">
 <!ENTITY torSettings.connectPrompt2 "Jeg vil koble direkte til Tor-nettverket.">
 <!ENTITY torSettings.connectPrompt3 "Dette vil fungere i de fleste situasjoner.">
@@ -19,9 +19,6 @@
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
 <!ENTITY torSettings.proxyHelp "Hvis du ikke er sikker på hvordan du skal svare på dette spørsmålet, se på Internett-innstillingene i en annen nettleser for å se om den er konfigurert til å bruke en proxy.">
 <!ENTITY torSettings.enterProxy "Skriv inn proxy-innstillingene.">
-<!ENTITY torSettings.firewallQuestion "Går denne datamaskinens Internett-tilkobling gjennom en brannmur som kun tillater forbindelser til visse porter?">
-<!ENTITY torSettings.firewallHelp "Hvis du ikke er sikker på hvordan du skal svare på dette spørsmålet, velg nei. Hvis du støter på problemer med å koble til Tor-nettverket, endrer du denne innstillingen.">
-<!ENTITY torSettings.enterFirewall "Skriv inn en liste, adskilt med komma, over porter som er tillatt av brannmuren.">
 <!ENTITY torSettings.bridgeQuestion "Blokkerer eller sensurerer internettleverandøren (ISP) din tilkoblinger til Tor-nettverket?">
 <!ENTITY torSettings.bridgeHelp "Hvis du er usikker på hva du skal svare på dette spørsmålet, velg Nei.&#160; Hvis du velger Ja, vil du bli bedt om å konfigurere Tor-broer, som er ulistede reléer som gjør det vanskeligere å blokkere tilkoblinger til Tor-nettverket.">
 <!ENTITY torSettings.bridgeSettingsPrompt "Du kan bruke de angitte broene eller du kan skaffe og oppgi egendefinerte broer.">
@@ -59,8 +56,8 @@
 <!ENTITY torsettings.bridgeHelp2Heading "Via nettet">
 <!ENTITY torsettings.bridgeHelp2 "Bruk en nettleser for å besøke https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "Via e-post autosvar">
-<!ENTITY torsettings.bridgeHelp3 "Send e-post til bridges@torproject.org med tekstlinjen 'get bridges' som eneste innhold i e-posten.&#160; 
-Men, for å gjøre det vanskeligere for en angriper å lære seg en masse bro-adresser, må du sende denne forespørselen fra en gmail.com eller yahoo.com adresse.">
+<!ENTITY torsettings.bridgeHelp3.emailDesc "Send en e-post til bridges@torproject.org med 'get bridges' enten i emnefeltet eller i meldingen.&#160; For å gjøre det vanskeligere for en angriper å ta rede på en mengde bro-adresser, må du sende denne forespørselen fra en av følgende i listen over e-posttilbydere (opplistet etter preferanse):">
+<!ENTITY torsettings.bridgeHelp3.emailList "https://www.riseup.net, https://mail.google.com, eller https://mail.yahoo.com">
 <!ENTITY torsettings.bridgeHelp4Heading "Via supporten">
 <!ENTITY torsettings.bridgeHelp4 "Som en siste utvei, kan du be om bro-adresser ved å sende en høflig e-post til help@rt.torproject.org.&#160; 
 Tenk over at en person må svare på hver slik forespørsel.">

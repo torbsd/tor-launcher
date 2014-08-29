@@ -8,8 +8,8 @@
 <!ENTITY torSettings.no "Ні">
 
 <!ENTITY torSettings.firstQuestion "Яке з наступних тверджень найкраще описує Вашу ситуацію?">
-<!ENTITY torSettings.configurePrompt1 "Мережеве підключення цього комп'ютера цензурується, фільтрується або йде через проксі-сервер.">
-<!ENTITY torSettings.configurePrompt2 "Мені потрібно налаштувати міст, брандмауер або проксі-сервер.">
+<!ENTITY torSettings.configurePrompt1 "Мережеве з'єднання цього комп'ютера цензурується або йде через проксі-сервер.">
+<!ENTITY torSettings.configurePrompt2 "Мені потрібно налаштувати міст або проксі-сервер.">
 <!ENTITY torSettings.configure "Налаштування">
 <!ENTITY torSettings.connectPrompt2 "Я бажаю підключатися до Tor напряму ">
 <!ENTITY torSettings.connectPrompt3 "Це має працювати у більшості ситуацій.">
@@ -19,9 +19,6 @@
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
 <!ENTITY torSettings.proxyHelp "Якщо Ви не знаєте, як відповісти на це питання, подивіться налаштування Інтернету в іншому браузері, щоб побачити чи він налаштований на використання проксі.">
 <!ENTITY torSettings.enterProxy "Задати параметри проксі">
-<!ENTITY torSettings.firewallQuestion "Чи даний комп'ютер підключений до Інтернету через брандмауер, який дозволяє підключення тільки до певних портів?">
-<!ENTITY torSettings.firewallHelp "Якщо Ви не знаєте, як відповісти на це питання, виберіть Ні. Якщо у Вас виникли проблеми з підключенням до мережі Tor, змініть дане налаштування.">
-<!ENTITY torSettings.enterFirewall "Введіть список портів, відкритих у брандмауері, через кому.">
 <!ENTITY torSettings.bridgeQuestion "Ваш Інтернет-провайдер (ISP) блокує чи яким-небудь чином цензурує підключення до Tor мережі?">
 <!ENTITY torSettings.bridgeHelp "Якщо Ви не знаєте, як відповісти на це питання, виберіть Ні.&#160; Якщо Ви виберете Так, Вам буде запропоновано налаштувати мости Tor, що є приватними трансляторами, які роблять більш важким блокування з'єднань з Tor мережі.">
 <!ENTITY torSettings.bridgeSettingsPrompt "Ви можете використати визначений перелік мостів або можете отримати і ввести набір мостів вручну.">
@@ -29,7 +26,7 @@
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "Підключення до Tor...">
-<!ENTITY torsettings.restartTor "Restart Tor">
+<!ENTITY torsettings.restartTor "Перезапустити Tor">
 
 <!ENTITY torsettings.optional "Додатково">
 
@@ -59,6 +56,7 @@
 <!ENTITY torsettings.bridgeHelp2Heading "Через Веб">
 <!ENTITY torsettings.bridgeHelp2 "Відвідайте сторінку https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "Через автовідповідач електронної пошти">
-<!ENTITY torsettings.bridgeHelp3 "Надішліть повідомлення на адресу bridges@torproject.org зі стрічкою &quot;get bridges&quot; у тілі повідомлення.&#160; Проте, для того, щоб ускладнити визначення великої кількості адрес мостів зловмисниками, необхідно відправити цей запит від поштової скриньки gmail.com або yahoo.com.">
+<!ENTITY torsettings.bridgeHelp3.emailDesc "Надішліть повідомлення на адресу bridges@torproject.org із рядком &quot;get bridges&quot; у тілі повідомлення.&#160; Проте, для того, щоб ускладнити визначення великої кількості адрес мостів зловмисниками, необхідно відправити цей запит від поштової скриньки одного з наступних постачальників (перераховано у порядку пріоритетності):">
+<!ENTITY torsettings.bridgeHelp3.emailList "https://www.riseup.net, https://mail.google.com або https://mail.yahoo.com">
 <!ENTITY torsettings.bridgeHelp4Heading "Через допомогу">
 <!ENTITY torsettings.bridgeHelp4 "У крайньому випадку, Ви можете отримати адресу мосту, відправивши ввічливе повідомлення на адресу  help@rt.torproject.org.&#160; Зверніть увагу на те, що кожен запит обробляється людиною.">

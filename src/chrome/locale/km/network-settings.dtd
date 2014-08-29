@@ -8,8 +8,8 @@
 <!ENTITY torSettings.no "ទេ">
 
 <!ENTITY torSettings.firstQuestion "តើ​ការ​ពណ៌នា​ណា​មួយ​​​ដូច​ខា​ងក្រោម​នេះ​ល្អ​បំផុត​សម្រាប់ស្ថានភាព​របស់​អ្នក?">
-<!ENTITY torSettings.configurePrompt1 "ការ​ភ្ជាប់​អ៊ីនធឺណិត​កុំព្យូទ័រ​នេះ​ត្រូវ​បាន​កែ ច្រោះ ឬ​ដាក់​ប្រូកស៊ី។">
-<!ENTITY torSettings.configurePrompt2 "ខ្ញុំ​ត្រូវ​កំណត់​រចនាសម្ព័ន្ធ​ប្រ៊ីត, ជញ្ជាំង​ភ្លើង ឬ​ការ​កំណត់​ប្រូកស៊ី។">
+<!ENTITY torSettings.configurePrompt1 "This computer's Internet connection is censored or proxied.">
+<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or proxy settings.">
 <!ENTITY torSettings.configure "កំណត់រចនាសម្ព័ន្ធ">
 <!ENTITY torSettings.connectPrompt2 "ខ្ញុំ​ចង់ភ្ជាប់​ដោយ​ផ្ទាល់ទៅ​បណ្ដាញ Tor ។">
 <!ENTITY torSettings.connectPrompt3 "វា​នឹង​ដំណើរការ​ក្នុងស្ថានភាព​ភាគ​ច្រើន។">
@@ -19,9 +19,6 @@
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
 <!ENTITY torSettings.proxyHelp "បើ​អ្នក​មិន​ប្រាកដ​អំពី​វិធី​ឆ្លើយ​សំណួរ​នេះ មើល​ការកំណត់​អ៊ីនធឺណិត​ក្នុង​កម្មវិធី​អ៊ីនធឺណិត​ផ្សេង ដើម្បីដឹង​ថាតើ​វា​ត្រូវ​បានកំណត់រចនាសម្ព័ន្ធ​ដើម្បី​ប្រើ​ប្រូកស៊ី​ដែរឬទេ។">
 <!ENTITY torSettings.enterProxy "បញ្ចូល​ការ​កំណត់​ប្រូកស៊ី។">
-<!ENTITY torSettings.firewallQuestion "តើ​​ការ​ភ្ជាប់​អ៊ីនធឺណិត​របស់​កុំព្យូទ័រ​នេះ​​ឆ្លង​កាត់ជញ្ជាំង​ភ្លើង​ដែល​អនុញ្ញាត​តែ​ការ​ភ្ជាប់​ទៅច្រក​ជាក់លាក់?">
-<!ENTITY torSettings.firewallHelp "បើ​អ្នក​មិន​ប្រាកដ​វិធី​ឆ្លើយត​សំណួរ​នេះ ជ្រើស ទេ។ បើ​អ្នក​មាន​បញ្ហា​ក្នុង​ការ​ភ្ជាប់​ទៅ​បណ្ដាញ Tor ប្ដូរ​ការ​កំណត់​នេះ។">
-<!ENTITY torSettings.enterFirewall "បញ្ជី​បញ្ជី​ច្រក​ដែល​បំបែក​ដោយ​សញ្ញា​ក្បៀស​ដែល​ត្រូវ​បាន​អនុញ្ញាត​ដោយជញ្ជាំង​ភ្លើង។">
 <!ENTITY torSettings.bridgeQuestion "តើ​ក្រុមហ៊ុន​ផ្ដល់​អ៊ីនធឺណិត​របស់​អ្នក (ISP) ទប់ស្កាត់ ឬ​បើ​មិន​ដូច្នេះ​ទេ​ការ​ភ្ជាប់​ឧបករណ៍​ចាប់​សញ្ញាទៅ​បណ្ដាញ Tor ?">
 <!ENTITY torSettings.bridgeHelp "បើ​អ្នក​ប្រាកដ​ពី​វិធី​ឆ្លើយ​សំណួរ​នេះ ជ្រើស​ទេ។ &#160; បើ​អ្នក​ជ្រើស​បាទ/ចាស អ្នក​នឹង​ត្រូវ​បាន​ស្នើ​ឲ្យ​កំណត់​រចនាសម្ព័ន្ធ​ប៊្រីត Tor ដែល​​ជា​ការ​បញ្ជូន​បន្ត​មិន​បាន​រាយ​ដែល​ធ្វើ​ឲ្យ​វា​កាន់តែ​លំបាក​​ក្នុង​ការ​ទប់ស្កាត់​ការ​ភ្ជាប់​ទៅ​បណ្ដាញ Tor ។">
 <!ENTITY torSettings.bridgeSettingsPrompt "អ្នកអាច​ប្រើ​ការកំណត់ប៊្រីត​ដែល​បានផ្ដល់ ឬ​អ្នក​អាច​យក​ និង​បញ្ចូល​ការ​កំណត់ប៊្រីត​ផ្ទាល់​ខ្លួន។">
@@ -29,7 +26,7 @@
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "កំពុង​រង់ចាំ Tor ចាប់ផ្ដើម...">
-<!ENTITY torsettings.restartTor "Restart Tor">
+<!ENTITY torsettings.restartTor "ចាប់ផ្ដើម Tor ឡើង​វិញ">
 
 <!ENTITY torsettings.optional "ជា​ជម្រើស">
 
@@ -59,6 +56,7 @@
 <!ENTITY torsettings.bridgeHelp2Heading "តាម​រយៈ​បណ្ដាញ">
 <!ENTITY torsettings.bridgeHelp2 "ប្រើ​កម្មវិធីរុករកបណ្ដាញ ដើម្បីមើល https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "តាមរយៈ​ការឆ្លើយតប​ដោយ​ស្វ័យ​ប្រវត្តិ​របស់​អ៊ីមែល">
-<!ENTITY torsettings.bridgeHelp3 "ផ្ញើ​អ៊ីមែល​ទៅ bridges@torproject.org ដោយ​មាន​ឃ្លា 'get bridges' ដោយ​ខ្លួន​វា​ក្នុង​តួ​សារ។&#160; ទោះ​ជា​យ៉ាង​ណា​ក៏​ដោយ ដើម្បី​ធ្វើ​ឲ្យ​វា​​កាន់តែ​ពិបាក​សម្រាប់​អ្នក​វាយ​ប្រហារ ដើម្បី​សិក្សា​ច្រើន​អំពី​អាសយដ្ឋាន​​​ប៊្រីត អ្នក​ត្រូវ​ផ្ញើ​សំណើ​នេះ​ពី​អាសយដ្ឋាន gmail.com ឬ yahoo.com ។">
+<!ENTITY torsettings.bridgeHelp3.emailDesc "Send email to bridges@torproject.org with the line 'get bridges' by itself in the body of the message.&#160; However, to make it harder for an attacker to learn a lot of bridge addresses, you must send this request from one of the following email providers (listed in order of preference):">
+<!ENTITY torsettings.bridgeHelp3.emailList "https://www.riseup.net, https://mail.google.com, or https://mail.yahoo.com">
 <!ENTITY torsettings.bridgeHelp4Heading "តាមរយៈ​ជំនួយ​">
 <!ENTITY torsettings.bridgeHelp4 "នៅ​ជម្រើស​ចុងក្រោយ អ្នក​អាច​ស្នើ​​អាសយដ្ឋាន​ប៊្រីត​ដោយ​ផ្ញើ​សារ​អ៊ីមែល​គួរសម​ទៅ help@rt.torproject.org.&#160; សូម​ចំណាំ​ថា មនុស្ស​​ម្នាក់​នឹង​ត្រូវ​ឆ្លើយតប​ទៅ​សំណើ​នីមួយៗ។">

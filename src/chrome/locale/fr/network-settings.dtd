@@ -8,8 +8,8 @@
 <!ENTITY torSettings.no "Non">
 
 <!ENTITY torSettings.firstQuestion "Laquelle des phrases suivantes décrit le mieux votre situation ?">
-<!ENTITY torSettings.configurePrompt1 "La connexion Internet de cet ordinateur est censurée, filtrée ou nécessite un proxy.">
-<!ENTITY torSettings.configurePrompt2 "J'ai besoin de configurer une passerelle, le pare-feu, ou les paramètres du proxy.">
+<!ENTITY torSettings.configurePrompt1 "Le connexion internet de cet ordinateur est bloqué ou utilise un proxy.">
+<!ENTITY torSettings.configurePrompt2 "Je doit configurer le pont réseau ou les paramètres du proxy.">
 <!ENTITY torSettings.configure "Configurer">
 <!ENTITY torSettings.connectPrompt2 "Je souhaite me connecter directement au réseau Tor.">
 <!ENTITY torSettings.connectPrompt3 "Cela fonctionnera dans la plupart des situations.">
@@ -19,9 +19,6 @@
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
 <!ENTITY torSettings.proxyHelp "Si vous ne savez pas comment répondre à cette question, vous pouvez regarder les paramètres de connexion d'un autre navigateur afin de voir s'il est configuré pour utiliser un proxy.">
 <!ENTITY torSettings.enterProxy "Entrez les paramètres de votre proxy.">
-<!ENTITY torSettings.firewallQuestion "Est-ce que votre connexion Internet est filtré par un pare-feu qui n'autorise les connexions que vers certains ports ?">
-<!ENTITY torSettings.firewallHelp "Si vous ne savez par comment répondre à cette question, choisissez Non. Vous pourrez changer ce paramètre plus tard en cas de problèmes de connexion au réseau Tor.">
-<!ENTITY torSettings.enterFirewall "Entrez la liste de ports, séparés par des virgules, qui sont autorisés par le pare-feu.">
 <!ENTITY torSettings.bridgeQuestion "Est-ce que votre Fournisseur d'Accès Internet (FAI) bloque les connexions au réseau Tor ?">
 <!ENTITY torSettings.bridgeHelp "Si vous ne savez pas comment répondre à cette question, choisissez Non.&#160; Si vous choisissez Oui, il vous sera demandé de configurer les bridges Tor qui sont des relais non listés et qui rendent plus difficile le blocage du réseau Tor.">
 <!ENTITY torSettings.bridgeSettingsPrompt "Vous pouvez utiliser les bridges fournis ou bien saisir votre liste de bridges personnels.">
@@ -59,6 +56,7 @@
 <!ENTITY torsettings.bridgeHelp2Heading "Par le Web">
 <!ENTITY torsettings.bridgeHelp2 "Utilisez un navigateur web pour visiter https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "Par l'auto-répondeur de courrier électronique">
-<!ENTITY torsettings.bridgeHelp3 "Envoyer un email à bridges@torproject.org avec la ligne 'get bridges' en elle-même obtiennent dans le corps du message.&#160; Cependant, pour rendre plus difficile à un attaquant d'apprendre beaucoup d'adresses de pont, vous devez envoyer cette demande depuis une adresse électronique gmail.com ou yahoo.com.">
+<!ENTITY torsettings.bridgeHelp3.emailDesc "Envoyer un e-mail à bridges@torproject.org avec la ligne 'get bridges' dans le corps du message.&#160; Pour rendre plus difficile à un attaquant d'apprendre beaucoup d'adresses de pont, vous devez envoyer cette demande depuis une adresse électronique d'un de ces fournisseurs (listés par ordre de préférence) :">
+<!ENTITY torsettings.bridgeHelp3.emailList "https://www.riseup.net, https://mail.google.com, ou https://mail.yahoo.com">
 <!ENTITY torsettings.bridgeHelp4Heading "Par le bureau d'aide">
 <!ENTITY torsettings.bridgeHelp4 "En dernier ressort, vous pouvez demander des adresses de pont en envoyant un message électronique poli à help@rt.torproject.org.&#160; Veuillez noter qu'une personne devra répondre à chaque demande.">

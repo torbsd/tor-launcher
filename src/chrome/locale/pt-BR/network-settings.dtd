@@ -8,8 +8,8 @@
 <!ENTITY torSettings.no "Não">
 
 <!ENTITY torSettings.firstQuestion "Quais opções descrevem melhor a sua situação?">
-<!ENTITY torSettings.configurePrompt1 "A conexão Internet deste computador foi censurada, filtrada ou limitada por um proxy.">
-<!ENTITY torSettings.configurePrompt2 "Eu preciso configurar o bridge, firewall ou opções de proxy.">
+<!ENTITY torSettings.configurePrompt1 "A conexão internet deste computador encontra-se sob censura ou proxy.">
+<!ENTITY torSettings.configurePrompt2 "É preciso configurar bridge ou ">
 <!ENTITY torSettings.configure "Configurar">
 <!ENTITY torSettings.connectPrompt2 "Eu gostaria de me conectar diretamente à rede Tor.">
 <!ENTITY torSettings.connectPrompt3 "Isso funcionará na maioria dos casos.">
@@ -19,9 +19,6 @@
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
 <!ENTITY torSettings.proxyHelp "Caso você não tenha certeza sobre como responder a essa questão, consulte as configurações de rede em um outro browser para saber se ele está configurado para usar um proxy.">
 <!ENTITY torSettings.enterProxy "Insira as configurações de proxy.">
-<!ENTITY torSettings.firewallQuestion "A conexão Internet deste computador é filtrada por uma firewall que autoriza conexões somente a certas portas?">
-<!ENTITY torSettings.firewallHelp "Se você não tiver certeza sobre como responder a esta questão, escolha Não. Em caso de dificuldades de conexão à rede Tor, modifique esta configuração.">
-<!ENTITY torSettings.enterFirewall "Insira, separando-as por vírgulas, uma lista de portas habilitadas pelo firewall. ">
 <!ENTITY torSettings.bridgeQuestion "Seu provedor de serviços de internet (ISP) bloqueia ou censura conexões à rede Tor?">
 <!ENTITY torSettings.bridgeHelp "Se você não estiver seguro sobre como responder a essa questão, escolha Não&#160;. Se você escolher Sim, será preciso configurar pontes Tor, que são retransmissores não-listados que dificultam possíveis bloqueios à rede Tor.">
 <!ENTITY torSettings.bridgeSettingsPrompt "Você pode usar o conjunto de pontes fornecidas ou obter e adicionar um conjunto de pontes personalizadas. ">
@@ -59,6 +56,7 @@
 <!ENTITY torsettings.bridgeHelp2Heading "Através da Web">
 <!ENTITY torsettings.bridgeHelp2 "Use um navegador internet para visitar https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "Através do Email Autoresponder">
-<!ENTITY torsettings.bridgeHelp3 "Envie um e-mail para bridges@torproject.org com a mensagem 'get bridges'.&#160;. Contudo, para tornar mais difícil para um invasor descobrir uma grande quantidade de endereços de pontes, esse pedido deve ser enviado de uma conta gmail.com ou yahoo.com.">
-<!ENTITY torsettings.bridgeHelp4Heading "Através do ">
+<!ENTITY torsettings.bridgeHelp3.emailDesc "Envie um e-mail para bridges@torproject.org com a mensagem 'get bridges'.&#160; Contudo, para tornar mais difícil para um invasor descobrir uma grande quantidade de endereços, você deve enviar esse pedido a partir de um dos seguintes provedores de e-mail (listados em ordem de preferência).">
+<!ENTITY torsettings.bridgeHelp3.emailList "https://www.riseup.net, https://mail.google.com, or https://mail.yahoo.com">
+<!ENTITY torsettings.bridgeHelp4Heading "Pelo serviço de assistência">
 <!ENTITY torsettings.bridgeHelp4 "Como última opção, você pode solicitar endereços de pontes enviando uma mensagem de e-mail educada para help@rt.torproject.org.&#160;. Note que uma pessoa terá que responder a cada solicitação">

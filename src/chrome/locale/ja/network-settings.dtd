@@ -8,8 +8,8 @@
 <!ENTITY torSettings.no "いいえ">
 
 <!ENTITY torSettings.firstQuestion "以下のうちあなたの状態に最も適しているのはどれですか？">
-<!ENTITY torSettings.configurePrompt1 "このコンピュータのインターネット接続は検閲されているか、フィルターされているか、プロキシを通します。">
-<!ENTITY torSettings.configurePrompt2 "ブリッジやファイアーウォール、プロキシの設定を構成する必要があります。">
+<!ENTITY torSettings.configurePrompt1 "このコンピュータのインターネット接続は、検閲されているかプロキシを通します。">
+<!ENTITY torSettings.configurePrompt2 "ブリッジやプロキシの設定を構成する必要があります。">
 <!ENTITY torSettings.configure "構成">
 <!ENTITY torSettings.connectPrompt2 "Torネットワークへ直接接続します。">
 <!ENTITY torSettings.connectPrompt3 "これはほとんどの状況で動作します。">
@@ -19,9 +19,6 @@
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
 <!ENTITY torSettings.proxyHelp "この質問にどう答えるべきか確信が持てなければ、Proxyの使用がどのように設定されているか確認するために、他のブラウザのインターネット設定を見てください。">
 <!ENTITY torSettings.enterProxy "Proxy設定を入力">
-<!ENTITY torSettings.firewallQuestion "このコンピュータのインターネット接続は特定のポートへの接続のみ許可するファイアーウォールを通しますか？">
-<!ENTITY torSettings.firewallHelp "この質問にどう答えるべきか確信が持てなければ、いいえを選択してください。 Torネットワークへ接続する時に問題に遭遇したなら、この設定を変更してください。">
-<!ENTITY torSettings.enterFirewall "ファイアーウォールによって許可されているポートのコンマ区切りのリストを入力してください。">
 <!ENTITY torSettings.bridgeQuestion "あなたのインターネットサービスプロバイダー (ISP) は Tor ネットワークへの接続をブロックしているか、あるいは別のやり方で検閲していますか？">
 <!ENTITY torSettings.bridgeHelp "この質問にどう答えるべきかよくわからない場合は、いいえを選択してください。&#160; はいを選択すると、Tor ネットワークへの接続をブロックすることをさらに困難にするリスト化されていないリレーである Tor Bridges を構成することが求められます。">
 <!ENTITY torSettings.bridgeSettingsPrompt "提供されたブリッジのセットを使用するか、あるいはカスタムのブリッジのセットを取得して入力することができます。">
@@ -29,7 +26,7 @@
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "Torの開始を待っています...">
-<!ENTITY torsettings.restartTor "Restart Tor">
+<!ENTITY torsettings.restartTor "Torを再起動する">
 
 <!ENTITY torsettings.optional "オプション">
 
@@ -59,6 +56,7 @@
 <!ENTITY torsettings.bridgeHelp2Heading "ウェブ経由">
 <!ENTITY torsettings.bridgeHelp2 "ウェブを使用して、https://bridges.torproject.orgを開く">
 <!ENTITY torsettings.bridgeHelp3Heading "メール自動応答システム経由">
-<!ENTITY torsettings.bridgeHelp3 "メッセージの本文に 'get bridges' という行を付けて bridges@torproject.org にメールを送信する。.&#160;ただし、攻撃者が多くのブリッジアドレスを把握するのを困難にするために、 gmail.com または yahoo.com のメールアドレスからこのリクエストを送信する必要があります。">
+<!ENTITY torsettings.bridgeHelp3.emailDesc "bridges@torproject.org宛にget bridgesという本文のメールを送信してください。&#160; ただし、攻撃者にブリッジのアドレスを知られないため、このリクエストを以下のEメールプロバイダーのいずれかから送信する必要があります。(設定の順に表示):">
+<!ENTITY torsettings.bridgeHelp3.emailList "https://www.riseup.net, https://mail.google.com, https://mail.yahoo.com">
 <!ENTITY torsettings.bridgeHelp4Heading "ヘルプデスク経由">
 <!ENTITY torsettings.bridgeHelp4 "最後の頼みの綱として、 help@rt.torproject.org に丁寧なメールメッセージを送信して、ブリッジアドレスをリクエストすることができます。&#160; 人間が各リクエストに対応する必要があることにご注意ください。">

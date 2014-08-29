@@ -8,8 +8,8 @@
 <!ENTITY torSettings.no "نه">
 
 <!ENTITY torSettings.firstQuestion "کدام یک از موارد زیر وضعیت شما را بهتر بیان می‌کند؟">
-<!ENTITY torSettings.configurePrompt1 "اینترنت استفاده شده در این رایانه ها سانسور شده٫فیلتر شده و یا عبور کرده از روی پراکسی می باشند.">
-<!ENTITY torSettings.configurePrompt2 "من نیاز دارم که «پل ها»، «پروکسی» و یا «فایروال» را تنظیم کنم.">
+<!ENTITY torSettings.configurePrompt1 "اتصال به اینترنت این کامپیوتر یا فیلترینگ شدید دارد و یا پراکسی دارد.">
+<!ENTITY torSettings.configurePrompt2 "من نیاز به پیکربندی پل و یا تنظیمات پروکسی دارم.">
 <!ENTITY torSettings.configure "پیکربندی">
 <!ENTITY torSettings.connectPrompt2 "تمایل دارم مستقیما به شبکه‌ی تور متصل شوم.">
 <!ENTITY torSettings.connectPrompt3 "این در بیشتر مواقع کار خواهد کرد.">
@@ -19,9 +19,6 @@
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
 <!ENTITY torSettings.proxyHelp "اگر مطمئن نیستید چطور به این سوال پاسخ دهید، به تنظیمات سایر مرورگرهای خود نگاهی بیاندازید تا متوجه شوید که آیا باید یک پروکسی استفاده شود یا خیر.">
 <!ENTITY torSettings.enterProxy "تنظیمات پراکسی را وارد کنید.">
-<!ENTITY torSettings.firewallQuestion "آیا در مسیر ارتباط شما به اینترنت یک فایروال وجود دارد؟ و فقط اجازه اتصال از یک درگاه خاص را می دهد؟">
-<!ENTITY torSettings.firewallHelp "اگر مطمئن نیستید چه جوابی به این سوال دهید، «نه» و یا «خیر» را انتخاب کنید. سپس اگر مشکلی در ارتباط با شبکه تور داشتید، این مورد را تغییر دهید.">
-<!ENTITY torSettings.enterFirewall "یک لیست جداشده با ویرگول از پورت‌هایی که توسط فایروال مجاز هستند.">
 <!ENTITY torSettings.bridgeQuestion "آیا شرکتی که از آن اینترنت گرفته اید (ISP)، دسترسی به شبکه تور را فیلتر، سانسور و یا مسدود می کند؟">
 <!ENTITY torSettings.bridgeHelp "اگر مطمئن نیستید چطور به این سوال پاسخ دهید، «نه» یا انتخاب کنید.&#160; اگر «بله» را انتخاب کنید، می بایست تنظیمات مربوط به «پل های» تور را انجام دهید. پل ها مسیرهای دور زدن فیلتر هستند که لیست مشخصی از آن ها وجود ندارد و فیلتر کردن آن ها بسیار مشکل است.">
 <!ENTITY torSettings.bridgeSettingsPrompt "شما می‌توانید از مجموعه‌ای از پل‌های آماده و یا پل‌های شخصی خودتان استفاده کنید.">
@@ -29,7 +26,7 @@
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "در انتظار آغاز به کار تور...">
-<!ENTITY torsettings.restartTor "Restart Tor">
+<!ENTITY torsettings.restartTor "تور را دوباره شوروع کنید.">
 
 <!ENTITY torsettings.optional "اختیاری">
 
@@ -60,6 +57,7 @@
 <!ENTITY torsettings.bridgeHelp2Heading "از طریق اینترنت">
 <!ENTITY torsettings.bridgeHelp2 "با استفاده از یک مرورگر به آدرس https://bridges.torproject.org بروید.">
 <!ENTITY torsettings.bridgeHelp3Heading "از طریق آدرس ایمیل پاسخگوی خودکار">
-<!ENTITY torsettings.bridgeHelp3 "یک ایمیل حاوی عبارت  'get bridges' به آدرس bridges@torproject.org  ارسال کنید.&#160; برای اینکه بتوانیم جلوی فیلتر شدن پل ها را بگیریم، مجبوریم شما را محدود کنیم تا فقط از یک آدرس ایمیل yahoo.com و یا gmail.com درخواست خود را ارسال کنید. لطفاً صبور باشید. از چند دقیقه تا چند ساعت طول خواهد کشید تا به طور خودکار پل ها برای شما ارسال شوند.">
+<!ENTITY torsettings.bridgeHelp3.emailDesc "Send email to bridges@torproject.org with the line 'get bridges' by itself in the body of the message.&#160; However, to make it harder for an attacker to learn a lot of bridge addresses, you must send this request from one of the following email providers (listed in order of preference):">
+<!ENTITY torsettings.bridgeHelp3.emailList "https://www.riseup.net, https://mail.google.com, یا https://mail.yahoo.com">
 <!ENTITY torsettings.bridgeHelp4Heading "از طریق واحد کمک رسانی">
 <!ENTITY torsettings.bridgeHelp4 "اگر از طریق هیچ کدام از راه حل های فوق به نتیجه نرسیدید، یک درخواست مودبانه به آدرس help@rt.torproject.org ارسال کنید.&#160; در نظر داشته باشید که یک نفر باید ایمیل شما را بخواند و به آن پاسخ دهد. پس صبور باشید.">

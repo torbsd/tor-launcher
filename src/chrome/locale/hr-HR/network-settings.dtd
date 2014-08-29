@@ -9,8 +9,8 @@ internetskoj vezi ovog računala.">
 <!ENTITY torSettings.no "Ne">
 
 <!ENTITY torSettings.firstQuestion "Koje od sljedećeg najbolje opisuje Vašu situaciju?">
-<!ENTITY torSettings.configurePrompt1 "Internetska veza ovog računala je cenzurirana, filtrirana ili prolazi kroz proxy.">
-<!ENTITY torSettings.configurePrompt2 "Trebam konfigurirati bridge, firewall ili proxy postavke.">
+<!ENTITY torSettings.configurePrompt1 "This computer's Internet connection is censored or proxied.">
+<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or proxy settings.">
 <!ENTITY torSettings.configure "Podesi">
 <!ENTITY torSettings.connectPrompt2 "Želim se izravno spojiti na Tor mrežu.">
 <!ENTITY torSettings.connectPrompt3 "Ovo će raditi u većini situacija.">
@@ -20,9 +20,6 @@ internetskoj vezi ovog računala.">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
 <!ENTITY torSettings.proxyHelp "Ako niste sigurni kako odgovoriti na ovo pitanje, pogledajte Internet postavke u drugom pregledniku i provjerite je li podešen za korištenje proxyja.">
 <!ENTITY torSettings.enterProxy "Unesite postavke proxyja.">
-<!ENTITY torSettings.firewallQuestion "Prolazi li Internet veza ovog računala kroz vatrozid koji dopušta spajanje samo na određene portove?">
-<!ENTITY torSettings.firewallHelp "Ako niste sigurni kako odgovoriti na ovo pitanje, odaberite &quot;Ne&quot;. Ako uočite probleme pri spajanju na Tor mrežu, promijenite ovu postavku.">
-<!ENTITY torSettings.enterFirewall "Unesite popis portova, odvojenih zarezom, koji su dopušteni na vatrozidu.">
 <!ENTITY torSettings.bridgeQuestion "Blokira li vaš Internet Service Provider (ISP) ili ikako cenzurira veze
 s Tor mrežom?">
 <!ENTITY torSettings.bridgeHelp "Ako niste sigurni kako da odgovorite na ovo pitanje, odaberite Ne.&#160; Ako odaberete Da, zatražit će vas da konfigurirate Tor Mostove, koji su neizlistani releji koji otežavaju
@@ -63,9 +60,8 @@ vlastiti set adresa koristeći jednu od ove tri metode:">
 <!ENTITY torsettings.bridgeHelp2Heading "Kroz Web">
 <!ENTITY torsettings.bridgeHelp2 "Koristite web preglednik kako bi posjetili https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "Kroz Email Autoresponder">
-<!ENTITY torsettings.bridgeHelp3 "Pošaljite email na bridges@torproject.org samo s tekstom 'get bridges' u sadržaju
-poruke.&#160; No, kako bi napadačima bilo teže naučiti mnogo bridge adresa, morate
-poslati ovaj zahtjev sa gmail.com ili yahoo.com email adrese.">
+<!ENTITY torsettings.bridgeHelp3.emailDesc "Send email to bridges@torproject.org with the line 'get bridges' by itself in the body of the message.&#160; However, to make it harder for an attacker to learn a lot of bridge addresses, you must send this request from one of the following email providers (listed in order of preference):">
+<!ENTITY torsettings.bridgeHelp3.emailList "https://www.riseup.net, https://mail.google.com, or https://mail.yahoo.com">
 <!ENTITY torsettings.bridgeHelp4Heading "Pomoću Help Deska">
 <!ENTITY torsettings.bridgeHelp4 "U najgorem slučaju, možete zatražiti bridge adrese tako što pošaljete pristojan email na help@rt.torproject.org.&#160; Imajte na umu da neće odgovoriti na svaki
 zahtjev.">
