@@ -9,8 +9,8 @@ internetskoj vezi ovog računala.">
 <!ENTITY torSettings.no "Ne">
 
 <!ENTITY torSettings.firstQuestion "Koje od sljedećeg najbolje opisuje Vašu situaciju?">
-<!ENTITY torSettings.configurePrompt1 "This computer's Internet connection is censored or proxied.">
-<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or proxy settings.">
+<!ENTITY torSettings.configurePrompt1 "Veza s Internetom ovog računala je cenzurirana ili iza proxya.">
+<!ENTITY torSettings.configurePrompt2 "Trebam konfigurirati postavke mosta ili proxya.">
 <!ENTITY torSettings.configure "Podesi">
 <!ENTITY torSettings.connectPrompt2 "Želim se izravno spojiti na Tor mrežu.">
 <!ENTITY torSettings.connectPrompt3 "Ovo će raditi u većini situacija.">
@@ -29,7 +29,7 @@ blokiranje konekcija s Tor mrežom">
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "Čekanje da se Tor pokrene...">
-<!ENTITY torsettings.restartTor "Restart Tor">
+<!ENTITY torsettings.restartTor "Ponovno pokreni Tor">
 
 <!ENTITY torsettings.optional "Opcionalno">
 
@@ -60,8 +60,8 @@ vlastiti set adresa koristeći jednu od ove tri metode:">
 <!ENTITY torsettings.bridgeHelp2Heading "Kroz Web">
 <!ENTITY torsettings.bridgeHelp2 "Koristite web preglednik kako bi posjetili https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "Kroz Email Autoresponder">
-<!ENTITY torsettings.bridgeHelp3.emailDesc "Send email to bridges@torproject.org with the line 'get bridges' by itself in the body of the message.&#160; However, to make it harder for an attacker to learn a lot of bridge addresses, you must send this request from one of the following email providers (listed in order of preference):">
-<!ENTITY torsettings.bridgeHelp3.emailList "https://www.riseup.net, https://mail.google.com, or https://mail.yahoo.com">
+<!ENTITY torsettings.bridgeHelp3.emailDesc "Pošaljite email na bridges@torproject.org tako što će te u poruku napisati samo 'get bridges'.&#160; Kako bilo, da bi otežali napadaču da nauči puno o adresama mostova, morate poslati taj zahtjev koristeći jednog od sljedećih davatelja email usluge (poredano po preferabilnosti):">
+<!ENTITY torsettings.bridgeHelp3.emailList "https://www.riseup.net, https://mail.google.com, ili https://mail.yahoo.com">
 <!ENTITY torsettings.bridgeHelp4Heading "Pomoću Help Deska">
 <!ENTITY torsettings.bridgeHelp4 "U najgorem slučaju, možete zatražiti bridge adrese tako što pošaljete pristojan email na help@rt.torproject.org.&#160; Imajte na umu da neće odgovoriti na svaki
 zahtjev.">

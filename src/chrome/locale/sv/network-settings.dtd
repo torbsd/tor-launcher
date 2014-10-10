@@ -8,8 +8,8 @@
 <!ENTITY torSettings.no "Nej">
 
 <!ENTITY torSettings.firstQuestion "Vilket av följande beskriver bäst din situation?">
-<!ENTITY torSettings.configurePrompt1 "This computer's Internet connection is censored or proxied.">
-<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or proxy settings.">
+<!ENTITY torSettings.configurePrompt1 "Den här datorns Internetanslutning är censorerad eller går genom en proxy.">
+<!ENTITY torSettings.configurePrompt2 "Jag behöver konfigurera brygg- eller proxyinställningar.">
 <!ENTITY torSettings.configure "Konfigurera">
 <!ENTITY torSettings.connectPrompt2 "Jag vill ansluta direkt till Tor-nätverket.">
 <!ENTITY torSettings.connectPrompt3 "Detta fungerar i de flesta situationer.">
@@ -26,7 +26,7 @@
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "Väntar på att Tor ska starta...">
-<!ENTITY torsettings.restartTor "Restart Tor">
+<!ENTITY torsettings.restartTor "Starta om Tor">
 
 <!ENTITY torsettings.optional "Valfri">
 
@@ -56,7 +56,7 @@
 <!ENTITY torsettings.bridgeHelp2Heading "Via nätet">
 <!ENTITY torsettings.bridgeHelp2 "Använd en webbläsare för att besöka https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "Via e-post autosvar">
-<!ENTITY torsettings.bridgeHelp3.emailDesc "Send email to bridges@torproject.org with the line 'get bridges' by itself in the body of the message.&#160; However, to make it harder for an attacker to learn a lot of bridge addresses, you must send this request from one of the following email providers (listed in order of preference):">
-<!ENTITY torsettings.bridgeHelp3.emailList "https://www.riseup.net, https://mail.google.com, or https://mail.yahoo.com">
+<!ENTITY torsettings.bridgeHelp3.emailDesc "Skicka ett e-postmeddelande till bridges@torproject.org med bara &quot;get bridges&quot; i texten.&#160; Men för att göra det svårare för en angripare att få tag på många adresser till bryggor så måste du skicka meddelandet från någon av följande epostleverantörer (listan är sorterad på vilka vi föredrar):">
+<!ENTITY torsettings.bridgeHelp3.emailList "https://www.riseup.net, https://mail.google.com, eller https://mail.yahoo.com">
 <!ENTITY torsettings.bridgeHelp4Heading "Via supporten">
 <!ENTITY torsettings.bridgeHelp4 "Som en sista utväg kan du skicka ett artigt e-post meddelande på engelska till help@rt.torproject.org, och fråga efter bryggadresser.&#160; Tänk på att en person måste svara på varje sådan förfrågan.">

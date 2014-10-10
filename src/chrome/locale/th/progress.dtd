@@ -1,4 +1,4 @@
 <!ENTITY torprogress.dialog.title "สถานะ Tor">
 <!ENTITY torprogress.openSettings "การตั้งค่า">
 <!ENTITY torprogress.heading "กำลังเชื่อมต่อสู่เครือข่าย Tor">
-<!ENTITY torprogress.pleaseWait "Please wait while we establish a connection to the Tor network.">
+<!ENTITY torprogress.pleaseWait "กรุณารอขณะที่เรากำลังทำการเชื่อมต่อไปยังเครือข่าย Tor">

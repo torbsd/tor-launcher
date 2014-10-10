@@ -8,8 +8,8 @@
 <!ENTITY torSettings.no "Ei">
 
 <!ENTITY torSettings.firstQuestion "Mikä seuraavista kuvailee parhaiten tilannettasi?">
-<!ENTITY torSettings.configurePrompt1 "This computer's Internet connection is censored or proxied.">
-<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or proxy settings.">
+<!ENTITY torSettings.configurePrompt1 "Tämän tietokoneen internet-yhteys on sensuroitu, suodatettu tai kulkee välityspalvelimen kautta.">
+<!ENTITY torSettings.configurePrompt2 "Minun täytyy määrittää silta-, palomuuri- tai välityspalvelinasetuksia.">
 <!ENTITY torSettings.configure "Määritä">
 <!ENTITY torSettings.connectPrompt2 "Haluan yhdistää suoraan Tor-verkkoon.">
 <!ENTITY torSettings.connectPrompt3 "Tämä toimii useimmissa tilanteissa.">

@@ -8,7 +8,7 @@
 <!ENTITY torSettings.no "No">
 
 <!ENTITY torSettings.firstQuestion "Quale delle seguenti descrizioni raffigura meglio la tua situazione?">
-<!ENTITY torSettings.configurePrompt1 "This computer's Internet connection is censored or proxied.">
+<!ENTITY torSettings.configurePrompt1 "La connessione a Internet di questo computer è bloccata da censura o utilizza un proxy.">
 <!ENTITY torSettings.configurePrompt2 "Ho bisogno di configurare un ponte o un settaggio proxy">
 <!ENTITY torSettings.configure "Configura">
 <!ENTITY torSettings.connectPrompt2 "Vorrei connettermi direttamente alla rete Tor.">

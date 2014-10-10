@@ -8,7 +8,7 @@
 <!ENTITY torSettings.no "Οχι">
 
 <!ENTITY torSettings.firstQuestion "Ποιο από τα παρακάτω περιγράφει καλύτερα την κατάστασή σας;">
-<!ENTITY torSettings.configurePrompt1 "This computer's Internet connection is censored or proxied.">
+<!ENTITY torSettings.configurePrompt1 "Σύνδεση στο Internet αυτού του υπολογιστή λογοκρίνεται ή προσεγγίζεται">
 <!ENTITY torSettings.configurePrompt2 "I need to configure bridge or proxy settings.">
 <!ENTITY torSettings.configure "Ρύθμιση ">
 <!ENTITY torSettings.connectPrompt2 "Θα ήθελα να συνδεθεί άμεσα με το δίκτυο Tor.">

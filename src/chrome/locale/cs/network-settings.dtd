@@ -8,8 +8,8 @@
 <!ENTITY torSettings.no "Ne">
 
 <!ENTITY torSettings.firstQuestion "Která možnost nejlépe popisuje Vaši situaci?">
-<!ENTITY torSettings.configurePrompt1 "This computer's Internet connection is censored or proxied.">
-<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or proxy settings.">
+<!ENTITY torSettings.configurePrompt1 "Připojení k internetu u tohoto pořítače je cenzorováno nebo proxováno.">
+<!ENTITY torSettings.configurePrompt2 "Potřebuji nakonfigurovat mosty nebo nastavení proxy.">
 <!ENTITY torSettings.configure "Konfigurovat">
 <!ENTITY torSettings.connectPrompt2 "Chtěl bych se přímo připojit k Tor síti.">
 <!ENTITY torSettings.connectPrompt3 "Toto bude fungovat ve většině případů.">
@@ -56,7 +56,7 @@
 <!ENTITY torsettings.bridgeHelp2Heading "Přes síť">
 <!ENTITY torsettings.bridgeHelp2 "Použijte internetový prohlížeč k návštěvě https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "Přes automatický e-mailový odpovídač">
-<!ENTITY torsettings.bridgeHelp3.emailDesc "Send email to bridges@torproject.org with the line 'get bridges' by itself in the body of the message.&#160; However, to make it harder for an attacker to learn a lot of bridge addresses, you must send this request from one of the following email providers (listed in order of preference):">
-<!ENTITY torsettings.bridgeHelp3.emailList "https://www.riseup.net, https://mail.google.com, or https://mail.yahoo.com">
+<!ENTITY torsettings.bridgeHelp3.emailDesc "Pošlete e-mail na bridges@torproject.org s větou 'get bridges' jako takovou v těle zprávy.&#160; Nicméně abychom ztížili útočníkovi zjištění spousty adres, musíte tento požadavek poslat z e-mailové adresy gmail.com nebo yahoo.com.">
+<!ENTITY torsettings.bridgeHelp3.emailList "https://www.riseup.net, https://mail.google.com, nebo https://mail.yahoo.com">
 <!ENTITY torsettings.bridgeHelp4Heading "Přes zákaznickou linku">
 <!ENTITY torsettings.bridgeHelp4 "Jako poslední řešení si můžete vyžádat adresy síťových mostů tak, že zašlete slušný e-mail na help@rt.torproject.org.&#160; Vezměte v úvahu si prosím, že na každý požadavek musí odpovědět člověk.">

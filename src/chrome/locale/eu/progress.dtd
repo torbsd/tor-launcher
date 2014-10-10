@@ -1,4 +1,4 @@
 <!ENTITY torprogress.dialog.title "Tor egoera">
 <!ENTITY torprogress.openSettings "Ezarpenak ireki">
 <!ENTITY torprogress.heading "Tor sarera konektatzen">
-<!ENTITY torprogress.pleaseWait "Please wait while we establish a connection to the Tor network.">
+<!ENTITY torprogress.pleaseWait "Mesedez itxaron Tor-sarera konexioa ezartzen dugun bitartean.">

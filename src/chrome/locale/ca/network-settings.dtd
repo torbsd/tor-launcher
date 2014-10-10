@@ -8,8 +8,8 @@
 <!ENTITY torSettings.no "No">
 
 <!ENTITY torSettings.firstQuestion "Quina de les següuens descriula teva situació?">
-<!ENTITY torSettings.configurePrompt1 "This computer's Internet connection is censored or proxied.">
-<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or proxy settings.">
+<!ENTITY torSettings.configurePrompt1 "La connexió a internet d'aquest ordinador està censurada o configurada amb un proxy. ">
+<!ENTITY torSettings.configurePrompt2 "Necessito configurar ajustos de pont o de proxy">
 <!ENTITY torSettings.configure "Configura">
 <!ENTITY torSettings.connectPrompt2 "M'agradaria conectar-me directament a la xarxa Tor.">
 <!ENTITY torSettings.connectPrompt3 "Això funciona en la majoria dels casos.">
@@ -20,13 +20,13 @@
 <!ENTITY torSettings.proxyHelp "Si no estas segur de com respondre a aquesta pregunta, observa els paràmetres d'Internet en un altre navegador per veure si està configurat per utilitzar un proxy.">
 <!ENTITY torSettings.enterProxy "Introdueix les opcions del proxy.">
 <!ENTITY torSettings.bridgeQuestion "El vostre proveïdor d'Internet (ISP) bloqueja o censura les connexions a la Xarxa Tor?">
-<!ENTITY torSettings.bridgeHelp "If you are not sure how to answer this question, choose No.&#160; If you choose Yes, you will be asked to configure Tor Bridges, which are unlisted relays that make it more difficult to block connections to the Tor Network.">
+<!ENTITY torSettings.bridgeHelp "Si no esteu segurs de com respondre a aquesta pregunta, escolliu  No.&#160; Si escolliu Sí, se us demanarà que configureu Ponts Tor, que són relés no llistats que fan més dificil de bloquejar les connexions a la Xarxa Tor">
 <!ENTITY torSettings.bridgeSettingsPrompt "Hauries d'utilitzar el set de repetidors provist o customitzar el teu propi.">
 
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "Esperant a Tor per començar...">
-<!ENTITY torsettings.restartTor "Restart Tor">
+<!ENTITY torsettings.restartTor "Reinicia Tor">
 
 <!ENTITY torsettings.optional "Opcional
 ">
@@ -45,19 +45,19 @@
 <!ENTITY torsettings.firewall.allowedPorts "Ports permesos:">
 <!ENTITY torsettings.useBridges.checkbox "El meu proveidor d'internet (ISP) bloqueja les conexions a la xarxa Tor">
 <!ENTITY torsettings.useBridges.default "Connectar amb els repetidors porvistos.">
-<!ENTITY torsettings.useBridges.type "Transport type:">
+<!ENTITY torsettings.useBridges.type "Tipus de transport:">
 <!ENTITY torsettings.useBridges.custom "Entra als repetidors customitzats.">
 <!ENTITY torsettings.useBridges.label "Entra en un o més repetidors (un per linia).">
 <!ENTITY torsettings.useBridges.placeholder "introdueix adreça:port">
 
 <!ENTITY torsettings.copyLog "Copiar el Log al portapapers">
 <!ENTITY torsettings.bridgeHelpTitle "Ajuda Repetidors">
-<!ENTITY torsettings.bridgeHelp1 "If you are unable to connect to the Tor network, it could be that your Internet Service Provider (ISP) or another agency is blocking Tor.&#160; Often, you can work around this problem by using Tor Bridges, which are unlisted relays that are more difficult to block.">
-<!ENTITY torsettings.bridgeHelp1B "You may use the preconfigured, provided set of bridge addresses or you may obtain a custom set of addresses by using one of these three methods:">
+<!ENTITY torsettings.bridgeHelp1 "Si no sóu capaçps de connectar-vos a la xarxa Tor, pot ser que el vostre proveidor d'internet (ISP) o alguna altra agència estigui bloquejant Tor.&#160; normalment, podeu evitar aquest problema usant Ponts Tor, que son relés no llistats més difícils de bloquejar. ">
+<!ENTITY torsettings.bridgeHelp1B "Podeu usar el conjunt d'adreces pont preconfigurades o podeu obtenir un conjunt personalitzat d'adreces usant un d'aquests tres mètodes: ">
 <!ENTITY torsettings.bridgeHelp2Heading "A través del web">
 <!ENTITY torsettings.bridgeHelp2 "Utilitza un navegador web o vés a: https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "A través del mail d'autorresposta.">
-<!ENTITY torsettings.bridgeHelp3.emailDesc "Send email to bridges@torproject.org with the line 'get bridges' by itself in the body of the message.&#160; However, to make it harder for an attacker to learn a lot of bridge addresses, you must send this request from one of the following email providers (listed in order of preference):">
-<!ENTITY torsettings.bridgeHelp3.emailList "https://www.riseup.net, https://mail.google.com, or https://mail.yahoo.com">
+<!ENTITY torsettings.bridgeHelp3.emailDesc "Envieu un e-mail a bridges@torproject.org només amb el text 'get bridges' al cos del missatge.&#160; No obstant, per a fer més difícil per a l'atacant d'aprendre moltes adreces pont, heu d'enviar aquesta petició des d'un dels proveïdors de correu següents (llistats en ordre de preferència):">
+<!ENTITY torsettings.bridgeHelp3.emailList "https://www.riseup.net, https://mail.google.com, o https://mail.yahoo.com">
 <!ENTITY torsettings.bridgeHelp4Heading "A través del Escriptori d'Ajuda">
 <!ENTITY torsettings.bridgeHelp4 "Com a última opció, pots demanar adreces de repetidors enviant un missatge a help@rt.torproject.org.&#160; siusplau recorda que serà una persona qui et respondrà, siguis pacient i amable.">
