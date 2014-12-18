@@ -692,9 +692,8 @@ TorProcessService.prototype =
                           .getService(Ci.nsIXULAppInfo);
           if (appInfo.ID == this.kThunderbirdID || appInfo.ID == this.kInstantbirdID)
           {
-            // For Thunderbird and Instantbird, paths are relative to this extension's folder.
             topDir = Cc["@mozilla.org/file/directory_service;1"]
-                       .getService(Ci.nsIProperties).get("ProfD", Ci.nsIFile);
+                       .getService(Ci.nsIProperties).get("CurProcD", Ci.nsIFile);
             topDir.append("extensions");
             topDir.append(this.kTorLauncherExtPath);
           }
