@@ -8,8 +8,8 @@
 <!ENTITY torSettings.no "Nu">
 
 <!ENTITY torSettings.firstQuestion "Care din următoarele descrie cel mai bine situația dvs?">
-<!ENTITY torSettings.configurePrompt1 "This computer's Internet connection is censored or proxied.">
-<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or proxy settings.">
+<!ENTITY torSettings.configurePrompt1 "Această conexiune la internet a computerului este cenzurată sau prin proxy.">
+<!ENTITY torSettings.configurePrompt2 "Trebuie să configurez puntea sau configurări proxy.">
 <!ENTITY torSettings.configure "Configuraţi ">
 <!ENTITY torSettings.connectPrompt2 "Vreau sa ma conectez direct la reţeaua Tor .">
 <!ENTITY torSettings.connectPrompt3 "Aceasta funcționează în cele mai multe situații.">
@@ -56,7 +56,7 @@
 <!ENTITY torsettings.bridgeHelp2Heading "Prin Web">
 <!ENTITY torsettings.bridgeHelp2 "Folosiți un webbrowser pentru a vizita https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "Prin email automat">
-<!ENTITY torsettings.bridgeHelp3.emailDesc "Send email to bridges@torproject.org with the line 'get bridges' by itself in the body of the message.&#160; However, to make it harder for an attacker to learn a lot of bridge addresses, you must send this request from one of the following email providers (listed in order of preference):">
-<!ENTITY torsettings.bridgeHelp3.emailList "https://www.riseup.net, https://mail.google.com, or https://mail.yahoo.com">
+<!ENTITY torsettings.bridgeHelp3.emailDesc "Trimiteți email la bridges@torproject.org cu linia 'get bridges' inclusă în contextul message.&#160; Totuși, pentru a face dificil unui atacator să învețe cât mai multe adrese de punți, trebuie să trimiteți această cerere de la unul dintre următorii furnizori de servicii email (listați în ordinea preferinței):">
+<!ENTITY torsettings.bridgeHelp3.emailList "https://www.riseup.net, https://mail.google.com, sau https://mail.yahoo.com">
 <!ENTITY torsettings.bridgeHelp4Heading "Prin Help Desk">
 <!ENTITY torsettings.bridgeHelp4 "Ca o ultimă soluție, puteți cere adrese de punți trimițînd un email politicos la help@rt.torproject.org.&#160; Remarcați că o persoană trebuie să răspundă la fiecare cerere.">

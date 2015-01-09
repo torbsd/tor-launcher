@@ -8,8 +8,8 @@
 <!ENTITY torSettings.no "Não">
 
 <!ENTITY torSettings.firstQuestion "Quais opções descrevem melhor a sua situação?">
-<!ENTITY torSettings.configurePrompt1 "A conexão internet deste computador encontra-se sob censura ou proxy.">
-<!ENTITY torSettings.configurePrompt2 "É preciso configurar bridge ou ">
+<!ENTITY torSettings.configurePrompt1 "A conexão Internet deste computador foi censurada, filtrada ou limitada por um proxy.">
+<!ENTITY torSettings.configurePrompt2 "Preciso configurar bridge ou configurações de proxy.">
 <!ENTITY torSettings.configure "Configurar">
 <!ENTITY torSettings.connectPrompt2 "Eu gostaria de me conectar diretamente à rede Tor.">
 <!ENTITY torSettings.connectPrompt3 "Isso funcionará na maioria dos casos.">

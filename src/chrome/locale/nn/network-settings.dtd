@@ -12,7 +12,7 @@
 <!ENTITY torSettings.configurePrompt2 "I need to configure bridge or proxy settings.">
 <!ENTITY torSettings.configure "Configure">
 <!ENTITY torSettings.connectPrompt2 "Eg vil kopla til direkte til Tor-nettverket.">
-<!ENTITY torSettings.connectPrompt3 "This will work in most situations.">
+<!ENTITY torSettings.connectPrompt3 "Dette vil fungera i dei fleste høve">
 <!ENTITY torSettings.connect "Kopla til">
 
 <!ENTITY torSettings.proxyQuestion "Does this computer need to use a proxy to access the Internet?">

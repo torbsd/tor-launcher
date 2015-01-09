@@ -57,7 +57,7 @@
 <!ENTITY torsettings.bridgeHelp2Heading "از طریق اینترنت">
 <!ENTITY torsettings.bridgeHelp2 "با استفاده از یک مرورگر به آدرس https://bridges.torproject.org بروید.">
 <!ENTITY torsettings.bridgeHelp3Heading "از طریق آدرس ایمیل پاسخگوی خودکار">
-<!ENTITY torsettings.bridgeHelp3.emailDesc "Send email to bridges@torproject.org with the line 'get bridges' by itself in the body of the message.&#160; However, to make it harder for an attacker to learn a lot of bridge addresses, you must send this request from one of the following email providers (listed in order of preference):">
+<!ENTITY torsettings.bridgeHelp3.emailDesc "یک ایمیل حاوی عبارت 'get bridges' به آدرس bridges@torproject.org ارسال کنید.&#160; هر چند ، برای اینکه بتوانیم یادگیری آدرس بسیاری از پل‌ها را برای مهاجم سخت‌تر کنیم ، می‌بایست این درخواست را از یکی از سرویس دهنده‌های ایمیل زیر بفرستید ( ذکر شده به ترتیب اولویت ) :">
 <!ENTITY torsettings.bridgeHelp3.emailList "https://www.riseup.net, https://mail.google.com, یا https://mail.yahoo.com">
 <!ENTITY torsettings.bridgeHelp4Heading "از طریق واحد کمک رسانی">
 <!ENTITY torsettings.bridgeHelp4 "اگر از طریق هیچ کدام از راه حل های فوق به نتیجه نرسیدید، یک درخواست مودبانه به آدرس help@rt.torproject.org ارسال کنید.&#160; در نظر داشته باشید که یک نفر باید ایمیل شما را بخواند و به آن پاسخ دهد. پس صبور باشید.">

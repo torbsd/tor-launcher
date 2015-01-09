@@ -8,7 +8,7 @@
 <!ENTITY torSettings.no "Hayır">
 
 <!ENTITY torSettings.firstQuestion "Aşağıdakilerden hangisi durumunuzu en iyi açıklıyor?">
-<!ENTITY torSettings.configurePrompt1 "Bu bilgisayarın internet bağlantısı sansürlü veya vekil sunucu arkasında.">
+<!ENTITY torSettings.configurePrompt1 "Bu bilgisayarın İnternet bağlantısı sansürlü veya vekil sunucu arkasında.">
 <!ENTITY torSettings.configurePrompt2 "Köprü veya vekil sunucu ayarlarını yapılandırmam gerekli.">
 <!ENTITY torSettings.configure "Yapılandır">
 <!ENTITY torSettings.connectPrompt2 "Doğrudan Tor ağına bağlanmak istiyorum">
@@ -17,10 +17,10 @@
 
 <!ENTITY torSettings.proxyQuestion "Bu bilgisayarın İnternete erişirken bir vekil kullanması gerekiyor mu?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "Eğer bu soruyu nasıl yanıtlayacağınızdan emin değilseniz, farklı bir tarayıcıda İnternet seçeneklerine bakın ve bir vekil kullanmak üzere yapılandırılıp yapılandırılmadığına bakın">
+<!ENTITY torSettings.proxyHelp "Eğer bu soruyu nasıl yanıtlayacağınızdan emin değilseniz, farklı bir tarayıcıda İnternet seçeneklerine bakın ve bir vekil kullanmak üzere yapılandırılıp yapılandırılmadığını denetleyin.">
 <!ENTITY torSettings.enterProxy "Vekil ayarlarını girin.">
 <!ENTITY torSettings.bridgeQuestion "İnternet Servis Sağlayıcınız (ISS) Tor Ağına bağlantıları engelliyor veya sansürlüyor mu?">
-<!ENTITY torSettings.bridgeHelp "Bu soruyu nasıl cevaplayacağınızdan emin değilseniz Hayır'ı Seçin.&#160; Eğer Evet'i seçerseniz, Tor Ağına bağlantıyı engellemeyi daha zor hale getiren listelenmeyen aynalar olan Tor Köprülerini yapılandırmanız istenecektir.">
+<!ENTITY torSettings.bridgeHelp "Bu soruyu nasıl cevaplayacağınızdan emin değilseniz Hayır'ı Seçin.&#160; Evet'i seçerseniz, Tor Ağına bağlantıyı engellemeyi daha zor hale getiren listelenmeyen aynalar olan Tor Köprülerini yapılandırmanız istenecektir.">
 <!ENTITY torSettings.bridgeSettingsPrompt "Sağlanan köprülerin kümesini kullanabilirsiniz veya özel bir köprü seti girebilir veya sağlayabilirsiniz.">
 
 <!-- Other: -->

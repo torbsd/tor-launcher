@@ -1,4 +1,4 @@
-<!ENTITY torprogress.dialog.title "Tor Status">
-<!ENTITY torprogress.openSettings "Open Settings">
-<!ENTITY torprogress.heading "Connecting to the Tor network">
-<!ENTITY torprogress.pleaseWait "Please wait while we establish a connection to the Tor network.">
+<!ENTITY torprogress.dialog.title "Tor Statusu">
+<!ENTITY torprogress.openSettings "Parametrləri aç">
+<!ENTITY torprogress.heading "Tor şəbəkəsinə qoşulur">
+<!ENTITY torprogress.pleaseWait "Zəhmət olmasa biz Tor şəbəkəsini quraşdiranadək gözləyin.">

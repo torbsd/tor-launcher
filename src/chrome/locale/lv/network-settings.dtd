@@ -1,4 +1,4 @@
-<!ENTITY torsettings.dialog.title "Tīkla Tor iestatījumi">
+<!ENTITY torsettings.dialog.title "Tor tīkla iestatījumi">
 
 <!-- For "first run" wizard: -->
 
@@ -8,8 +8,8 @@
 <!ENTITY torSettings.no "Nē">
 
 <!ENTITY torSettings.firstQuestion "Kura situācija vislabāk atbilst jūsējai?">
-<!ENTITY torSettings.configurePrompt1 "This computer's Internet connection is censored or proxied.">
-<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or proxy settings.">
+<!ENTITY torSettings.configurePrompt1 "Datora savienojums ar internetu ir cenzēts vai starpniekots.">
+<!ENTITY torSettings.configurePrompt2 "Man jākonfigurē tiltu vai starpniekserveru iestatījumi.">
 <!ENTITY torSettings.configure "Konfigurēt">
 <!ENTITY torSettings.connectPrompt2 "Es vēlos tieši pieslēgties tīklam Tor.">
 <!ENTITY torSettings.connectPrompt3 "Šis strādās vairumā gadījumu.">
@@ -56,7 +56,7 @@
 <!ENTITY torsettings.bridgeHelp2Heading "Caur tīmekli">
 <!ENTITY torsettings.bridgeHelp2 "Izmanto pārlūkprogrammu lai apmeklētu https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "Caur E-pasta Auto-atbildētāju">
-<!ENTITY torsettings.bridgeHelp3.emailDesc "Send email to bridges@torproject.org with the line 'get bridges' by itself in the body of the message.&#160; However, to make it harder for an attacker to learn a lot of bridge addresses, you must send this request from one of the following email providers (listed in order of preference):">
-<!ENTITY torsettings.bridgeHelp3.emailList "https://www.riseup.net, https://mail.google.com, or https://mail.yahoo.com">
+<!ENTITY torsettings.bridgeHelp3.emailDesc "Sūtiet e-pastu uz bridges@torproject.org ar rindu 'get bridges' ziņojuma tekstā.&#160; Taču, lai uzbrucējam būtu sarežģītāk uzzināt daudz tiltu adrešu, Jums jāsūta šis pieprasījums no kāda no šo e-pasta pakalpojumu sniedzēju e-pastiem (uzskatītiem vēlamās izvēles kārtībā):">
+<!ENTITY torsettings.bridgeHelp3.emailList "https://www.riseup.net, https://mail.google.com vai https://mail.yahoo.com">
 <!ENTITY torsettings.bridgeHelp4Heading "Caur Palīdzības Centru">
 <!ENTITY torsettings.bridgeHelp4 "Pēdējās instances palīdzība tiltu adrešu pieprasījumiem ir sūtīt pieklājīgu e-pasta adresi uz help@rt.torproject.org.&#160; Lūdzu, ņemiet vērā, ka ikvienu pieprasījumu izskata cilvēks.">

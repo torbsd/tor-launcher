@@ -1,4 +1,4 @@
-<!ENTITY torsettings.dialog.title "Tor Network Settings">
+<!ENTITY torsettings.dialog.title "Tor tinklo parametrai">
 
 <!-- For "first run" wizard: -->
 
@@ -7,7 +7,7 @@
 <!ENTITY torSettings.yes "Taip">
 <!ENTITY torSettings.no "Ne">
 
-<!ENTITY torSettings.firstQuestion "Which of the following best describes your situation?">
+<!ENTITY torSettings.firstQuestion "Kuris iš žemiau pateiktų apibrėžimų labiausiai atspindi Jūsų padėtį?">
 <!ENTITY torSettings.configurePrompt1 "This computer's Internet connection is censored or proxied.">
 <!ENTITY torSettings.configurePrompt2 "I need to configure bridge or proxy settings.">
 <!ENTITY torSettings.configure "Configure">
@@ -26,7 +26,7 @@
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "Waiting for Tor to start…">
-<!ENTITY torsettings.restartTor "Restart Tor">
+<!ENTITY torsettings.restartTor "Pakartotinai paleisti Tor">
 
 <!ENTITY torsettings.optional "Optional">
 

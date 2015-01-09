@@ -2,20 +2,20 @@
 
 <!-- For "first run" wizard: -->
 
-<!ENTITY torsettings.prompt "Before you connect to the Tor network, you need to provide information about this computer's Internet connection.">
+<!ENTITY torsettings.prompt "Bago ka maka-connect sa Tor network, kailangan mong mag-bigay ng impormasyon tungkol sa koneksyon sa Internet ng kompyuter na ito. ">
 
 <!ENTITY torSettings.yes "Oo">
 <!ENTITY torSettings.no "Wala">
 
-<!ENTITY torSettings.firstQuestion "Which of the following best describes your situation?">
+<!ENTITY torSettings.firstQuestion "Alin dito ang pinaka angkop na nagsasaad ng iyong sitwasyon?">
 <!ENTITY torSettings.configurePrompt1 "This computer's Internet connection is censored or proxied.">
-<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or proxy settings.">
+<!ENTITY torSettings.configurePrompt2 "Kailangan kong i-configure ang bridge o proxy settings">
 <!ENTITY torSettings.configure "Configure">
 <!ENTITY torSettings.connectPrompt2 "I would like to connect directly to the Tor network.">
 <!ENTITY torSettings.connectPrompt3 "This will work in most situations.">
 <!ENTITY torSettings.connect "Makipag-ugnay">
 
-<!ENTITY torSettings.proxyQuestion "Does this computer need to use a proxy to access the Internet?">
+<!ENTITY torSettings.proxyQuestion "Kailangan ba ng kompyuter na ito na gumamit ng proxy upang makagamit ng Internet?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
 <!ENTITY torSettings.proxyHelp "If you are not sure how to answer this question, look at the Internet settings in another browser to see whether it is configured to use a proxy.">
 <!ENTITY torSettings.enterProxy "Enter the proxy settings.">
@@ -26,7 +26,7 @@
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "Waiting for Tor to start…">
-<!ENTITY torsettings.restartTor "Restart Tor">
+<!ENTITY torsettings.restartTor "I-restart ang Tor">
 
 <!ENTITY torsettings.optional "Optional">
 

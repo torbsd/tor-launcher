@@ -1,4 +1,4 @@
 <!ENTITY torprogress.dialog.title "מצב Tor">
 <!ENTITY torprogress.openSettings "פתח הגדרות">
 <!ENTITY torprogress.heading "מתחבר כעת אל רשת Tor">
-<!ENTITY torprogress.pleaseWait "Please wait while we establish a connection to the Tor network.">
+<!ENTITY torprogress.pleaseWait "בבקשה המתן בזמן שאנחנו יוצרים חיבור לרשת ה-Tor">

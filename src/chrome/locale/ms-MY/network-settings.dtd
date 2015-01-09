@@ -2,7 +2,7 @@
 
 <!-- For "first run" wizard: -->
 
-<!ENTITY torsettings.prompt "Before you connect to the Tor network, you need to provide information about this computer's Internet connection.">
+<!ENTITY torsettings.prompt "Sebelum anda menyambung ke jaringan Tor, anda mestilah memberi maklumat tentang talian internet komputer ini terlebih dahulu.">
 
 <!ENTITY torSettings.yes "Ya">
 <!ENTITY torSettings.no "Tidak">

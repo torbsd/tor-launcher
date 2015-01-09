@@ -4,7 +4,7 @@
 
 <!ENTITY torsettings.prompt "Before you connect to the Tor network, you need to provide information about this computer's Internet connection.">
 
-<!ENTITY torSettings.yes "Yes">
+<!ENTITY torSettings.yes "Jes">
 <!ENTITY torSettings.no "Ne">
 
 <!ENTITY torSettings.firstQuestion "Which of the following best describes your situation?">
@@ -13,7 +13,7 @@
 <!ENTITY torSettings.configure "Configure">
 <!ENTITY torSettings.connectPrompt2 "I would like to connect directly to the Tor network.">
 <!ENTITY torSettings.connectPrompt3 "This will work in most situations.">
-<!ENTITY torSettings.connect "Connect">
+<!ENTITY torSettings.connect "Konekti">
 
 <!ENTITY torSettings.proxyQuestion "Does this computer need to use a proxy to access the Internet?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
@@ -26,7 +26,7 @@
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "Waiting for Tor to start…">
-<!ENTITY torsettings.restartTor "Restart Tor">
+<!ENTITY torsettings.restartTor "Restartigi Tor">
 
 <!ENTITY torsettings.optional "Optional">
 
@@ -36,7 +36,7 @@
 <!ENTITY torsettings.useProxy.address.placeholder "IP address or hostname">
 <!ENTITY torsettings.useProxy.port "Pordo:">
 <!ENTITY torsettings.useProxy.username "Username:">
-<!ENTITY torsettings.useProxy.password "Password:">
+<!ENTITY torsettings.useProxy.password "Pasvorto:">
 <!ENTITY torsettings.useProxy.type.socks4 "SOCKS 4">
 <!ENTITY torsettings.useProxy.type.socks5 "SOCKS 5">
 <!ENTITY torsettings.useProxy.type.http "HTTP / HTTPS">

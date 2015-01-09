@@ -8,8 +8,8 @@
 <!ENTITY torSettings.no "아니오">
 
 <!ENTITY torSettings.firstQuestion "어떤 것이 귀하의 상황에 가깝습니까?">
-<!ENTITY torSettings.configurePrompt1 "This computer's Internet connection is censored or proxied.">
-<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or proxy settings.">
+<!ENTITY torSettings.configurePrompt1 "이 컴퓨터의 인터넷 연결은 검열되어 있거나 프록시를 통합니다.">
+<!ENTITY torSettings.configurePrompt2 "브릿지 또는 프록시 설정을 구성해야 합니다.">
 <!ENTITY torSettings.configure "구성">
 <!ENTITY torSettings.connectPrompt2 "Tor 네트워크에 직접 연결하고 싶습니다.">
 <!ENTITY torSettings.connectPrompt3 "이것은 대부분의 상황에서 동작합니다">
@@ -56,7 +56,7 @@
 <!ENTITY torsettings.bridgeHelp2Heading "웹을 통해">
 <!ENTITY torsettings.bridgeHelp2 "https://bridges.torproject.org 를 방문하십시오.">
 <!ENTITY torsettings.bridgeHelp3Heading "메일 자동 응답 시스템을 통해">
-<!ENTITY torsettings.bridgeHelp3.emailDesc "Send email to bridges@torproject.org with the line 'get bridges' by itself in the body of the message.&#160; However, to make it harder for an attacker to learn a lot of bridge addresses, you must send this request from one of the following email providers (listed in order of preference):">
-<!ENTITY torsettings.bridgeHelp3.emailList "https://www.riseup.net, https://mail.google.com, or https://mail.yahoo.com">
+<!ENTITY torsettings.bridgeHelp3.emailDesc "공개 브릿지 주소를 찾는 또 하나의 방법은 본문에 'get bridges'라고 적은 E-mail을 bridges@torproject.org 앞으로 보내는 것입니다.&#160; 단, 브릿지 주소를 크래커들이 수집하기 어렵게 하기 위해  아래의 이메일(우선순위대로 기재되어 있음)으로 보내주시면 감사하겠습니다.">
+<!ENTITY torsettings.bridgeHelp3.emailList "https://www.riseup.net, https://mail.google.com, 또는 https://mail.yahoo.com">
 <!ENTITY torsettings.bridgeHelp4Heading "헬프 데스크를 통해">
 <!ENTITY torsettings.bridgeHelp4 "최후의 수단으로 help@rt.torproject.org에 정중 한 메일 메시지를 보내 브릿지 주소를 요청할 수 있습니다.&#160; 사람이 각 요청에 대응할 필요가 있다는 점에 주의해주십시오">

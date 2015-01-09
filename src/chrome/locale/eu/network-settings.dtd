@@ -2,14 +2,14 @@
 
 <!-- For "first run" wizard: -->
 
-<!ENTITY torsettings.prompt "Before you connect to the Tor network, you need to provide information about this computer's Internet connection.">
+<!ENTITY torsettings.prompt "Tor sarera konektatu baino lehen, ordenagailu honen Interneteko konexioari buruzko informazioa eman behar duzu.">
 
 <!ENTITY torSettings.yes "Bai">
 <!ENTITY torSettings.no "Ez">
 
 <!ENTITY torSettings.firstQuestion "Hurrengoetako zeinek deskribatzen du zure egoera hobekien?">
-<!ENTITY torSettings.configurePrompt1 "This computer's Internet connection is censored or proxied.">
-<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or proxy settings.">
+<!ENTITY torSettings.configurePrompt1 "Ordenagailu honen Interneteko konexioa zentsuratuta dago edo proxy batetik igarotzen da.">
+<!ENTITY torSettings.configurePrompt2 "Zubi edo proxy ezarpenak konfiguratu behar ditut.">
 <!ENTITY torSettings.configure "Konfiguratu">
 <!ENTITY torSettings.connectPrompt2 "Tor sarera zuzenean konektatu nahiko nuke.">
 <!ENTITY torSettings.connectPrompt3 "Hau egoera gehienetan funtzionatuko du.">
@@ -19,9 +19,9 @@
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
 <!ENTITY torSettings.proxyHelp "Galdera hau nola erantzuteaz zalantzan bazaude, begiratu beste nabigatzaile batean Interneteko ezarpenak proxy bat erabiltzeko konfiguratuta dagoen ikusteko.">
 <!ENTITY torSettings.enterProxy "Sartu proxy ezarpenak.">
-<!ENTITY torSettings.bridgeQuestion "Does your Internet Service Provider (ISP) block or otherwise censor connections to the Tor Network?">
-<!ENTITY torSettings.bridgeHelp "If you are not sure how to answer this question, choose No.&#160; If you choose Yes, you will be asked to configure Tor Bridges, which are unlisted relays that make it more difficult to block connections to the Tor Network.">
-<!ENTITY torSettings.bridgeSettingsPrompt "You may use the provided set of bridges or you may obtain and enter a custom set of bridges.">
+<!ENTITY torSettings.bridgeQuestion "Zure Interneteko Zerbitzu Hornitzaileak (ISP ingeleraz) Tor sarera doazen konexioak blokeatu edo zentsuratu egiten ditu?">
+<!ENTITY torSettings.bridgeHelp "Galdera hau nola erantzuteaz ziur ez bazaude, aukeratu Ez.&#160; Bai aukeratzen baduzu, Tor zubiak konfigura ditzazun eskatuko zaizu, hau da zerrendatuta ez dauden eta Tor sarera doazen konexioak blokeatzea zailago egiten duten erreleak.">
+<!ENTITY torSettings.bridgeSettingsPrompt "Emandako zubi taldea erabili dezakezu edo zubi talde pertsonalizatua eskuratu eta sar dezakezu.">
 
 <!-- Other: -->
 
@@ -43,20 +43,20 @@
 <!ENTITY torsettings.firewall.checkbox "Ordenagailu honek ataka zehatz batzuetara bakarrik konektatzea baimentzen duen sueten baten zehar doa">
 <!ENTITY torsettings.firewall.allowedPorts "Baimendutako atakak:">
 <!ENTITY torsettings.useBridges.checkbox "Nire Internet Zerbitzu Hornitzaileak (ISP ingeleraz) Tor sarera konektatzea blokeatzen dit.">
-<!ENTITY torsettings.useBridges.default "Connect with provided bridges">
-<!ENTITY torsettings.useBridges.type "Transport type:">
-<!ENTITY torsettings.useBridges.custom "Enter custom bridges">
+<!ENTITY torsettings.useBridges.default "Emandako zubiekin konektatu">
+<!ENTITY torsettings.useBridges.type "Garraio mota:">
+<!ENTITY torsettings.useBridges.custom "Sartu zubi pertsonalizatuak">
 <!ENTITY torsettings.useBridges.label "Sartu zubi errele bat edo gehiago (bat lerro bakoitzeko).">
-<!ENTITY torsettings.useBridges.placeholder "type address:port">
+<!ENTITY torsettings.useBridges.placeholder "helbidea:ataka">
 
 <!ENTITY torsettings.copyLog "Kopiatu Tor erregistroa arbelera">
 <!ENTITY torsettings.bridgeHelpTitle "Zubi errele laguntza">
 <!ENTITY torsettings.bridgeHelp1 "Tor sarera konektatu ezin bazara, baliteke zure Internet Zerbitzu Hornitzaileak (ISP ingeleraz) edo beste agentziaren batek Tor blokeatzen egotea.&#160; Askotan, arazo honen inguruan Tor zubiak, ezkutatuta dauden eta blokeatzeko zailagoak diren erreleak erabiliz lan egin dezakezu.">
-<!ENTITY torsettings.bridgeHelp1B "You may use the preconfigured, provided set of bridge addresses or you may obtain a custom set of addresses by using one of these three methods:">
+<!ENTITY torsettings.bridgeHelp1B "Aurrez konfiguratutako, emandako zubi taldea erabili dezakezu, edo zubi talde pertsonalizatua eskuratu dezakezu hurrengo hiru metodoetako bat aukeratuz: ">
 <!ENTITY torsettings.bridgeHelp2Heading "Webean bidez">
 <!ENTITY torsettings.bridgeHelp2 "Erabili ezazu web nabigatzaile bat https://bridges.torproject.org bisitatzeko">
 <!ENTITY torsettings.bridgeHelp3Heading "Email erantzule automatikoaren bidez">
-<!ENTITY torsettings.bridgeHelp3.emailDesc "Send email to bridges@torproject.org with the line 'get bridges' by itself in the body of the message.&#160; However, to make it harder for an attacker to learn a lot of bridge addresses, you must send this request from one of the following email providers (listed in order of preference):">
+<!ENTITY torsettings.bridgeHelp3.emailDesc "Bidali ezazu mezu bat bridges@torproject.org-era mezuaren gorputzean 'get bridges' esaldiarekin.&#160; Hala ere, erasotzaile batentzat zubi helbide asko ikastea zailago izan dadin, eskakizun hau hurrengo domeinuetako eposta helbide batetik bidali behar duzu (lehentasunaren arabera zerrendatuta):">
 <!ENTITY torsettings.bridgeHelp3.emailList "https://www.riseup.net, https://mail.google.com, or https://mail.yahoo.com">
 <!ENTITY torsettings.bridgeHelp4Heading "Laguntza mahaiaren bidez">
 <!ENTITY torsettings.bridgeHelp4 "Azken aukera bezala, zubi erreleak eska ditzakezu mezu adeitsu bat help@rt.torproject.org-era bidaliz.&#160; Mesedez, kontuan izan pertsona batek eskarea bakoitza erantzun beharko duela.">

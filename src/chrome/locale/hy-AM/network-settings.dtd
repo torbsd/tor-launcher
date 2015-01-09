@@ -5,7 +5,7 @@
 <!ENTITY torsettings.prompt "Before you connect to the Tor network, you need to provide information about this computer's Internet connection.">
 
 <!ENTITY torSettings.yes "Yes">
-<!ENTITY torSettings.no "No">
+<!ENTITY torSettings.no "Ոչ">
 
 <!ENTITY torSettings.firstQuestion "Which of the following best describes your situation?">
 <!ENTITY torSettings.configurePrompt1 "This computer's Internet connection is censored or proxied.">

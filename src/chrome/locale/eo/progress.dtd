@@ -1,4 +1,4 @@
-<!ENTITY torprogress.dialog.title "Tor Status">
-<!ENTITY torprogress.openSettings "Open Settings">
+<!ENTITY torprogress.dialog.title "Stato de Tor">
+<!ENTITY torprogress.openSettings "Malfermi agordojn">
 <!ENTITY torprogress.heading "Konektante al Tor-reto">
-<!ENTITY torprogress.pleaseWait "Please wait while we establish a connection to the Tor network.">
+<!ENTITY torprogress.pleaseWait "Bonvolu atendi ĝis kiam ni ne starigos konekton al la Tor-reto.">

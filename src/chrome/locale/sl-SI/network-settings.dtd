@@ -1,62 +1,62 @@
-<!ENTITY torsettings.dialog.title "Tor Network Settings">
+<!ENTITY torsettings.dialog.title "Tor mrežne nastavitve">
 
 <!-- For "first run" wizard: -->
 
-<!ENTITY torsettings.prompt "Before you connect to the Tor network, you need to provide information about this computer's Internet connection.">
+<!ENTITY torsettings.prompt "Preden se povežete na Tor omrežje, si morate priskrbeti informacije o tej računalniški internet povezavi.">
 
-<!ENTITY torSettings.yes "Yes">
-<!ENTITY torSettings.no "No">
+<!ENTITY torSettings.yes "Da">
+<!ENTITY torSettings.no "Ne">
 
-<!ENTITY torSettings.firstQuestion "Which of the following best describes your situation?">
-<!ENTITY torSettings.configurePrompt1 "This computer's Internet connection is censored or proxied.">
-<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or proxy settings.">
-<!ENTITY torSettings.configure "Configure">
-<!ENTITY torSettings.connectPrompt2 "I would like to connect directly to the Tor network.">
-<!ENTITY torSettings.connectPrompt3 "This will work in most situations.">
-<!ENTITY torSettings.connect "Connect">
+<!ENTITY torSettings.firstQuestion "Kaj od sledečega najbolj ustzrezno opisuje vašo situacijo?">
+<!ENTITY torSettings.configurePrompt1 "Ta računalniška internet povezava je cenzurirana ali neposredna.">
+<!ENTITY torSettings.configurePrompt2 "Nastaviti moram premostitev ali nastavitev proxi-ja.">
+<!ENTITY torSettings.configure "Oblikovanje">
+<!ENTITY torSettings.connectPrompt2 "Hočem se neposredno povezati na Tor omrežje.">
+<!ENTITY torSettings.connectPrompt3 "To deluje v večini primerov.">
+<!ENTITY torSettings.connect "Povezava">
 
-<!ENTITY torSettings.proxyQuestion "Does this computer need to use a proxy to access the Internet?">
+<!ENTITY torSettings.proxyQuestion "Ali ta računalnik rabi proxy za vstop na internet?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "If you are not sure how to answer this question, look at the Internet settings in another browser to see whether it is configured to use a proxy.">
-<!ENTITY torSettings.enterProxy "Enter the proxy settings.">
-<!ENTITY torSettings.bridgeQuestion "Does your Internet Service Provider (ISP) block or otherwise censor connections to the Tor Network?">
-<!ENTITY torSettings.bridgeHelp "If you are not sure how to answer this question, choose No.&#160; If you choose Yes, you will be asked to configure Tor Bridges, which are unlisted relays that make it more difficult to block connections to the Tor Network.">
-<!ENTITY torSettings.bridgeSettingsPrompt "You may use the provided set of bridges or you may obtain and enter a custom set of bridges.">
+<!ENTITY torSettings.proxyHelp "Če niste prepričani za odgovor, poglejte internetne nastavitve v drugem brskalniku, da vidite, ali je nastavljen tako, da uporabljate proxy.">
+<!ENTITY torSettings.enterProxy "Vnesite nastavitve strežnika proxy.">
+<!ENTITY torSettings.bridgeQuestion "Ali vaš internetni ponudnik (ISP) blokira ali kako drugače cenzurira povezavo na Tor omrežje?">
+<!ENTITY torSettings.bridgeHelp "Če niste prepričani kako odgovoriti na to vprašanje, izberite Ne.&#160; Če ste izbrali Da, boste morali nastaviti Tor premostitve na nenašteta vozlišča, za težje blokiranje povezave na Tor omrežje.">
+<!ENTITY torSettings.bridgeSettingsPrompt "Lahko uporabite pripravljene nastavitve povezav ali pridobite in vnesete običajne nastavitve povezav.">
 
 <!-- Other: -->
 
-<!ENTITY torsettings.startingTor "Waiting for Tor to start…">
-<!ENTITY torsettings.restartTor "Restart Tor">
+<!ENTITY torsettings.startingTor "Čakanje na zagon Tor-a...">
+<!ENTITY torsettings.restartTor "Ponovno zaženite Tor">
 
-<!ENTITY torsettings.optional "Optional">
+<!ENTITY torsettings.optional "Po izbiri">
 
-<!ENTITY torsettings.useProxy.checkbox "This computer needs to use a proxy to access the Internet">
-<!ENTITY torsettings.useProxy.type "Proxy Type:">
-<!ENTITY torsettings.useProxy.address "Address:">
-<!ENTITY torsettings.useProxy.address.placeholder "IP address or hostname">
-<!ENTITY torsettings.useProxy.port "Port:">
-<!ENTITY torsettings.useProxy.username "Username:">
-<!ENTITY torsettings.useProxy.password "Password:">
+<!ENTITY torsettings.useProxy.checkbox "Računalnik rabi uporabo proxy-ja za dostop na internet">
+<!ENTITY torsettings.useProxy.type "Proxy tip:">
+<!ENTITY torsettings.useProxy.address "Naslov:">
+<!ENTITY torsettings.useProxy.address.placeholder "IP naslov ali ime domene">
+<!ENTITY torsettings.useProxy.port "Vhod:">
+<!ENTITY torsettings.useProxy.username "Uporabniško ime:">
+<!ENTITY torsettings.useProxy.password "Geslo:">
 <!ENTITY torsettings.useProxy.type.socks4 "SOCKS 4">
 <!ENTITY torsettings.useProxy.type.socks5 "SOCKS 5">
 <!ENTITY torsettings.useProxy.type.http "HTTP / HTTPS">
-<!ENTITY torsettings.firewall.checkbox "This computer goes through a firewall that only allows connections to certain ports">
-<!ENTITY torsettings.firewall.allowedPorts "Allowed Ports:">
-<!ENTITY torsettings.useBridges.checkbox "My Internet Service Provider (ISP) blocks connections to the Tor network">
-<!ENTITY torsettings.useBridges.default "Connect with provided bridges">
-<!ENTITY torsettings.useBridges.type "Transport type:">
-<!ENTITY torsettings.useBridges.custom "Enter custom bridges">
-<!ENTITY torsettings.useBridges.label "Enter one or more bridge relays (one per line).">
-<!ENTITY torsettings.useBridges.placeholder "type address:port">
+<!ENTITY torsettings.firewall.checkbox "Računalnik uporablja požarni zid, ki dovoljuje povezavo le na določena vrata">
+<!ENTITY torsettings.firewall.allowedPorts "Dovoljena vrata:">
+<!ENTITY torsettings.useBridges.checkbox "Moj internetni ponudnik (ISP) blokira povezave na Tor omrežje">
+<!ENTITY torsettings.useBridges.default "Povezava z ponujeno premostitvijo">
+<!ENTITY torsettings.useBridges.type "Tip prometa:">
+<!ENTITY torsettings.useBridges.custom "Vnesite običajne premostitve">
+<!ENTITY torsettings.useBridges.label "Vnesite enega ali več premostitvenih vozlišč (vsakega v svojo vrsto)">
+<!ENTITY torsettings.useBridges.placeholder "vpišite naslov:vrata">
 
-<!ENTITY torsettings.copyLog "Copy Tor Log To Clipboard">
-<!ENTITY torsettings.bridgeHelpTitle "Bridge Relay Help">
-<!ENTITY torsettings.bridgeHelp1 "If you are unable to connect to the Tor network, it could be that your Internet Service Provider (ISP) or another agency is blocking Tor.&#160; Often, you can work around this problem by using Tor Bridges, which are unlisted relays that are more difficult to block.">
-<!ENTITY torsettings.bridgeHelp1B "You may use the preconfigured, provided set of bridge addresses or you may obtain a custom set of addresses by using one of these three methods:">
-<!ENTITY torsettings.bridgeHelp2Heading "Through the Web">
-<!ENTITY torsettings.bridgeHelp2 "Use a web browser to visit https://bridges.torproject.org">
-<!ENTITY torsettings.bridgeHelp3Heading "Through the Email Autoresponder">
-<!ENTITY torsettings.bridgeHelp3.emailDesc "Send email to bridges@torproject.org with the line 'get bridges' by itself in the body of the message.&#160; However, to make it harder for an attacker to learn a lot of bridge addresses, you must send this request from one of the following email providers (listed in order of preference):">
+<!ENTITY torsettings.copyLog "Kopirajte Tor poročilo v odložišče">
+<!ENTITY torsettings.bridgeHelpTitle "Pomoč premostitveno vozlišče">
+<!ENTITY torsettings.bridgeHelp1 "Če se ne morete povezati v omrežje Tor, je mogoče, da vaš ponudnik internetnih storitev (ISP) ali druga agencija blokira Tor.&#160; Pogosto lahko to obidete s pomočjo Tor premostitvijo, na nenašteta vozlišča, za težje blokiranje.">
+<!ENTITY torsettings.bridgeHelp1B "Uporabite lahko že prednastavljen, ponujen niz premostitvenih naslovov ali pa lahko pridobite običajen set naslovov z uporabo enega od treh načinov:">
+<!ENTITY torsettings.bridgeHelp2Heading "Preko Web">
+<!ENTITY torsettings.bridgeHelp2 "Uporabite web brskalnik za obisk https://bridges.torproject.org">
+<!ENTITY torsettings.bridgeHelp3Heading "Preko poštnega avtomatskega odzivnika">
+<!ENTITY torsettings.bridgeHelp3.emailDesc "Pošljite e-pošto na bridges@torproject.org z vrstico 'get bridges' v sporočilu.&#160;Vendar pa, da otežite napadalcu učenje o vozliščnih naslovih, morate poslati ta zahtevek iz enega od naslednjih ponudnikov e-pošte (navedene po prednostnem vrstnem redu):">
 <!ENTITY torsettings.bridgeHelp3.emailList "https://www.riseup.net, https://mail.google.com, or https://mail.yahoo.com">
-<!ENTITY torsettings.bridgeHelp4Heading "Through the Help Desk">
-<!ENTITY torsettings.bridgeHelp4 "As a last resort, you can request bridge addresses by sending a polite email message to help@rt.torproject.org.&#160; Please note that a person will need to respond to each request.">
+<!ENTITY torsettings.bridgeHelp4Heading "Preko table Pomoči">
+<!ENTITY torsettings.bridgeHelp4 "Kot skrajni ukrep, lahko zahtevate premostitvene naslove s pošiljanjem olikanega e-sporočila na help@rt.torproject.org.&#160; Prosimo, upoštevajte, da dotična oseba odgovarja na vsako zahtevo.">
