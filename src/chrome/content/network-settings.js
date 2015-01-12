@@ -1,4 +1,4 @@
-// Copyright (c) 2014, The Tor Project, Inc.
+// Copyright (c) 2015, The Tor Project, Inc.
 // See LICENSE for licensing information.
 //
 // vim: set sw=2 sts=2 ts=8 et syntax=javascript:
@@ -120,6 +120,13 @@ function initDialog()
   var haveWizard = (wizardElem != null);
   if (haveWizard)
   {
+    // Hide the Tor Browser logo and associated separator element if the
+    // TOR_HIDE_BROWSER_LOGO environment variable is set.
+    let env = Cc["@mozilla.org/process/environment;1"]
+                .getService(Ci.nsIEnvironment); 
+    if (env.exists("TOR_HIDE_BROWSER_LOGO"))
+      wizardElem.setAttribute("tor_hide_browser_logo", true);
+
     // Set "Copy Tor Log" label and move it after the Quit (cancel) button.
     var copyLogBtn = document.documentElement.getButton("extra2");
     if (copyLogBtn)
