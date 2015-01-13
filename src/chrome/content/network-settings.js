@@ -123,7 +123,7 @@ function initDialog()
     // Hide the Tor Browser logo and associated separator element if the
     // TOR_HIDE_BROWSER_LOGO environment variable is set.
     let env = Cc["@mozilla.org/process/environment;1"]
-                .getService(Ci.nsIEnvironment); 
+                .getService(Ci.nsIEnvironment);
     if (env.exists("TOR_HIDE_BROWSER_LOGO"))
       wizardElem.setAttribute("tor_hide_browser_logo", true);
 
