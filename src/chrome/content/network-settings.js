@@ -248,7 +248,7 @@ function getWizard()
 
 function onWizardConfigure()
 {
-  getWizard().advance("proxy");
+  getWizard().advance("bridges");
 }
 
 
@@ -257,34 +257,51 @@ function onWizardProxyNext(aWizPage)
   if (aWizPage)
   {
     var hasProxy = getElemValue("proxyRadioYes", false);
-    aWizPage.next = (hasProxy) ? "proxyYES" : "bridges";
+    aWizPage.next = (hasProxy) ? "proxyYES" : "";
   }
 
   return true;
 }
 
 
-function onWizardUseBridgesRadioChange(aWizPage)
+function onWizardUseProxyRadioChange()
 {
   var wizard = getWizard();
-  if (!aWizPage)
-    aWizPage = wizard.currentPage;
-  if (aWizPage)
+  if (wizard && wizard.currentPage)
   {
-    var useBridges = getElemValue("bridgesRadioYes", false);
-    aWizPage.next = (useBridges) ? "bridgeSettings" : "";
-    wizard.setAttribute("lastpage", !useBridges);
+    var hasProxy = getElemValue("proxyRadioYes", false);
+    wizard.setAttribute("lastpage", !hasProxy);
     wizard._wizardButtons.onPageChange();
   }
 }
 
 
-function onWizardBridgeSettingsShow()
+function onWizardProxySettingsShow()
 {
   var wizard = getWizard();
-  wizard.setAttribute("lastpage", true);
-  wizard._wizardButtons.onPageChange();
-  var btn = document.documentElement.getButton("finish");
+  if (wizard)
+  {
+    wizard.setAttribute("lastpage", true);
+    wizard._wizardButtons.onPageChange();
+  }
+}
+
+
+function onWizardUseBridgesNext(aWizPage)
+{
+  if (aWizPage)
+  {
+    var useBridges = getElemValue("bridgesRadioYes", false);
+    aWizPage.next = (useBridges) ? "bridgeSettings" : "proxy";
+  }
+
+  return true;
+}
+
+
+function onWizardBridgeSettingsShow()
+{
+  var btn = document.documentElement.getButton("next");
   if (btn)
     btn.focus();
 }
@@ -335,10 +352,7 @@ var gObserver = {
       var haveWizard = (getWizard() != null);
       showPanel();
       if (haveWizard)
-      {
-        showOrHideButton("back", true, false);
-        showOrHideButton("next", true, false);
-      }
+        showWizardNavButtons(true);
       readTorSettings();
     }
     else if (kTorProcessDidNotStartTopic == aTopic)
@@ -400,8 +414,8 @@ function readTorSettings()
   try
   {
     // TODO: retrieve > 1 key at one time inside initProxySettings() et al.
-    didSucceed = initProxySettings() && initFirewallSettings() &&
-                 initBridgeSettings();
+    didSucceed = initBridgeSettings() &&
+                 initProxySettings() && initFirewallSettings();
   }
   catch (e) { TorLauncherLogger.safelog(4, "Error in readTorSettings: ", e); }
 
@@ -437,6 +451,9 @@ function showPanel(aPanelID)
   else if (wizard.currentPage.pageid != aPanelID)
     wizard.goTo(aPanelID);
 
+  if (wizard && (aPanelID == "first"))
+    setTimeout( function() { showWizardNavButtons(false); }, 0);
+
   showOrHideButton("accept", (aPanelID == "settings"), true);
 }
 
@@ -466,10 +483,7 @@ function showStartingTorPanel()
 {
   var haveWizard = (getWizard() != null);
   if (haveWizard)
-  {
-    showOrHideButton("back", false, false);
-    showOrHideButton("next", false, false);
-  }
+    showWizardNavButtons(false);
 
   showPanel("startingTor");
 }
@@ -505,10 +519,7 @@ function showErrorMessage(aTorExited, aErrorMsg)
 
   var haveWizard = (getWizard() != null);
   if (haveWizard)
-  {
-    showOrHideButton("back", false, false);
-    showOrHideButton("next", false, false);
-  }
+    showWizardNavButtons(false);
 
   var haveErrorOrWarning = (gTorProcessService.TorBootstrapErrorOccurred ||
                             gProtocolSvc.TorLogHasWarnOrErr)
@@ -969,8 +980,8 @@ function applySettings()
   var didSucceed = false;
   try
   {
-    didSucceed = applyProxySettings() && applyFirewallSettings() &&
-                 applyBridgeSettings();
+    didSucceed = applyBridgeSettings() &&
+                 applyProxySettings() && applyFirewallSettings();
   }
   catch (e) { TorLauncherLogger.safelog(4, "Error in applySettings: ", e); }
 

@@ -29,7 +29,7 @@
 
   <!-- This page requires a setTimeout for onpageshow because it may be
        shown first -->
-  <wizardpage label=" " pageid="first" next="proxy" onextra2="onCopyLog();"
+  <wizardpage pageid="first" next="proxy" onextra2="onCopyLog();"
               onpageshow="setTimeout(function() { showWizardNavButtons(false); }, 0);">
     <hbox class="tbb-header">
       <vbox class="tbb-logo-box" align="start">
@@ -54,38 +54,9 @@
     </vbox>
   </wizardpage>
 
-  <wizardpage label=" " pageid="proxy" next="bridges" onextra2="onCopyLog();"
+  <wizardpage pageid="bridges" next="proxy" onextra2="onCopyLog();"
               onpageshow="showWizardNavButtons(true);"
-              onpageadvanced="return onWizardProxyNext(this);">
-    <vbox class="tbb-logo-box" align="start">
-      <image class="tbb-logo" />
-    </vbox>
-    <separator class="tbb-logo-separator" />
-    <hbox>
-      <vbox flex="1">
-        <label class="question">&torSettings.proxyQuestion;</label>
-        <radiogroup id="proxyRadioGroup">
-          <radio id="proxyRadioYes" label="&torSettings.yes;" />
-          <radio id="proxyRadioNo" label="&torSettings.no;" selected="true" />
-        </radiogroup>
-        <description class="questionHelp">&torSettings.proxyHelp;
-        </description>
-      </vbox>
-    </hbox>
-  </wizardpage>
-
-  <wizardpage pageid="proxyYES" next="bridges" onextra2="onCopyLog();"
-              onpageadvanced="return (getAndValidateProxySettings() != null)">
-    <vbox class="tbb-logo-box" align="start">
-      <image class="tbb-logo" />
-    </vbox>
-    <separator class="tbb-logo-separator" />
-    <label class="instructions">&torSettings.enterProxy;</label>
-    <groupbox id="proxySpecificSettings" />
-  </wizardpage>
-
-  <wizardpage pageid="bridges" onextra2="onCopyLog();"
-              onpageshow="onWizardUseBridgesRadioChange(this)">
+              onpageadvanced="return onWizardUseBridgesNext(this)">
     <vbox class="tbb-logo-box" align="start">
       <image class="tbb-logo" />
     </vbox>
@@ -93,8 +64,7 @@
     <hbox>
       <vbox flex="1">
         <label class="question">&torSettings.bridgeQuestion;</label>
-        <radiogroup id="useBridgesRadioGroup"
-                    oncommand="onWizardUseBridgesRadioChange()">
+        <radiogroup id="useBridgesRadioGroup">
           <radio id="bridgesRadioYes" label="&torSettings.yes;" />
           <radio id="bridgesRadioNo" label="&torSettings.no;" selected="true" />
         </radiogroup>
@@ -104,8 +74,8 @@
     </hbox>
   </wizardpage>
 
-  <wizardpage label=" " pageid="bridgeSettings" onextra2="onCopyLog();"
-              onpageshow="onWizardBridgeSettingsShow()">
+  <wizardpage pageid="bridgeSettings" next="proxy" onextra2="onCopyLog();"
+              onpageshow="onWizardBridgeSettingsShow();">
     <vbox class="tbb-logo-box" align="start">
       <image class="tbb-logo" />
     </vbox>
@@ -117,9 +87,41 @@
     </vbox>
   </wizardpage>
 
+  <wizardpage pageid="proxy" onextra2="onCopyLog();"
+              onpageshow="onWizardUseProxyRadioChange()"
+              onpageadvanced="return onWizardProxyNext(this);">
+    <vbox class="tbb-logo-box" align="start">
+      <image class="tbb-logo" />
+    </vbox>
+    <separator class="tbb-logo-separator" />
+    <hbox>
+      <vbox flex="1">
+        <label class="question">&torSettings.proxyQuestion;</label>
+        <radiogroup id="proxyRadioGroup"
+                    oncommand="onWizardUseProxyRadioChange()">
+          <radio id="proxyRadioYes" label="&torSettings.yes;" />
+          <radio id="proxyRadioNo" label="&torSettings.no;" selected="true" />
+        </radiogroup>
+        <description class="questionHelp">&torSettings.proxyHelp;
+        </description>
+      </vbox>
+    </hbox>
+  </wizardpage>
+
+  <wizardpage pageid="proxyYES" onextra2="onCopyLog();"
+              onpageshow="onWizardProxySettingsShow()"
+              onpageadvanced="return (getAndValidateProxySettings() != null)">
+    <vbox class="tbb-logo-box" align="start">
+      <image class="tbb-logo" />
+    </vbox>
+    <separator class="tbb-logo-separator" />
+    <label class="instructions">&torSettings.enterProxy;</label>
+    <groupbox id="proxySpecificSettings" />
+  </wizardpage>
+
   <!-- This page requires a setTimeout for onpageshow because it may be
        shown first -->
-  <wizardpage label=" " pageid="startingTor" next="notUsed"
+  <wizardpage pageid="startingTor" next="notUsed"
               onpageshow="setTimeout(function() { showWizardNavButtons(false); }, 0);">
     <spring flex="1" />
     <hbox>
@@ -130,7 +132,7 @@
     <spring flex="1" />
   </wizardpage>
 
-  <wizardpage label=" " pageid="errorPanel" next="notUsed"
+  <wizardpage pageid="errorPanel" next="notUsed"
               onpageshow="showWizardNavButtons(false);"
               onextra2="onCopyLog();">
     <spring flex="1" />
@@ -149,7 +151,7 @@
     <spring flex="1" />
   </wizardpage>
 
-  <wizardpage class="help"  label=" " pageid="bridgeHelp" next="notUsed"
+  <wizardpage class="help" pageid="bridgeHelp" next="notUsed"
               onpageadvanced="closeHelp(); return false;">
     <vbox id="bridgeHelpContent" />
   </wizardpage>
