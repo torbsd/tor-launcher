@@ -9,15 +9,15 @@
 
 <!ENTITY torSettings.firstQuestion "Was beschreibt Ihre Situation am besten?">
 <!ENTITY torSettings.configurePrompt1 "Die Internetverbindung dieses Rechner ist zensiert oder vermittelt.">
-<!ENTITY torSettings.configurePrompt2 "Ich muss die Brücken- und Vermittlungsservereinstellungen konfigurieren.">
+<!ENTITY torSettings.configurePrompt2 "Ich muss Bridge- oder lokale Proxy-Einstellungen konfigurieren">
 <!ENTITY torSettings.configure "Konfigurieren">
 <!ENTITY torSettings.connectPrompt2 "Ich würde gerne direkt eine Verbindung zum Tor-Netzwerk herstellen.">
 <!ENTITY torSettings.connectPrompt3 "Das wird in den meisten Situationen funktionieren.">
 <!ENTITY torSettings.connect "Verbinden">
 
-<!ENTITY torSettings.proxyQuestion "Benötigt dieser Rechner einen Vermittlungsserver um eine Verbindung zum Internet herzustellen?">
+<!ENTITY torSettings.proxyQuestion "Benötigt dieser Rechner einen lokalen Proxy um auf das Internet zuzugreifen?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "Wenn Sie sich nicht sicher sind, dann schauen Sie in die Einstellungen ihres normalen Browsers ob dort ein Vermittlungsserver eingerichtet ist.">
+<!ENTITY torSettings.proxyHelp "Wenn Sie unsicher sind, schauen Sie in den Internet-Einstellungen in einem andern Browser nach, um zu erkennen ob ein lokaler Proxy konfiguriert ist.">
 <!ENTITY torSettings.enterProxy "Vermittlungseinstellungen eingeben.">
 <!ENTITY torSettings.bridgeQuestion "Blockiert oder zensiert Ihr Internetdienstanbieter (ISP) Verbindungen zum Tor-Netzwerk?">
 <!ENTITY torSettings.bridgeHelp "Wenn Sie sich nicht sicher sind, wie Sie diese Frage beantworten sollen, wählen Sie Nr.&#160; Wenn Sie Ja wählen, werden Sie aufgefordert, die Torbrücken zu konfigurieren. Die nicht aufgeführte Relais sind, was es schwieriger macht, Verbindungen zum Tor-Netzwerk zu blockieren.">
@@ -30,7 +30,7 @@
 
 <!ENTITY torsettings.optional "Optional">
 
-<!ENTITY torsettings.useProxy.checkbox "Dieser Rechner benötigt einen Vermittlungsserver, um sich mit dem Internet zu verbinden">
+<!ENTITY torsettings.useProxy.checkbox "Dieser Rechner benötigt einen lokalen Proxy um auf das Internet zuzugreifen">
 <!ENTITY torsettings.useProxy.type "Vermittlungstyp:">
 <!ENTITY torsettings.useProxy.address "Adresse:">
 <!ENTITY torsettings.useProxy.address.placeholder "IP-Adresse oder Rechnername">

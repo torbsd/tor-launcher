@@ -9,15 +9,15 @@
 
 <!ENTITY torSettings.firstQuestion "Hvilke af de følgende beskriver bedst din situation?">
 <!ENTITY torSettings.configurePrompt1 "Denne computers internetforbindelse er censureret eller er etableret gennem en proxy.">
-<!ENTITY torSettings.configurePrompt2 "Jeg skal konfigurere bro- eller proxy-indstillinger.">
+<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings.">
 <!ENTITY torSettings.configure "Indstil">
 <!ENTITY torSettings.connectPrompt2 "Jeg vil forbinde direkte til Tor netværket.">
 <!ENTITY torSettings.connectPrompt3 "Dette vil virker i de fleste situationer">
 <!ENTITY torSettings.connect "Tilslut">
 
-<!ENTITY torSettings.proxyQuestion "Skal denne computer bruge en proxy for at forbinde til internettet?">
+<!ENTITY torSettings.proxyQuestion "Does this computer need to use a local proxy to access the Internet?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "Hvis du ikke kender svaret på dette spørgsmål, så kig på internetindstillingerne i en anden browser for at se om den er konfigureret til at bruge en proxy.">
+<!ENTITY torSettings.proxyHelp "If you are not sure how to answer this question, look at the Internet settings in another browser to see whether it is configured to use a local proxy.">
 <!ENTITY torSettings.enterProxy "Indtast proxy-indstillinger.">
 <!ENTITY torSettings.bridgeQuestion "Blokerer eller censurerer din internetudbyder (ISP) forbindelser til Tor netværket?">
 <!ENTITY torSettings.bridgeHelp "Hvis du er usikker på svaret til dette spørgsmål, vælg No.&#160; Hvis du vælger Ja, vil du blive bedt om at konfigurere Tor Broer, der er ulistede relays, som gør det sværere at blokere forbindelser til Tor Netværket.">
@@ -30,7 +30,7 @@
 
 <!ENTITY torsettings.optional "Valgfri">
 
-<!ENTITY torsettings.useProxy.checkbox "Denne computer skal bruge en proxy for at forbinde til internettet">
+<!ENTITY torsettings.useProxy.checkbox "This computer needs to use a local proxy to access the Internet">
 <!ENTITY torsettings.useProxy.type "Proxy type:">
 <!ENTITY torsettings.useProxy.address "Adresse:">
 <!ENTITY torsettings.useProxy.address.placeholder "IP adresse eller værtsnavn">

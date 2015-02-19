@@ -9,15 +9,15 @@
 
 <!ENTITY torSettings.firstQuestion "Která možnost nejlépe popisuje Vaši situaci?">
 <!ENTITY torSettings.configurePrompt1 "Připojení k internetu u tohoto pořítače je cenzorováno nebo proxováno.">
-<!ENTITY torSettings.configurePrompt2 "Potřebuji nakonfigurovat mosty nebo nastavení proxy.">
+<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings.">
 <!ENTITY torSettings.configure "Konfigurovat">
 <!ENTITY torSettings.connectPrompt2 "Chtěl bych se přímo připojit k Tor síti.">
 <!ENTITY torSettings.connectPrompt3 "Toto bude fungovat ve většině případů.">
 <!ENTITY torSettings.connect "Připojit">
 
-<!ENTITY torSettings.proxyQuestion "Potřebuje Váš počítač připojení k internetu přes proxy?">
+<!ENTITY torSettings.proxyQuestion "Does this computer need to use a local proxy to access the Internet?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "Jestli nevíte jak odpovědět na tuto otázku, podívejte se na internetové nastavení v jiném prohlížeči, aby jste zjistili, zda je nakonfigurován k použití proxy.">
+<!ENTITY torSettings.proxyHelp "If you are not sure how to answer this question, look at the Internet settings in another browser to see whether it is configured to use a local proxy.">
 <!ENTITY torSettings.enterProxy "Zadejte nastavení serveru proxy.">
 <!ENTITY torSettings.bridgeQuestion "Blokuje nebo jinak cenzuruje váš poskytovatel internetového připojení (ISP) spojení se sítí TORu?">
 <!ENTITY torSettings.bridgeHelp "Pokud si nejste jistí jak odpovědět na tuto otázku, zvolte No.&#160; Pokud vyberete Ano, budete vyzváni k nastavení Mostů TORu, což jsou přenašeče neuvedené v seznamu, které dělají blokování spojení se sítí TORu složitější.">
@@ -30,7 +30,7 @@
 
 <!ENTITY torsettings.optional "Volitelný">
 
-<!ENTITY torsettings.useProxy.checkbox "Tento počítač musí používat server proxy pro přístup k Internetu">
+<!ENTITY torsettings.useProxy.checkbox "This computer needs to use a local proxy to access the Internet">
 <!ENTITY torsettings.useProxy.type "Typ Proxy:">
 <!ENTITY torsettings.useProxy.address "Adresa:">
 <!ENTITY torsettings.useProxy.address.placeholder "IP adresa nebo jméno hosta">

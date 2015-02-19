@@ -8,16 +8,16 @@
 <!ENTITY torSettings.no "Nie">
 
 <!ENTITY torSettings.firstQuestion "Ktoré z nasledujúcich možností najlepšie opisuje Vašu situáciu?">
-<!ENTITY torSettings.configurePrompt1 "This computer's Internet connection is censored or proxied.">
-<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or proxy settings.">
+<!ENTITY torSettings.configurePrompt1 "Pripojenie tohto počítača k Internetu je cenzurované, filtrované alebo sprostredkovávané.">
+<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings.">
 <!ENTITY torSettings.configure "Konfigurácia">
 <!ENTITY torSettings.connectPrompt2 "Chcem sa pripojiť priamo do siete Tor.">
 <!ENTITY torSettings.connectPrompt3 "Toto bude vo väčšine prípadov fungovať.">
 <!ENTITY torSettings.connect "Pripojiť">
 
-<!ENTITY torSettings.proxyQuestion "Potrebuje tento počítač použiť proxy na prístup k Internetu?">
+<!ENTITY torSettings.proxyQuestion "Does this computer need to use a local proxy to access the Internet?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "Ak si nieste istý ako odpovedať na túto otázku, pozrite sa či máte nastavené používanie proxy v inom Internetovom prehliadači.">
+<!ENTITY torSettings.proxyHelp "If you are not sure how to answer this question, look at the Internet settings in another browser to see whether it is configured to use a local proxy.">
 <!ENTITY torSettings.enterProxy "Vstúpiť do nastavení proxy.">
 <!ENTITY torSettings.bridgeQuestion "Blokuje alebo nejak cenzuruje váš Poskytovateľ Internetu (ISP) pripojenia k Sieti Tor?">
 <!ENTITY torSettings.bridgeHelp "Ak ste si nie istý ako zodpovedať túto otázku, zvoľte Nie.&#160; Ak zvolíte Áno, budete vyzvaný na konfiguráciu Mostov Toru, čo sú nezaradené relé značne sťažujúce blokovanie pripojení k Sieti Tor.">
@@ -30,7 +30,7 @@
 
 <!ENTITY torsettings.optional "Voliteľné">
 
-<!ENTITY torsettings.useProxy.checkbox "Tento počítač potrebuje použiť proxy na prístup k Internetu">
+<!ENTITY torsettings.useProxy.checkbox "This computer needs to use a local proxy to access the Internet">
 <!ENTITY torsettings.useProxy.type "Typ Proxy:">
 <!ENTITY torsettings.useProxy.address "Adresa:">
 <!ENTITY torsettings.useProxy.address.placeholder "IP adresa alebo názov hostiteľa">
@@ -56,7 +56,7 @@
 <!ENTITY torsettings.bridgeHelp2Heading "Cez Web">
 <!ENTITY torsettings.bridgeHelp2 "Použite webový prehliadač na navštívenie https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "Cez Email Autoresponder">
-<!ENTITY torsettings.bridgeHelp3.emailDesc "Send email to bridges@torproject.org with the line 'get bridges' by itself in the body of the message.&#160; However, to make it harder for an attacker to learn a lot of bridge addresses, you must send this request from one of the following email providers (listed in order of preference):">
-<!ENTITY torsettings.bridgeHelp3.emailList "https://www.riseup.net, https://mail.google.com, or https://mail.yahoo.com">
+<!ENTITY torsettings.bridgeHelp3.emailDesc "Pošlite email na adresu bridges@torproject.org obsahujúcu jeden riadok 'get bridges' ako telo správy.&#160; Avšak, aby bolo pre útočníkov náročnejšie odhaliť veľa mostových adries, musíte túto žiadosť poslať z adresy z jedných týchto poskytovateľov (zoradené podľa obľúbenosti ):">
+<!ENTITY torsettings.bridgeHelp3.emailList "https://www.riseup.net, https://mail.google.com, alebo https://mail.yahoo.com">
 <!ENTITY torsettings.bridgeHelp4Heading "Cez Help Desk">
 <!ENTITY torsettings.bridgeHelp4 "Ako poslednú možnosť si môžete vyžiadať adresy mostov zaslaním zdvorilého emailu na adresu help@rt.torproject.org.&#160; Prosíme berte na vedomie, že príslušná osoba musí odpovedať na každú jednu podobnú žiadosť.">

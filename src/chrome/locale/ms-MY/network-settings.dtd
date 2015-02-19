@@ -9,15 +9,15 @@
 
 <!ENTITY torSettings.firstQuestion "Antara berikut yang manakah terbaik menerangkan keadaan anda?">
 <!ENTITY torSettings.configurePrompt1 "This computer's Internet connection is censored or proxied.">
-<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or proxy settings.">
+<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings.">
 <!ENTITY torSettings.configure "Konfigurasi">
 <!ENTITY torSettings.connectPrompt2 "Saya ingin berhubung terus kepada rangkaian Tor.">
 <!ENTITY torSettings.connectPrompt3 "This will work in most situations.">
 <!ENTITY torSettings.connect "Menyambung">
 
-<!ENTITY torSettings.proxyQuestion "Adakah komputer ini perlu menggunakan proksi untuk mengakses Internet?">
+<!ENTITY torSettings.proxyQuestion "Does this computer need to use a local proxy to access the Internet?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "Jika anda tidak pasti bagaimana untuk menjawab soalan ini, lihat tetapan Internet dalam pelayar yang lain untuk melihat sama ada ia dikonfigurasi untuk menggunakan proksi.">
+<!ENTITY torSettings.proxyHelp "If you are not sure how to answer this question, look at the Internet settings in another browser to see whether it is configured to use a local proxy.">
 <!ENTITY torSettings.enterProxy "Masukkan tetapan proksi.">
 <!ENTITY torSettings.bridgeQuestion "Does your Internet Service Provider (ISP) block or otherwise censor connections to the Tor Network?">
 <!ENTITY torSettings.bridgeHelp "If you are not sure how to answer this question, choose No.&#160; If you choose Yes, you will be asked to configure Tor Bridges, which are unlisted relays that make it more difficult to block connections to the Tor Network.">
@@ -30,7 +30,7 @@
 
 <!ENTITY torsettings.optional "Optional">
 
-<!ENTITY torsettings.useProxy.checkbox "Komputer ini perlu menggunakan proksi untuk mengakses Internet">
+<!ENTITY torsettings.useProxy.checkbox "This computer needs to use a local proxy to access the Internet">
 <!ENTITY torsettings.useProxy.type "Jenis Proksi:">
 <!ENTITY torsettings.useProxy.address "Alamat:">
 <!ENTITY torsettings.useProxy.address.placeholder "Alamat IP atau nama host">

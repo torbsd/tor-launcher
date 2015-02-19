@@ -9,15 +9,15 @@
 
 <!ENTITY torSettings.firstQuestion "下列哪一項最符合您的情況?">
 <!ENTITY torSettings.configurePrompt1 "這部電腦的網路連線是被審查或是有代理的。">
-<!ENTITY torSettings.configurePrompt2 "我需要配置橋接或代理設定。">
+<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings.">
 <!ENTITY torSettings.configure "設定">
 <!ENTITY torSettings.connectPrompt2 "我想直接連接到 Tor 網路。">
 <!ENTITY torSettings.connectPrompt3 "這將在大多數情況下生效。">
 <!ENTITY torSettings.connect "連接">
 
-<!ENTITY torSettings.proxyQuestion "這台電腦需要使用代理伺服器來存取網際網路嗎?">
+<!ENTITY torSettings.proxyQuestion "Does this computer need to use a local proxy to access the Internet?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "若您不確定如何回答此問題，請查看其他瀏覽器的網際網路設定，看看它是否設定成使用代理伺服器連線。">
+<!ENTITY torSettings.proxyHelp "If you are not sure how to answer this question, look at the Internet settings in another browser to see whether it is configured to use a local proxy.">
 <!ENTITY torSettings.enterProxy "輸入代理伺服器設定。">
 <!ENTITY torSettings.bridgeQuestion "您的網際網路服務提供者(ISP)阻擋或審查員連接到 Tor 網路?">
 <!ENTITY torSettings.bridgeHelp "如果您不確定如何回答此問題，請選擇「否」。&#160; 如果您選擇「是」，您將被要求設定Tor 橋接，這讓阻止連接到 Tor 網路更加困難。">
@@ -30,7 +30,7 @@
 
 <!ENTITY torsettings.optional "選用">
 
-<!ENTITY torsettings.useProxy.checkbox "這台電腦需要使用代理伺服器來存取網際網路">
+<!ENTITY torsettings.useProxy.checkbox "This computer needs to use a local proxy to access the Internet">
 <!ENTITY torsettings.useProxy.type "代理伺服器類型:">
 <!ENTITY torsettings.useProxy.address "位址:">
 <!ENTITY torsettings.useProxy.address.placeholder "IP 位址或主機名稱">

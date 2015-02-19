@@ -15,9 +15,9 @@
 <!ENTITY torSettings.connectPrompt3 "Detta fungerar i de flesta situationer.">
 <!ENTITY torSettings.connect "Anslut">
 
-<!ENTITY torSettings.proxyQuestion "Behöver denna dator använda en proxy för att nå Internet?">
+<!ENTITY torSettings.proxyQuestion "Does this computer need to use a local proxy to access the Internet?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "Om du är osäker på hur du ska svara på denna fråga, titta efter i Internet-inställningarna i en annan webbläsare för att se om den är konfigurerad att använda en proxy.">
+<!ENTITY torSettings.proxyHelp "If you are not sure how to answer this question, look at the Internet settings in another browser to see whether it is configured to use a local proxy.">
 <!ENTITY torSettings.enterProxy "Ange proxyinställningarna.">
 <!ENTITY torSettings.bridgeQuestion "Blockerar eller censurerar din internetleverantör anslutningar till Tor-nätverket?">
 <!ENTITY torSettings.bridgeHelp "Om du är osäker på hur du ska svara på den här frågan, välj Nej.&#160; Om du väljer Ja kommer du ombes att konfigurera Tor-bryggor, vilka är olistade reläer som gör det svårare att blockera anslutningar till Tor-nätverket.">
@@ -30,7 +30,7 @@
 
 <!ENTITY torsettings.optional "Valfri">
 
-<!ENTITY torsettings.useProxy.checkbox "Denna dator måste använda en proxy för att nå Internet">
+<!ENTITY torsettings.useProxy.checkbox "This computer needs to use a local proxy to access the Internet">
 <!ENTITY torsettings.useProxy.type "Typ av proxy:">
 <!ENTITY torsettings.useProxy.address "Adress:">
 <!ENTITY torsettings.useProxy.address.placeholder "IP-adress eller värdnamn">

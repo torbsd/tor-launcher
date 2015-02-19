@@ -9,15 +9,15 @@
 
 <!ENTITY torSettings.firstQuestion "පහත සදහන් කුමක් ඔබගේ තත්ත්වය හොදින්ම විස්තර කරයිද?">
 <!ENTITY torSettings.configurePrompt1 "This computer's Internet connection is censored or proxied.">
-<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or proxy settings.">
+<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings.">
 <!ENTITY torSettings.configure "වින්‍යාස කරන්න">
 <!ENTITY torSettings.connectPrompt2 "මම ඍජුවම Tor ජාලය හා සම්බන්ධ  වීමට කැමතිය.">
 <!ENTITY torSettings.connectPrompt3 "This will work in most situations.">
 <!ENTITY torSettings.connect "සම්බන්ධ වෙන්න">
 
-<!ENTITY torSettings.proxyQuestion "මෙම පරිගණකයට අන්තර්ජාලය හා සම්බන්ධ වීමට නියුතු සේවාදායකයෙක් අවශ්‍යද?">
+<!ENTITY torSettings.proxyQuestion "Does this computer need to use a local proxy to access the Internet?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "ඔබට මෙම ප්‍රශ්නයට පිළිතුරු දෙන්නේ කෙසේද යන්න විශ්වාස නැත්නම්, වෙනත් browser එකක අන්තජාල සැකසුම් නියුතු සේවාදායකයෙක් සදහා වින්‍යාස කර ඇත්දැයි බලන්න">
+<!ENTITY torSettings.proxyHelp "If you are not sure how to answer this question, look at the Internet settings in another browser to see whether it is configured to use a local proxy.">
 <!ENTITY torSettings.enterProxy "නියුතු සේවාදායක සැකසුම් ඇතුළත් කරන්න">
 <!ENTITY torSettings.bridgeQuestion "Does your Internet Service Provider (ISP) block or otherwise censor connections to the Tor Network?">
 <!ENTITY torSettings.bridgeHelp "If you are not sure how to answer this question, choose No.&#160; If you choose Yes, you will be asked to configure Tor Bridges, which are unlisted relays that make it more difficult to block connections to the Tor Network.">
@@ -30,7 +30,7 @@
 
 <!ENTITY torsettings.optional "අමතර">
 
-<!ENTITY torsettings.useProxy.checkbox "මෙම පරිගණකය අන්තර්ජාලයට පිවිසීමට නියුතු සේවාදායකයෙක් අවශ්‍ය වේ.">
+<!ENTITY torsettings.useProxy.checkbox "This computer needs to use a local proxy to access the Internet">
 <!ENTITY torsettings.useProxy.type "නියුතු සේවාදායක වර්ගය:">
 <!ENTITY torsettings.useProxy.address "ලිපිනය:">
 <!ENTITY torsettings.useProxy.address.placeholder "IP ලිපිනය හෝ සත්කාරක නාමය">

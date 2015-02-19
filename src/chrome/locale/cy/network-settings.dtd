@@ -9,15 +9,15 @@
 
 <!ENTITY torSettings.firstQuestion "Pa un o'r canlynol sy'n disgrifio'ch sefyllfa orau?">
 <!ENTITY torSettings.configurePrompt1 "This computer's Internet connection is censored or proxied.">
-<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or proxy settings.">
+<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings.">
 <!ENTITY torSettings.configure "Ffurfweddu">
 <!ENTITY torSettings.connectPrompt2 "Hoffwn gysylltu'n uniongyrchol â rhwydwaith Tor.">
 <!ENTITY torSettings.connectPrompt3 "This will work in most situations.">
 <!ENTITY torSettings.connect "Cysylltu">
 
-<!ENTITY torSettings.proxyQuestion "A oes y cyfrifiadur hwn angen ddirprwy i gyrchu'r Rhyngrwyd?">
+<!ENTITY torSettings.proxyQuestion "Does this computer need to use a local proxy to access the Internet?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "If you are not sure how to answer this question, look at the Internet settings in another browser to see whether it is configured to use a proxy.">
+<!ENTITY torSettings.proxyHelp "If you are not sure how to answer this question, look at the Internet settings in another browser to see whether it is configured to use a local proxy.">
 <!ENTITY torSettings.enterProxy "Rhowch osodiadau'r dirprwy.">
 <!ENTITY torSettings.bridgeQuestion "Does your Internet Service Provider (ISP) block or otherwise censor connections to the Tor Network?">
 <!ENTITY torSettings.bridgeHelp "If you are not sure how to answer this question, choose No.&#160; If you choose Yes, you will be asked to configure Tor Bridges, which are unlisted relays that make it more difficult to block connections to the Tor Network.">
@@ -30,7 +30,7 @@
 
 <!ENTITY torsettings.optional "Dewisiol">
 
-<!ENTITY torsettings.useProxy.checkbox "This computer needs to use a proxy to access the Internet">
+<!ENTITY torsettings.useProxy.checkbox "This computer needs to use a local proxy to access the Internet">
 <!ENTITY torsettings.useProxy.type "Math Dirprwy:">
 <!ENTITY torsettings.useProxy.address "Cyfeiriad:">
 <!ENTITY torsettings.useProxy.address.placeholder "Cyfeiriad IP neu enw gwesteiwr">

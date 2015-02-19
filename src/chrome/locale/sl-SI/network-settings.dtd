@@ -9,15 +9,15 @@
 
 <!ENTITY torSettings.firstQuestion "Kaj od sledečega najbolj ustzrezno opisuje vašo situacijo?">
 <!ENTITY torSettings.configurePrompt1 "Ta računalniška internet povezava je cenzurirana ali neposredna.">
-<!ENTITY torSettings.configurePrompt2 "Nastaviti moram premostitev ali nastavitev proxi-ja.">
+<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings.">
 <!ENTITY torSettings.configure "Oblikovanje">
 <!ENTITY torSettings.connectPrompt2 "Hočem se neposredno povezati na Tor omrežje.">
 <!ENTITY torSettings.connectPrompt3 "To deluje v večini primerov.">
 <!ENTITY torSettings.connect "Povezava">
 
-<!ENTITY torSettings.proxyQuestion "Ali ta računalnik rabi proxy za vstop na internet?">
+<!ENTITY torSettings.proxyQuestion "Does this computer need to use a local proxy to access the Internet?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "Če niste prepričani za odgovor, poglejte internetne nastavitve v drugem brskalniku, da vidite, ali je nastavljen tako, da uporabljate proxy.">
+<!ENTITY torSettings.proxyHelp "If you are not sure how to answer this question, look at the Internet settings in another browser to see whether it is configured to use a local proxy.">
 <!ENTITY torSettings.enterProxy "Vnesite nastavitve strežnika proxy.">
 <!ENTITY torSettings.bridgeQuestion "Ali vaš internetni ponudnik (ISP) blokira ali kako drugače cenzurira povezavo na Tor omrežje?">
 <!ENTITY torSettings.bridgeHelp "Če niste prepričani kako odgovoriti na to vprašanje, izberite Ne.&#160; Če ste izbrali Da, boste morali nastaviti Tor premostitve na nenašteta vozlišča, za težje blokiranje povezave na Tor omrežje.">
@@ -30,7 +30,7 @@
 
 <!ENTITY torsettings.optional "Po izbiri">
 
-<!ENTITY torsettings.useProxy.checkbox "Računalnik rabi uporabo proxy-ja za dostop na internet">
+<!ENTITY torsettings.useProxy.checkbox "This computer needs to use a local proxy to access the Internet">
 <!ENTITY torsettings.useProxy.type "Proxy tip:">
 <!ENTITY torsettings.useProxy.address "Naslov:">
 <!ENTITY torsettings.useProxy.address.placeholder "IP naslov ali ime domene">

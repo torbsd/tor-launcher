@@ -9,15 +9,15 @@
 
 <!ENTITY torSettings.firstQuestion "Aşağıdakilerden hangisi durumunuzu en iyi açıklıyor?">
 <!ENTITY torSettings.configurePrompt1 "Bu bilgisayarın İnternet bağlantısı sansürlü veya vekil sunucu arkasında.">
-<!ENTITY torSettings.configurePrompt2 "Köprü veya vekil sunucu ayarlarını yapılandırmam gerekli.">
+<!ENTITY torSettings.configurePrompt2 "Köprü ve yerel vekil sunucu ayarlarını yapılandırmam gerekiyor.">
 <!ENTITY torSettings.configure "Yapılandır">
 <!ENTITY torSettings.connectPrompt2 "Doğrudan Tor ağına bağlanmak istiyorum">
 <!ENTITY torSettings.connectPrompt3 "Bu çoğu durumda çalışır.">
 <!ENTITY torSettings.connect "Bağlan">
 
-<!ENTITY torSettings.proxyQuestion "Bu bilgisayarın İnternete erişirken bir vekil kullanması gerekiyor mu?">
+<!ENTITY torSettings.proxyQuestion "Bu bilgisayarın İnternet'e erişebilmesi için yerel bir vekil sunucu kullanması gerekiyor mu?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "Eğer bu soruyu nasıl yanıtlayacağınızdan emin değilseniz, farklı bir tarayıcıda İnternet seçeneklerine bakın ve bir vekil kullanmak üzere yapılandırılıp yapılandırılmadığını denetleyin.">
+<!ENTITY torSettings.proxyHelp "Bu soruyu nasıl yanıtlayacağınızı bilmiyorsanız, başka bir tarayıcıda İnternet seçeneklerine bakara yerel bir vekil sunucu kullanıp kullanmadığını görün.">
 <!ENTITY torSettings.enterProxy "Vekil ayarlarını girin.">
 <!ENTITY torSettings.bridgeQuestion "İnternet Servis Sağlayıcınız (ISS) Tor Ağına bağlantıları engelliyor veya sansürlüyor mu?">
 <!ENTITY torSettings.bridgeHelp "Bu soruyu nasıl cevaplayacağınızdan emin değilseniz Hayır'ı Seçin.&#160; Evet'i seçerseniz, Tor Ağına bağlantıyı engellemeyi daha zor hale getiren listelenmeyen aynalar olan Tor Köprülerini yapılandırmanız istenecektir.">
@@ -30,7 +30,7 @@
 
 <!ENTITY torsettings.optional "İsteğe Bağlı">
 
-<!ENTITY torsettings.useProxy.checkbox "Bu bilgisayarın İnternet'e erişebilmek için bir vekil sunucu kullanması gerekiyor">
+<!ENTITY torsettings.useProxy.checkbox "Bu bilgisayar İnternet'e erişmek için yerel bir vekil sunucu gerektiriyor.">
 <!ENTITY torsettings.useProxy.type "Vekil Sunucu Türü:">
 <!ENTITY torsettings.useProxy.address "Adres:">
 <!ENTITY torsettings.useProxy.address.placeholder "IP adresi veya sunucu adı">

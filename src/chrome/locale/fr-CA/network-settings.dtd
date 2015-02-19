@@ -1,4 +1,4 @@
-<!ENTITY torsettings.dialog.title "Paramètres réseau de Tor">
+<!ENTITY torsettings.dialog.title "Paramètres du réseau Tor">
 
 <!-- For "first run" wizard: -->
 
@@ -9,15 +9,15 @@
 
 <!ENTITY torSettings.firstQuestion "Laquelle des suivantes décrit le mieux votre situation?">
 <!ENTITY torSettings.configurePrompt1 "La connexion Internet de cet ordinateur est censurée ou relayée.">
-<!ENTITY torSettings.configurePrompt2 "Je dois configurer des paramètres de pont ou de serveur mandataire.">
+<!ENTITY torSettings.configurePrompt2 "Je dois configurer des paramètres de pont ou de serveur mandataire local.">
 <!ENTITY torSettings.configure "Configurer">
 <!ENTITY torSettings.connectPrompt2 "Je voudrais me connecter directement au réseau Tor.">
 <!ENTITY torSettings.connectPrompt3 "Ceci fonctionnera dans la plupart des situations.">
 <!ENTITY torSettings.connect "Se connecter">
 
-<!ENTITY torSettings.proxyQuestion "Est-ce que cet ordinateur à besoin d'utiliser un serveur mandataire pour accéder à internet?">
+<!ENTITY torSettings.proxyQuestion "Cet ordinateur doit-il utiliser un serveur mandataire local pour accéder à Internet?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "Si vous ne savez pas comment répondre à cette question, regarder les paramètres Internet d'un autre navigateur afin de voir s'il est configuré pour utiliser un mandataire.">
+<!ENTITY torSettings.proxyHelp "Si vous n'êtes pas certain de connaître la réponse à cette question, vérifiez les paramètres Internet d'un autre navigateur pour voir s'il est configuré pour utiliser un mandataire local.">
 <!ENTITY torSettings.enterProxy "Saisir les paramètres du serveur mandataire.">
 <!ENTITY torSettings.bridgeQuestion "Votre fournisseur de service Internet (FSI) bloque-t-il ou censure-t-il vos connexions au réseau Tor?">
 <!ENTITY torSettings.bridgeHelp "Si vous ne savez pas comment répondre à cette question, choisissez Non.&#160; Si vous choisissez Oui, on vous demandera de configurer les ponts Tor qui sont des relais non listés rendant le bloquage des connexions au réseau Tor plus difficile.">
@@ -30,7 +30,7 @@
 
 <!ENTITY torsettings.optional "Optionnel">
 
-<!ENTITY torsettings.useProxy.checkbox "Cet ordinateur doit utiliser un serveur mandataire pour accéder à Internet">
+<!ENTITY torsettings.useProxy.checkbox "Cet ordinateur doit utiliser un mandataire local pour accéder à Internet">
 <!ENTITY torsettings.useProxy.type "Type de mandataire :">
 <!ENTITY torsettings.useProxy.address "Adresse :">
 <!ENTITY torsettings.useProxy.address.placeholder "Adresse IP ou nom d'hôte">

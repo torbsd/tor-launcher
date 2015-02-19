@@ -9,15 +9,15 @@
 
 <!ENTITY torSettings.firstQuestion "Шта од понуђеног најбоље описује Вашу ситуацију?">
 <!ENTITY torSettings.configurePrompt1 "Интернет конекција овог рачунара је цензурисана или посредована.">
-<!ENTITY torSettings.configurePrompt2 "Требало би да конфигуришем подешавања премошћивача или proxy.">
+<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings.">
 <!ENTITY torSettings.configure "Конфигуриши">
 <!ENTITY torSettings.connectPrompt2 "Желео бих да се повежем директно на Тор мрежу.">
 <!ENTITY torSettings.connectPrompt3 "Ово ће радити у већини ситуација.">
 <!ENTITY torSettings.connect "Повежи се">
 
-<!ENTITY torSettings.proxyQuestion "Да ли овај рачунар мора да користи посредника да би приступио интернету?">
+<!ENTITY torSettings.proxyQuestion "Does this computer need to use a local proxy to access the Internet?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "Ако нисте сигурни како да одговорите на ово питање, погледајте интернет подешавања у другом прегледачу да видите да ли је подешен да користи proxy.">
+<!ENTITY torSettings.proxyHelp "If you are not sure how to answer this question, look at the Internet settings in another browser to see whether it is configured to use a local proxy.">
 <!ENTITY torSettings.enterProxy "Унесите proxy подешавања.">
 <!ENTITY torSettings.bridgeQuestion "Да ли Ваш интернет сервис провајдер (ИСП) блокира или на неки други начин цензурише повезивање на Тор мрежу?">
 <!ENTITY torSettings.bridgeHelp "Ако нисте сигурни како да одговорите на ово питање, изаберите Не.&#160; Ако изаберете Да, бићете замољени да подесите Тор Премошћиваче, који су неизлистани преносници чија је улога да отежавају блокирање повезивања на Тор мрежу.">
@@ -30,7 +30,7 @@
 
 <!ENTITY torsettings.optional "Опционо">
 
-<!ENTITY torsettings.useProxy.checkbox "Овај рачунар мора да користи proxy да би приступио интернету.">
+<!ENTITY torsettings.useProxy.checkbox "This computer needs to use a local proxy to access the Internet">
 <!ENTITY torsettings.useProxy.type "Врста proxyja:">
 <!ENTITY torsettings.useProxy.address "Adresa:">
 <!ENTITY torsettings.useProxy.address.placeholder "IP адреса или hostname">

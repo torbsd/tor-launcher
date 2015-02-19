@@ -9,15 +9,15 @@
 
 <!ENTITY torSettings.firstQuestion "Яке з наступних тверджень найкраще описує Вашу ситуацію?">
 <!ENTITY torSettings.configurePrompt1 "Мережеве з'єднання цього комп'ютера цензурується або йде через проксі-сервер.">
-<!ENTITY torSettings.configurePrompt2 "Мені потрібно налаштувати міст або проксі-сервер.">
+<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings.">
 <!ENTITY torSettings.configure "Налаштування">
 <!ENTITY torSettings.connectPrompt2 "Я бажаю підключатися до Tor напряму ">
 <!ENTITY torSettings.connectPrompt3 "Це має працювати у більшості ситуацій.">
 <!ENTITY torSettings.connect "З'єднатися">
 
-<!ENTITY torSettings.proxyQuestion "Цьому комп'ютеру необхідно використовувати проксі для доступу в Інтернет?">
+<!ENTITY torSettings.proxyQuestion "Does this computer need to use a local proxy to access the Internet?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "Якщо Ви не знаєте, як відповісти на це питання, подивіться налаштування Інтернету в іншому браузері, щоб побачити чи він налаштований на використання проксі.">
+<!ENTITY torSettings.proxyHelp "If you are not sure how to answer this question, look at the Internet settings in another browser to see whether it is configured to use a local proxy.">
 <!ENTITY torSettings.enterProxy "Задати параметри проксі">
 <!ENTITY torSettings.bridgeQuestion "Ваш Інтернет-провайдер (ISP) блокує чи яким-небудь чином цензурує підключення до Tor мережі?">
 <!ENTITY torSettings.bridgeHelp "Якщо Ви не знаєте, як відповісти на це питання, виберіть Ні.&#160; Якщо Ви виберете Так, Вам буде запропоновано налаштувати мости Tor, що є приватними трансляторами, які роблять більш важким блокування з'єднань з Tor мережі.">
@@ -30,7 +30,7 @@
 
 <!ENTITY torsettings.optional "Додатково">
 
-<!ENTITY torsettings.useProxy.checkbox "Цей комп'ютер повинен використовувати проксі для доступу в Інтернет">
+<!ENTITY torsettings.useProxy.checkbox "This computer needs to use a local proxy to access the Internet">
 <!ENTITY torsettings.useProxy.type "Тип проксі:">
 <!ENTITY torsettings.useProxy.address "Адреса:">
 <!ENTITY torsettings.useProxy.address.placeholder "ІР адреса або ім'я хосту">

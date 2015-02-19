@@ -9,15 +9,15 @@
 
 <!ENTITY torSettings.firstQuestion "Welke van de volgende beschrijft het best jouw situatie?">
 <!ENTITY torSettings.configurePrompt1 "De internetverbinding van deze computer is gecensureerd of loopt via een proxy.">
-<!ENTITY torSettings.configurePrompt2 "Ik moet bridge- of proxy instellingen configureren.">
+<!ENTITY torSettings.configurePrompt2 "Ik moet de instellingen van bridge of lokale proxy aanpassen.">
 <!ENTITY torSettings.configure "Configureer">
 <!ENTITY torSettings.connectPrompt2 "Ik zou graag rechtstreeks met het Tor netwerk verbinden.">
 <!ENTITY torSettings.connectPrompt3 "Dit zal in de meeste omstandigheden werken">
 <!ENTITY torSettings.connect "Verbind">
 
-<!ENTITY torSettings.proxyQuestion "Heeft deze computer een proxy nodig om met het internet te verbinden?">
+<!ENTITY torSettings.proxyQuestion "Heeft deze computer een lokale proxy nodig om toegang tot het internet te krijgen?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "Als je niet zeker bent over het antwoord op deze vraag, bekijk dan de verbindingsinstellingen van een andere browser om te zien of die is ingesteld om gebruik te maken van een proxy.">
+<!ENTITY torSettings.proxyHelp "Als je niet zeker weet hoe deze vraag te beantwoorden, kijk naar de internet instellingen in een andere browser om te zien of deze is geconfigureerd om een lokale proxy te gebruiken.">
 <!ENTITY torSettings.enterProxy "Voer de proxy-instellingen in.">
 <!ENTITY torSettings.bridgeQuestion "Doet je Internet Service Provider (ISP) het Tor netwerk verbieden of filteren?">
 <!ENTITY torSettings.bridgeHelp "Als je niet zeker weet hoe je deze vraag moet beantwoorden, kies dan Nee.&#160; Als je Ja kiest, moet je Tor bridges instellen, die doordat ze geen bekende relays zijn het dus moeilijker maken om verbinding te maken met het Tor Netwerk. ">
@@ -30,7 +30,7 @@
 
 <!ENTITY torsettings.optional "Optioneel">
 
-<!ENTITY torsettings.useProxy.checkbox "Deze computer moet een proxy gebruiken om het internet te raadplegen.">
+<!ENTITY torsettings.useProxy.checkbox "Deze computer heeft een lokale proxy nodig om toegang te krijgen tot het internet">
 <!ENTITY torsettings.useProxy.type "Proxy Type:">
 <!ENTITY torsettings.useProxy.address "Adres:">
 <!ENTITY torsettings.useProxy.address.placeholder "IP adres of hostnaam">

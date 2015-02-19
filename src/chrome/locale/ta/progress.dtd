@@ -1,4 +1,4 @@
 <!ENTITY torprogress.dialog.title "Tor நிலைமை">
-<!ENTITY torprogress.openSettings "திறந்த அமைப்புகள்">
+<!ENTITY torprogress.openSettings "அமைப்புக்களை திற">
 <!ENTITY torprogress.heading "Tor நெட்வொர்க்கிற்கு இணைக்கிறது">
-<!ENTITY torprogress.pleaseWait "Please wait while we establish a connection to the Tor network.">
+<!ENTITY torprogress.pleaseWait "தயவு செய்து பொறுக்கவும், Tor நெட்வொர்க்கிற்கு இணைப்பு தொடர்தாபிக்கப்படுகிறது.">

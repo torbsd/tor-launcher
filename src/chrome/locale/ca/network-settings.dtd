@@ -9,15 +9,15 @@
 
 <!ENTITY torSettings.firstQuestion "Quina de les següuens descriula teva situació?">
 <!ENTITY torSettings.configurePrompt1 "La connexió a internet d'aquest ordinador està censurada o configurada amb un proxy. ">
-<!ENTITY torSettings.configurePrompt2 "Necessito configurar ajustos de pont o de proxy">
+<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings.">
 <!ENTITY torSettings.configure "Configura">
 <!ENTITY torSettings.connectPrompt2 "M'agradaria conectar-me directament a la xarxa Tor.">
 <!ENTITY torSettings.connectPrompt3 "Això funciona en la majoria dels casos.">
 <!ENTITY torSettings.connect "Conectar">
 
-<!ENTITY torSettings.proxyQuestion "Necessita aquest ordinador usar un proxy per accedir a internet?">
+<!ENTITY torSettings.proxyQuestion "Does this computer need to use a local proxy to access the Internet?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "Si no estas segur de com respondre a aquesta pregunta, observa els paràmetres d'Internet en un altre navegador per veure si està configurat per utilitzar un proxy.">
+<!ENTITY torSettings.proxyHelp "If you are not sure how to answer this question, look at the Internet settings in another browser to see whether it is configured to use a local proxy.">
 <!ENTITY torSettings.enterProxy "Introdueix les opcions del proxy.">
 <!ENTITY torSettings.bridgeQuestion "El vostre proveïdor d'Internet (ISP) bloqueja o censura les connexions a la Xarxa Tor?">
 <!ENTITY torSettings.bridgeHelp "Si no esteu segurs de com respondre a aquesta pregunta, escolliu  No.&#160; Si escolliu Sí, se us demanarà que configureu Ponts Tor, que són relés no llistats que fan més dificil de bloquejar les connexions a la Xarxa Tor">
@@ -31,7 +31,7 @@
 <!ENTITY torsettings.optional "Opcional
 ">
 
-<!ENTITY torsettings.useProxy.checkbox "Aquest ordinador ha de fer servir un proxy per accedir a Internet">
+<!ENTITY torsettings.useProxy.checkbox "This computer needs to use a local proxy to access the Internet">
 <!ENTITY torsettings.useProxy.type "Tipus de Proxy:">
 <!ENTITY torsettings.useProxy.address "Adreça:">
 <!ENTITY torsettings.useProxy.address.placeholder "Direcció IP o nom del host">

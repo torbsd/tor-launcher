@@ -9,15 +9,15 @@
 
 <!ENTITY torSettings.firstQuestion "Ποιο από τα παρακάτω περιγράφει καλύτερα την κατάστασή σας;">
 <!ENTITY torSettings.configurePrompt1 "Σύνδεση στο Internet αυτού του υπολογιστή λογοκρίνεται ή προσεγγίζεται">
-<!ENTITY torSettings.configurePrompt2 "Χρειάζονται ρυθμίσεις για τις γέφυρες, για το firewall, ή για τον proxy μου.">
+<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings.">
 <!ENTITY torSettings.configure "Ρύθμιση ">
 <!ENTITY torSettings.connectPrompt2 "Θα ήθελα να συνδεθεί άμεσα με το δίκτυο Tor.">
 <!ENTITY torSettings.connectPrompt3 "Αυτό θα λειτουργήσει στις περισσότερες περιπτώσεις.">
 <!ENTITY torSettings.connect "Σύνδεση">
 
-<!ENTITY torSettings.proxyQuestion "Μήπως αυτός ο υπολογιστής πρέπει να χρησιμοποιήση έναν διακομιστή μεσολάβησης για πρόσβαση στο Διαδίκτυο;">
+<!ENTITY torSettings.proxyQuestion "Does this computer need to use a local proxy to access the Internet?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "Εάν δεν είστε βέβαιοι πώς να απαντήσετε στο ερώτημα αυτό, δείτε τις ρυθμίσεις διαδικτυου σε άλλο φυλλομετρητή για να δείτε αν έχει ρυθμιστεί να χρησιμοποιεί διακομιστή μεσολάβησης.">
+<!ENTITY torSettings.proxyHelp "If you are not sure how to answer this question, look at the Internet settings in another browser to see whether it is configured to use a local proxy.">
 <!ENTITY torSettings.enterProxy "Εισάγωγη των ρυθμίσεων διακομιστή μεσολάβησης.">
 <!ENTITY torSettings.bridgeQuestion "Γνωρίζετε αν ο πάροχος (ISP) σας μπλοκάρει ή με οποιοδήποτε τρόπο ελέγχει συνδέσεις
 στο δίκτυο Tor?">
@@ -31,7 +31,7 @@
 
 <!ENTITY torsettings.optional "Προεραιτικα">
 
-<!ENTITY torsettings.useProxy.checkbox "Αυτός ο υπολογιστής θα πρέπει να χρησιμοποιήση έναν διακομιστή μεσολάβησης για πρόσβαση στο διαδικτυο">
+<!ENTITY torsettings.useProxy.checkbox "This computer needs to use a local proxy to access the Internet">
 <!ENTITY torsettings.useProxy.type "Τύπος διακομιστή μεσολάβησης:">
 <!ENTITY torsettings.useProxy.address "Διεύθυνση:">
 <!ENTITY torsettings.useProxy.address.placeholder "Διεύθυνση ΙΡ η όνομα υπολογιστή ">

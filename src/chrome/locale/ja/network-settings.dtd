@@ -9,15 +9,15 @@
 
 <!ENTITY torSettings.firstQuestion "以下のうちあなたの状態に最も適しているのはどれですか？">
 <!ENTITY torSettings.configurePrompt1 "このコンピュータのインターネット接続は、検閲されているかプロキシを通します。">
-<!ENTITY torSettings.configurePrompt2 "ブリッジやプロキシの設定を構成する必要があります。">
+<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings.">
 <!ENTITY torSettings.configure "構成">
 <!ENTITY torSettings.connectPrompt2 "Torネットワークへ直接接続します。">
 <!ENTITY torSettings.connectPrompt3 "これはほとんどの状況で動作します。">
 <!ENTITY torSettings.connect "接続">
 
-<!ENTITY torSettings.proxyQuestion "このコンピューターはインターネットにアクセスするのにプロキシが必要ですか？">
+<!ENTITY torSettings.proxyQuestion "Does this computer need to use a local proxy to access the Internet?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "この質問にどう答えるべきか確信が持てなければ、Proxyの使用がどのように設定されているか確認するために、他のブラウザのインターネット設定を見てください。">
+<!ENTITY torSettings.proxyHelp "If you are not sure how to answer this question, look at the Internet settings in another browser to see whether it is configured to use a local proxy.">
 <!ENTITY torSettings.enterProxy "プロキシ設定を入力">
 <!ENTITY torSettings.bridgeQuestion "あなたのインターネットサービスプロバイダー (ISP) は Tor ネットワークへの接続をブロックしているか、あるいは別のやり方で検閲していますか？">
 <!ENTITY torSettings.bridgeHelp "この質問にどう答えるべきかよくわからない場合は、いいえを選択してください。&#160; はいを選択すると、Tor ネットワークへの接続をブロックすることをさらに困難にするリスト化されていないリレーである Tor Bridges を構成することが求められます。">
@@ -30,7 +30,7 @@
 
 <!ENTITY torsettings.optional "オプション">
 
-<!ENTITY torsettings.useProxy.checkbox "このコンピューターはインターネットにアクセスするのにProxyを使用する必要があります">
+<!ENTITY torsettings.useProxy.checkbox "This computer needs to use a local proxy to access the Internet">
 <!ENTITY torsettings.useProxy.type "Proxyの種類:">
 <!ENTITY torsettings.useProxy.address "アドレス:">
 <!ENTITY torsettings.useProxy.address.placeholder "IPアドレス またはホストネーム">

@@ -8,16 +8,16 @@
 <!ENTITY torSettings.no "Não">
 
 <!ENTITY torSettings.firstQuestion "Quais opções descrevem melhor a sua situação?">
-<!ENTITY torSettings.configurePrompt1 "A conexão Internet deste computador foi censurada, filtrada ou limitada por um proxy.">
-<!ENTITY torSettings.configurePrompt2 "Preciso configurar bridge ou configurações de proxy.">
+<!ENTITY torSettings.configurePrompt1 "A conexão à Internet deste computador foi censurada, filtrada ou limitada por um proxy.">
+<!ENTITY torSettings.configurePrompt2 "É preciso configurar as configurações de ponte ou de proxy local.">
 <!ENTITY torSettings.configure "Configurar">
 <!ENTITY torSettings.connectPrompt2 "Eu gostaria de me conectar diretamente à rede Tor.">
 <!ENTITY torSettings.connectPrompt3 "Isso funcionará na maioria dos casos.">
 <!ENTITY torSettings.connect "Conectar">
 
-<!ENTITY torSettings.proxyQuestion "Este computador precisa usar um proxy para acessar a Internet?">
+<!ENTITY torSettings.proxyQuestion "Será se seu computador necessita de um proxy local para acessar a internet?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "Caso você não tenha certeza sobre como responder a essa questão, consulte as configurações de rede em um outro browser para saber se ele está configurado para usar um proxy.">
+<!ENTITY torSettings.proxyHelp "Se você não tem certeza de como responder a esta pergunta, olhe nas configurações de Internet do outro navegador para ver se ele está configurado para usar um proxy local.">
 <!ENTITY torSettings.enterProxy "Insira as configurações de proxy.">
 <!ENTITY torSettings.bridgeQuestion "Seu provedor de serviços de internet (ISP) bloqueia ou censura conexões à rede Tor?">
 <!ENTITY torSettings.bridgeHelp "Se você não estiver seguro sobre como responder a essa questão, escolha Não&#160;. Se você escolher Sim, será preciso configurar pontes Tor, que são retransmissores não-listados que dificultam possíveis bloqueios à rede Tor.">
@@ -30,7 +30,7 @@
 
 <!ENTITY torsettings.optional "Opcional">
 
-<!ENTITY torsettings.useProxy.checkbox "Este computador precisa utilizar um proxy para acessar a Internet.">
+<!ENTITY torsettings.useProxy.checkbox "Neste computador é necessario usar um proxy local para acessar a Internet">
 <!ENTITY torsettings.useProxy.type "Tipo de Proxy:">
 <!ENTITY torsettings.useProxy.address "Endereço:">
 <!ENTITY torsettings.useProxy.address.placeholder "Endereço IP ou Servidor">
