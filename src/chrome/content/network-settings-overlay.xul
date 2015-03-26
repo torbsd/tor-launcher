@@ -79,8 +79,7 @@
                   oncommand="onBridgeTypeRadioChange()">
         <radio id="bridgeRadioDefault"
                label="&torsettings.useBridges.default;" selected="true" />
-        <hbox align="baseline" style="margin-top: -5px">
-          <spacer style="width: 1.9em" />
+        <hbox id="bridgeDefaultEntry" align="baseline" style="margin-top: -5px">
           <label id="defaultBridgeTypeLabel"
                  value="&torsettings.useBridges.type;"
                  control="defaultBridgeType"/>
@@ -99,7 +98,7 @@
     <vbox id="bridgeCustomEntry">
       <label id="bridgeListLabel" style="margin-top:0px;"
              value="&torsettings.useBridges.label;" control="bridgeList"/>
-      <textbox id="bridgeList" multiline="true" rows="3"
+      <textbox id="bridgeList" multiline="true" rows="3" wrap="off"
                oninput="onCustomBridgesTextInput();"
                placeholder="&torsettings.useBridges.placeholder;" />
     </vbox>
