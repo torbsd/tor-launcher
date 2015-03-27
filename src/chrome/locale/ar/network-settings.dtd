@@ -15,9 +15,9 @@
 <!ENTITY torSettings.connectPrompt3 "سيصلح هذا في معظم الحالات.">
 <!ENTITY torSettings.connect "اتصل">
 
-<!ENTITY torSettings.proxyQuestion "Does this computer need to use a local proxy to access the Internet?">
+<!ENTITY torSettings.proxyQuestion "هل يحتاج هذا الكمبيوتر لاستخدام وكيل محلي للاتصال بالإنترنت؟">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "If you are not sure how to answer this question, look at the Internet settings in another browser to see whether it is configured to use a local proxy.">
+<!ENTITY torSettings.proxyHelp "إذا كنت غير متأكد من كيفية الإجابة على هذا السؤال، أنظر الى إعدادات الإنترنت في متصفح آخر لمعرفة ما إذا تمت تهيئتة لاستخدام وكيل محلي.">
 <!ENTITY torSettings.enterProxy "أدخل إعدادات البروكسي.">
 <!ENTITY torSettings.bridgeQuestion "هل يقوم مقدم خدمة الإنترنت (ISP) الذي تتعامل معه بحجب الاتصالات بشبكة Tor أو مراقبتها بطريقة أخرى؟">
 <!ENTITY torSettings.bridgeHelp "إذا لم تكن متأكدا من إجابة هذا السؤال، قم باختيار لا. &#160; إذا قمت باختيار نعم، فسيطلب منك تكوين جسور Tor والتي هي منافذ ترحيل غير مدرجة تصعب عملية حظر الاتصالات بشبكة Tor.">
@@ -30,7 +30,7 @@
 
 <!ENTITY torsettings.optional "اختياري">
 
-<!ENTITY torsettings.useProxy.checkbox "This computer needs to use a local proxy to access the Internet">
+<!ENTITY torsettings.useProxy.checkbox "يحتاج هذا الكمبيوتر لاستخدام وكيل محلي للاتصال بالإنترنت">
 <!ENTITY torsettings.useProxy.type "نوع البروكسي:">
 <!ENTITY torsettings.useProxy.address "العنوان:">
 <!ENTITY torsettings.useProxy.address.placeholder "عنوان الإنترنت IP أو اسم المضيف">

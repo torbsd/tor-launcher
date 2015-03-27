@@ -9,15 +9,15 @@
 
 <!ENTITY torSettings.firstQuestion "A következők közül melyik illik jobban a szituációhoz?">
 <!ENTITY torSettings.configurePrompt1 "Ennek a számítógépnek a forgalma cenzorált vagy proxizott.">
-<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings.">
+<!ENTITY torSettings.configurePrompt2 "Szükségem van híd vagy helyi proxy beállítására.">
 <!ENTITY torSettings.configure "Beállít">
 <!ENTITY torSettings.connectPrompt2 "Szeretnék közvetlenül kapcsolódni a Tor hálózathoz.">
 <!ENTITY torSettings.connectPrompt3 "A legtöbb esetben ez működni fog.">
 <!ENTITY torSettings.connect "Csatlakozás">
 
-<!ENTITY torSettings.proxyQuestion "Does this computer need to use a local proxy to access the Internet?">
+<!ENTITY torSettings.proxyQuestion "Ez a számítgép helyi proxyn keresztül éri el az Internetet? ">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "If you are not sure how to answer this question, look at the Internet settings in another browser to see whether it is configured to use a local proxy.">
+<!ENTITY torSettings.proxyHelp "Ha nem biztos ennek a kérdésnek a megválaszolásában, kattintson az Internet beállításokra a másik böngészőjében, és tekintse meg, hog van-e benne beállítva helyiproxy.">
 <!ENTITY torSettings.enterProxy "Adja meg a proxy beállításokat.">
 <!ENTITY torSettings.bridgeQuestion "Az internet szolgáltatód (ISP) blokkolja vagy cenzúrázza a kapcsolatot a Tor hálózathoz?">
 <!ENTITY torSettings.bridgeHelp "Ha nem vagy biztos a válaszban, válaszd a Nem-et.&#160; Ha az Igen-t választod neked kell konfigurálni a Tor bridges amik nem listázott átjátszók és nehezebbé teszik a Tor hálózat kapcsolódásának a blokkolását.">
@@ -30,7 +30,7 @@
 
 <!ENTITY torsettings.optional "Opcionális">
 
-<!ENTITY torsettings.useProxy.checkbox "This computer needs to use a local proxy to access the Internet">
+<!ENTITY torsettings.useProxy.checkbox "Ez a számítógép helyi proxyn keresztül kell éri el az Internetet">
 <!ENTITY torsettings.useProxy.type "Proxy Típus:">
 <!ENTITY torsettings.useProxy.address "Cím:">
 <!ENTITY torsettings.useProxy.address.placeholder "IP cím vagy gépnév">

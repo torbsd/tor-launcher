@@ -9,15 +9,15 @@
 
 <!ENTITY torSettings.firstQuestion "Yang mana dari di bawah ini cocok dengan situasi anda?">
 <!ENTITY torSettings.configurePrompt1 "Koneksi internet komputer ini disensor atau terproksi.">
-<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings.">
+<!ENTITY torSettings.configurePrompt2 "Saya membutuhkan konfigurasi jembatan atau seting proksi lokal">
 <!ENTITY torSettings.configure "Konfigur">
 <!ENTITY torSettings.connectPrompt2 "Saya ingin menghubungkan secara langsung ke jaringan Tor.">
 <!ENTITY torSettings.connectPrompt3 "Hal ini akan bekerja dalam kebanyakan situasi.">
 <!ENTITY torSettings.connect "Hubungi">
 
-<!ENTITY torSettings.proxyQuestion "Does this computer need to use a local proxy to access the Internet?">
+<!ENTITY torSettings.proxyQuestion "Apakah komputer ini membutuhkan proksi lokal untuk dapat mengakses internet ?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "If you are not sure how to answer this question, look at the Internet settings in another browser to see whether it is configured to use a local proxy.">
+<!ENTITY torSettings.proxyHelp "Jika anda tidak yakin untuk menjawab pertanyaan ini, llihatlah pada setelan jaringan di browser lain apakah terkonfigurasi dengan proksi lokal.">
 <!ENTITY torSettings.enterProxy "Masukkan pengaturan proxy.">
 <!ENTITY torSettings.bridgeQuestion "Apakah Internet Service Provider (ISP) blok atau sensor koneksi lain ke Tor Jaringan?">
 <!ENTITY torSettings.bridgeHelp "Jika Anda tidak yakin bagaimana untuk menjawab pertanyaan ini, pilih No.&#160; Jika Anda memilih Ya, Anda akan diminta untuk mengkonfigurasi Tor Bridges, yang relai terdaftar yang membuat lebih sulit untuk memblokir koneksi ke jaringan Tor.">
@@ -53,7 +53,7 @@
 <!ENTITY torsettings.bridgeHelpTitle "Bantuan Bridge Relay">
 <!ENTITY torsettings.bridgeHelp1 "Jika Anda tidak dapat terhubung ke jaringan Tor, bisa jadi Provider Layanan Internet (ISP) atau lembaga lain yang menghalangi Tor. &#160; Sering kali, Anda dapat mengatasi masalah ini dengan menggunakan Tor Bridges, yang relai terdaftar yang lebih sulit untuk memblokir.">
 <!ENTITY torsettings.bridgeHelp1B "Anda dapat menggunakan prekonfigurasi, disediakan alamat set bridge atau Anda mungkin mendapatkan satu set kebiasaan alamat dengan menggunakan salah satu dari tiga metode ini:">
-<!ENTITY torsettings.bridgeHelp2Heading "Through the Web">
+<!ENTITY torsettings.bridgeHelp2Heading "Lewat web">
 <!ENTITY torsettings.bridgeHelp2 "Use a web browser to visit https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "Through the Email Autoresponder">
 <!ENTITY torsettings.bridgeHelp3.emailDesc "Send email to bridges@torproject.org with the line 'get bridges' by itself in the body of the message.&#160; However, to make it harder for an attacker to learn a lot of bridge addresses, you must send this request from one of the following email providers (listed in order of preference):">

@@ -1,4 +1,4 @@
-<!ENTITY torprogress.dialog.title "Tor Status">
-<!ENTITY torprogress.openSettings "Open Settings">
-<!ENTITY torprogress.heading "Connecting to the Tor network">
-<!ENTITY torprogress.pleaseWait "Please wait while we establish a connection to the Tor network.">
+<!ENTITY torprogress.dialog.title "टोर स्थिति">
+<!ENTITY torprogress.openSettings "व्यवस्था खोलें">
+<!ENTITY torprogress.heading "टोर संजाल से जुड़ रहा है">
+<!ENTITY torprogress.pleaseWait "टोर संजाल से संचार स्थापित होने तक प्रतीक्षा करें।">

@@ -15,9 +15,9 @@
 <!ENTITY torSettings.connectPrompt3 "Questo funzionerà nella maggior parte delle situazioni.">
 <!ENTITY torSettings.connect "Connetti">
 
-<!ENTITY torSettings.proxyQuestion "Does this computer need to use a local proxy to access the Internet?">
+<!ENTITY torSettings.proxyQuestion "Questo computer richiede l'uso di un proxy locale per accedere ad Internet?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "If you are not sure how to answer this question, look at the Internet settings in another browser to see whether it is configured to use a local proxy.">
+<!ENTITY torSettings.proxyHelp "Se non sei sicuro su come rispondere a questa domanda, guarda alle impostazioni Internet in un altro browser per vedere come è configurato per l'uso di un proxy locale.">
 <!ENTITY torSettings.enterProxy "Inserisci le impostazioni del proxy.">
 <!ENTITY torSettings.bridgeQuestion "Il tuo fornitore di servizi internet (ISP) blocca o censura la connessione alla rete Tor?">
 <!ENTITY torSettings.bridgeHelp "Se non sei sicuro di come rispondere alla domanda, scegli No.&#160; Se scegli Sì, ti verrà chiesto di configurare Tor Bridges, che consiste in relay non elencati che rendono più difficile bloccare le connessioni alla Rete Tor.">
@@ -30,7 +30,7 @@
 
 <!ENTITY torsettings.optional "Facoltativo">
 
-<!ENTITY torsettings.useProxy.checkbox "This computer needs to use a local proxy to access the Internet">
+<!ENTITY torsettings.useProxy.checkbox "Questo computer richiede l'uso di un proxy locale per accedere a Internet">
 <!ENTITY torsettings.useProxy.type "Tipo di proxy:">
 <!ENTITY torsettings.useProxy.address "Indirizzo:">
 <!ENTITY torsettings.useProxy.address.placeholder "Indirizzo IP oppure hostname">

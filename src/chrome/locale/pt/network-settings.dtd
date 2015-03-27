@@ -9,15 +9,15 @@
 
 <!ENTITY torSettings.firstQuestion "Qual das seguintes frases melhor descreve a sua situação?">
 <!ENTITY torSettings.configurePrompt1 "Esta ligação à Internet deste computador está censurada ou é efetuada via proxy.">
-<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings.">
+<!ENTITY torSettings.configurePrompt2 "Preciso de configurar a ponte ou as definições locais de proxy.">
 <!ENTITY torSettings.configure "Configurar">
 <!ENTITY torSettings.connectPrompt2 "Eu gostaria de me ligar diretamente à rede Tor.">
 <!ENTITY torSettings.connectPrompt3 "Isto funciona na maior parte das situações.">
 <!ENTITY torSettings.connect "Ligar">
 
-<!ENTITY torSettings.proxyQuestion "Does this computer need to use a local proxy to access the Internet?">
+<!ENTITY torSettings.proxyQuestion "Este computador precisa de usar um acesso proxy à Intrnet?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "If you are not sure how to answer this question, look at the Internet settings in another browser to see whether it is configured to use a local proxy.">
+<!ENTITY torSettings.proxyHelp "Se não tem a certeza da resposta, veja as definições de Internet noutro navegador para confirmar se está configurado para usar um proxy local.">
 <!ENTITY torSettings.enterProxy "Insira as definições do proxy.">
 <!ENTITY torSettings.bridgeQuestion "O seu fornecedor de serviços de internet bloqueia ou censura ligações à rede Tor ?">
 <!ENTITY torSettings.bridgeHelp "Se não tem a certeza de como responder a esta questão, escolha o Nº.&#160; Se escolher Sim, vai-lhe ser pedido para configurar as Tor Bridges, que são pontos de passagem não listados mais difíceis de bloquear ligações à rede Tor.">
@@ -30,7 +30,7 @@
 
 <!ENTITY torsettings.optional "Opcional">
 
-<!ENTITY torsettings.useProxy.checkbox "This computer needs to use a local proxy to access the Internet">
+<!ENTITY torsettings.useProxy.checkbox "Este computador precisa de usar um proxy local para aceder à Internet.">
 <!ENTITY torsettings.useProxy.type "Tipo de Proxy:">
 <!ENTITY torsettings.useProxy.address "Endereço:">
 <!ENTITY torsettings.useProxy.address.placeholder "Endereço de IP ou nome do anfitrião">
