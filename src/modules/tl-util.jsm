@@ -1,4 +1,4 @@
-// Copyright (c) 2014, The Tor Project, Inc.
+// Copyright (c) 2015, The Tor Project, Inc.
 // See LICENSE for licensing information.
 //
 // vim: set sw=2 sts=2 ts=8 et syntax=javascript:
@@ -181,6 +181,9 @@ let TorLauncherUtil =  // Public
 
     if (!result)
       result = fallbackStr;
+
+    if ((aKeyword == "REASON") && aStatusObj.HOSTADDR)
+      result += " - " + aStatusObj.HOSTADDR;
 
     return (result) ? result : "";
   },

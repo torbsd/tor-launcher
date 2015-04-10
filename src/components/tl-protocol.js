@@ -1,4 +1,4 @@
-// Copyright (c) 2014, The Tor Project, Inc.
+// Copyright (c) 2015, The Tor Project, Inc.
 // See LICENSE for licensing information.
 // TODO: Some code came from torbutton.js (pull in copyright and license?)
 //
@@ -310,6 +310,7 @@ TorProtocolService.prototype =
   //   status.REASON          -- string (optional)
   //   status.COUNT           -- integer (optional)
   //   status.RECOMMENDATION  -- string (optional)
+  //   status.HOSTADDR        -- string (optional)
   // A "TorBootstrapStatus" notification is also sent.
   // Returns null upon failure.
   _parseBootstrapStatus: function(aStatusMsg)

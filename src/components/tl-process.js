@@ -1,4 +1,4 @@
-// Copyright (c) 2014, The Tor Project, Inc.
+// Copyright (c) 2015, The Tor Project, Inc.
 // See LICENSE for licensing information.
 //
 // vim: set sw=2 sts=2 ts=8 et syntax=javascript:
@@ -524,10 +524,11 @@ TorProcessService.prototype =
           this.mLastTorWarningPhase = aStatusObj.TAG;
           this.mLastTorWarningReason = aStatusObj.REASON;
 
+          // Notify others that an error will be displayed.
+          this.mObsSvc.notifyObservers(null, "TorBootstrapError", reason);
+
           var msg = TorLauncherUtil.getLocalizedString("tor_bootstrap_failed");
           TorLauncherUtil.showAlert(null, msg + "\n\n" + details);
-        
-          this.mObsSvc.notifyObservers(null, "TorBootstrapError", reason);
         }
       }
     }

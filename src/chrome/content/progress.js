@@ -1,4 +1,4 @@
-// Copyright (c) 2014, The Tor Project, Inc.
+// Copyright (c) 2015, The Tor Project, Inc.
 // See LICENSE for licensing information.
 //
 // vim: set sw=2 sts=2 ts=8 et syntax=javascript:
@@ -9,6 +9,7 @@ const Cu = Components.utils;
 
 const kTorProcessExitedTopic = "TorProcessExited";
 const kBootstrapStatusTopic = "TorBootstrapStatus";
+const kTorBootstrapErrorTopic = "TorBootstrapError";
 const kTorLogHasWarnOrErrTopic = "TorLogHasWarnOrErr";
 
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
@@ -42,6 +43,7 @@ function initDialog()
                   .getService(Ci.nsIObserverService);
     gObsSvc.addObserver(gObserver, kTorProcessExitedTopic, false);
     gObsSvc.addObserver(gObserver, kBootstrapStatusTopic, false);
+    gObsSvc.addObserver(gObserver, kTorBootstrapErrorTopic, false);
     gObsSvc.addObserver(gObserver, kTorLogHasWarnOrErrTopic, false);
   }
   catch (e) {}
@@ -85,6 +87,7 @@ function cleanup()
   {
     gObsSvc.removeObserver(gObserver, kTorProcessExitedTopic);
     gObsSvc.removeObserver(gObserver, kBootstrapStatusTopic);
+    gObsSvc.removeObserver(gObserver, kTorBootstrapErrorTopic);
     gObsSvc.removeObserver(gObserver, kTorLogHasWarnOrErrTopic);
   }
 }
@@ -132,10 +135,14 @@ var gObserver = {
   // nsIObserver implementation.
   observe: function(aSubject, aTopic, aParam)
   {
-    if (kTorProcessExitedTopic == aTopic)
+    if ((kTorProcessExitedTopic == aTopic) ||
+        (kTorBootstrapErrorTopic == aTopic))
     {
+      // In these cases, an error alert will be displayed elsewhere so it is
+      // best to close this window.
       // TODO: provide a way to access tor log e.g., leave this dialog open
-      //       and display the open settings button.
+      //       and display the open settings button or provide a way to do
+      //       that from our error alerts.
       cleanup();
       window.close();
     }
