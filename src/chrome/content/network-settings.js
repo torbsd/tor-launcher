@@ -69,6 +69,8 @@ function initDialog()
   var isWindows = TorLauncherUtil.isWindows;
   if (isWindows)
     document.documentElement.setAttribute("class", "os-windows");
+  else if (TorLauncherUtil.isMac)
+    document.documentElement.setAttribute("class", "os-mac");
 
   var forAssistance = document.getElementById("forAssistance");
   if (forAssistance)
@@ -1305,7 +1307,6 @@ function parseAndValidateBridges(aStr)
     return null;
 
   var resultStr = aStr;
-  resultStr = resultStr.replace(/bridge/gi, ""); // Remove "bridge" everywhere.
   resultStr = resultStr.replace(/\r\n/g, "\n");  // Convert \r\n pairs into \n.
   resultStr = resultStr.replace(/\r/g, "\n");    // Convert \r into \n.
   resultStr = resultStr.replace(/\n\n/g, "\n");  // Condense blank lines.
@@ -1314,7 +1315,8 @@ function parseAndValidateBridges(aStr)
   var tmpArray = resultStr.split('\n');
   for (var i = 0; i < tmpArray.length; i++)
   {
-    let s = tmpArray[i].trim(); // Remove extraneous whitespace.
+    let s = tmpArray[i].trim();       // Remove extraneous white space.
+    s = s.replace(/^bridge\s+/i, ""); // Remove "bridge " from start of line.
     resultArray.push(s);
   }
 
@@ -1397,8 +1399,7 @@ function setElemValue(aID, aValue)
 // Returns true if one or more values were set.
 function setBridgeListElemValue(aBridgeArray)
 {
-  // To be consistent with bridges.torproject.org, pre-pend "bridge" to
-  // each line as it is displayed in the UI.
+  // Trim white space and only keep non-empty values.
   var bridgeList = [];
   if (aBridgeArray)
   {
@@ -1406,11 +1407,7 @@ function setBridgeListElemValue(aBridgeArray)
     {
       var s = aBridgeArray[i].trim();
       if (s.length > 0)
-      {
-        if (s.toLowerCase().indexOf("bridge") != 0)
-          s = "bridge " + s;
         bridgeList.push(s);
-      }
     }
   }
 
