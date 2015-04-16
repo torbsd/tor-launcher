@@ -206,6 +206,8 @@ TorProtocolService.prototype =
   // aSettingsObj should be a JavaScript object with keys (property values)
   // that correspond to tor config. keys.  The value associated with each
   // key should be a simple string, a string array, or a Boolean value.
+  // If an associated value is undefined or null, a key with no value is
+  // passed in the SETCONF command.
   // If a fatal error occurs, null is returned.  Otherwise, a reply object is
   // returned.
   TorSetConf: function(aSettingsObj)
@@ -221,7 +223,7 @@ TorProtocolService.prototype =
       else
         cmdArgs += ' ' + key;
       var val = aSettingsObj[key];
-      if (val)
+      if ((val !== undefined) && (val !== null))
       {
         var valType = (typeof val);
         if ("boolean" == valType)
