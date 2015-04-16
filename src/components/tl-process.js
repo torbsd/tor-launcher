@@ -559,12 +559,17 @@ TorProcessService.prototype =
     var errObj = {};
     var didSucceed = this.mProtocolSvc.TorSetConfWithReply(settings, errObj);
 
-    settings = {};
-    settings["DisableNetwork"] = false;
-    if (!this.mProtocolSvc.TorSetConfWithReply(settings,
-                                               (didSucceed) ? errObj : null))
+    // If the network settings wizard was not opened at startup, enable the
+    // network so that bootstrapping will proceed with the default bridges.
+    if (!TorLauncherUtil.shouldShowNetworkSettings)
     {
-      didSucceed = false;
+      settings = {};
+      settings["DisableNetwork"] = false;
+      if (!this.mProtocolSvc.TorSetConfWithReply(settings,
+                                                 (didSucceed) ? errObj : null))
+      {
+        didSucceed = false;
+      }
     }
 
     if (didSucceed)
