@@ -275,6 +275,7 @@ TorProcessService.prototype =
 
   TorClearBootstrapError: function()
   {
+    this.mBootstrapErrorOccurred = false;
     this.mLastTorWarningPhase = null;
     this.mLastTorWarningReason = null;
   },

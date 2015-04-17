@@ -15,6 +15,9 @@ const kTorLogHasWarnOrErrTopic = "TorLogHasWarnOrErr";
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 XPCOMUtils.defineLazyModuleGetter(this, "TorLauncherUtil",
                           "resource://torlauncher/modules/tl-util.jsm");
+XPCOMUtils.defineLazyModuleGetter(this, "TorLauncherLogger",
+                          "resource://torlauncher/modules/tl-logger.jsm");
+
 
 var gObsSvc;
 var gOpenerCallbackFunc; // Set when opened from network settings.
@@ -110,7 +113,7 @@ function onCancel()
 
   if (gOpenerCallbackFunc)
   {
-    // TODO: stop the bootstrapping process?
+    stopTorBootstrap();
     gOpenerCallbackFunc(false);
   }
   else try
@@ -126,8 +129,32 @@ function onCancel()
 
 function onOpenSettings()
 {
+  stopTorBootstrap();
   cleanup();
   window.close();
+}
+
+
+function stopTorBootstrap()
+{
+  // Tell tor to disable use of the network; this should stop the bootstrap
+  // process.
+  const kErrorPrefix = "Setting DisableNetwork=1 failed: ";
+  try
+  {
+    var svc = Cc["@torproject.org/torlauncher-protocol-service;1"]
+                 .getService(Ci.nsISupports);
+    svc = svc.wrappedJSObject;
+    var settings = {};
+    settings["DisableNetwork"] = true;
+    var errObj = {};
+    if (!svc.TorSetConfWithReply(settings, errObj))
+      TorLauncherLogger.log(5, kErrorPrefix + errObj.details);
+  }
+  catch(e)
+  {
+    TorLauncherLogger.log(5, kErrorPrefix + e);
+  }
 }
 
 
