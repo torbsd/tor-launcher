@@ -9,7 +9,7 @@
 
 <!ENTITY torSettings.firstQuestion "Кое от следните описва най-добре вашата ситуация?">
 <!ENTITY torSettings.configurePrompt1 "Интернет връзката на този компютър е цензурирана или минава през proxy сървър.">
-<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings.">
+<!ENTITY torSettings.configurePrompt2 "Трябва да конфигурирам bridge или proxy настройки.">
 <!ENTITY torSettings.configure "Конфигурирай">
 <!ENTITY torSettings.connectPrompt2 "Бих искал да се свържа директно към Tor мрежата.">
 <!ENTITY torSettings.connectPrompt3 "Това ще работи при повечето ситуации.">
@@ -17,7 +17,7 @@
 
 <!ENTITY torSettings.proxyQuestion "Този компютър използва ли локално прокси за достъп до Интернет?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "If you are not sure how to answer this question, look at the Internet settings in another browser to see whether it is configured to use a local proxy.">
+<!ENTITY torSettings.proxyHelp "Ако не сте сигурни как да отговорите на този въпрос проверете интернет настройките на друг браузър,за да видите дали е настроен да използва прокси.">
 <!ENTITY torSettings.enterProxy "Въведете настройките за прокси.">
 <!ENTITY torSettings.bridgeQuestion "Блокирани или цензурирани ли са връзките към Tor Мрежата от вашият Интернет Доставчик(ISP)?">
 <!ENTITY torSettings.bridgeHelp "Ако не сте сигурни как да отговорите на този въпрос, изберете No.&#160; Ако изберете Yes, вие ще бъдете помолен да конфигурирате Tor Bridges, непубликувани relays които правят блокирането на връзката към Tor Network по трудна.">
@@ -30,7 +30,7 @@
 
 <!ENTITY torsettings.optional "Допълнителен">
 
-<!ENTITY torsettings.useProxy.checkbox "This computer needs to use a local proxy to access the Internet">
+<!ENTITY torsettings.useProxy.checkbox "Необходимо е използването на локален прокси сървър за достъп до Интернет">
 <!ENTITY torsettings.useProxy.type "Прокси Тип:">
 <!ENTITY torsettings.useProxy.address "Адрес:">
 <!ENTITY torsettings.useProxy.address.placeholder "IP адрес или хост">

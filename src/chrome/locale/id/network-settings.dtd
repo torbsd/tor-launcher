@@ -30,7 +30,7 @@
 
 <!ENTITY torsettings.optional "Opsional">
 
-<!ENTITY torsettings.useProxy.checkbox "This computer needs to use a local proxy to access the Internet">
+<!ENTITY torsettings.useProxy.checkbox "Komputer ini perlu menggunakan proxy lokal untuk mengakses internet">
 <!ENTITY torsettings.useProxy.type "Tipe Proxy:">
 <!ENTITY torsettings.useProxy.address "Alamat:">
 <!ENTITY torsettings.useProxy.address.placeholder "alamat IP atau nama host">
@@ -54,9 +54,9 @@
 <!ENTITY torsettings.bridgeHelp1 "Jika Anda tidak dapat terhubung ke jaringan Tor, bisa jadi Provider Layanan Internet (ISP) atau lembaga lain yang menghalangi Tor. &#160; Sering kali, Anda dapat mengatasi masalah ini dengan menggunakan Tor Bridges, yang relai terdaftar yang lebih sulit untuk memblokir.">
 <!ENTITY torsettings.bridgeHelp1B "Anda dapat menggunakan prekonfigurasi, disediakan alamat set bridge atau Anda mungkin mendapatkan satu set kebiasaan alamat dengan menggunakan salah satu dari tiga metode ini:">
 <!ENTITY torsettings.bridgeHelp2Heading "Lewat web">
-<!ENTITY torsettings.bridgeHelp2 "Use a web browser to visit https://bridges.torproject.org">
-<!ENTITY torsettings.bridgeHelp3Heading "Through the Email Autoresponder">
+<!ENTITY torsettings.bridgeHelp2 "Menggunakan applikasi penjelajah interet untuk mengunjungi https://bridges.torproject.org">
+<!ENTITY torsettings.bridgeHelp3Heading "Melalui Email Autoresponder">
 <!ENTITY torsettings.bridgeHelp3.emailDesc "Send email to bridges@torproject.org with the line 'get bridges' by itself in the body of the message.&#160; However, to make it harder for an attacker to learn a lot of bridge addresses, you must send this request from one of the following email providers (listed in order of preference):">
 <!ENTITY torsettings.bridgeHelp3.emailList "https://www.riseup.net, https://mail.google.com, atau https://mail.yahoo.com">
-<!ENTITY torsettings.bridgeHelp4Heading "Through the Help Desk">
+<!ENTITY torsettings.bridgeHelp4Heading "Melalui Help Desk">
 <!ENTITY torsettings.bridgeHelp4 "As a last resort, you can request bridge addresses by sending a polite email message to help@rt.torproject.org.&#160; Please note that a person will need to respond to each request.">

@@ -9,15 +9,15 @@
 
 <!ENTITY torSettings.firstQuestion "Hurrengoetako zeinek deskribatzen du zure egoera hobekien?">
 <!ENTITY torSettings.configurePrompt1 "Ordenagailu honen Interneteko konexioa zentsuratuta dago edo proxy batetik igarotzen da.">
-<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings.">
+<!ENTITY torSettings.configurePrompt2 "Zubi edo proxy lokalaren ezarpenak konfiguratu behar ditut.">
 <!ENTITY torSettings.configure "Konfiguratu">
 <!ENTITY torSettings.connectPrompt2 "Tor sarera zuzenean konektatu nahiko nuke.">
 <!ENTITY torSettings.connectPrompt3 "Hau egoera gehienetan funtzionatuko du.">
 <!ENTITY torSettings.connect "Konektatu">
 
-<!ENTITY torSettings.proxyQuestion "Does this computer need to use a local proxy to access the Internet?">
+<!ENTITY torSettings.proxyQuestion "Ordenagailu honek Internetera sartzeko proxy lokalen bat erabili behar al du?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "If you are not sure how to answer this question, look at the Internet settings in another browser to see whether it is configured to use a local proxy.">
+<!ENTITY torSettings.proxyHelp "Galdera hau nola erantzuteaz zalantzan bazaude, begiratu beste nabigatzaile batean Interneteko ezarpenak proxy lokal bat erabiltzeko konfiguratuta dagoen ikusteko.">
 <!ENTITY torSettings.enterProxy "Sartu proxy ezarpenak.">
 <!ENTITY torSettings.bridgeQuestion "Zure Interneteko Zerbitzu Hornitzaileak (ISP ingeleraz) Tor sarera doazen konexioak blokeatu edo zentsuratu egiten ditu?">
 <!ENTITY torSettings.bridgeHelp "Galdera hau nola erantzuteaz ziur ez bazaude, aukeratu Ez.&#160; Bai aukeratzen baduzu, Tor zubiak konfigura ditzazun eskatuko zaizu, hau da zerrendatuta ez dauden eta Tor sarera doazen konexioak blokeatzea zailago egiten duten erreleak.">
@@ -30,7 +30,7 @@
 
 <!ENTITY torsettings.optional "Hautazkoa">
 
-<!ENTITY torsettings.useProxy.checkbox "This computer needs to use a local proxy to access the Internet">
+<!ENTITY torsettings.useProxy.checkbox "Ordenagailu honek proxy lokal bat erabili behar du Internetera sartzeko">
 <!ENTITY torsettings.useProxy.type "Proxy mota:">
 <!ENTITY torsettings.useProxy.address "Helbidea:">
 <!ENTITY torsettings.useProxy.address.placeholder "IP helbide edo ostalari izena">

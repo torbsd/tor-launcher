@@ -15,7 +15,7 @@
 <!ENTITY torSettings.connectPrompt3 "Ово ће радити у већини ситуација.">
 <!ENTITY torSettings.connect "Повежи се">
 
-<!ENTITY torSettings.proxyQuestion "Does this computer need to use a local proxy to access the Internet?">
+<!ENTITY torSettings.proxyQuestion "Da li ovaj kompjuter koristi lokalni proksi kao pristup internetu?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
 <!ENTITY torSettings.proxyHelp "If you are not sure how to answer this question, look at the Internet settings in another browser to see whether it is configured to use a local proxy.">
 <!ENTITY torSettings.enterProxy "Унесите proxy подешавања.">
