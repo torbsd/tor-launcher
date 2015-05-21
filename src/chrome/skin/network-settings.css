@@ -99,6 +99,11 @@ wizard[tor_hide_browser_logo="true"] .tbb-logo-separator {
   display: none;
 }
 
+.tbb-wizardpage-title {
+  font-size: 115%;
+  font-weight: bold;
+}
+
 #bridgeDefaultEntry,
 #bridgeCustomEntry {
   margin-left: 1.8em;

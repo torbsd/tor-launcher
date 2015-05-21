@@ -57,10 +57,16 @@
   <wizardpage pageid="bridges" next="proxy" onextra2="onCopyLog();"
               onpageshow="showWizardNavButtons(true);"
               onpageadvanced="return onWizardUseBridgesNext(this)">
-    <vbox class="tbb-logo-box" align="start">
-      <image class="tbb-logo" />
-    </vbox>
-    <separator class="tbb-logo-separator" />
+    <hbox class="tbb-header">
+      <vbox class="tbb-logo-box" align="start">
+        <image class="tbb-logo" />
+      </vbox>
+      <separator class="tbb-logo-separator" orient="vertical" />
+      <vbox pack="end">
+        <label class="tbb-wizardpage-title" value="&torSettings.bridgePageTitle;"/>
+      </vbox>
+    </hbox>
+    <separator />
     <hbox>
       <vbox flex="1">
         <label class="question">&torSettings.bridgeQuestion;</label>
@@ -76,10 +82,16 @@
 
   <wizardpage pageid="bridgeSettings" next="proxy" onextra2="onCopyLog();"
               onpageshow="onWizardBridgeSettingsShow();">
-    <vbox class="tbb-logo-box" align="start">
-      <image class="tbb-logo" />
-    </vbox>
-    <separator class="tbb-logo-separator" />
+    <hbox class="tbb-header">
+      <vbox class="tbb-logo-box" align="start">
+        <image class="tbb-logo" />
+      </vbox>
+      <separator class="tbb-logo-separator" orient="vertical" />
+      <vbox pack="end">
+        <label class="tbb-wizardpage-title" value="&torSettings.bridgePageTitle;"/>
+      </vbox>
+    </hbox>
+    <separator />
     <vbox>
       <label id="bridgeSettingsPrompt"
              class="question">&torSettings.bridgeSettingsPrompt;</label>
@@ -90,10 +102,16 @@
   <wizardpage pageid="proxy" onextra2="onCopyLog();"
               onpageshow="onWizardUseProxyRadioChange()"
               onpageadvanced="return onWizardProxyNext(this);">
-    <vbox class="tbb-logo-box" align="start">
-      <image class="tbb-logo" />
-    </vbox>
-    <separator class="tbb-logo-separator" />
+    <hbox class="tbb-header">
+      <vbox class="tbb-logo-box" align="start">
+        <image class="tbb-logo" />
+      </vbox>
+      <separator class="tbb-logo-separator" orient="vertical" />
+      <vbox pack="end">
+        <label class="tbb-wizardpage-title" value="&torSettings.proxyPageTitle;"/>
+      </vbox>
+    </hbox>
+    <separator />
     <hbox>
       <vbox flex="1">
         <label class="question">&torSettings.proxyQuestion;</label>
@@ -111,10 +129,16 @@
   <wizardpage pageid="proxyYES" onextra2="onCopyLog();"
               onpageshow="onWizardProxySettingsShow()"
               onpageadvanced="return (getAndValidateProxySettings() != null)">
-    <vbox class="tbb-logo-box" align="start">
-      <image class="tbb-logo" />
-    </vbox>
-    <separator class="tbb-logo-separator" />
+    <hbox class="tbb-header">
+      <vbox class="tbb-logo-box" align="start">
+        <image class="tbb-logo" />
+      </vbox>
+      <separator class="tbb-logo-separator" orient="vertical" />
+      <vbox pack="end">
+        <label class="tbb-wizardpage-title" value="&torSettings.proxyPageTitle;"/>
+      </vbox>
+    </hbox>
+    <separator />
     <label class="instructions">&torSettings.enterProxy;</label>
     <groupbox id="proxySpecificSettings" />
   </wizardpage>
