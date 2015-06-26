@@ -15,10 +15,12 @@
 <!ENTITY torSettings.connectPrompt3 "Kjo do të funksionojë në shumë situata.">
 <!ENTITY torSettings.connect "Lidhuni">
 
+<!ENTITY torSettings.proxyPageTitle "Konfigurimi i Proxy-t Lokal  ">
 <!ENTITY torSettings.proxyQuestion "A i nevojitet këtij kompjuteri që të përdorë një proxy lokal, për t'u qasur në Internet?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
 <!ENTITY torSettings.proxyHelp "Nëse s'jeni i sigurt sesi t'i përgjigjeni kësaj pyetje, shikoni tek konfigurimi i Internetit në një tjetër shfletues, për të parë nëse ai është i konfiguruar për të përdorur një proxy lokal.">
 <!ENTITY torSettings.enterProxy "Futni konfigurimin e proxy-t.">
+<!ENTITY torSettings.bridgePageTitle "Konfigurimi i Urave të Tor">
 <!ENTITY torSettings.bridgeQuestion "A i pengon ose censuron lidhjet për tek Rrjeti Tor, Ofruesi juaj i Shërbimit Internet (ISP)?">
 <!ENTITY torSettings.bridgeHelp "Nëse s'jeni i sigurt sesi t'i përgjigjeni kësaj pyetje, përzgjidhni &quot;Jo&quot;.&#160; Nëse përzgjidhni &quot;Po&quot;, do t'ju kërkohet të konfiguroni Tor bridges, të cilat janë rele të palistuara, që e bëjnë më të vështirë pengimin e lidhjeve për tek Rrjeti Tor.">
 <!ENTITY torSettings.bridgeSettingsPrompt "Ju mund të përdorni grupin e dhënë të urave, ose mund të përftoni dhe futni një sasi të personalizuar urash.">

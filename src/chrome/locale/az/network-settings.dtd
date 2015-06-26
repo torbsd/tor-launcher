@@ -15,10 +15,12 @@
 <!ENTITY torSettings.connectPrompt3 "Bu əksər hallarda işləyir.">
 <!ENTITY torSettings.connect "Qoşul">
 
+<!ENTITY torSettings.proxyPageTitle "Local Proxy Configuration">
 <!ENTITY torSettings.proxyQuestion "Does this computer need to use a local proxy to access the Internet?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
 <!ENTITY torSettings.proxyHelp "If you are not sure how to answer this question, look at the Internet settings in another browser to see whether it is configured to use a local proxy.">
 <!ENTITY torSettings.enterProxy "Proksy parametrlərini daxil edin">
+<!ENTITY torSettings.bridgePageTitle "Tor Bridges Configuration">
 <!ENTITY torSettings.bridgeQuestion "Sizin internet provayderiniz(İSP) Tor şəbəkəsinə hər-hansı qadağa qoyub?">
 <!ENTITY torSettings.bridgeHelp "Əgər bu saula nə cavab verəcəyinizi bilirsinizsə Xeyr seçin.No.&#160;
 Əgər bəli seçsəniz, sizdən Tor körpüsü quraşdırmağınız tələb olunacaq,hansı ki bunlar qeydə alınmamış, qarşısının alınması daha çətin olan vasitələrdir.">

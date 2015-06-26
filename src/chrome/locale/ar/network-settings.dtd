@@ -15,10 +15,12 @@
 <!ENTITY torSettings.connectPrompt3 "سيصلح هذا في معظم الحالات.">
 <!ENTITY torSettings.connect "اتصل">
 
+<!ENTITY torSettings.proxyPageTitle "Local Proxy Configuration">
 <!ENTITY torSettings.proxyQuestion "هل يحتاج هذا الكمبيوتر لاستخدام وكيل محلي للاتصال بالإنترنت؟">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
 <!ENTITY torSettings.proxyHelp "إذا كنت غير متأكد من كيفية الإجابة على هذا السؤال، أنظر الى إعدادات الإنترنت في متصفح آخر لمعرفة ما إذا تمت تهيئتة لاستخدام وكيل محلي.">
 <!ENTITY torSettings.enterProxy "أدخل إعدادات البروكسي.">
+<!ENTITY torSettings.bridgePageTitle "Tor Bridges Configuration">
 <!ENTITY torSettings.bridgeQuestion "هل يقوم مقدم خدمة الإنترنت (ISP) الذي تتعامل معه بحجب الاتصالات بشبكة Tor أو مراقبتها بطريقة أخرى؟">
 <!ENTITY torSettings.bridgeHelp "إذا لم تكن متأكدا من إجابة هذا السؤال، قم باختيار لا. &#160; إذا قمت باختيار نعم، فسيطلب منك تكوين جسور Tor والتي هي منافذ ترحيل غير مدرجة تصعب عملية حظر الاتصالات بشبكة Tor.">
 <!ENTITY torSettings.bridgeSettingsPrompt "يمكنك استخدام مجموعة الجسور المتوفرة أو الحصول على مجموعة مخصصة من الجسور.">

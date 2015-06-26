@@ -15,10 +15,12 @@
 <!ENTITY torSettings.connectPrompt3 "Это должно работать в большинстве ситуаций.">
 <!ENTITY torSettings.connect "Соединиться">
 
+<!ENTITY torSettings.proxyPageTitle "Настройки локального прокси">
 <!ENTITY torSettings.proxyQuestion "Требуется ли этому компьютеру локальный прокси для доступа к Интернету?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
 <!ENTITY torSettings.proxyHelp "Если Вы не уверены в ответе на этот вопрос, посмотрите настройки Интернета в другом браузере, чтобы проверить, настроен ли он для использования локального прокси.">
 <!ENTITY torSettings.enterProxy "Введите настройки прокси.">
+<!ENTITY torSettings.bridgePageTitle "Настройки шлюзов Tor">
 <!ENTITY torSettings.bridgeQuestion "Ваш провайдер (ISP) блокирует или как-либо цензурирует подключения к сети Tor?">
 <!ENTITY torSettings.bridgeHelp "Если вы не знаете, как ответить на этот вопрос, выбирайте Нет.&#160; Если вы выберете Да, вас попросят настроить мосты Tor, которые являются неопубликованными маршрутизаторами, что затрудняет их блокировку.">
 <!ENTITY torSettings.bridgeSettingsPrompt "Вы можете использовать предопределенный набор мостов или получить и ввести список мостов вручную.">

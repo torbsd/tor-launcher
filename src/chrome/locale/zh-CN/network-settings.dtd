@@ -15,10 +15,12 @@
 <!ENTITY torSettings.connectPrompt3 "通常这种方式是有效的。">
 <!ENTITY torSettings.connect "连接">
 
+<!ENTITY torSettings.proxyPageTitle "本地代理配置">
 <!ENTITY torSettings.proxyQuestion "是否需要本地代理访问互联网？">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
 <!ENTITY torSettings.proxyHelp "如果不知道如何回答该问题，请检查其他浏览器中的互联网设置，查看是否使用本地代理。">
 <!ENTITY torSettings.enterProxy "输入代理设置。">
+<!ENTITY torSettings.bridgePageTitle "Tor 网桥配置">
 <!ENTITY torSettings.bridgeQuestion "互联网服务提供商  (ISP)  是否对 Tor 网络连接进行了封锁或审查？">
 <!ENTITY torSettings.bridgeHelp "如果不理解该问题，请选择“否”。如果选择“是”，那么需要对 Tor 网桥进行配置。网桥指用于连接 Tor 网络的非公开网络中继，更难于封锁。">
 <!ENTITY torSettings.bridgeSettingsPrompt "可以使用集成的网桥，也可以获取网桥，以自定义方式手动输入。">

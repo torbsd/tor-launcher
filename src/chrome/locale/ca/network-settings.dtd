@@ -15,10 +15,12 @@
 <!ENTITY torSettings.connectPrompt3 "Això funciona en la majoria dels casos.">
 <!ENTITY torSettings.connect "Conectar">
 
+<!ENTITY torSettings.proxyPageTitle "Local Proxy Configuration">
 <!ENTITY torSettings.proxyQuestion "Aquest ordinador ha de fer servir un proxy local per accedir a internet?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
 <!ENTITY torSettings.proxyHelp "Si no esteu segurs de com  respondre aquesta pregunta, mireu les preferències d'internet d'un altre navegador per veure si està configurat per usar un proxy local. ">
 <!ENTITY torSettings.enterProxy "Introdueix les opcions del proxy.">
+<!ENTITY torSettings.bridgePageTitle "Tor Bridges Configuration">
 <!ENTITY torSettings.bridgeQuestion "El vostre proveïdor d'Internet (ISP) bloqueja o censura les connexions a la Xarxa Tor?">
 <!ENTITY torSettings.bridgeHelp "Si no esteu segurs de com respondre a aquesta pregunta, escolliu  No.&#160; Si escolliu Sí, se us demanarà que configureu Ponts Tor, que són relés no llistats que fan més dificil de bloquejar les connexions a la Xarxa Tor">
 <!ENTITY torSettings.bridgeSettingsPrompt "Hauries d'utilitzar el set de repetidors provist o customitzar el teu propi.">

@@ -15,10 +15,12 @@
 <!ENTITY torSettings.connectPrompt3 "Dette vil fungere i de fleste situasjoner.">
 <!ENTITY torSettings.connect "Koble til">
 
+<!ENTITY torSettings.proxyPageTitle "Lokal proxy-konfigurasjon">
 <!ENTITY torSettings.proxyQuestion "Trenger denne maskinen å bruke en lokal mellomtjener for å nå Internett?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
 <!ENTITY torSettings.proxyHelp "Dersom du er usikker på hvordan du skal svare på dette spørsmålet, sjekk Internett innstillingene i en annen nettleser for å se om den er konfigurert til å bruke en lokal mellomtjener.">
 <!ENTITY torSettings.enterProxy "Skriv inn proxy-innstillingene.">
+<!ENTITY torSettings.bridgePageTitle "Oppsett av Tor-broer.">
 <!ENTITY torSettings.bridgeQuestion "Blokkerer eller sensurerer internettleverandøren (ISP) din tilkoblinger til Tor-nettverket?">
 <!ENTITY torSettings.bridgeHelp "Hvis du er usikker på hva du skal svare på dette spørsmålet, velg Nei.&#160; Hvis du velger Ja, vil du bli bedt om å konfigurere Tor-broer, som er ulistede reléer som gjør det vanskeligere å blokkere tilkoblinger til Tor-nettverket.">
 <!ENTITY torSettings.bridgeSettingsPrompt "Du kan bruke de angitte broene eller du kan skaffe og oppgi egendefinerte broer.">
@@ -46,7 +48,7 @@
 <!ENTITY torsettings.useBridges.default "Koble til med angitte broer">
 <!ENTITY torsettings.useBridges.type "Tilkoblingstype:">
 <!ENTITY torsettings.useBridges.custom "Angi egendefinerte broer">
-<!ENTITY torsettings.useBridges.label "Skriv inn en, eller fler bro-reléer (èn pr linje).">
+<!ENTITY torsettings.useBridges.label "Angi én eller flere bro-reléer (én per linje).">
 <!ENTITY torsettings.useBridges.placeholder "type adresse:port">
 
 <!ENTITY torsettings.copyLog "Kopier Torloggen til Utklippstavlen">

@@ -15,10 +15,12 @@
 <!ENTITY torSettings.connectPrompt3 "Bu çoğu durumda çalışır.">
 <!ENTITY torSettings.connect "Bağlan">
 
+<!ENTITY torSettings.proxyPageTitle "Yerel Vekil Sunucu Yapılandırması">
 <!ENTITY torSettings.proxyQuestion "Bu bilgisayarın İnternet'e erişebilmesi için yerel bir vekil sunucu kullanması gerekiyor mu?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
 <!ENTITY torSettings.proxyHelp "Bu soruyu nasıl yanıtlayacağınızı bilmiyorsanız, başka bir tarayıcıda İnternet seçeneklerine bakara yerel bir vekil sunucu kullanıp kullanmadığını görün.">
 <!ENTITY torSettings.enterProxy "Vekil ayarlarını girin.">
+<!ENTITY torSettings.bridgePageTitle "Tor Köprü Yapılandırması">
 <!ENTITY torSettings.bridgeQuestion "İnternet Servis Sağlayıcınız (ISS) Tor Ağına bağlantıları engelliyor veya sansürlüyor mu?">
 <!ENTITY torSettings.bridgeHelp "Bu soruyu nasıl cevaplayacağınızdan emin değilseniz Hayır'ı Seçin.&#160; Evet'i seçerseniz, Tor Ağına bağlantıyı engellemeyi daha zor hale getiren listelenmeyen aynalar olan Tor Köprülerini yapılandırmanız istenecektir.">
 <!ENTITY torSettings.bridgeSettingsPrompt "Sağlanan köprülerin kümesini kullanabilirsiniz veya özel bir köprü seti girebilir veya sağlayabilirsiniz.">

@@ -15,10 +15,12 @@
 <!ENTITY torSettings.connectPrompt3 "זה יעבוד ברוב המקרים.">
 <!ENTITY torSettings.connect "התחבר">
 
+<!ENTITY torSettings.proxyPageTitle "Local Proxy Configuration">
 <!ENTITY torSettings.proxyQuestion "Does this computer need to use a local proxy to access the Internet?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
 <!ENTITY torSettings.proxyHelp "If you are not sure how to answer this question, look at the Internet settings in another browser to see whether it is configured to use a local proxy.">
 <!ENTITY torSettings.enterProxy "הזן את הגדרות הפרוקסי.">
+<!ENTITY torSettings.bridgePageTitle "Tor Bridges Configuration">
 <!ENTITY torSettings.bridgeQuestion "האם ספק שירותי האינטרנט (ISP) שלך חוסם או מצנזר אחרת חיבורים לרשת Tor ?">
 <!ENTITY torSettings.bridgeHelp "אם אינך בטוח איך לענות לשאלה הזו, בחר No.&#160; במידה ותבחר כן, תתבקש להגדיר את גשרי Tor, שהם ממסרים לא רשומים שמקשים לחסום חיבורים לרשת Tor.">
 <!ENTITY torSettings.bridgeSettingsPrompt "You may use the provided set of bridges or you may obtain and enter a custom set of bridges.">

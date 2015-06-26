@@ -15,10 +15,12 @@
 <!ENTITY torSettings.connectPrompt3 "To zadziała w większości sytuacji.">
 <!ENTITY torSettings.connect "Połącz">
 
+<!ENTITY torSettings.proxyPageTitle "Ustawienia lokalnego proxy">
 <!ENTITY torSettings.proxyQuestion "Czy ten komputer musi używać lokalnego proxy, aby połączyć się z Internetem?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
 <!ENTITY torSettings.proxyHelp "Jeśli nie jesteś pewny jak odpowiedzieć na to pytanie, to sprawdź swoje ustawienia internetu w innej przeglądarce, aby zobaczyć czy ma ona skonfigurowane lokalne proxy.">
 <!ENTITY torSettings.enterProxy "Wprowadź ustawienia serwera proxy">
+<!ENTITY torSettings.bridgePageTitle "Ustawienia Tor Bridges">
 <!ENTITY torSettings.bridgeQuestion "Czy Twój dostawca usług internetowych (ISP) blokuje lub cenzuruje połączenia sieci Tor?">
 <!ENTITY torSettings.bridgeHelp "Jeśli nie jesteś pewny odpowiedzi na to pytanie proszę wybrać odpowiedź Nie.&#160; Jeśli wybierzesz Tak, to będziesz poproszony o skonfigurowanie mostków Tora, które nie są publicznie wymienione, dzięki czemu będzie trudniej zablokować połączenia do sieci Tor.">
 <!ENTITY torSettings.bridgeSettingsPrompt "Możesz wybrać dostępny zestaw mostków, albo możesz uzyskać i wprowadzić niestandardowy zestaw mostów.">

@@ -15,10 +15,12 @@
 <!ENTITY torSettings.connectPrompt3 "Ово ће радити у већини ситуација.">
 <!ENTITY torSettings.connect "Повежи се">
 
+<!ENTITY torSettings.proxyPageTitle "Local Proxy Configuration">
 <!ENTITY torSettings.proxyQuestion "Da li ovaj kompjuter koristi lokalni proksi kao pristup internetu?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
 <!ENTITY torSettings.proxyHelp "If you are not sure how to answer this question, look at the Internet settings in another browser to see whether it is configured to use a local proxy.">
 <!ENTITY torSettings.enterProxy "Унесите proxy подешавања.">
+<!ENTITY torSettings.bridgePageTitle "Tor Bridges Configuration">
 <!ENTITY torSettings.bridgeQuestion "Да ли Ваш интернет сервис провајдер (ИСП) блокира или на неки други начин цензурише повезивање на Тор мрежу?">
 <!ENTITY torSettings.bridgeHelp "Ако нисте сигурни како да одговорите на ово питање, изаберите Не.&#160; Ако изаберете Да, бићете замољени да подесите Тор Премошћиваче, који су неизлистани преносници чија је улога да отежавају блокирање повезивања на Тор мрежу.">
 <!ENTITY torSettings.bridgeSettingsPrompt "Можете користити понуђени сет премошћивача или можете добавити или унети жељени сет премошћивача.">

@@ -15,10 +15,12 @@
 <!ENTITY torSettings.connectPrompt3 "Das wird in den meisten Situationen funktionieren.">
 <!ENTITY torSettings.connect "Verbinden">
 
+<!ENTITY torSettings.proxyPageTitle "Lokale Proxy-Konfiguration">
 <!ENTITY torSettings.proxyQuestion "Benötigt dieser Rechner einen lokalen Proxy um auf das Internet zuzugreifen?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "Wenn Sie unsicher sind, schauen Sie in den Internet-Einstellungen in einem andern Browser nach, um zu erkennen ob ein lokaler Proxy konfiguriert ist.">
-<!ENTITY torSettings.enterProxy "Vermittlungseinstellungen eingeben.">
+<!ENTITY torSettings.proxyHelp "Wenn Sie unsicher sind, schauen Sie in den Interneteinstellungen in einem andern Browser nach, um zu erkennen ob ein lokaler Proxy konfiguriert ist.">
+<!ENTITY torSettings.enterProxy "Proxy-Einstellungen eingeben.">
+<!ENTITY torSettings.bridgePageTitle "Torbrücken-Konfiguration">
 <!ENTITY torSettings.bridgeQuestion "Blockiert oder zensiert Ihr Internetdienstanbieter (ISP) Verbindungen zum Tor-Netzwerk?">
 <!ENTITY torSettings.bridgeHelp "Wenn Sie sich nicht sicher sind, wie Sie diese Frage beantworten sollen, wählen Sie Nr.&#160; Wenn Sie Ja wählen, werden Sie aufgefordert, die Torbrücken zu konfigurieren. Die nicht aufgeführte Relais sind, was es schwieriger macht, Verbindungen zum Tor-Netzwerk zu blockieren.">
 <!ENTITY torSettings.bridgeSettingsPrompt "Sie könne den bereitgestellten Satz an Brücken verwenden oder Sie können welche erhalten, und geben einen benutzerdefinierten Satz an Brücken ein.">
@@ -26,12 +28,12 @@
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "Auf den Start von Tor wird gewartet …">
-<!ENTITY torsettings.restartTor "Tor neustarten">
+<!ENTITY torsettings.restartTor "Tor neu starten">
 
 <!ENTITY torsettings.optional "Optional">
 
 <!ENTITY torsettings.useProxy.checkbox "Dieser Rechner benötigt einen lokalen Proxy um auf das Internet zuzugreifen">
-<!ENTITY torsettings.useProxy.type "Vermittlungstyp:">
+<!ENTITY torsettings.useProxy.type "Proxy-Typ:">
 <!ENTITY torsettings.useProxy.address "Adresse:">
 <!ENTITY torsettings.useProxy.address.placeholder "IP-Adresse oder Rechnername">
 <!ENTITY torsettings.useProxy.port "Anschluss:">
@@ -44,7 +46,7 @@
 <!ENTITY torsettings.firewall.allowedPorts "Erlaubte Anschlüsse:">
 <!ENTITY torsettings.useBridges.checkbox "Mein Internetdienstanbieter (ISP) blockiert Verbindungen zum Tor-Netzwerk">
 <!ENTITY torsettings.useBridges.default "Mit bereitgestellten Brücken verbinden ">
-<!ENTITY torsettings.useBridges.type "Transporttyp:">
+<!ENTITY torsettings.useBridges.type "Übertragungstyp:">
 <!ENTITY torsettings.useBridges.custom "Benutzerdefinierte Brücken eingeben">
 <!ENTITY torsettings.useBridges.label "Ein oder mehrere Brückenrelais eingeben (eins pro Zeile).">
 <!ENTITY torsettings.useBridges.placeholder "Typ Adresse:Anschluss">

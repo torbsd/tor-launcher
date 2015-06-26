@@ -9,16 +9,18 @@
 
 <!ENTITY torSettings.firstQuestion "Quais opções descrevem melhor a sua situação?">
 <!ENTITY torSettings.configurePrompt1 "A conexão à Internet deste computador foi censurada, filtrada ou limitada por um proxy.">
-<!ENTITY torSettings.configurePrompt2 "É preciso configurar as configurações de ponte ou de proxy local.">
+<!ENTITY torSettings.configurePrompt2 "Eu preciso configurar as configurações de ponte ou de proxy local.">
 <!ENTITY torSettings.configure "Configurar">
 <!ENTITY torSettings.connectPrompt2 "Eu gostaria de me conectar diretamente à rede Tor.">
 <!ENTITY torSettings.connectPrompt3 "Isso funcionará na maioria dos casos.">
 <!ENTITY torSettings.connect "Conectar">
 
-<!ENTITY torSettings.proxyQuestion "Será se seu computador necessita de um proxy local para acessar a internet?">
+<!ENTITY torSettings.proxyPageTitle "Configuração de Proxy Local">
+<!ENTITY torSettings.proxyQuestion "Este computador necessita de um proxy local para acessar a Internet?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "Se você não tem certeza de como responder a esta pergunta, olhe nas configurações de Internet do outro navegador para ver se ele está configurado para usar um proxy local.">
+<!ENTITY torSettings.proxyHelp "Se você não tiver certeza de como responder a esta pergunta, dê uma olhada nas configurações de Internet de um outro navegador para ver se ele está configurado para usar um proxy local.">
 <!ENTITY torSettings.enterProxy "Insira as configurações de proxy.">
+<!ENTITY torSettings.bridgePageTitle "Configuração de Pontes Tor">
 <!ENTITY torSettings.bridgeQuestion "Seu provedor de serviços de internet (ISP) bloqueia ou censura conexões à rede Tor?">
 <!ENTITY torSettings.bridgeHelp "Se você não estiver seguro sobre como responder a essa questão, escolha Não&#160;. Se você escolher Sim, será preciso configurar pontes Tor, que são retransmissores não-listados que dificultam possíveis bloqueios à rede Tor.">
 <!ENTITY torSettings.bridgeSettingsPrompt "Você pode usar o conjunto de pontes fornecidas ou obter e adicionar um conjunto de pontes personalizadas. ">
@@ -30,7 +32,7 @@
 
 <!ENTITY torsettings.optional "Opcional">
 
-<!ENTITY torsettings.useProxy.checkbox "Neste computador é necessario usar um proxy local para acessar a Internet">
+<!ENTITY torsettings.useProxy.checkbox "Este computador necessita de um proxy local para acessar a Internet">
 <!ENTITY torsettings.useProxy.type "Tipo de Proxy:">
 <!ENTITY torsettings.useProxy.address "Endereço:">
 <!ENTITY torsettings.useProxy.address.placeholder "Endereço IP ou Servidor">
@@ -57,6 +59,6 @@
 <!ENTITY torsettings.bridgeHelp2 "Use um navegador internet para visitar https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "Através do Email Autoresponder">
 <!ENTITY torsettings.bridgeHelp3.emailDesc "Envie um e-mail para bridges@torproject.org com a mensagem 'get bridges'.&#160; Contudo, para tornar mais difícil para um invasor descobrir uma grande quantidade de endereços, você deve enviar esse pedido a partir de um dos seguintes provedores de e-mail (listados em ordem de preferência).">
-<!ENTITY torsettings.bridgeHelp3.emailList "https://www.riseup.net, https://mail.google.com, or https://mail.yahoo.com">
-<!ENTITY torsettings.bridgeHelp4Heading "Pelo serviço de assistência">
+<!ENTITY torsettings.bridgeHelp3.emailList "https://www.riseup.net, https://mail.google.com, ou https://mail.yahoo.com">
+<!ENTITY torsettings.bridgeHelp4Heading "Pelo Serviço de Assistência">
 <!ENTITY torsettings.bridgeHelp4 "Como última opção, você pode solicitar endereços de pontes enviando uma mensagem de e-mail educada para help@rt.torproject.org.&#160;. Note que uma pessoa terá que responder a cada solicitação">

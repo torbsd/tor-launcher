@@ -15,10 +15,12 @@
 <!ENTITY torSettings.connectPrompt3 "Šis strādās vairumā gadījumu.">
 <!ENTITY torSettings.connect "Veidot savienojumu">
 
+<!ENTITY torSettings.proxyPageTitle "Local Proxy Configuration">
 <!ENTITY torSettings.proxyQuestion "Vai šim datoram jāizmanto lokālais starpniekserveris, lai piekļūtu internetam?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
 <!ENTITY torSettings.proxyHelp "Ja neesat pārliecināts par atbildi uz šo jautājumu, apskatiet cita pārlūka interneta iestatījumus, lai redzētu vai pārlūks ir nokonfigurēts lokāla starpniekservera izmantošanai. ">
 <!ENTITY torSettings.enterProxy "Ievadiet starpnieka iestatījumus.">
+<!ENTITY torSettings.bridgePageTitle "Tor Bridges Configuration">
 <!ENTITY torSettings.bridgeQuestion "Vai Jūsu interneta pakalpojumu sniedzējs (ISP) bloķē vai savādāk cenzē savienojumus ar tīklu Tor?">
 <!ENTITY torSettings.bridgeHelp "Ja nezināt atbildi, izvēlieties No.&#160; ja izvēlēsities Jā, Jums lūgs konfigurēt Tor tiltus jeb Tor Bridges, proti, neuzskaitītus retranslatorus, kuri apgrūtina savienojumu bloķēšanu ar tīklu Tor.">
 <!ENTITY torSettings.bridgeSettingsPrompt "Jūs varat izmantot piedāvāto tiltu kopumu vai varat ievadīt tiltu pielāgotu sarakstu. ">

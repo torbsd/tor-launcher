@@ -15,10 +15,12 @@
 <!ENTITY torSettings.connectPrompt3 "Ceci fonctionnera dans la plupart des situations.">
 <!ENTITY torSettings.connect "Se connecter">
 
+<!ENTITY torSettings.proxyPageTitle "Configuration du mandataire local">
 <!ENTITY torSettings.proxyQuestion "Cet ordinateur doit-il utiliser un serveur mandataire local pour accéder à Internet?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
 <!ENTITY torSettings.proxyHelp "Si vous n'êtes pas certain de connaître la réponse à cette question, vérifiez les paramètres Internet d'un autre navigateur pour voir s'il est configuré pour utiliser un mandataire local.">
 <!ENTITY torSettings.enterProxy "Saisir les paramètres du serveur mandataire.">
+<!ENTITY torSettings.bridgePageTitle "Configuration des ponts Tor">
 <!ENTITY torSettings.bridgeQuestion "Votre fournisseur de service Internet (FSI) bloque-t-il ou censure-t-il vos connexions au réseau Tor?">
 <!ENTITY torSettings.bridgeHelp "Si vous ne savez pas comment répondre à cette question, choisissez Non.&#160; Si vous choisissez Oui, on vous demandera de configurer les ponts Tor qui sont des relais non listés rendant le bloquage des connexions au réseau Tor plus difficile.">
 <!ENTITY torSettings.bridgeSettingsPrompt "Vous pouvez utiliser le jeu de ponts fourni ou vous pouvez obtenir et saisir un jeu de ponts personnalisé.">
@@ -55,8 +57,8 @@
 <!ENTITY torsettings.bridgeHelp1B "Vous pouvez utiliser le jeu préconfiguré d'adresses de ponts fourni ou vous pouvez obtenir un jeu personnalisé d'adresses en utilisant une de ces trois méthodes :">
 <!ENTITY torsettings.bridgeHelp2Heading "par le Web">
 <!ENTITY torsettings.bridgeHelp2 "en utilisant un navigateur Web pour visiter https://bridges.torproject.org">
-<!ENTITY torsettings.bridgeHelp3Heading "par le répondeur automatique de courriel">
+<!ENTITY torsettings.bridgeHelp3Heading "Par le répondeur automatique de courriel">
 <!ENTITY torsettings.bridgeHelp3.emailDesc "Envoyez un courriel à bridges@torproject.org avec la ligne « get bridges » seule dans le corps du message.&#160; Cependant, afin que cela soit plus difficile pour un attaqueur de découvrir de nombreuses adresses de ponts, vous devez envoyer cette demande à partir d'un des fournisseurs de courriel suivants (listés par ordre de préférence) :">
 <!ENTITY torsettings.bridgeHelp3.emailList "https://www.riseup.net, https://mail.google.com ou https://mail.yahoo.com">
 <!ENTITY torsettings.bridgeHelp4Heading "par le centre d'assistance">
-<!ENTITY torsettings.bridgeHelp4 "en dernier recours, vous pouvez demander des adresses de ponts en envoyant un courriel poli à help@rt.torproject.org.&#160; Veuillez remarquer qu'une personne devra répondre à chaque demande.">
+<!ENTITY torsettings.bridgeHelp4 "En dernier recours, vous pouvez demander des adresses de ponts en envoyant un courriel poli à help@rt.torproject.org.&#160; Veuillez remarquer qu'une personne devra répondre à chaque demande.">

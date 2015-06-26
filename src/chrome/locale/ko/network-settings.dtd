@@ -15,10 +15,12 @@
 <!ENTITY torSettings.connectPrompt3 "이것은 대부분의 상황에서 동작합니다">
 <!ENTITY torSettings.connect "연결">
 
+<!ENTITY torSettings.proxyPageTitle "Local Proxy Configuration">
 <!ENTITY torSettings.proxyQuestion "이 컴퓨터는 인터넷에 접속하는 데 프록시가 필요한가요?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
 <!ENTITY torSettings.proxyHelp "뭔 질문인지 잘 모르시겠다면, 다른 브라우저의 인터넷 설정을 보고 프록시가 어떻게 설정되어 있는지 참고하세요.">
 <!ENTITY torSettings.enterProxy "프록시 설정에 들어갑니다.">
+<!ENTITY torSettings.bridgePageTitle "Tor Bridges Configuration">
 <!ENTITY torSettings.bridgeQuestion "인터넷 서비스 공급자(ISP)가 Tor 네트워크 접속을 차단하거나 검열하고 있나요?">
 <!ENTITY torSettings.bridgeHelp "이 질문에 어떻게 대답해야할지 잘 모르는 경우 아니오를 선택하십시오.&#160; 예를 선택하면 Tor 네트워크에 대한 연결을 차단하는 것을 더욱 어렵게하는 목록 화되지 않은 릴레이이고 Tor Bridges을 구성하는 것이 요구됩니다.">
 <!ENTITY torSettings.bridgeSettingsPrompt "제공된 브릿지 세트를 사용하거나 사용자 지정 브릿지 세트를 취득하여 입력 할 수 있습니다.">

@@ -2,26 +2,28 @@
 
 <!-- For "first run" wizard: -->
 
-<!ENTITY torsettings.prompt "Sebelum anda menyambung ke jaringan Tor, anda perlu memberikan informasi tentang koneksi internet komputer ini.">
+<!ENTITY torsettings.prompt "Sebelum Anda terhubung ke jaringan Tor, Anda perlu memberikan informasi tentang koneksi internet komputer ini.">
 
 <!ENTITY torSettings.yes "Ya">
 <!ENTITY torSettings.no "Tidak">
 
-<!ENTITY torSettings.firstQuestion "Yang mana dari di bawah ini cocok dengan situasi anda?">
-<!ENTITY torSettings.configurePrompt1 "Koneksi internet komputer ini disensor atau terproksi.">
-<!ENTITY torSettings.configurePrompt2 "Saya membutuhkan konfigurasi jembatan atau seting proksi lokal">
+<!ENTITY torSettings.firstQuestion "Mana dari yang berikut ini tepat menjelaskan situasi Anda?">
+<!ENTITY torSettings.configurePrompt1 "Koneksi Internet komputer ini disensor atau terproksi.">
+<!ENTITY torSettings.configurePrompt2 "Saya perlu mengonfigurasi pengaturan jembatan atau proksi lokal.">
 <!ENTITY torSettings.configure "Konfigur">
-<!ENTITY torSettings.connectPrompt2 "Saya ingin menghubungkan secara langsung ke jaringan Tor.">
-<!ENTITY torSettings.connectPrompt3 "Hal ini akan bekerja dalam kebanyakan situasi.">
-<!ENTITY torSettings.connect "Hubungi">
+<!ENTITY torSettings.connectPrompt2 "Saya ingin terhubung secara langsung ke jaringan Tor.">
+<!ENTITY torSettings.connectPrompt3 "Ini akan bekerja dalam kebanyakan situasi.">
+<!ENTITY torSettings.connect "Sambung">
 
-<!ENTITY torSettings.proxyQuestion "Apakah komputer ini membutuhkan proksi lokal untuk dapat mengakses internet ?">
+<!ENTITY torSettings.proxyPageTitle "Konfigurasi Proksi Lokal">
+<!ENTITY torSettings.proxyQuestion "Apakah komputer ini memerlukan proksi lokal untuk dapat mengakses Internet?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "Jika anda tidak yakin untuk menjawab pertanyaan ini, llihatlah pada setelan jaringan di browser lain apakah terkonfigurasi dengan proksi lokal.">
-<!ENTITY torSettings.enterProxy "Masukkan pengaturan proxy.">
-<!ENTITY torSettings.bridgeQuestion "Apakah Internet Service Provider (ISP) blok atau sensor koneksi lain ke Tor Jaringan?">
-<!ENTITY torSettings.bridgeHelp "Jika Anda tidak yakin bagaimana untuk menjawab pertanyaan ini, pilih No.&#160; Jika Anda memilih Ya, Anda akan diminta untuk mengkonfigurasi Tor Bridges, yang relai terdaftar yang membuat lebih sulit untuk memblokir koneksi ke jaringan Tor.">
-<!ENTITY torSettings.bridgeSettingsPrompt "Anda dapat menggunakan set bridge yang disediakan atau Anda dapat memperoleh dan memasukkan seperangkat bridge yang biasa digunakan.">
+<!ENTITY torSettings.proxyHelp "Jika Anda tidak yakin bagaimana menjawab pertanyaan ini, llihatlah pengaturan Internet di peramban lain untuk memastikan apakah dikonfigurasi untuk menggunakan proksi lokal.">
+<!ENTITY torSettings.enterProxy "Masuk ke pengaturan proksi.">
+<!ENTITY torSettings.bridgePageTitle "Konfigurasi Jembatan Tor">
+<!ENTITY torSettings.bridgeQuestion "Apakah Penyedia Layanan Internet (ISP) Anda memblokir atau menyensor sambungan ke Jaringan Tor?">
+<!ENTITY torSettings.bridgeHelp "Jika Anda tidak yakin bagaimana untuk menjawab pertanyaan ini, pilih No.&#160; Jika Anda memilih Ya, Anda akan diminta untuk mengkonfigurasi Jembatan Tor, yang merupakan relai tidak terdaftar yang akan membuat semakin sulit untuk memblokir sambungan ke Jaringan Tor.">
+<!ENTITY torSettings.bridgeSettingsPrompt "Anda dapat menggunakan setelan jembatan yang disediakan atau Anda dapat memperoleh dan memasukkan setelan jembatan ubahsuai.">
 
 <!-- Other: -->
 
@@ -56,7 +58,7 @@
 <!ENTITY torsettings.bridgeHelp2Heading "Lewat web">
 <!ENTITY torsettings.bridgeHelp2 "Menggunakan applikasi penjelajah interet untuk mengunjungi https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "Melalui Email Autoresponder">
-<!ENTITY torsettings.bridgeHelp3.emailDesc "Send email to bridges@torproject.org with the line 'get bridges' by itself in the body of the message.&#160; However, to make it harder for an attacker to learn a lot of bridge addresses, you must send this request from one of the following email providers (listed in order of preference):">
+<!ENTITY torsettings.bridgeHelp3.emailDesc "Kieim email ke  bridges@torproject.org dengan jalur  'get bridges' itu sendiri di bodi dari pesan &#160; Walau bagaimana , untuk membuatnya lebih keras bagi para penyerang untuk mempelajari beberapa alamat  bridge , anda harus mengirim permintaan ini dari salah satu Provider-provider email berikut  (terdaftar di urutan preferensi):">
 <!ENTITY torsettings.bridgeHelp3.emailList "https://www.riseup.net, https://mail.google.com, atau https://mail.yahoo.com">
 <!ENTITY torsettings.bridgeHelp4Heading "Melalui Help Desk">
-<!ENTITY torsettings.bridgeHelp4 "As a last resort, you can request bridge addresses by sending a polite email message to help@rt.torproject.org.&#160; Please note that a person will need to respond to each request.">
+<!ENTITY torsettings.bridgeHelp4 "Sebagai pilihan terakhir anda dapat meminta alamat bridge dengan mengirimkan pesan email dengan sopan ke help@rt.torproject.org.&#160; Silakan catat bahwa petugas akan merespon masing-masing permintaan">

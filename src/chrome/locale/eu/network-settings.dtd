@@ -15,10 +15,12 @@
 <!ENTITY torSettings.connectPrompt3 "Hau egoera gehienetan funtzionatuko du.">
 <!ENTITY torSettings.connect "Konektatu">
 
+<!ENTITY torSettings.proxyPageTitle "Local Proxy Configuration">
 <!ENTITY torSettings.proxyQuestion "Ordenagailu honek Internetera sartzeko proxy lokalen bat erabili behar al du?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
 <!ENTITY torSettings.proxyHelp "Galdera hau nola erantzuteaz zalantzan bazaude, begiratu beste nabigatzaile batean Interneteko ezarpenak proxy lokal bat erabiltzeko konfiguratuta dagoen ikusteko.">
 <!ENTITY torSettings.enterProxy "Sartu proxy ezarpenak.">
+<!ENTITY torSettings.bridgePageTitle "Tor Bridges Configuration">
 <!ENTITY torSettings.bridgeQuestion "Zure Interneteko Zerbitzu Hornitzaileak (ISP ingeleraz) Tor sarera doazen konexioak blokeatu edo zentsuratu egiten ditu?">
 <!ENTITY torSettings.bridgeHelp "Galdera hau nola erantzuteaz ziur ez bazaude, aukeratu Ez.&#160; Bai aukeratzen baduzu, Tor zubiak konfigura ditzazun eskatuko zaizu, hau da zerrendatuta ez dauden eta Tor sarera doazen konexioak blokeatzea zailago egiten duten erreleak.">
 <!ENTITY torSettings.bridgeSettingsPrompt "Emandako zubi taldea erabili dezakezu edo zubi talde pertsonalizatua eskuratu eta sar dezakezu.">

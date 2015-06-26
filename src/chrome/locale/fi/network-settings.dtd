@@ -15,10 +15,12 @@
 <!ENTITY torSettings.connectPrompt3 "Tämä toimii useimmissa tilanteissa.">
 <!ENTITY torSettings.connect "Yhdistä">
 
+<!ENTITY torSettings.proxyPageTitle "Local Proxy Configuration">
 <!ENTITY torSettings.proxyQuestion "Tarvitseeko tämän tietokoneen käyttää paikallista välityspalvelinta Internet-pääsyyn?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
 <!ENTITY torSettings.proxyHelp "Jos et ole varma, kuinka vastata tähän kysymykseen, katso toisen selaimen Internet-asetuksista, onko se asetettu käyttämään paikallista välityspalvelinta.">
 <!ENTITY torSettings.enterProxy "Kirjoita välityspalvelinasetukset.">
+<!ENTITY torSettings.bridgePageTitle "Tor Bridges Configuration">
 <!ENTITY torSettings.bridgeQuestion "Sensuroiko tai estääkö sinun operaattorisi (ISP) yhteydet Tor-verkkoon?">
 <!ENTITY torSettings.bridgeHelp "Ellet ole varma kuinka vastata tähän kysymykseen, valitse Ei.&#160; Jos valitset Kyllä, sinua pyydetään määrittämään Tor-sillat, jotka ovat listaamattomia välityspalvelimia, jotta yhteyksiä olisi vaikeampi estää Tor-verkkoon yhdistettäessä.">
 <!ENTITY torSettings.bridgeSettingsPrompt "Voit käyttää tarjottua siltajoukkoa tai voit hankkia ja kirjoittaa oman siltojen joukon.">

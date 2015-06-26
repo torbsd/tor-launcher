@@ -15,10 +15,12 @@
 <!ENTITY torSettings.connectPrompt3 "Αυτό θα λειτουργήσει στις περισσότερες περιπτώσεις.">
 <!ENTITY torSettings.connect "Σύνδεση">
 
+<!ENTITY torSettings.proxyPageTitle "Local Proxy Configuration">
 <!ENTITY torSettings.proxyQuestion "Does this computer need to use a local proxy to access the Internet?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
 <!ENTITY torSettings.proxyHelp "If you are not sure how to answer this question, look at the Internet settings in another browser to see whether it is configured to use a local proxy.">
 <!ENTITY torSettings.enterProxy "Εισάγωγη των ρυθμίσεων διακομιστή μεσολάβησης.">
+<!ENTITY torSettings.bridgePageTitle "Tor Bridges Configuration">
 <!ENTITY torSettings.bridgeQuestion "Γνωρίζετε αν ο πάροχος (ISP) σας μπλοκάρει ή με οποιοδήποτε τρόπο ελέγχει συνδέσεις
 στο δίκτυο Tor?">
 <!ENTITY torSettings.bridgeHelp "Αν δε ξέρετε πώς να απαντήσετε εδώ, επιλέξτε &quot;Όχι&quot;.&#160; Αν επιλέξετε &quot;Ναι&quot;, θα σας ζητήσω να ρυθμίσετε γέφυρες Tor, που είναι μη ευρέως γνωστά κανάλια εισόδου στο δίκτυο Tor, που δυσκολεύουν όσους προσπαθούν να μπλοκάρουν τις συνδέσεις στο δίκτυο Tor.">

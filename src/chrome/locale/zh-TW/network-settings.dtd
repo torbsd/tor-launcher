@@ -15,10 +15,12 @@
 <!ENTITY torSettings.connectPrompt3 "這將在大多數情況下生效。">
 <!ENTITY torSettings.connect "連接">
 
+<!ENTITY torSettings.proxyPageTitle "Local Proxy Configuration">
 <!ENTITY torSettings.proxyQuestion "這台電腦需要使用本地代理伺服器來存取網路嗎？">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
 <!ENTITY torSettings.proxyHelp "若您無法確定如何回答這個問題，請查看其他瀏覽器的網路設定，看它是否設定為透過代理伺服器連線。">
 <!ENTITY torSettings.enterProxy "輸入代理伺服器設定。">
+<!ENTITY torSettings.bridgePageTitle "Tor Bridges Configuration">
 <!ENTITY torSettings.bridgeQuestion "您的網際網路服務提供者(ISP)阻擋或審查員連接到 Tor 網路?">
 <!ENTITY torSettings.bridgeHelp "如果您不確定如何回答此問題，請選擇「否」。&#160; 如果您選擇「是」，您將被要求設定Tor 橋接，這讓阻止連接到 Tor 網路更加困難。">
 <!ENTITY torSettings.bridgeSettingsPrompt "您可以使用提供的橋接或您可以輸入一組自訂的橋接。">

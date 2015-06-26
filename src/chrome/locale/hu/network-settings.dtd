@@ -15,10 +15,12 @@
 <!ENTITY torSettings.connectPrompt3 "A legtöbb esetben ez működni fog.">
 <!ENTITY torSettings.connect "Csatlakozás">
 
+<!ENTITY torSettings.proxyPageTitle "Helyi proxybeállítások">
 <!ENTITY torSettings.proxyQuestion "Ez a számítgép helyi proxyn keresztül éri el az Internetet? ">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
 <!ENTITY torSettings.proxyHelp "Ha nem biztos ennek a kérdésnek a megválaszolásában, kattintson az Internet beállításokra a másik böngészőjében, és tekintse meg, hog van-e benne beállítva helyiproxy.">
 <!ENTITY torSettings.enterProxy "Adja meg a proxy beállításokat.">
+<!ENTITY torSettings.bridgePageTitle "Tor hidak konfigurálása">
 <!ENTITY torSettings.bridgeQuestion "Az internet szolgáltatód (ISP) blokkolja vagy cenzúrázza a kapcsolatot a Tor hálózathoz?">
 <!ENTITY torSettings.bridgeHelp "Ha nem vagy biztos a válaszban, válaszd a Nem-et.&#160; Ha az Igen-t választod neked kell konfigurálni a Tor bridges amik nem listázott átjátszók és nehezebbé teszik a Tor hálózat kapcsolódásának a blokkolását.">
 <!ENTITY torSettings.bridgeSettingsPrompt "Használhatod a szolgáltatott bridge címeket vagy beszerezhetsz egyedi bridge címeket.">

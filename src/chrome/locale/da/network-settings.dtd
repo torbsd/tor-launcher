@@ -15,10 +15,12 @@
 <!ENTITY torSettings.connectPrompt3 "Dette vil virker i de fleste situationer">
 <!ENTITY torSettings.connect "Tilslut">
 
+<!ENTITY torSettings.proxyPageTitle "Local Proxy Configuration">
 <!ENTITY torSettings.proxyQuestion "Behøver denne computer bruge en lokal proxy for at tilgå Internettet?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
 <!ENTITY torSettings.proxyHelp "Hvis du ikke er sikker på svaret på dette spørgsmål, så kig på Internetindstillingerne i en anden browser for at se om den er konfigureret til at bruge en lokal proxy. ">
 <!ENTITY torSettings.enterProxy "Indtast proxy-indstillinger.">
+<!ENTITY torSettings.bridgePageTitle "Tor Bridges Configuration">
 <!ENTITY torSettings.bridgeQuestion "Blokerer eller censurerer din internetudbyder (ISP) forbindelser til Tor netværket?">
 <!ENTITY torSettings.bridgeHelp "Hvis du er usikker på svaret til dette spørgsmål, vælg No.&#160; Hvis du vælger Ja, vil du blive bedt om at konfigurere Tor Broer, der er ulistede relays, som gør det sværere at blokere forbindelser til Tor Netværket.">
 <!ENTITY torSettings.bridgeSettingsPrompt "Du kan bruge det tildelte sæt broer eller du kan hente og indtaste et skræddersyet sæt broer.">
