@@ -15,12 +15,12 @@
 <!ENTITY torSettings.connectPrompt3 "Aceasta funcționează în cele mai multe situații.">
 <!ENTITY torSettings.connect "Conectare">
 
-<!ENTITY torSettings.proxyPageTitle "Local Proxy Configuration">
+<!ENTITY torSettings.proxyPageTitle "Configurare Proxy local">
 <!ENTITY torSettings.proxyQuestion "Are nevoie acest computer să utilizeze un proxy local pentru accesarea internetului?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "If you are not sure how to answer this question, look at the Internet settings in another browser to see whether it is configured to use a local proxy.">
+<!ENTITY torSettings.proxyHelp "Dacă nu știi sigur cum să răspunzi la această întrebare, uită-te la setările de Internet într-un alt browser pentru a vedea dacă este configurat să folosească un proxy local.">
 <!ENTITY torSettings.enterProxy "Introduceţi setările pentru proxy .">
-<!ENTITY torSettings.bridgePageTitle "Tor Bridges Configuration">
+<!ENTITY torSettings.bridgePageTitle "Configurare Punți Tor ">
 <!ENTITY torSettings.bridgeQuestion "Internet Service Providerul (ISP) dvs blochează sau cenzurează conexiunile către rețeaua Tor?">
 <!ENTITY torSettings.bridgeHelp "Dacă nu sînteți sigur cum să răspundeți la această întrebare, alegeți Nu.&#160; Dacă alegeți Da, vi se va cere să configurați punțile Tor, care sînt relayuri nelistate care fac mai dificilă blocarea conexiunilor la rețeaua Tor.">
 <!ENTITY torSettings.bridgeSettingsPrompt "Puteți folosi setul de punți oferit sau puteți obține și introduce un set particular de punți.">

@@ -15,10 +15,10 @@
 <!ENTITY torSettings.connectPrompt3 "Ово ће радити у већини ситуација.">
 <!ENTITY torSettings.connect "Повежи се">
 
-<!ENTITY torSettings.proxyPageTitle "Local Proxy Configuration">
+<!ENTITY torSettings.proxyPageTitle "Konfiguracija lokalnog proksija">
 <!ENTITY torSettings.proxyQuestion "Da li ovaj kompjuter koristi lokalni proksi kao pristup internetu?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "If you are not sure how to answer this question, look at the Internet settings in another browser to see whether it is configured to use a local proxy.">
+<!ENTITY torSettings.proxyHelp "Ako niste sigurni kako da odgovorite na ovo pitanje, pogledajte internet podešavanja u drugom brauzeruda biste utvrdili da li je konfigurisan da koristi lokalni proksi.">
 <!ENTITY torSettings.enterProxy "Унесите proxy подешавања.">
 <!ENTITY torSettings.bridgePageTitle "Tor Bridges Configuration">
 <!ENTITY torSettings.bridgeQuestion "Да ли Ваш интернет сервис провајдер (ИСП) блокира или на неки други начин цензурише повезивање на Тор мрежу?">
@@ -48,7 +48,7 @@
 <!ENTITY torsettings.useBridges.default "Повежите се са понуђеним премошћивачима">
 <!ENTITY torsettings.useBridges.type "Врста транспорта:">
 <!ENTITY torsettings.useBridges.custom "Унесите жељене премошћиваче">
-<!ENTITY torsettings.useBridges.label "Enter one or more bridge relays (one per line).">
+<!ENTITY torsettings.useBridges.label "Unesite jedan ili više releja mostova (u svakom redu po jedan).">
 <!ENTITY torsettings.useBridges.placeholder "куцајте aдреса:порт">
 
 <!ENTITY torsettings.copyLog "Copy Tor Log To Clipboard">

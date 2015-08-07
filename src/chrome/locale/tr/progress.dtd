@@ -1,4 +1,4 @@
 <!ENTITY torprogress.dialog.title "Tor Durumu">
 <!ENTITY torprogress.openSettings "Ayarları Aç">
-<!ENTITY torprogress.heading "Tor ağına bağlanıyor">
-<!ENTITY torprogress.pleaseWait "Tor ağı ile bağlantı kurana kadar lütfen bekleyin.">
+<!ENTITY torprogress.heading "Tor ağına bağlanılıyor">
+<!ENTITY torprogress.pleaseWait "Lütfen Tor ağı ile bağlantı kurulana kadar bekleyin.">

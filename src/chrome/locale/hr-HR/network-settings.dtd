@@ -16,12 +16,12 @@ internetskoj vezi ovog računala.">
 <!ENTITY torSettings.connectPrompt3 "Ovo će raditi u većini situacija.">
 <!ENTITY torSettings.connect "Spajanje">
 
-<!ENTITY torSettings.proxyPageTitle "Local Proxy Configuration">
+<!ENTITY torSettings.proxyPageTitle "Konfiguracija lokalnog proxy-a">
 <!ENTITY torSettings.proxyQuestion "Treba li ovo računalo koristiti lokalni proxy da pristupi Internetu?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
 <!ENTITY torSettings.proxyHelp "Ako niste sigurni kako odgovoriti na ovo pitanje, pogledajte Internet postavke u drugom pregledniku da vidite jeli postavljen da koristi lokalni proxy.">
 <!ENTITY torSettings.enterProxy "Unesite postavke proxyj-a.">
-<!ENTITY torSettings.bridgePageTitle "Tor Bridges Configuration">
+<!ENTITY torSettings.bridgePageTitle "Konfiguracija Tor mostova">
 <!ENTITY torSettings.bridgeQuestion "Blokira li Vaš davetelj Internet usluge (ISP) ili drugačije cenzurira veze
 s Tor mrežom?">
 <!ENTITY torSettings.bridgeHelp "Ako niste sigurni kako da odgovorite na ovo pitanje, odaberite Ne.&#160; Ako odaberete Da, od Vas će se tražiti da konfigurirate Tor Mostove, koji su neizlistani releji koji otežavaju blokiranje povezivanja s Tor mrežom.">

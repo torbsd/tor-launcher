@@ -15,12 +15,12 @@
 <!ENTITY torSettings.connectPrompt3 "Šis strādās vairumā gadījumu.">
 <!ENTITY torSettings.connect "Veidot savienojumu">
 
-<!ENTITY torSettings.proxyPageTitle "Local Proxy Configuration">
+<!ENTITY torSettings.proxyPageTitle "Lokālā starpniekservera konfigurēšana">
 <!ENTITY torSettings.proxyQuestion "Vai šim datoram jāizmanto lokālais starpniekserveris, lai piekļūtu internetam?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
 <!ENTITY torSettings.proxyHelp "Ja neesat pārliecināts par atbildi uz šo jautājumu, apskatiet cita pārlūka interneta iestatījumus, lai redzētu vai pārlūks ir nokonfigurēts lokāla starpniekservera izmantošanai. ">
 <!ENTITY torSettings.enterProxy "Ievadiet starpnieka iestatījumus.">
-<!ENTITY torSettings.bridgePageTitle "Tor Bridges Configuration">
+<!ENTITY torSettings.bridgePageTitle "Tor tiltu konfigurēšana">
 <!ENTITY torSettings.bridgeQuestion "Vai Jūsu interneta pakalpojumu sniedzējs (ISP) bloķē vai savādāk cenzē savienojumus ar tīklu Tor?">
 <!ENTITY torSettings.bridgeHelp "Ja nezināt atbildi, izvēlieties No.&#160; ja izvēlēsities Jā, Jums lūgs konfigurēt Tor tiltus jeb Tor Bridges, proti, neuzskaitītus retranslatorus, kuri apgrūtina savienojumu bloķēšanu ar tīklu Tor.">
 <!ENTITY torSettings.bridgeSettingsPrompt "Jūs varat izmantot piedāvāto tiltu kopumu vai varat ievadīt tiltu pielāgotu sarakstu. ">
@@ -56,9 +56,9 @@
 <!ENTITY torsettings.bridgeHelp1 "Ja nevarat izveidot savienojumu ar tīklu Tor, tad, iespējams, ka Jūsu interneta pakalpojumu sniedzējs (ISP) vai cita iestāde bloķē Tor.&#160; Bieži, šo problemu var apiet izmantojot Tor tiltus jeb Tor Bridges, proti, neuzskaitītus retranslatorus, kurus grūtāk bloķēt.">
 <!ENTITY torsettings.bridgeHelp1B "Jūs varat izmantot iepriekš nokonfigurētas un piedāvātas tiltu adreses vai varat iegūt pielāgotu adrešu kopumu, sekojot vienai no trim metodēm:">
 <!ENTITY torsettings.bridgeHelp2Heading "Caur tīmekli">
-<!ENTITY torsettings.bridgeHelp2 "Izmanto pārlūkprogrammu lai apmeklētu https://bridges.torproject.org">
+<!ENTITY torsettings.bridgeHelp2 "Izmanto pārlūkprogrammu, lai apmeklētu https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "Caur E-pasta Auto-atbildētāju">
-<!ENTITY torsettings.bridgeHelp3.emailDesc "Sūtiet e-pastu uz bridges@torproject.org ar rindu 'get bridges' ziņojuma tekstā.&#160; Taču, lai uzbrucējam būtu sarežģītāk uzzināt daudz tiltu adrešu, Jums jāsūta šis pieprasījums no kāda no šo e-pasta pakalpojumu sniedzēju e-pastiem (uzskatītiem vēlamās izvēles kārtībā):">
+<!ENTITY torsettings.bridgeHelp3.emailDesc "Sūtiet e-pastu uz bridges@torproject.org ar rindu 'get bridges' ziņojuma tekstā.&#160; Taču, lai uzbrucējam būtu sarežģītāk uzzināt daudz tiltu adrešu, Jums jāsūta šis pieprasījums no kāda no šo e-pasta pakalpojumu sniedzēju e-pastiem (uzskaitītiem vēlamās izvēles kārtībā):">
 <!ENTITY torsettings.bridgeHelp3.emailList "https://www.riseup.net, https://mail.google.com vai https://mail.yahoo.com">
 <!ENTITY torsettings.bridgeHelp4Heading "Caur Palīdzības Centru">
 <!ENTITY torsettings.bridgeHelp4 "Pēdējās instances palīdzība tiltu adrešu pieprasījumiem ir sūtīt pieklājīgu e-pasta adresi uz help@rt.torproject.org.&#160; Lūdzu, ņemiet vērā, ka ikvienu pieprasījumu izskata cilvēks.">
