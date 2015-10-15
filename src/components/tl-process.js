@@ -425,6 +425,17 @@ TorProcessService.prototype =
 
   _controlTor: function()
   {
+    // Optionally prompt for locale.  Blocks until dialog is closed.
+    if (TorLauncherUtil.shouldPromptForLocale)
+    {
+      this._openLocalePicker();
+      if (this.mQuitSoon)
+      {
+        this._quitApp();
+        return;
+      }
+    }
+
     try
     {
       this._monitorTorProcessStartup();
@@ -446,7 +457,7 @@ TorProcessService.prototype =
         if (this.mObsSvc)
           this.mObsSvc.notifyObservers(null, "TorOpenProgressDialog", null);
       }
-      else
+      else if (!this.TorIsBootstrapDone)
       {
         this._openProgressDialog();
 
@@ -457,21 +468,8 @@ TorProcessService.prototype =
       }
 
       // If the user pressed "Quit" within settings/progress, exit.
-      if (this.mQuitSoon) try
-      {
-        this.mQuitSoon = false;
-
-        var asSvc = Cc["@mozilla.org/toolkit/app-startup;1"]
-                      .getService(Ci.nsIAppStartup);
-        var flags = asSvc.eAttemptQuit;
-        if (this.mRestartWithQuit)
-          flags |= asSvc.eRestart;
-        asSvc.quit(flags);
-      }
-      catch (e)
-      {
-        TorLauncherLogger.safelog(4, "unable to quit browser", e);
-      }
+      if (this.mQuitSoon)
+        this._quitApp();
     }
     catch (e)
     {
@@ -481,6 +479,25 @@ TorProcessService.prototype =
       TorLauncherLogger.safelog(4, "_controlTor error: ", e);
     }
   }, // controlTor()
+
+  _quitApp: function()
+  {
+    try
+    {
+      this.mQuitSoon = false;
+
+      var asSvc = Cc["@mozilla.org/toolkit/app-startup;1"]
+                    .getService(Ci.nsIAppStartup);
+      var flags = asSvc.eAttemptQuit;
+      if (this.mRestartWithQuit)
+        flags |= asSvc.eRestart;
+      asSvc.quit(flags);
+    }
+    catch (e)
+    {
+      TorLauncherLogger.safelog(4, "unable to quit", e);
+    }
+  },
 
   _monitorTorProcessStartup: function()
   {
@@ -577,6 +594,16 @@ TorProcessService.prototype =
       this.mProtocolSvc.TorSendCommand("SAVECONF");
     else
       TorLauncherUtil.showSaveSettingsAlert(null, errObj.details);
+  },
+
+  _openLocalePicker: function()
+  {
+    const kLocalePickerURL = "chrome://torlauncher/content/localePicker.xul";
+
+    var wwSvc = Cc["@mozilla.org/embedcomp/window-watcher;1"]
+                  .getService(Ci.nsIWindowWatcher);
+    var winFeatures = "chrome,dialog=yes,modal,all";
+    wwSvc.openWindow(null, kLocalePickerURL, "_blank", winFeatures, undefined);
   },
 
   // If this window is already open, put up "starting tor" panel, focus it and return.

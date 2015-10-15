@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!--
+   - Copyright (c) 2015, The Tor Project, Inc.
+   - See LICENSE for licensing information.
+   - vim: set sw=2 sts=2 ts=8 et syntax=xml:
+  -->
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://torlauncher/skin/network-settings.css"
+                 type="text/css"?>
+
+<!DOCTYPE overlay SYSTEM "chrome://torlauncher/locale/network-settings.dtd">
+
+<?xul-overlay href="chrome://torlauncher/content/network-settings-overlay.xul"?>
+
+<wizard id="TorLauncherLocalePicker"
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        title="&torlauncher.localePicker.title;"
+        windowtype="TorLauncher:LocalePicker"
+        persist="screenX screenY"
+        onwizardfinish="return setLocale();"
+        onwizardcancel="return onCancel();"
+        onload="initLocaleDialog();">
+
+  <script type="application/x-javascript"
+          src="chrome://torlauncher/content/network-settings.js"/>
+
+  <wizardpage pageid="localePicker">
+    <hbox class="tbb-header">
+      <vbox class="tbb-logo-box" align="start">
+        <image class="tbb-logo" />
+      </vbox>
+    </hbox>
+    <separator />
+    <vbox>
+      <label class="question">&torlauncher.localePicker.prompt;</label>
+      <separator/>
+      <listbox id="localeList" ondblclick="onLocaleListDoubleClick()">
+        <listitem value="en-US" label="English" selected="true" />
+        <listitem value="ar" label="&#x0627;&#x0644;&#x0639;&#x0631;&#x0628;&#x064a;&#x0629;" />
+        <listitem value="de" label="Deutsch" />
+        <listitem value="es-ES" label="Espa&#x00f1;ol" />
+        <listitem value="fa" label="&#x0641;&#x0627;&#x0631;&#x0633;&#x06cc;" />
+        <listitem value="fr" label="Fran&#x00e7;ais" />
+        <listitem value="it" label="Italiano" />
+        <listitem value="ja" label="日本語" />
+        <listitem value="ko" label="한국어" />
+        <listitem value="nl" label="Nederlands" />
+        <listitem value="pl" label="Polski" />
+        <listitem value="pt-PT" label="Português (Europeu)" />
+        <listitem value="ru" label="&#x0420;&#x0443;&#x0441;&#x0441;&#x043a;&#x0438;&#x0439;" />
+        <listitem value="tr" label="T&#252;rk&#231;e" />
+        <listitem value="vi" label="Tiếng Việt" />
+        <listitem value="zh-CN" label="&#x7b80;&#x4f53;&#x5b57;" />
+      </listbox>
+    </vbox>
+  </wizardpage>
+
+  <hbox pack="start">
+    <label id="forAssistance" />
+  </hbox>
+</wizard>

@@ -99,6 +99,11 @@ wizard[tor_hide_browser_logo="true"] .tbb-logo-separator {
   display: none;
 }
 
+wizard#TorLauncherLocalePicker button[dlgtype="back"],
+wizard#TorLauncherLocalePicker button[dlgtype="next"] {
+  display: none;
+}
+
 .tbb-wizardpage-title {
   font-size: 115%;
   font-weight: bold;

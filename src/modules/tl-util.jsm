@@ -112,6 +112,10 @@ let TorLauncherUtil =  // Public
   },
 
   // Localized Strings
+  flushLocalizedStringCache: function()
+  {
+    TLUtilInternal.mStringBundle = undefined;
+  },
 
   // "torlauncher." is prepended to aStringName.
   getLocalizedString: function(aStringName)
@@ -256,6 +260,22 @@ let TorLauncherUtil =  // Public
     } catch(e) {}
 
     return this.getBoolPref(kPrefStartTor, true);
+  },
+
+  get shouldPromptForLocale()
+  {
+    const kPrefPromptForLocale = "extensions.torlauncher.prompt_for_locale";
+    try
+    {
+      const kEnvSkipLocalePrompt = "TOR_SKIP_LOCALE_PROMPT";
+
+      var env = Cc["@mozilla.org/process/environment;1"]
+                  .getService(Ci.nsIEnvironment);
+      if (env.exists(kEnvSkipLocalePrompt))
+        return ("1" != env.get(kEnvSkipLocalePrompt));
+    } catch(e) {}
+
+    return this.getBoolPref(kPrefPromptForLocale, true);
   },
 
   get shouldShowNetworkSettings()

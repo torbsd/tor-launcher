@@ -15,6 +15,10 @@ XPCOMUtils.defineLazyModuleGetter(this, "TorLauncherUtil",
 XPCOMUtils.defineLazyModuleGetter(this, "TorLauncherLogger",
                           "resource://torlauncher/modules/tl-logger.jsm");
 
+const kPrefPromptForLocale = "extensions.torlauncher.prompt_for_locale";
+const kPrefLocale = "general.useragent.locale";
+const kPrefMatchOSLocale = "intl.locale.matchOS";
+
 const kPrefDefaultBridgeRecommendedType =
                    "extensions.torlauncher.default_bridge_recommended_type";
 const kPrefDefaultBridgeType = "extensions.torlauncher.default_bridge_type";
@@ -31,6 +35,7 @@ const kTorLogHasWarnOrErrTopic = "TorLogHasWarnOrErr";
 const kWizardProxyRadioGroup = "proxyRadioGroup";
 const kWizardUseBridgesRadioGroup = "useBridgesRadioGroup";
 
+const kLocaleList = "localeList";
 const kUseProxyCheckbox = "useProxy";
 const kProxyTypeMenulist = "proxyType";
 const kProxyAddr = "proxyAddr";
@@ -58,29 +63,78 @@ const kTorConfKeyBridgeList = "Bridge";
 var gProtocolSvc = null;
 var gTorProcessService = null;
 var gObsService = null;
+var gHasQuitButton = false;
 var gIsInitialBootstrap = false;
 var gIsBootstrapComplete = false;
 var gRestoreAfterHelpPanelID = null;
 var gActiveTopics = [];  // Topics for which an observer is currently installed.
 
 
-function initDialog()
+function initDialogCommon(aHasQuitButton)
 {
-  var isWindows = TorLauncherUtil.isWindows;
+  gHasQuitButton = aHasQuitButton;
+
+  gObsService = Cc["@mozilla.org/observer-service;1"]
+                  .getService(Ci.nsIObserverService);
+
+  let isWindows = TorLauncherUtil.isWindows;
   if (isWindows)
     document.documentElement.setAttribute("class", "os-windows");
   else if (TorLauncherUtil.isMac)
     document.documentElement.setAttribute("class", "os-mac");
 
-  var forAssistance = document.getElementById("forAssistance");
+  let forAssistance = document.getElementById("forAssistance");
   if (forAssistance)
   {
     forAssistance.textContent = TorLauncherUtil.getFormattedLocalizedString(
                                         "forAssistance", [kSupportAddr], 1);
   }
 
-  var cancelBtn = document.documentElement.getButton("cancel");
+  if (aHasQuitButton)
+  {
+    let cancelBtn = document.documentElement.getButton("cancel");
+    if (cancelBtn)
+    {
+      let quitKey = isWindows ? "quit_win" : "quit";
+      cancelBtn.label = TorLauncherUtil.getLocalizedString(quitKey);
+    }
+  }
+
+  let wizardElem = getWizard();
+  let haveWizard = (wizardElem != null);
+  if (haveWizard)
+  {
+    // Hide the Tor Browser logo and associated separator element if the
+    // TOR_HIDE_BROWSER_LOGO environment variable is set.
+    let env = Cc["@mozilla.org/process/environment;1"]
+                .getService(Ci.nsIEnvironment);
+    if (env.exists("TOR_HIDE_BROWSER_LOGO"))
+      wizardElem.setAttribute("tor_hide_browser_logo", true);
+  }
+}
+
+
+function resizeDialogToFitContent()
+{
+  // Resize this window to fit content.  sizeToContent() alone will not do
+  // the job (it has many limitations and it is buggy).
+  sizeToContent();
+  let w = maxWidthOfContent();
+  if (w)
+  {
+    let windowFrameWidth = window.outerWidth - window.innerWidth;
+    w += windowFrameWidth;
+
+    if (w > window.outerWidth)
+      window.resizeTo(w, window.outerHeight);
+  }
+}
+
+
+function initDialog()
+{
   gIsInitialBootstrap = window.arguments[0];
+  initDialogCommon(gIsInitialBootstrap);
 
   var startAtPanel;
   if (window.arguments.length > 1)
@@ -88,12 +142,6 @@ function initDialog()
 
   if (gIsInitialBootstrap)
   {
-    if (cancelBtn)
-    {
-      var quitKey = isWindows ? "quit_win" : "quit";
-      cancelBtn.label = TorLauncherUtil.getLocalizedString(quitKey);
-    }
-
     var okBtn = document.documentElement.getButton("accept");
     if (okBtn)
       okBtn.label = TorLauncherUtil.getLocalizedString("connect");
@@ -115,25 +163,16 @@ function initDialog()
   }
   catch (e) { dump(e + "\n"); }
 
-  gObsService = Cc["@mozilla.org/observer-service;1"]
-                  .getService(Ci.nsIObserverService);
-
   var wizardElem = getWizard();
   var haveWizard = (wizardElem != null);
   if (haveWizard)
   {
-    // Hide the Tor Browser logo and associated separator element if the
-    // TOR_HIDE_BROWSER_LOGO environment variable is set.
-    let env = Cc["@mozilla.org/process/environment;1"]
-                .getService(Ci.nsIEnvironment);
-    if (env.exists("TOR_HIDE_BROWSER_LOGO"))
-      wizardElem.setAttribute("tor_hide_browser_logo", true);
-
     // Set "Copy Tor Log" label and move it after the Quit (cancel) button.
     var copyLogBtn = document.documentElement.getButton("extra2");
     if (copyLogBtn)
     {
       copyLogBtn.label = wizardElem.getAttribute("buttonlabelextra2");
+      var cancelBtn = document.documentElement.getButton("cancel");
       if (cancelBtn && TorLauncherUtil.isMac)
         cancelBtn.parentNode.insertBefore(copyLogBtn, cancelBtn.nextSibling);
     }
@@ -191,20 +230,44 @@ function initDialog()
       showPanel();
   }
 
-  // Resize this window to fit content.  sizeToContent() alone will not do
-  // the job (it has many limitations and it is buggy).
-  sizeToContent();
-  let w = maxWidthOfContent();
-  if (w)
-  {
-    let windowFrameWidth = window.outerWidth - window.innerWidth;
-    w += windowFrameWidth;
-
-    if (w > window.outerWidth)
-      window.resizeTo(w, window.outerHeight);
-  }
+  resizeDialogToFitContent();
 
   TorLauncherLogger.log(2, "initDialog done");
+}
+
+
+function initLocaleDialog()
+{
+  initDialogCommon(true);
+
+  // Replace the finish button's label ("Done") with the next button's
+  // label ("Next" or "Continue").
+  let nextBtn = document.documentElement.getButton("next");
+  let doneBtn = document.documentElement.getButton("finish");
+  if (nextBtn && doneBtn)
+    doneBtn.label = nextBtn.label;
+
+  // Select the current language by default.
+  try
+  {
+    let chromeRegSvc = Cc["@mozilla.org/chrome/chrome-registry;1"]
+                         .getService(Ci.nsIXULChromeRegistry);
+    let curLocale = chromeRegSvc.getSelectedLocale("global").toLowerCase();
+    let localeList = document.getElementById(kLocaleList);
+    for (let i = 0; i < localeList.itemCount; ++i)
+    {
+      let item = localeList.getItemAtIndex(i);
+      if (item.value.toLowerCase() == curLocale)
+      {
+        localeList.selectedIndex = i;
+        break;
+      }
+    }
+  } catch (e) {}
+
+  resizeDialogToFitContent();
+
+  TorLauncherLogger.log(2, "initLocaleDialog done");
 }
 
 
@@ -243,7 +306,9 @@ function maxWidthOfContent()
 
 function getWizard()
 {
-  var elem = document.getElementById("TorNetworkSettings");
+  let elem = document.getElementById("TorNetworkSettings");
+  if (!elem)
+    elem = document.getElementById("TorLauncherLocalePicker");
   return (elem && (elem.tagName == "wizard")) ? elem : null;
 }
 
@@ -677,6 +742,27 @@ function restoreButtonLabel(aID)
 }
 
 
+function onLocaleListDoubleClick()
+{
+  getWizard().advance();
+}
+
+
+function setLocale()
+{
+  let locale = getElemValue(kLocaleList, "en-US");
+  if (TorLauncherUtil.isMac && ("ja" == locale))
+    locale = "ja-JP-mac";
+  TorLauncherUtil.setCharPref(kPrefLocale, locale);
+  TorLauncherUtil.setBoolPref(kPrefPromptForLocale, false);
+  TorLauncherUtil.setBoolPref(kPrefMatchOSLocale, false);
+
+  // Clear cached strings so the new locale takes effect.
+  TorLauncherUtil.flushLocalizedStringCache();
+  gObsService.notifyObservers(null, "chrome-flush-caches", null);
+}
+
+
 function onProxyTypeChange()
 {
   var proxyType = getElemValue(kProxyTypeMenulist, null);
@@ -707,11 +793,9 @@ function onCancel()
     return false;
   }
 
-  if (gIsInitialBootstrap) try
+  if (gHasQuitButton) try
   {
-    var obsSvc = Cc["@mozilla.org/observer-service;1"]
-                   .getService(Ci.nsIObserverService);
-    obsSvc.notifyObservers(null, "TorUserRequestedQuit", null);
+    gObsService.notifyObservers(null, "TorUserRequestedQuit", null);
   } catch (e) {}
 
   return true;
@@ -1389,6 +1473,7 @@ function setElemValue(aID, aValue)
         }
         // fallthru
       case "menulist":
+      case "listbox":
         elem.value = (val) ? val : "";
         break;
     }
@@ -1435,6 +1520,7 @@ function getElemValue(aID, aDefaultValue)
         break;
       case "textbox":
       case "menulist":
+      case "listbox":
         rv = elem.value;
         break;
     }
