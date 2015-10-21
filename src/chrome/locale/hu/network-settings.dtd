@@ -1,5 +1,9 @@
 <!ENTITY torsettings.dialog.title "Tor hálózati beállítások">
 
+<!-- For locale picker: -->
+<!ENTITY torlauncher.localePicker.title "Tor Browser nyelv">
+<!ENTITY torlauncher.localePicker.prompt "Kérlek válassz egy nyelvet.">
+
 <!-- For "first run" wizard: -->
 
 <!ENTITY torsettings.prompt "Mielőtt a Tor hálózatra csatlakoznál, információt kell adj a számítógép internet kapcsolatáról.">

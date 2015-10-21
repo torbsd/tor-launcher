@@ -1,5 +1,9 @@
 <!ENTITY torsettings.dialog.title "Tor-verkkoasetukset">
 
+<!-- For locale picker: -->
+<!ENTITY torlauncher.localePicker.title "Tor-selaimen kieli">
+<!ENTITY torlauncher.localePicker.prompt "Valitse kieli, ole hyvä.">
+
 <!-- For "first run" wizard: -->
 
 <!ENTITY torsettings.prompt "Ennen kuin voit yhdistää Tor-verkkoon, sinun on annettava tietoja tietokoneesi internet-yhteydestä.">

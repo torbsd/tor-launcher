@@ -1,5 +1,9 @@
 <!ENTITY torsettings.dialog.title "Tor tinklo parametrai">
 
+<!-- For locale picker: -->
+<!ENTITY torlauncher.localePicker.title "Tor Browser Language">
+<!ENTITY torlauncher.localePicker.prompt "Please select a language.">
+
 <!-- For "first run" wizard: -->
 
 <!ENTITY torsettings.prompt "Before you connect to the Tor network, you need to provide information about this computer's Internet connection.">
@@ -12,11 +16,11 @@
 <!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings.">
 <!ENTITY torSettings.configure "Configure">
 <!ENTITY torSettings.connectPrompt2 "I would like to connect directly to the Tor network.">
-<!ENTITY torSettings.connectPrompt3 "This will work in most situations.">
+<!ENTITY torSettings.connectPrompt3 "Tai suveiks daugeliu situacijų.">
 <!ENTITY torSettings.connect "Prisijungti">
 
 <!ENTITY torSettings.proxyPageTitle "Local Proxy Configuration">
-<!ENTITY torSettings.proxyQuestion "Does this computer need to use a local proxy to access the Internet?">
+<!ENTITY torSettings.proxyQuestion "Ar šis kompiuteris naudoja vietinį proxy prisijungimui prie interneto?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
 <!ENTITY torSettings.proxyHelp "If you are not sure how to answer this question, look at the Internet settings in another browser to see whether it is configured to use a local proxy.">
 <!ENTITY torSettings.enterProxy "Enter the proxy settings.">
@@ -30,10 +34,10 @@
 <!ENTITY torsettings.startingTor "Waiting for Tor to start…">
 <!ENTITY torsettings.restartTor "Pakartotinai paleisti Tor">
 
-<!ENTITY torsettings.optional "Optional">
+<!ENTITY torsettings.optional "Nebūtina">
 
 <!ENTITY torsettings.useProxy.checkbox "This computer needs to use a local proxy to access the Internet">
-<!ENTITY torsettings.useProxy.type "Proxy Type:">
+<!ENTITY torsettings.useProxy.type "Proxy tipas:">
 <!ENTITY torsettings.useProxy.address "Adresas:">
 <!ENTITY torsettings.useProxy.address.placeholder "IP address or hostname">
 <!ENTITY torsettings.useProxy.port "Prievadas:">

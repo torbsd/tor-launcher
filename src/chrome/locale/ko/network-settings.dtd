@@ -1,5 +1,9 @@
 <!ENTITY torsettings.dialog.title "Tor 네트워크 설정">
 
+<!-- For locale picker: -->
+<!ENTITY torlauncher.localePicker.title "Tor Browser Language">
+<!ENTITY torlauncher.localePicker.prompt "Please select a language.">
+
 <!-- For "first run" wizard: -->
 
 <!ENTITY torsettings.prompt "Tor 네트워크에 연결을 시도하기 전에, 이 컴퓨터의 인터넷 연결에 대한 정보를 제공해야합니다.">

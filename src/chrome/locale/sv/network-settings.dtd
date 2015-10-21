@@ -1,5 +1,9 @@
 <!ENTITY torsettings.dialog.title "Nätverksinställningar för Tor">
 
+<!-- For locale picker: -->
+<!ENTITY torlauncher.localePicker.title "Tor Browser Language">
+<!ENTITY torlauncher.localePicker.prompt "Please select a language.">
+
 <!-- For "first run" wizard: -->
 
 <!ENTITY torsettings.prompt "Innan du ansluter till Tor-nätverket så behöver du lämna information om den här datorns internetanslutning.">
@@ -15,12 +19,12 @@
 <!ENTITY torSettings.connectPrompt3 "Detta fungerar i de flesta situationer.">
 <!ENTITY torSettings.connect "Anslut">
 
-<!ENTITY torSettings.proxyPageTitle "Local Proxy Configuration">
+<!ENTITY torSettings.proxyPageTitle "Lokal proxy-konfiguration">
 <!ENTITY torSettings.proxyQuestion "Behöver den här datorn använda en lokal proxy för att ansluta till Internet?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
 <!ENTITY torSettings.proxyHelp "Om du är osäker på svaret på frågan, titta på Internetinställningarna i en annan webbläsare för att se om den är konfigurerad att använda en lokal proxy.">
 <!ENTITY torSettings.enterProxy "Ange proxyinställningarna.">
-<!ENTITY torSettings.bridgePageTitle "Tor Bridges Configuration">
+<!ENTITY torSettings.bridgePageTitle "Konfiguration av Tor-bryggor">
 <!ENTITY torSettings.bridgeQuestion "Blockerar eller censurerar din internetleverantör anslutningar till Tor-nätverket?">
 <!ENTITY torSettings.bridgeHelp "Om du är osäker på hur du ska svara på den här frågan, välj Nej.&#160; Om du väljer Ja kommer du ombes att konfigurera Tor-bryggor, vilka är olistade reläer som gör det svårare att blockera anslutningar till Tor-nätverket.">
 <!ENTITY torSettings.bridgeSettingsPrompt "Du kan använda de förkonfigurerade bryggorna, eller skaffa och ange bryggor själv.">

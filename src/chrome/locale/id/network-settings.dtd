@@ -1,5 +1,9 @@
 <!ENTITY torsettings.dialog.title "Pengaturan Jaringan Tor">
 
+<!-- For locale picker: -->
+<!ENTITY torlauncher.localePicker.title "Bahasa Peramban Tor">
+<!ENTITY torlauncher.localePicker.prompt "Silahkan pilih bahasa.">
+
 <!-- For "first run" wizard: -->
 
 <!ENTITY torsettings.prompt "Sebelum Anda terhubung ke jaringan Tor, Anda perlu memberikan informasi tentang koneksi internet komputer ini.">

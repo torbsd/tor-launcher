@@ -1,64 +1,68 @@
-<!ENTITY torsettings.dialog.title "Tor Ağ Ayarları">
+<!ENTITY torsettings.dialog.title "Tor Ağı Ayarları">
+
+<!-- For locale picker: -->
+<!ENTITY torlauncher.localePicker.title "Tor Browser Dili">
+<!ENTITY torlauncher.localePicker.prompt "Lütfen bir dil seçin.">
 
 <!-- For "first run" wizard: -->
 
-<!ENTITY torsettings.prompt "Tor ağına bağlanmadan önce, bu bilgisayarın İnternet bağlantısı hakkında bilgi vermeniz gerekir.">
+<!ENTITY torsettings.prompt "Tor ağına bağlanmadan önce, bu bilgisayarın Internet bağlantısı hakkında bilgi vermeniz gerekiyor.">
 
 <!ENTITY torSettings.yes "Evet">
 <!ENTITY torSettings.no "Hayır">
 
 <!ENTITY torSettings.firstQuestion "Aşağıdakilerden hangisi durumunuzu en iyi açıklıyor?">
-<!ENTITY torSettings.configurePrompt1 "Bu bilgisayarın İnternet bağlantısı sansürlü ya da vekil sunucu arkasında.">
+<!ENTITY torSettings.configurePrompt1 "Bu bilgisayarın Internet bağlantısı sansürlü ya da vekil sunucu arkasında.">
 <!ENTITY torSettings.configurePrompt2 "Köprü ve yerel vekil sunucu ayarlarını yapmam gerekiyor.">
-<!ENTITY torSettings.configure "Ayarla">
+<!ENTITY torSettings.configure "Yapılandır">
 <!ENTITY torSettings.connectPrompt2 "Doğrudan Tor ağına bağlanmak istiyorum.">
-<!ENTITY torSettings.connectPrompt3 "Çoğu durumda çalışır.">
+<!ENTITY torSettings.connectPrompt3 "Bu çoğu durumda çalışır.">
 <!ENTITY torSettings.connect "Bağlan">
 
 <!ENTITY torSettings.proxyPageTitle "Yerel Vekil Sunucu Ayarları">
-<!ENTITY torSettings.proxyQuestion "Bu bilgisayarın İnternet erişimi için yerel bir vekil sunucu kullanması gerekiyor mu?">
+<!ENTITY torSettings.proxyQuestion "Bu bilgisayarın Internet'e erişmesi için bir yerel vekil sunucu kullanması gerekiyor mu?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "Bu soruyu nasıl yanıtlayacağınızı bilmiyorsanız, başka bir tarayıcıda İnternet ayarlarına bakarak yerel bir vekil sunucu kullanılıp kullanılmadığını görün.">
-<!ENTITY torSettings.enterProxy "Vekil sunucu ayarlarını yazın.">
+<!ENTITY torSettings.proxyHelp "Bu soruyu nasıl yanıtlayacağınızı bilmiyorsanız, başka bir tarayıcıda Internet ayarlarına bakarak bir yerel vekil sunucu kullanılıp kullanılmadığını görün.">
+<!ENTITY torSettings.enterProxy "Vekil sunucu ayarlarını girin.">
 <!ENTITY torSettings.bridgePageTitle "Tor Köprüleri Ayarları">
-<!ENTITY torSettings.bridgeQuestion "İnternet Servis Sağlayıcınız (ISS) Tor Ağına bağlantıları engelliyor ya da sansürlüyor mu?">
-<!ENTITY torSettings.bridgeHelp "Bu soruyu nasıl cevaplayacağınızdan emin değilseniz Hayır seçin.&#160; Evet seçerseniz, Tor Ağı bağlantılarının engellenmesini daha zor hale getiren, listelenmeyen aktarıcılar olan Tor Köprülerini ayarlamanız istenir.">
-<!ENTITY torSettings.bridgeSettingsPrompt "Sağlanan köprüler kümesini kullanabilir ya da özel bir köprü kümesi edinip yazabilirsiniz.">
+<!ENTITY torSettings.bridgeQuestion "Internet Servis Sağlayıcınız (ISS) Tor Ağına olan bağlantıları engelliyor ya da sansürlüyor mu?">
+<!ENTITY torSettings.bridgeHelp "Bu soruyu nasıl yanıtlayacağınızı bilmiyorsanız, Hayır&#160;'ı seçin. Evet'i seçerseniz, Tor Ağı bağlantılarının engellenmesini daha zor hale getiren, listelenmeyen aktarıcılar olan Tor Köprülerini ayarlamanız istenir.">
+<!ENTITY torSettings.bridgeSettingsPrompt "Sağlanan köprüleri kullanabilir ya da özel köprüler edinip yazabilirsiniz.">
 
 <!-- Other: -->
 
-<!ENTITY torsettings.startingTor "Tor yazılımının başlaması bekleniyor...">
-<!ENTITY torsettings.restartTor "Tor Yazılımını Yeniden Başlat">
+<!ENTITY torsettings.startingTor "Tor'un başlaması bekleniyor…">
+<!ENTITY torsettings.restartTor "Tor'u Yeniden Başlat">
 
-<!ENTITY torsettings.optional "İsteğe Bağlı">
+<!ENTITY torsettings.optional "İsteğe bağlı">
 
-<!ENTITY torsettings.useProxy.checkbox "Bu bilgisayar İnternet erişimi için yerel bir vekil sunucu kullanıyor.">
+<!ENTITY torsettings.useProxy.checkbox "Bu bilgisayarın Internet'e erişmesi için bir yerel vekil sunucu kullanması gerekiyor">
 <!ENTITY torsettings.useProxy.type "Vekil Sunucu Tipi:">
 <!ENTITY torsettings.useProxy.address "Adres:">
 <!ENTITY torsettings.useProxy.address.placeholder "IP adresi ya da sunucu adı">
-<!ENTITY torsettings.useProxy.port "Kapı:">
+<!ENTITY torsettings.useProxy.port "Bağlantı noktası:">
 <!ENTITY torsettings.useProxy.username "Kullanıcı adı:">
 <!ENTITY torsettings.useProxy.password "Parola:">
 <!ENTITY torsettings.useProxy.type.socks4 "SOCKS 4">
 <!ENTITY torsettings.useProxy.type.socks5 "SOCKS 5">
 <!ENTITY torsettings.useProxy.type.http "HTTP / HTTPS">
-<!ENTITY torsettings.firewall.checkbox "Bu bilgisayar, yalnız belirli kapılara bağlanma izin veren bir güvenlik duvarı kullanıyor ">
-<!ENTITY torsettings.firewall.allowedPorts "İzin Verilen Kapılar:">
-<!ENTITY torsettings.useBridges.checkbox "İnternet Servis Sağlayıcım (İSS) Tor Ağı ile bağlantılarımı engelliyor">
+<!ENTITY torsettings.firewall.checkbox "Bu bilgisayar yalnız belirli bağlantı noktalarına bağlanmaya izin veren bir güvenlik duvarı kullanıyor">
+<!ENTITY torsettings.firewall.allowedPorts "İzin Verilen Bağlantı Noktaları:">
+<!ENTITY torsettings.useBridges.checkbox "Internet Servis Sağlayıcım (ISS) Tor ağına olan bağlantıları engelliyor">
 <!ENTITY torsettings.useBridges.default "Sağlanan köprüler ile bağlan">
 <!ENTITY torsettings.useBridges.type "Aktarım tipi:">
 <!ENTITY torsettings.useBridges.custom "Özel köprüler yazın">
-<!ENTITY torsettings.useBridges.label "Bir ya da bir kaç köprü aktarıcısı yazın (her satıra bir tane).">
-<!ENTITY torsettings.useBridges.placeholder "adres:kapı şeklinde yazın">
+<!ENTITY torsettings.useBridges.label "Bir ya da birkaç köprü aktarıcısı yazın (her satıra bir tane).">
+<!ENTITY torsettings.useBridges.placeholder "adres:bağlantı noktası şeklinde yazın">
 
 <!ENTITY torsettings.copyLog "Tor Günlüğünü Panoya Kopyala">
 <!ENTITY torsettings.bridgeHelpTitle "Köprü Aktarıcı Yardımı">
-<!ENTITY torsettings.bridgeHelp1 "Tor ağına bağlanamıyorsanız, kullandığınız İnternet Servis Sağlayıcısı (ISS) veya başka bir kurum Tor yazılımını engelliyor olabilir.&#160; Bu sorunu çoğunlukla, engellenmesi daha zor olan listelenmeyen aktarıcılar, Tor Köprülerini kullanarak çözebilirsiniz.">
-<!ENTITY torsettings.bridgeHelp1B "Önceden ayarlanmış ve sunulmuş köprü adresleri kümesini kullanabilir ya da şu üç yöntemden birini kullanarak özel bir adres kümesi edinebilirsiniz:">
+<!ENTITY torsettings.bridgeHelp1 "Tor ağına bağlanamıyorsanız, kullandığınız Internet Servis Sağlayıcısı (ISS) ya da başka bir kurum Tor&#160;'u engelliyor olabilir. Bu sorunu çoğunlukla, engellenmesi daha zor olan listelenmeyen aktarıcılar, Tor Köprülerini kullanarak çözebilirsiniz.">
+<!ENTITY torsettings.bridgeHelp1B "Önceden ayarlanmış ve sunulmuş köprü adreslerini kullanabilir ya da şu üç yöntemden birini kullanarak özel adresler edinebilirsiniz:">
 <!ENTITY torsettings.bridgeHelp2Heading "Web yoluyla">
-<!ENTITY torsettings.bridgeHelp2 "Web tarayıcınız ile https://bridges.torproject.org sitesine bakın">
+<!ENTITY torsettings.bridgeHelp2 "Bir web tarayıcısı kullanarak https://bridges.torproject.org adresini ziyaret edin">
 <!ENTITY torsettings.bridgeHelp3Heading "Otomatik e-posta yanıtı yoluyla">
-<!ENTITY torsettings.bridgeHelp3.emailDesc "bridges@torproject.org adresine, ileti içeriğine yalnız 'get bridges' yazarak bir e-posta gönderin.&#160; Bir saldırganın çok sayıda köprü adresi öğrenmesini zorlaştırmak için bu e-postayı aşağıdaki e-posta sağlayıcılarının birinden yollmalısınız (yeğlenme sırasına göre listelenmiştir):">
-<!ENTITY torsettings.bridgeHelp3.emailList "https://www.riseup.net, https://mail.google.com ya da https://mail.yahoo.com">
+<!ENTITY torsettings.bridgeHelp3.emailDesc "bridges@torproject.org adresine, ileti içeriğine yalnız 'get bridges' yazarak bir e-posta gönderin.&#160; Bir saldırganın çok sayıda köprü adresi öğrenmesini zorlaştırmak için bu e-postayı aşağıdaki e-posta sağlayıcılarının birinden göndermelisiniz (yeğlenme sırasına göre listelenmiştir):">
+<!ENTITY torsettings.bridgeHelp3.emailList "https://www.riseup.net, https://mail.google.com, ya da https://mail.yahoo.com">
 <!ENTITY torsettings.bridgeHelp4Heading "Yardım masası yoluyla">
 <!ENTITY torsettings.bridgeHelp4 "Son yol olarak, köprü adreslerini help@rt.torproject.org adresine göndereceğiniz nazik bir e-posta ile isteyebilirsiniz.&#160; Her isteği bir kişinin yanıtlayacağını unutmayın.">

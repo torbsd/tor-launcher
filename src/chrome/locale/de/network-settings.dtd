@@ -1,5 +1,9 @@
 <!ENTITY torsettings.dialog.title "Tor-Netzwerkeinstellungen">
 
+<!-- For locale picker: -->
+<!ENTITY torlauncher.localePicker.title "Tor Browser Sprache">
+<!ENTITY torlauncher.localePicker.prompt "Bitte wählen Sie eine Sprache.">
+
 <!-- For "first run" wizard: -->
 
 <!ENTITY torsettings.prompt "Bevor Sie sich zum Tor-Netzwerk verbinden können, müssen Sie Informationen über den Internetanschluss Ihres Rechners bereitstellen.">
@@ -18,7 +22,7 @@
 <!ENTITY torSettings.proxyPageTitle "Lokale Proxy-Konfiguration">
 <!ENTITY torSettings.proxyQuestion "Benötigt dieser Rechner einen lokalen Proxy um auf das Internet zuzugreifen?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "Wenn Sie unsicher sind, schauen Sie in den Interneteinstellungen in einem andern Browser nach, um zu erkennen ob ein lokaler Proxy konfiguriert ist.">
+<!ENTITY torSettings.proxyHelp "Wenn Sie unsicher sind, schauen Sie in den Interneteinstellungen in einem andern Browser nach, um zu sehen ob ein lokaler Proxy konfiguriert ist.">
 <!ENTITY torSettings.enterProxy "Proxy-Einstellungen eingeben.">
 <!ENTITY torSettings.bridgePageTitle "Torbrücken-Konfiguration">
 <!ENTITY torSettings.bridgeQuestion "Blockiert oder zensiert Ihr Internetdienstanbieter (ISP) Verbindungen zum Tor-Netzwerk?">

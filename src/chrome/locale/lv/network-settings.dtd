@@ -1,5 +1,9 @@
 <!ENTITY torsettings.dialog.title "Tor tīkla iestatījumi">
 
+<!-- For locale picker: -->
+<!ENTITY torlauncher.localePicker.title "Tor Browser Language">
+<!ENTITY torlauncher.localePicker.prompt "Please select a language.">
+
 <!-- For "first run" wizard: -->
 
 <!ENTITY torsettings.prompt "Pirms pievienojaties pie tīkla Tor, Jums jānorāda informācija par šī datora interneta savienojumu.">

@@ -1,5 +1,9 @@
 <!ENTITY torsettings.dialog.title "Tor mrežne postavke">
 
+<!-- For locale picker: -->
+<!ENTITY torlauncher.localePicker.title "Jezik Tor Preglednika">
+<!ENTITY torlauncher.localePicker.prompt "Molimo odaberite jezik.">
+
 <!-- For "first run" wizard: -->
 
 <!ENTITY torsettings.prompt "Prije nego se spojite na Tor mrežu, trebate dati informacije o

@@ -1,5 +1,9 @@
 <!ENTITY torsettings.dialog.title "Síťové nastavení TORu">
 
+<!-- For locale picker: -->
+<!ENTITY torlauncher.localePicker.title "Tor Browser Language">
+<!ENTITY torlauncher.localePicker.prompt "Please select a language.">
+
 <!-- For "first run" wizard: -->
 
 <!ENTITY torsettings.prompt "Než se připojíte s síti TORu je potřeba poskytnout údaje o internetovém připojení tohoto počítače.">
@@ -15,12 +19,12 @@
 <!ENTITY torSettings.connectPrompt3 "Toto bude fungovat ve většině případů.">
 <!ENTITY torSettings.connect "Připojit">
 
-<!ENTITY torSettings.proxyPageTitle "Local Proxy Configuration">
+<!ENTITY torSettings.proxyPageTitle "Konfigurace místní proxy">
 <!ENTITY torSettings.proxyQuestion "Potřebuje tento počítač zapnutí lokální proxy, aby se připojil k internetu?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
 <!ENTITY torSettings.proxyHelp "Pokud nevíte, jak odpovědět, podívejte se na nastavení sítě Internet v jiném prohlížeči, abyste zjistili, zda je nakonfigurován k používání proxy.">
 <!ENTITY torSettings.enterProxy "Zadejte nastavení serveru proxy.">
-<!ENTITY torSettings.bridgePageTitle "Tor Bridges Configuration">
+<!ENTITY torSettings.bridgePageTitle "Konfigurace Tor přemostění">
 <!ENTITY torSettings.bridgeQuestion "Blokuje nebo jinak cenzuruje váš poskytovatel internetového připojení (ISP) spojení se sítí TORu?">
 <!ENTITY torSettings.bridgeHelp "Pokud si nejste jistí jak odpovědět na tuto otázku, zvolte No.&#160; Pokud vyberete Ano, budete vyzváni k nastavení Mostů TORu, což jsou přenašeče neuvedené v seznamu, které dělají blokování spojení se sítí TORu složitější.">
 <!ENTITY torSettings.bridgeSettingsPrompt "Můžete použít poskytnutou sadu síťových mostů nebo můžete získat a zadat vlastní sadu.">

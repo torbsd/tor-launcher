@@ -1,5 +1,9 @@
 <!ENTITY torsettings.dialog.title "ការ​កំណត់​បណ្ដាញ Tor">
 
+<!-- For locale picker: -->
+<!ENTITY torlauncher.localePicker.title "Tor Browser Language">
+<!ENTITY torlauncher.localePicker.prompt "Please select a language.">
+
 <!-- For "first run" wizard: -->
 
 <!ENTITY torsettings.prompt "មុន​ពេល​អ្នកភ្ជាប់​ទៅបណ្ដាញ Tor អ្នកត្រូវ​ផ្ដល់​ព័ត៌មាន​អំពី​ការ​ភ្ជាប់​អ៊ីនធឺណិត​កុំព្យូទ័រ​នេះ។">

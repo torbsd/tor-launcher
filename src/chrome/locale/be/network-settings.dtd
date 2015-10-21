@@ -1,5 +1,9 @@
 <!ENTITY torsettings.dialog.title "Налады сеткі Тор">
 
+<!-- For locale picker: -->
+<!ENTITY torlauncher.localePicker.title "Tor Browser Language">
+<!ENTITY torlauncher.localePicker.prompt "Please select a language.">
+
 <!-- For "first run" wizard: -->
 
 <!ENTITY torsettings.prompt "Перад тым як падключыцца да сеткі Тор, вам трэба падаць инфармацыю аб злучэнні гэтага капутара з інтэрнэтам.">

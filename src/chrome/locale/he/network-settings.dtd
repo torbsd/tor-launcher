@@ -1,64 +1,72 @@
 <!ENTITY torsettings.dialog.title "הגדרות רשת Tor">
 
+<!-- For locale picker: -->
+<!ENTITY torlauncher.localePicker.title "Tor Browser Language">
+<!ENTITY torlauncher.localePicker.prompt "Please select a language.">
+
 <!-- For "first run" wizard: -->
 
-<!ENTITY torsettings.prompt "לפני שאתה מתחבר לרשת ה-Tor, אתה צריך לספק מידע על חיבור האינטרנט של מחשב זה.">
+<!ENTITY torsettings.prompt "לפני שתתחבר לרשת Tor, עליך לספק מידע על חיבור האינטרנט של מחשב זה.">
 
 <!ENTITY torSettings.yes "כן">
 <!ENTITY torSettings.no "לא">
 
-<!ENTITY torSettings.firstQuestion "אילו מן הבאים מתאר את המצב שלך באופן הטוב ביותר?">
-<!ENTITY torSettings.configurePrompt1 "חיבור האינטרנט של המחשב הזה מצונזר או עובר בשרת פרוקסי">
-<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings.">
+<!ENTITY torSettings.firstQuestion "אילו מן הבאים מתאר את מצבך בצורה המדויקת ביותר?">
+<!ENTITY torSettings.configurePrompt1 "חיבור האינטרנט של מחשב זה מסונן או עובר דרך שרת פרוקסי.">
+<!ENTITY torSettings.configurePrompt2 "ברצוני להגדיר גשר או שרת פרוקסי מקומי.">
 <!ENTITY torSettings.configure "הגדר">
-<!ENTITY torSettings.connectPrompt2 "ברצוני להתחבר ישירות אל הרשת Tor.">
-<!ENTITY torSettings.connectPrompt3 "זה יעבוד ברוב המקרים.">
+<!ENTITY torSettings.connectPrompt2 "ברצוני להתחבר ישירות לרשת Tor.">
+<!ENTITY torSettings.connectPrompt3 "דבר זה יעבוד במרבית המקרים.">
 <!ENTITY torSettings.connect "התחבר">
 
-<!ENTITY torSettings.proxyPageTitle "Local Proxy Configuration">
-<!ENTITY torSettings.proxyQuestion "Does this computer need to use a local proxy to access the Internet?">
+<!ENTITY torSettings.proxyPageTitle "הגדרות שרת פרוקסי מקומי">
+<!ENTITY torSettings.proxyQuestion "האם מחשב זה מוכרח להשתמש בשרת פרוקסי מקומי כדי לקבל גישה לאינטרנט?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "If you are not sure how to answer this question, look at the Internet settings in another browser to see whether it is configured to use a local proxy.">
+<!ENTITY torSettings.proxyHelp "אם אינך בטוח כיצד להשיב לשאלה זו, בחן את הגדרות האינטרנט בדפדפן אחר כדי לראות האם הגדרות ההתחברות שלו כוללות שימוש בשרת פרוקסי מקומי.">
 <!ENTITY torSettings.enterProxy "הזן את הגדרות הפרוקסי.">
-<!ENTITY torSettings.bridgePageTitle "Tor Bridges Configuration">
-<!ENTITY torSettings.bridgeQuestion "האם ספק שירותי האינטרנט (ISP) שלך חוסם או מצנזר אחרת חיבורים לרשת Tor ?">
-<!ENTITY torSettings.bridgeHelp "אם אינך בטוח איך לענות לשאלה הזו, בחר No.&#160; במידה ותבחר כן, תתבקש להגדיר את גשרי Tor, שהם ממסרים לא רשומים שמקשים לחסום חיבורים לרשת Tor.">
-<!ENTITY torSettings.bridgeSettingsPrompt "You may use the provided set of bridges or you may obtain and enter a custom set of bridges.">
+<!ENTITY torSettings.bridgePageTitle "הגדרת גשרים ל-Tor">
+<!ENTITY torSettings.bridgeQuestion "האם ספק שירותי האינטרנט (ISP) שלך חוסם או מסנן חיבורים לרשת Tor ?">
+<!ENTITY torSettings.bridgeHelp "אם אינך בטוח כיצד לענות לשאלה זו, בחר ב-'לא'. אם תבחר ב-'כן', תתבקש להגדיר גשרים ל-Tor, שהם שרתים לא פומביים המסייעים לעקוף חסימות גישה לרשת Tor. ">
+<!ENTITY torSettings.bridgeSettingsPrompt "באפשרותך להשתמש ברשימת הגשרים המוכנה או להשיג בעצמך ולהזין רשימת גשרים חדשה.">
 
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "ממתין כעת עבור Tor כדי להתחיל…">
 <!ENTITY torsettings.restartTor "התחל מחדש את Tor">
 
-<!ENTITY torsettings.optional "רשות">
+<!ENTITY torsettings.optional "אופציונלי">
 
-<!ENTITY torsettings.useProxy.checkbox "This computer needs to use a local proxy to access the Internet">
-<!ENTITY torsettings.useProxy.type "טיפוס פרוקסי:">
+<!ENTITY torsettings.useProxy.checkbox "מחשב זה חייב להשתמש בשרת פרוקסי מקומי על מנת להתחבר לאינטרנט">
+<!ENTITY torsettings.useProxy.type "סוג פרוקסי:">
 <!ENTITY torsettings.useProxy.address "כתובת:">
 <!ENTITY torsettings.useProxy.address.placeholder "כתובת IP או שם מארח">
-<!ENTITY torsettings.useProxy.port "יציאה:">
+<!ENTITY torsettings.useProxy.port "פורט:">
 <!ENTITY torsettings.useProxy.username "שם משתמש:">
 <!ENTITY torsettings.useProxy.password "סיסמה:">
 <!ENTITY torsettings.useProxy.type.socks4 "SOCKS 4">
 <!ENTITY torsettings.useProxy.type.socks5 "SOCKS 5">
 <!ENTITY torsettings.useProxy.type.http "HTTP / HTTPS">
-<!ENTITY torsettings.firewall.checkbox "מחשב זה עובר דרך חומת אש שרק מאפשר חיבורים ליציאות מסוימות">
-<!ENTITY torsettings.firewall.allowedPorts "יציאות מורשות:">
-<!ENTITY torsettings.useBridges.checkbox "ספק האינטרנט שלי (ISP) חוסם חיבורים אל הרשת Tor">
-<!ENTITY torsettings.useBridges.default "Connect with provided bridges">
-<!ENTITY torsettings.useBridges.type "Transport type:">
-<!ENTITY torsettings.useBridges.custom "Enter custom bridges">
-<!ENTITY torsettings.useBridges.label "הקלד אחד או יותר ממסרי גשר (אחד לכל שורה)">
-<!ENTITY torsettings.useBridges.placeholder "type address:port">
+<!ENTITY torsettings.firewall.checkbox "מחשב זה מחובר לאינטרנט דרך חומת אש המאפשר חיבורים רק לפורטים מסויימים ">
+<!ENTITY torsettings.firewall.allowedPorts "פורטים מורשים:">
+<!ENTITY torsettings.useBridges.checkbox "ספק האינטרנט שלי (ISP) חוסם חיבורים לרשת Tor">
+<!ENTITY torsettings.useBridges.default "התחבר באמצעות הגשרים המוכנים מראש">
+<!ENTITY torsettings.useBridges.type "סוג מסווה תעבורה:">
+<!ENTITY torsettings.useBridges.custom "הזן רשימת גשרים חדשה">
+<!ENTITY torsettings.useBridges.label "הזן פרטי גשר אחד לפחות (אחד לכל שורה)">
+<!ENTITY torsettings.useBridges.placeholder "הזן כתובת:פורט address:port">
 
 <!ENTITY torsettings.copyLog "העתק את יומן Tor אל לוח גזירה">
-<!ENTITY torsettings.bridgeHelpTitle "עזרת ממסר גשר">
-<!ENTITY torsettings.bridgeHelp1 "If you are unable to connect to the Tor network, it could be that your Internet Service Provider (ISP) or another agency is blocking Tor.&#160; Often, you can work around this problem by using Tor Bridges, which are unlisted relays that are more difficult to block.">
-<!ENTITY torsettings.bridgeHelp1B "You may use the preconfigured, provided set of bridge addresses or you may obtain a custom set of addresses by using one of these three methods:">
-<!ENTITY torsettings.bridgeHelp2Heading "Through the Web">
-<!ENTITY torsettings.bridgeHelp2 "Use a web browser to visit https://bridges.torproject.org">
-<!ENTITY torsettings.bridgeHelp3Heading "Through the Email Autoresponder">
-<!ENTITY torsettings.bridgeHelp3.emailDesc "Send email to bridges@torproject.org with the line 'get bridges' by itself in the body of the message.&#160; However, to make it harder for an attacker to learn a lot of bridge addresses, you must send this request from one of the following email providers (listed in order of preference):">
-<!ENTITY torsettings.bridgeHelp3.emailList "https://www.riseup.net, https://mail.google.com, or https://mail.yahoo.com">
-<!ENTITY torsettings.bridgeHelp4Heading "Through the Help Desk">
-<!ENTITY torsettings.bridgeHelp4 "As a last resort, you can request bridge addresses by sending a polite email message to help@rt.torproject.org.&#160; Please note that a person will need to respond to each request.">
+<!ENTITY torsettings.bridgeHelpTitle "עזרה בנוגע לגשרים">
+<!ENTITY torsettings.bridgeHelp1 "אם אין באפשרותך להתחבר לרשת Tor, ייתכן שהסיבה לכך היא שספק האינטרנט שלך או גורם אחר חוסמים את Tor. לעתים קרובות, ניתן להתגבר על בעיה זו באמצעות שימוש בגשרים, שהם שרתים חסויים שקשה יותר לחסום אותם.">
+<!ENTITY torsettings.bridgeHelp1B "באפשרותך להשתמש ברשימה מוכנה מראש של גשרים או להשיג בעצמך רשימה חדשה של כתובות באמצעות אחת משלוש הדרכים הבאות:">
+<!ENTITY torsettings.bridgeHelp2Heading "באמצעות רשת האינטרנט">
+<!ENTITY torsettings.bridgeHelp2 "היעזר בדפדפן אינטרנט על מנת לבקר באתר https://bridges.torproject.org">
+<!ENTITY torsettings.bridgeHelp3Heading "דרך שירות הדואל האוטומטי">
+<!ENTITY torsettings.bridgeHelp3.emailDesc "שלח דואל לכתובת bridges@torproject.org עם השורה &quot;get bridges&quot; ללא גרשיים בתוך גוף ההודעה. אולם, כדי להקשות עוד יותר על תוקפים לצבור מאגר כתובות של גשרים, עליך לשלוח בקשה זו מתוך אחד מספקי הדואל הבאים בלבד (בסדר עדיפויות יורד):">
+<!ENTITY torsettings.bridgeHelp3.emailList "https://www.riseup.net
+https://mail.google.com
+https://mail.yahoo.com">
+<!ENTITY torsettings.bridgeHelp4Heading "באמצעות צוות התמיכה שלנו">
+<!ENTITY torsettings.bridgeHelp4 "כמוצא אחרון, תוכל לבקש רשימת גשרים באמצעות פנייה מנומסת בדואל לכתובת הבאה: 
+help@rt.torproject.org
+אנא זכור שבן אנוש ייאלץ להשיב באופן אישי לכל בקשה שכזו.">

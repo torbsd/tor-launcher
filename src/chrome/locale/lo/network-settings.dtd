@@ -1,5 +1,9 @@
 <!ENTITY torsettings.dialog.title "ການຕັ້ງຄ່າເຄືອຂ່າຍ Tor">
 
+<!-- For locale picker: -->
+<!ENTITY torlauncher.localePicker.title "Tor Browser Language">
+<!ENTITY torlauncher.localePicker.prompt "Please select a language.">
+
 <!-- For "first run" wizard: -->
 
 <!ENTITY torsettings.prompt "ກ່ອນທີ່ທ່ານຈະເຊື່ອມຕໍ່ເຂົ້າເຄືອຂ່າຍ Tor, ທ່ານຕ້ອງໄດ້ໃຫ້ລາຍລະອຽດກ່ຽວກັບ ການເຊື່ອມຕໍ່ ອິນເຕີເນັດ ຂອງ ຄັອມພິວເຕີຣ໌ ນີ້ກ່ອນ.">

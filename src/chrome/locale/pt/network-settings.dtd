@@ -1,5 +1,9 @@
 <!ENTITY torsettings.dialog.title "Configurações da Rede Tor">
 
+<!-- For locale picker: -->
+<!ENTITY torlauncher.localePicker.title "Linguagem do Navegador Tor">
+<!ENTITY torlauncher.localePicker.prompt "Por favor seleccione um idioma.">
+
 <!-- For "first run" wizard: -->
 
 <!ENTITY torsettings.prompt "Antes de se ligar à rede Tor, precisa de fornecer informação sobre a ligação deste computador à Internet.">
@@ -9,13 +13,13 @@
 
 <!ENTITY torSettings.firstQuestion "Qual das seguintes frases melhor descreve a sua situação?">
 <!ENTITY torSettings.configurePrompt1 "Esta ligação à Internet deste computador está censurada ou é efetuada via proxy.">
-<!ENTITY torSettings.configurePrompt2 "Preciso de configurar a ponte ou as definições locais de proxy.">
+<!ENTITY torSettings.configurePrompt2 "Eu preciso de configurar a ponte ou as definições de proxy local.">
 <!ENTITY torSettings.configure "Configurar">
 <!ENTITY torSettings.connectPrompt2 "Eu gostaria de me ligar diretamente à rede Tor.">
 <!ENTITY torSettings.connectPrompt3 "Isto funciona na maior parte das situações.">
 <!ENTITY torSettings.connect "Ligar">
 
-<!ENTITY torSettings.proxyPageTitle "Configuração do servidor local">
+<!ENTITY torSettings.proxyPageTitle "Configuração do Proxy Local">
 <!ENTITY torSettings.proxyQuestion "Este computador precisa de usar um acesso proxy à Intrnet?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
 <!ENTITY torSettings.proxyHelp "Se não tem a certeza da resposta, veja as definições de Internet noutro navegador para confirmar se está configurado para usar um proxy local.">
