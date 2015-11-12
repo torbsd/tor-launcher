@@ -217,10 +217,7 @@ TorProcessService.prototype =
     else if (kOpenNetworkSettingsTopic == aTopic)
       this._openNetworkSettings(false);
     else if (kUserQuitTopic == aTopic)
-    {
       this.mQuitSoon = true;
-      this.mRestartWithQuit = ("restart" == aParam);
-    }
   },
 
   canUnload: function(aCompMgr) { return true; },
@@ -294,7 +291,6 @@ TorProcessService.prototype =
   mControlConnTimer: null,
   mControlConnDelayMS: 0,
   mQuitSoon: false,     // Quit was requested by the user; do so soon.
-  mRestartWithQuit: false,
   mLastTorWarningPhase: null,
   mLastTorWarningReason: null,
 
@@ -489,8 +485,6 @@ TorProcessService.prototype =
       var asSvc = Cc["@mozilla.org/toolkit/app-startup;1"]
                     .getService(Ci.nsIAppStartup);
       var flags = asSvc.eAttemptQuit;
-      if (this.mRestartWithQuit)
-        flags |= asSvc.eRestart;
       asSvc.quit(flags);
     }
     catch (e)
