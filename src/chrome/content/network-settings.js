@@ -247,27 +247,98 @@ function initLocaleDialog()
   if (nextBtn && doneBtn)
     doneBtn.label = nextBtn.label;
 
-  // Select the current language by default.
+  let { AddonManager } = Cu.import("resource://gre/modules/AddonManager.jsm");
+  AddonManager.getAddonsByTypes(["locale"], function(aLangPackAddons)
+      {
+        populateLocaleList(aLangPackAddons);
+        resizeDialogToFitContent();
+        TorLauncherLogger.log(2, "initLocaleDialog done");
+      });
+}
+
+
+function populateLocaleList(aLangPackAddons)
+{
+  let knownLanguages = {
+    "en-US" : "English",
+    "ar"    : "\u0627\u0644\u0639\u0631\u0628\u064a\u0629",
+    "de"    : "Deutsch",
+    "es-ES" : "Espa\u00f1ol",
+    "fa"    : "\u0641\u0627\u0631\u0633\u06cc",
+    "fr"    : "Fran\u00e7ais",
+    "it"    : "Italiano",
+    "ja"    : "\u65e5\u672c\u8a9e",
+    "ko"    : "\ud55c\uad6d\uc5b4",
+    "nl"    : "Nederlands",
+    "pl"    : "Polski",
+    "pt-PT" : "Portugu\u00eas (Europeu)",
+    "ru"    : "\u0420\u0443\u0441\u0441\u043a\u0438\u0439",
+    "tr"    : "T\u00fcrk\u00e7e",
+    "vi"    : "Ti\u1ebfng Vi\u1ec7t",
+    "zh-CN" : "\u7b80\u4f53\u5b57"
+  };
+
+  // Retrieve the current locale so we can select it within the list by default.
+  let curLocale;
   try
   {
     let chromeRegSvc = Cc["@mozilla.org/chrome/chrome-registry;1"]
                          .getService(Ci.nsIXULChromeRegistry);
-    let curLocale = chromeRegSvc.getSelectedLocale("global").toLowerCase();
-    let localeList = document.getElementById(kLocaleList);
-    for (let i = 0; i < localeList.itemCount; ++i)
-    {
-      let item = localeList.getItemAtIndex(i);
-      if (item.value.toLowerCase() == curLocale)
-      {
-        localeList.selectedIndex = i;
-        break;
-      }
-    }
+    curLocale = chromeRegSvc.getSelectedLocale("global").toLowerCase();
   } catch (e) {}
 
-  resizeDialogToFitContent();
+  // Build a list of language info objects (language code plus friendly name).
+  let foundCurLocale = false;
+  let langInfo = [];
+  for (let addon of aLangPackAddons)
+  {
+    let uri = addon.getResourceURI("");
+    // The add-on IDs look like langpack-LANGCODE@firefox.mozilla.org
+    let matchResult = addon.id.match(/^langpack-(.*)@.*\.mozilla\.org/);
+    let code = (matchResult) ? matchResult[1] : addon.id;
+    if (code == "ja-JP-mac")
+      code = "ja";
+    let name = knownLanguages[code];
+    if (!name)
+    {
+      // We do not have a name for this language pack. Use some heuristics.
+      name = addon.name;
+      let idx = name.lastIndexOf(" Language Pack");
+      if (idx > 0)
+        name = name.substring(0, idx);
+    }
+    let isSelected = (curLocale && (code.toLowerCase() == curLocale));
+    langInfo.push({ langCode: code, langName: name, isSelected: isSelected } );
+    if (isSelected && !foundCurLocale)
+      foundCurLocale = true;
+  }
 
-  TorLauncherLogger.log(2, "initLocaleDialog done");
+  // Sort by language code.
+  langInfo.sort(function(aObj1, aObj2) {
+      if (aObj1.langCode == aObj2.langCode)
+        return 0;
+
+      return (aObj1.langCode < aObj2.langCode) ? -1 : 1;
+    });
+
+  // Add en-US to the beginning of the list.
+  let code = "en-US";
+  let name = knownLanguages[code];
+  let isSelected = !foundCurLocale;  // select English if nothing else matched
+  langInfo.splice(0, 0,
+                  { langCode: code, langName: name, isSelected: isSelected });
+
+  // Populate the XUL listbox.
+  let localeList = document.getElementById(kLocaleList);
+  for (let infoObj of langInfo)
+  {
+    let listItem = document.createElement("listitem");
+    listItem.setAttribute("value", infoObj.langCode);
+    listItem.setAttribute("label", infoObj.langName);
+    localeList.appendChild(listItem);
+    if (infoObj.isSelected)
+      localeList.selectedItem = listItem;
+  }
 }
 
 

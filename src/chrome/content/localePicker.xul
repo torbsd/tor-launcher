@@ -35,24 +35,7 @@
     <vbox>
       <label class="question">&torlauncher.localePicker.prompt;</label>
       <separator/>
-      <listbox id="localeList" ondblclick="onLocaleListDoubleClick()">
-        <listitem value="en-US" label="English" selected="true" />
-        <listitem value="ar" label="&#x0627;&#x0644;&#x0639;&#x0631;&#x0628;&#x064a;&#x0629;" />
-        <listitem value="de" label="Deutsch" />
-        <listitem value="es-ES" label="Espa&#x00f1;ol" />
-        <listitem value="fa" label="&#x0641;&#x0627;&#x0631;&#x0633;&#x06cc;" />
-        <listitem value="fr" label="Fran&#x00e7;ais" />
-        <listitem value="it" label="Italiano" />
-        <listitem value="ja" label="日本語" />
-        <listitem value="ko" label="한국어" />
-        <listitem value="nl" label="Nederlands" />
-        <listitem value="pl" label="Polski" />
-        <listitem value="pt-PT" label="Português (Europeu)" />
-        <listitem value="ru" label="&#x0420;&#x0443;&#x0441;&#x0441;&#x043a;&#x0438;&#x0439;" />
-        <listitem value="tr" label="T&#252;rk&#231;e" />
-        <listitem value="vi" label="Tiếng Việt" />
-        <listitem value="zh-CN" label="&#x7b80;&#x4f53;&#x5b57;" />
-      </listbox>
+      <listbox id="localeList" ondblclick="onLocaleListDoubleClick()"/>
     </vbox>
   </wizardpage>
 
