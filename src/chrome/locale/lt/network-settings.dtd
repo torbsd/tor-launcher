@@ -1,4 +1,4 @@
-<!ENTITY torsettings.dialog.title "Tor tinklo parametrai">
+<!ENTITY torsettings.dialog.title "Tor tinklo nustatymai">
 
 <!-- For locale picker: -->
 <!ENTITY torlauncher.localePicker.title "Tor Browser Language">

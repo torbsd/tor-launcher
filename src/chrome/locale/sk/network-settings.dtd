@@ -2,7 +2,7 @@
 
 <!-- For locale picker: -->
 <!ENTITY torlauncher.localePicker.title "Tor Browser Language">
-<!ENTITY torlauncher.localePicker.prompt "Please select a language.">
+<!ENTITY torlauncher.localePicker.prompt "Prosím vyberte si jazyk">
 
 <!-- For "first run" wizard: -->
 

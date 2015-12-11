@@ -1,4 +1,4 @@
-<!ENTITY torprogress.dialog.title "Tor statusas">
-<!ENTITY torprogress.openSettings "Atidaryti nustatymus">
+<!ENTITY torprogress.dialog.title "Tor būsena">
+<!ENTITY torprogress.openSettings "Atverti nustatymus">
 <!ENTITY torprogress.heading "Jungiamasi prie Tor tinklo">
 <!ENTITY torprogress.pleaseWait "Prašome palaukti kol sujungsime su Tor tinklu.">

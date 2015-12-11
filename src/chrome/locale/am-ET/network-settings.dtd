@@ -1,4 +1,4 @@
-<!ENTITY torsettings.dialog.title "Tor Network Settings">
+<!ENTITY torsettings.dialog.title "የቶር ኔትዎርክ አደረጃጀት">
 
 <!-- For locale picker: -->
 <!ENTITY torlauncher.localePicker.title "Tor Browser Language">
@@ -26,7 +26,7 @@
 <!ENTITY torSettings.enterProxy "Enter the proxy settings.">
 <!ENTITY torSettings.bridgePageTitle "Tor Bridges Configuration">
 <!ENTITY torSettings.bridgeQuestion "Does your Internet Service Provider (ISP) block or otherwise censor connections to the Tor Network?">
-<!ENTITY torSettings.bridgeHelp "As jy nie seker is hoe om hierdie vraag te beantwoord nie, kies Nee.&#160; As jy Ja kies, sal jy gevra word om Tor Bridges, wat ongenoteerde relays is wat die moeiliker maak om verbindings na die Tor Netwerk blok, in te stel.">
+<!ENTITY torSettings.bridgeHelp "If you are not sure how to answer this question, choose No.&#160; If you choose Yes, you will be asked to configure Tor Bridges, which are unlisted relays that make it more difficult to block connections to the Tor Network.">
 <!ENTITY torSettings.bridgeSettingsPrompt "You may use the provided set of bridges or you may obtain and enter a custom set of bridges.">
 
 <!-- Other: -->
@@ -40,15 +40,15 @@
 <!ENTITY torsettings.useProxy.type "Proxy Type:">
 <!ENTITY torsettings.useProxy.address "Address:">
 <!ENTITY torsettings.useProxy.address.placeholder "IP address or hostname">
-<!ENTITY torsettings.useProxy.port "Poort:">
-<!ENTITY torsettings.useProxy.username "Gebruikersnaam:">
-<!ENTITY torsettings.useProxy.password "Wagwoord">
+<!ENTITY torsettings.useProxy.port "Port:">
+<!ENTITY torsettings.useProxy.username "Username:">
+<!ENTITY torsettings.useProxy.password "Password:">
 <!ENTITY torsettings.useProxy.type.socks4 "SOCKS 4">
 <!ENTITY torsettings.useProxy.type.socks5 "SOCKS 5">
 <!ENTITY torsettings.useProxy.type.http "HTTP / HTTPS">
-<!ENTITY torsettings.firewall.checkbox "Hierdie rekenaar gaan deur 'n firewall wat slegs konneksies na sekere poorte toelaat">
-<!ENTITY torsettings.firewall.allowedPorts "Toegelate Poorte:">
-<!ENTITY torsettings.useBridges.checkbox "My Internet Diensverskaffer (IDV) blok konneksies na die Tor netwerk">
+<!ENTITY torsettings.firewall.checkbox "This computer goes through a firewall that only allows connections to certain ports">
+<!ENTITY torsettings.firewall.allowedPorts "Allowed Ports:">
+<!ENTITY torsettings.useBridges.checkbox "My Internet Service Provider (ISP) blocks connections to the Tor network">
 <!ENTITY torsettings.useBridges.default "Connect with provided bridges">
 <!ENTITY torsettings.useBridges.type "Transport type:">
 <!ENTITY torsettings.useBridges.custom "Enter custom bridges">
@@ -59,10 +59,10 @@
 <!ENTITY torsettings.bridgeHelpTitle "Bridge Relay Help">
 <!ENTITY torsettings.bridgeHelp1 "If you are unable to connect to the Tor network, it could be that your Internet Service Provider (ISP) or another agency is blocking Tor.&#160; Often, you can work around this problem by using Tor Bridges, which are unlisted relays that are more difficult to block.">
 <!ENTITY torsettings.bridgeHelp1B "You may use the preconfigured, provided set of bridge addresses or you may obtain a custom set of addresses by using one of these three methods:">
-<!ENTITY torsettings.bridgeHelp2Heading "Deur die Web">
-<!ENTITY torsettings.bridgeHelp2 "Gebruik 'n webblaaier om https://bridges.torproject.org te besoek">
+<!ENTITY torsettings.bridgeHelp2Heading "Through the Web">
+<!ENTITY torsettings.bridgeHelp2 "Use a web browser to visit https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "Through the Email Autoresponder">
-<!ENTITY torsettings.bridgeHelp3.emailDesc "Stuur 'n epos aan bridges@torproject.org met die lyn 'get bridges' by homself in die liggaam van die boodskap.&#160; Maar, om dit moeiliker vir 'n aanvaller te maak om baie 'bridge' adresse te leer, moet jy hierdie versoek vanaf een van die volgende epos verskaffers stuur (gelys in volgorde van voorkeur): ">
-<!ENTITY torsettings.bridgeHelp3.emailList "https://www.riseup.net, https://mail.google.com, of https://mail.yahoo.com">
+<!ENTITY torsettings.bridgeHelp3.emailDesc "Send email to bridges@torproject.org with the line 'get bridges' by itself in the body of the message.&#160; However, to make it harder for an attacker to learn a lot of bridge addresses, you must send this request from one of the following email providers (listed in order of preference):">
+<!ENTITY torsettings.bridgeHelp3.emailList "https://www.riseup.net, https://mail.google.com, or https://mail.yahoo.com">
 <!ENTITY torsettings.bridgeHelp4Heading "Through the Help Desk">
 <!ENTITY torsettings.bridgeHelp4 "As a last resort, you can request bridge addresses by sending a polite email message to help@rt.torproject.org.&#160; Please note that a person will need to respond to each request.">
