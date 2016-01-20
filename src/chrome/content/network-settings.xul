@@ -20,7 +20,7 @@
         persist="screenX screenY"
         buttons="accept,cancel,extra2,help"
         buttonlabelextra2="&torsettings.copyLog;"
-        ondialogaccept="return applySettings();"
+        ondialogaccept="return applySettings(false);"
         ondialogcancel="return onCancel();"
         ondialogextra2="onCopyLog();"
         ondialoghelp="onOpenHelp();"

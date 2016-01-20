@@ -31,6 +31,9 @@ const kTorLogHasWarnOrErrTopic = "TorLogHasWarnOrErr";
 const kWizardProxyRadioGroup = "proxyRadioGroup";
 const kWizardUseBridgesRadioGroup = "useBridgesRadioGroup";
 
+const kWizardFirstPageID = "first";
+
+const kLocaleList = "localeList";
 const kUseProxyCheckbox = "useProxy";
 const kProxyTypeMenulist = "proxyType";
 const kProxyAddr = "proxyAddr";
@@ -161,6 +164,12 @@ function initDialog()
       if (accessKey)
         helpBtn.setAttribute("accesskey", accessKey);
     }
+
+    // Set Discard Settings back button label to match the wizard Back button.
+    let wizardBackBtn = document.documentElement.getButton("back");
+    let backBtn = document.getElementById("discardSettingsGoBack");
+    if (wizardBackBtn && backBtn)
+      backBtn.label = wizardBackBtn.label;
   }
 
   initDefaultBridgeTypeMenu();
@@ -175,7 +184,7 @@ function initDialog()
      (status != gTorProcessService.kStatusRunning))
   {
     if (status == gTorProcessService.kStatusExited)
-      showErrorMessage(true, null);
+      showErrorMessage(true, null, false);
     else
       showStartingTorPanel();
     addObserver(kTorProcessReadyTopic);
@@ -245,6 +254,25 @@ function getWizard()
 {
   var elem = document.getElementById("TorNetworkSettings");
   return (elem && (elem.tagName == "wizard")) ? elem : null;
+}
+
+
+function onWizardFirstPanelConnect()
+{
+  // If the user configured bridge or proxy settings, prompt before
+  // discarding their data.
+  if (isBridgeConfigured() || isProxyConfigured())
+    showPanel("discardSettings");
+  else
+    removeSettingsAndConnect()
+}
+
+
+function removeSettingsAndConnect()
+{
+  applySettings(true);  // Use default settings.
+  if (!gIsBootstrapComplete)
+    readTorSettings();  // Ensure UI matches the settings that were used.
 }
 
 
@@ -361,12 +389,12 @@ var gObserver = {
     {
       removeObserver(kTorProcessReadyTopic);
       removeObserver(kTorProcessDidNotStartTopic);
-      showErrorMessage(false, aData);
+      showErrorMessage(false, aData, false);
     }
     else if (kTorProcessExitedTopic == aTopic)
     {
       removeObserver(kTorProcessExitedTopic);
-      showErrorMessage(true, null);
+      showErrorMessage(true, null, false);
     }
     else if (kTorOpenProgressTopic == aTopic)
     {
@@ -424,7 +452,7 @@ function readTorSettings()
   if (!didSucceed)
   {
     // Unable to communicate with tor.  Hide settings and display an error.
-    showErrorMessage(false, null);
+    showErrorMessage(false, null, false);
 
     setTimeout(function()
         {
@@ -445,7 +473,7 @@ function showPanel(aPanelID)
 {
   var wizard = getWizard();
   if (!aPanelID)
-    aPanelID = (wizard) ? "first" : "settings";
+    aPanelID = (wizard) ? kWizardFirstPageID : "settings";
 
   var deckElem = document.getElementById("deck");
   if (deckElem)
@@ -453,7 +481,7 @@ function showPanel(aPanelID)
   else if (wizard.currentPage.pageid != aPanelID)
     wizard.goTo(aPanelID);
 
-  if (wizard && (aPanelID == "first"))
+  if (wizard && (aPanelID == kWizardFirstPageID))
     setTimeout( function() { showWizardNavButtons(false); }, 0);
 
   showOrHideButton("accept", (aPanelID == "settings"), true);
@@ -491,7 +519,7 @@ function showStartingTorPanel()
 }
 
 
-function showErrorMessage(aTorExited, aErrorMsg)
+function showErrorMessage(aTorExited, aErrorMsg, aShowReconfigButton)
 {
   var elem = document.getElementById("errorPanelMessage");
   var btn = document.getElementById("restartTorButton");
@@ -516,6 +544,15 @@ function showErrorMessage(aTorExited, aErrorMsg)
 
   if (elem)
     elem.textContent = (aErrorMsg) ? aErrorMsg : "";
+
+  let reconfigBtn = document.getElementById("reconfigTorButton");
+  if (reconfigBtn)
+  {
+    if (aShowReconfigButton)
+      reconfigBtn.removeAttribute("hidden");
+    else
+      reconfigBtn.setAttribute("hidden", true);
+  }
 
   showPanel("errorPanel");
 
@@ -699,6 +736,17 @@ function onRestartTor()
 }
 
 
+function onWizardReconfig()
+{
+  showPanel(kWizardFirstPageID);
+  onWizardConfigure();
+  // Because a similar delayed call is used to hide the buttons when the
+  // first wizard page is displayed, we use setTimeout() here to ensure
+  // that the navigation buttons are visible.
+  window.setTimeout(function() { showWizardNavButtons(true); }, 0);
+}
+
+
 function onCancel()
 {
   if (gRestoreAfterHelpPanelID) // Is help open?
@@ -772,7 +820,9 @@ function onOpenHelp()
       forAssistance.setAttribute("hidden", true);
   }
   else
+  {
     overrideButtonLabel("cancel", "done");
+  }
 }
 
 
@@ -793,7 +843,9 @@ function closeHelp()
       forAssistance.removeAttribute("hidden");
   }
   else
+  {
     restoreButtonLabel("cancel");
+  }
 
   showPanel(gRestoreAfterHelpPanelID);
   gRestoreAfterHelpPanelID = null;
@@ -975,15 +1027,16 @@ function initBridgeSettings()
 
 
 // Returns true if settings were successfully applied.
-function applySettings()
+function applySettings(aUseDefaults)
 {
   TorLauncherLogger.log(2, "applySettings ---------------------" +
                              "----------------------------------------------");
   var didSucceed = false;
   try
   {
-    didSucceed = applyBridgeSettings() &&
-                 applyProxySettings() && applyFirewallSettings();
+    didSucceed = applyBridgeSettings(aUseDefaults) &&
+                 applyProxySettings(aUseDefaults) &&
+                 applyFirewallSettings(aUseDefaults);
   }
   catch (e) { TorLauncherLogger.safelog(4, "Error in applySettings: ", e); }
 
@@ -1009,9 +1062,25 @@ function useSettings()
   if (!gIsBootstrapComplete)
     openProgressDialog();
 
+  let wizardElem = getWizard();
   if (gIsBootstrapComplete)
+  {
     close();
+  }
+  else if (wizardElem)
+  {
+    // If the user went down the "Configure" path and another error (e.g.,
+    // Tor Exited) has not already been shown, display a generic message
+    // with a "Reconfigure" button.
+    let pageid = wizardElem.currentPage.pageid;
+    if ((pageid != kWizardFirstPageID) && (pageid != "errorPanel"))
+    {
+      let msg = TorLauncherUtil.getLocalizedString("tor_bootstrap_failed");
+      showErrorMessage(false, msg, true);
+    }
+  }
 }
+
 
 function openProgressDialog()
 {
@@ -1029,9 +1098,10 @@ function onProgressDialogClose(aBootstrapCompleted)
 
 
 // Returns true if settings were successfully applied.
-function applyProxySettings()
+function applyProxySettings(aUseDefaults)
 {
-  var settings = getAndValidateProxySettings();
+  let settings = aUseDefaults ? getDefaultProxySettings()
+                              : getAndValidateProxySettings();
   if (!settings)
     return false;
 
@@ -1039,34 +1109,40 @@ function applyProxySettings()
 }
 
 
-// Return a settings object if successful and null if not.
-function getAndValidateProxySettings()
+function getDefaultProxySettings()
 {
-  // TODO: validate user-entered data.  See Vidalia's NetworkPage::save()
-
-  var settings = {};
+  let settings = {};
   settings[kTorConfKeySocks4Proxy] = null;
   settings[kTorConfKeySocks5Proxy] = null;
   settings[kTorConfKeySocks5ProxyUsername] = null;
   settings[kTorConfKeySocks5ProxyPassword] = null;
   settings[kTorConfKeyHTTPSProxy] = null;
   settings[kTorConfKeyHTTPSProxyAuthenticator] = null;
+  return settings;
+}
 
+
+// Return a settings object if successful and null if not.
+function getAndValidateProxySettings()
+{
+  var settings = getDefaultProxySettings();
+
+  // TODO: validate user-entered data.  See Vidalia's NetworkPage::save()
   var proxyType, proxyAddrPort, proxyUsername, proxyPassword;
   if (isProxyConfigured())
   {
+    proxyType = getElemValue(kProxyTypeMenulist, null);
+    if (!proxyType)
+    {
+      reportValidationError("error_proxy_type_missing");
+      return null;
+    }
+
     proxyAddrPort = createColonStr(getElemValue(kProxyAddr, null),
                                    getElemValue(kProxyPort, null));
     if (!proxyAddrPort)
     {
       reportValidationError("error_proxy_addr_missing");
-      return null;
-    }
-
-    proxyType = getElemValue(kProxyTypeMenulist, null);
-    if (!proxyType)
-    {
-      reportValidationError("error_proxy_type_missing");
       return null;
     }
 
@@ -1113,10 +1189,16 @@ function reportValidationError(aStrKey)
 
 
 // Returns true if settings were successfully applied.
-function applyFirewallSettings()
+function applyFirewallSettings(aUseDefaults)
 {
-  var settings = (getWizard()) ? getAutoFirewallSettings()
-                               : getAndValidateFirewallSettings();
+  let settings;
+  if (aUseDefaults)
+    settings = getDefaultFirewallSettings();
+  else if (getWizard())
+    settings = getAutoFirewallSettings();
+  else
+    settings = getAndValidateFirewallSettings();
+
   if (!settings)
     return false;
 
@@ -1138,6 +1220,12 @@ function getAndValidateFirewallSettings()
     allowedPorts = getElemValue(kFirewallAllowedPorts, null);
 
   return constructFirewallSettings(allowedPorts);
+}
+
+
+function getDefaultFirewallSettings()
+{
+  return constructFirewallSettings(undefined);
 }
 
 
@@ -1231,9 +1319,10 @@ function initDefaultBridgeTypeMenu()
 
 
 // Returns true if settings were successfully applied.
-function applyBridgeSettings()
+function applyBridgeSettings(aUseDefaults)
 {
-  var settings = getAndValidateBridgeSettings();
+  let settings = (aUseDefaults) ? getDefaultBridgeSettings()
+                                : getAndValidateBridgeSettings();
   if (!settings)
     return false;
 
@@ -1241,13 +1330,19 @@ function applyBridgeSettings()
 }
 
 
+function getDefaultBridgeSettings()
+{
+  let settings = {};
+  settings[kTorConfKeyUseBridges] = null;
+  settings[kTorConfKeyBridgeList] = null;
+  return settings;
+}
+
+
 // Return a settings object if successful and null if not.
 function getAndValidateBridgeSettings()
 {
-  var settings = {};
-  settings[kTorConfKeyUseBridges] = null;
-  settings[kTorConfKeyBridgeList] = null;
-
+  var settings = getDefaultBridgeSettings();
   var useBridges = isBridgeConfigured();
   var defaultBridgeType;
   var bridgeList;
@@ -1277,8 +1372,9 @@ function getAndValidateBridgeSettings()
     }
   }
 
-  // Since it returns a filterd list of bridges, TorLauncherUtil.defaultBridges
-  // must be called after setting the kPrefDefaultBridgeType pref.
+  // Since it returns a filtered list of bridges,
+  // TorLauncherUtil.defaultBridges must be called after setting the
+  // kPrefDefaultBridgeType pref.
   TorLauncherUtil.setCharPref(kPrefDefaultBridgeType, defaultBridgeType);
   if (defaultBridgeType)
     bridgeList = TorLauncherUtil.defaultBridges;
@@ -1494,7 +1590,9 @@ function parseColonStr(aStr)
     rv[1] = aStr.substring(idx + 1);
   }
   else
+  {
     rv[0] = aStr;
+  }
 
   return rv;
 }

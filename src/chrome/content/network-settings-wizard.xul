@@ -19,7 +19,7 @@
         windowtype="TorLauncher:NetworkSettings"
         persist="screenX screenY"
         buttonlabelextra2="&torsettings.copyLog;"
-        onwizardfinish="return applySettings();"
+        onwizardfinish="return applySettings(false);"
         onwizardcancel="return onCancel();"
         onload="initDialog();"
         onunload="deinitDialog();">
@@ -46,7 +46,8 @@
       <separator/>
       <label>&torSettings.connectPrompt2;</label>
       <label>&torSettings.connectPrompt3;</label>
-      <button label="&torSettings.connect;" oncommand="useSettings();"/>
+      <button label="&torSettings.connect;"
+              oncommand="onWizardFirstPanelConnect();"/>
       <separator class="tall"/>
       <label>&torSettings.configurePrompt1;</label>
       <label>&torSettings.configurePrompt2;</label>
@@ -74,7 +75,9 @@
           <radio id="bridgesRadioYes" label="&torSettings.yes;" />
           <radio id="bridgesRadioNo" label="&torSettings.no;" selected="true" />
         </radiogroup>
-        <description class="questionHelp">&torSettings.bridgeHelp;
+        <description class="questionHelp">&torSettings.bridgeExplanation1;
+        </description>
+        <description class="questionHelp">&torSettings.bridgeExplanation2;
         </description>
       </vbox>
     </hbox>
@@ -94,7 +97,8 @@
     <separator />
     <vbox>
       <label id="bridgeSettingsPrompt"
-             class="question">&torSettings.bridgeSettingsPrompt;</label>
+             class="question">&torSettings.bridgeSettingsPrompt;&#160;
+&torsettings.useBridges.note;</label>
       <groupbox id="bridgeSpecificSettings" />
     </vbox>
   </wizardpage>
@@ -120,7 +124,9 @@
           <radio id="proxyRadioYes" label="&torSettings.yes;" />
           <radio id="proxyRadioNo" label="&torSettings.no;" selected="true" />
         </radiogroup>
-        <description class="questionHelp">&torSettings.proxyHelp;
+        <description class="questionHelp">&torSettings.proxyExplanation1;
+        </description>
+        <description class="questionHelp">&torSettings.proxyExplanation2;
         </description>
       </vbox>
     </hbox>
@@ -168,8 +174,36 @@
     <separator/>
     <hbox>
       <spring flex="1" />
-      <button id="restartTorButton" label="&torsettings.restartTor;" hidden="true"
-              oncommand="onRestartTor()" />
+      <button id="restartTorButton" label="&torsettings.restartTor;"
+              hidden="true" oncommand="onRestartTor()" />
+      <button id="reconfigTorButton" label="&torsettings.reconfigTor;"
+              hidden="true" oncommand="onWizardReconfig()" />
+      <spring flex="1" />
+    </hbox>
+    <spring flex="1" />
+  </wizardpage>
+
+  <wizardpage pageid="discardSettings" next="notUsed"
+              onpageshow="showWizardNavButtons(false);"
+              onextra2="onCopyLog();">
+    <hbox class="tbb-header">
+      <vbox class="tbb-logo-box" align="start">
+        <image class="tbb-logo" />
+      </vbox>
+    </hbox>
+    <spring flex="1" />
+    <hbox>
+      <spring flex="1" />
+      <description flex="1">&torsettings.discardSettings.prompt;</description>
+      <spring flex="1" />
+    </hbox>
+    <separator/>
+    <hbox>
+      <spring flex="1" />
+      <button id="discardSettingsGoBack" oncommand="showPanel();"/>
+      <separator/>
+      <button label="&torsettings.discardSettings.proceed;"
+              oncommand="removeSettingsAndConnect()" />
       <spring flex="1" />
     </hbox>
     <spring flex="1" />

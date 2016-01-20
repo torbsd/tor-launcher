@@ -170,6 +170,8 @@ var gObserver = {
       // TODO: provide a way to access tor log e.g., leave this dialog open
       //       and display the open settings button or provide a way to do
       //       that from our error alerts.
+      if (kTorBootstrapErrorTopic == aTopic)
+        stopTorBootstrap();
       cleanup();
       window.close();
     }

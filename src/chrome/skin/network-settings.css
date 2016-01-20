@@ -72,7 +72,7 @@ separator.tall {
 }
 
 .questionHelp {
-  margin-right: 20px;
+  margin: 0px 0px 12px 20px;
 }
 
 .instructions {
@@ -104,6 +104,7 @@ wizard[tor_hide_browser_logo="true"] .tbb-logo-separator {
   font-weight: bold;
 }
 
+#bridgeNote,
 #bridgeDefaultEntry,
 #bridgeCustomEntry {
   margin-left: 1.8em;
