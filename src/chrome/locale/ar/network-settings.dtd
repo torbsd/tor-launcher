@@ -13,26 +13,32 @@
 
 <!ENTITY torSettings.firstQuestion "أي مما يلي يعتبر وصف افضل لموقفك؟">
 <!ENTITY torSettings.configurePrompt1 "اتصال هذا الحاسب بالإنترنت محجوب أو له بروكسي.">
-<!ENTITY torSettings.configurePrompt2 "أحتاج لإعداد جسر أو بروكسي محلي.">
+<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings before I connect to the Tor&#160;network.">
 <!ENTITY torSettings.configure "تكوين">
-<!ENTITY torSettings.connectPrompt2 "أود الاتصال مباشرة إلى شبكة تور.">
+<!ENTITY torSettings.connectPrompt2 "I would like to make a direct connection to the Tor network.">
 <!ENTITY torSettings.connectPrompt3 "سيصلح هذا في معظم الحالات.">
 <!ENTITY torSettings.connect "اتصل">
 
 <!ENTITY torSettings.proxyPageTitle "إعداد البروكسي المحلّي">
 <!ENTITY torSettings.proxyQuestion "هل يحتاج هذا الكمبيوتر لاستخدام وكيل محلي للاتصال بالإنترنت؟">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "إذا كنت غير متأكد من كيفية الإجابة على هذا السؤال، أنظر الى إعدادات الإنترنت في متصفح آخر لمعرفة ما إذا تمت تهيئتة لاستخدام وكيل محلي.">
+<!ENTITY torSettings.proxyExplanation1 "In most cases a local proxy is not needed, but it may be required when connecting through a company, school, or university network.">
+<!ENTITY torSettings.proxyExplanation2 "If you are not sure how to answer this question, look at the Internet settings in another browser or check your system's network settings to see whether a local proxy is needed.">
 <!ENTITY torSettings.enterProxy "أدخل إعدادات البروكسي.">
 <!ENTITY torSettings.bridgePageTitle "إعداد جسور تور.">
 <!ENTITY torSettings.bridgeQuestion "هل يقوم مقدم خدمة الإنترنت (ISP) الذي تتعامل معه بحجب الاتصالات بشبكة Tor أو مراقبتها بطريقة أخرى؟">
-<!ENTITY torSettings.bridgeHelp "إذا لم تكن متأكدا من إجابة هذا السؤال، قم باختيار لا. &#160; إذا قمت باختيار نعم، فسيطلب منك تكوين جسور Tor والتي هي منافذ ترحيل غير مدرجة تصعب عملية حظر الاتصالات بشبكة Tor.">
+<!ENTITY torSettings.bridgeExplanation1 "If you are not sure how to answer this question, choose No (if you are unable to connect to the Tor network without a bridge, you can add one later).">
+<!ENTITY torSettings.bridgeExplanation2 "If you choose Yes, you will be asked to configure Tor Bridges, which are unlisted relays that make it more difficult to block connections to the Tor Network.">
 <!ENTITY torSettings.bridgeSettingsPrompt "يمكنك استخدام مجموعة الجسور المتوفرة أو الحصول على مجموعة مخصصة من الجسور.">
 
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "في انتظار تور حتي يبدء بالعمل...">
 <!ENTITY torsettings.restartTor "إعادة تشغيل تور">
+<!ENTITY torsettings.reconfigTor "Reconfigure">
+
+<!ENTITY torsettings.discardSettings.prompt "You have configured Tor bridges or you have entered local proxy settings.&#160; To make a direct connection to the Tor network, these settings must be removed.">
+<!ENTITY torsettings.discardSettings.proceed "Remove Settings and Connect">
 
 <!ENTITY torsettings.optional "اختياري">
 
@@ -50,6 +56,7 @@
 <!ENTITY torsettings.firewall.allowedPorts "المنافذ المسموح بها:">
 <!ENTITY torsettings.useBridges.checkbox "مزود خدمة الإنترنت الخاص بي (ISP) يمنع الاتصالات بشبكة تور">
 <!ENTITY torsettings.useBridges.default "الاتصال بالجسور المتوفرة">
+<!ENTITY torsettings.useBridges.note "Each type of bridge uses a different method to avoid censorship.&#160; If one bridge does not work, try again using a different one.">
 <!ENTITY torsettings.useBridges.type "نوع النقل:">
 <!ENTITY torsettings.useBridges.custom "إدخال جسور مخصصة">
 <!ENTITY torsettings.useBridges.label "ادخل جسر او اكثر (جسر واحد في كل سطر).">

@@ -13,27 +13,33 @@
 
 <!ENTITY torSettings.firstQuestion "Ποιο από τα παρακάτω περιγράφει καλύτερα την κατάστασή σας;">
 <!ENTITY torSettings.configurePrompt1 "Σύνδεση στο Internet αυτού του υπολογιστή λογοκρίνεται ή προσεγγίζεται">
-<!ENTITY torSettings.configurePrompt2 "Χρειάζομαι να ρυθμίσω την γέφυρα ή τις τοπικές ρυθμίσεις proxy">
+<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings before I connect to the Tor&#160;network.">
 <!ENTITY torSettings.configure "Ρύθμιση ">
-<!ENTITY torSettings.connectPrompt2 "Θα ήθελα να συνδεθεί άμεσα με το δίκτυο Tor.">
+<!ENTITY torSettings.connectPrompt2 "I would like to make a direct connection to the Tor network.">
 <!ENTITY torSettings.connectPrompt3 "Αυτό θα λειτουργήσει στις περισσότερες περιπτώσεις.">
 <!ENTITY torSettings.connect "Σύνδεση">
 
 <!ENTITY torSettings.proxyPageTitle "Τοπική διαμόρφωση Proxy">
 <!ENTITY torSettings.proxyQuestion "Μήπως αυτός ο υπολογιστής πρέπει να χρησιμοποιήσει ένα τοπικό proxy για την πρόσβαση στο Διαδίκτυο;">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "Αν δεν είστε σίγουροι πως να απαντήσετε σε αυτήν την ερώτηση, κοιτάξτε τις ρυθμίσεις του Internet σε κάποιο άλλο πρόγραμμα περιήγησης για να δείτε αν έχει ρυθμιστεί να χρησιμοποιεί ένα τοπικό proxy.">
+<!ENTITY torSettings.proxyExplanation1 "In most cases a local proxy is not needed, but it may be required when connecting through a company, school, or university network.">
+<!ENTITY torSettings.proxyExplanation2 "If you are not sure how to answer this question, look at the Internet settings in another browser or check your system's network settings to see whether a local proxy is needed.">
 <!ENTITY torSettings.enterProxy "Εισάγωγη των ρυθμίσεων διακομιστή μεσολάβησης.">
 <!ENTITY torSettings.bridgePageTitle "Διαμόρφωση Γεφυρών Tor">
 <!ENTITY torSettings.bridgeQuestion "Γνωρίζετε αν ο πάροχος (ISP) σας μπλοκάρει ή με οποιοδήποτε τρόπο ελέγχει συνδέσεις
 στο δίκτυο Tor?">
-<!ENTITY torSettings.bridgeHelp "Αν δε ξέρετε πώς να απαντήσετε εδώ, επιλέξτε &quot;Όχι&quot;.&#160; Αν επιλέξετε &quot;Ναι&quot;, θα σας ζητήσω να ρυθμίσετε γέφυρες Tor, που είναι μη ευρέως γνωστά κανάλια εισόδου στο δίκτυο Tor, που δυσκολεύουν όσους προσπαθούν να μπλοκάρουν τις συνδέσεις στο δίκτυο Tor.">
+<!ENTITY torSettings.bridgeExplanation1 "If you are not sure how to answer this question, choose No (if you are unable to connect to the Tor network without a bridge, you can add one later).">
+<!ENTITY torSettings.bridgeExplanation2 "If you choose Yes, you will be asked to configure Tor Bridges, which are unlisted relays that make it more difficult to block connections to the Tor Network.">
 <!ENTITY torSettings.bridgeSettingsPrompt "Μπορείτε να χρησιμοποιήσετε τις προκαθορισμένες γέφυρες, ή να αποκτήσετε και εισάγετε νέες διευθύνσεις γεφυρών.">
 
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "Αναμονή για να ξεκινήσει το Tor... ">
 <!ENTITY torsettings.restartTor "Eπανεκκίνηση Tor">
+<!ENTITY torsettings.reconfigTor "Reconfigure">
+
+<!ENTITY torsettings.discardSettings.prompt "You have configured Tor bridges or you have entered local proxy settings.&#160; To make a direct connection to the Tor network, these settings must be removed.">
+<!ENTITY torsettings.discardSettings.proceed "Remove Settings and Connect">
 
 <!ENTITY torsettings.optional "Προεραιτικα">
 
@@ -51,6 +57,7 @@
 <!ENTITY torsettings.firewall.allowedPorts "Επιτρεπόμενες Θύρες:">
 <!ENTITY torsettings.useBridges.checkbox "Ο πάροχος διαδικτυου (ISP) μπλοκάρει τις συνδέσεις στο δίκτυο του Tor">
 <!ENTITY torsettings.useBridges.default "Σύνδεση με προκαθορισμένες γέφυρες">
+<!ENTITY torsettings.useBridges.note "Each type of bridge uses a different method to avoid censorship.&#160; If one bridge does not work, try again using a different one.">
 <!ENTITY torsettings.useBridges.type "Τύπος μεταφοράς:">
 <!ENTITY torsettings.useBridges.custom "Εισαγωγή άλλων γεφυρών">
 <!ENTITY torsettings.useBridges.label "Εισάγετε μια ή περισσότερες διευθύνσεις γεφυρών (μία ανά γραμμή).">

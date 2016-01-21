@@ -1,4 +1,4 @@
 <!ENTITY torprogress.dialog.title "Tor තත්ත්වය ">
 <!ENTITY torprogress.openSettings "සිටුවම් විවෘත කරන්න">
 <!ENTITY torprogress.heading "Tor ජාලය හා සම්බන්ධ වෙමින්">
-<!ENTITY torprogress.pleaseWait "Please wait while we establish a connection to the Tor network.">
+<!ENTITY torprogress.pleaseWait "Please wait while we establish a connection to the Tor network.&#160; This may take several minutes.">

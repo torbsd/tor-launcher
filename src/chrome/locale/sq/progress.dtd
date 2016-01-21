@@ -1,4 +1,4 @@
 <!ENTITY torprogress.dialog.title "Gjendja e Tor">
 <!ENTITY torprogress.openSettings "Hapeni Konfigurimin">
 <!ENTITY torprogress.heading "Duke u lidhur me rrjetin Tor">
-<!ENTITY torprogress.pleaseWait "Ju lutemi prisni derisa të vendoset një lidhje me rrjetin Tor">
+<!ENTITY torprogress.pleaseWait "Please wait while we establish a connection to the Tor network.&#160; This may take several minutes.">

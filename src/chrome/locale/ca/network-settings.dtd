@@ -1,38 +1,44 @@
-<!ENTITY torsettings.dialog.title "Configuració de la Tor Network">
+<!ENTITY torsettings.dialog.title "Configuració de la xarxa Tor">
 
 <!-- For locale picker: -->
-<!ENTITY torlauncher.localePicker.title "Tor Browser Language">
-<!ENTITY torlauncher.localePicker.prompt "Please select a language.">
+<!ENTITY torlauncher.localePicker.title "Llengua del navegador Tor">
+<!ENTITY torlauncher.localePicker.prompt "Sel·leccioneu una llengua">
 
 <!-- For "first run" wizard: -->
 
-<!ENTITY torsettings.prompt "Abans de connectar-te a la xarxa Thor, necessites introduir informació sobre el ordinador que fas servir per la connexió a internet.">
+<!ENTITY torsettings.prompt "Abans de connectar-vos a la xarxa Tor, heu d'introduir informació sobre la connexió a internet de l'ordinador que feu servir. ">
 
 <!ENTITY torSettings.yes "Sí">
 <!ENTITY torSettings.no "No">
 
 <!ENTITY torSettings.firstQuestion "Quina de les següuens descriula teva situació?">
 <!ENTITY torSettings.configurePrompt1 "La connexió a internet d'aquest ordinador està censurada o configurada amb un proxy. ">
-<!ENTITY torSettings.configurePrompt2 "He de configurar preferències de ponts o de proxy local.">
+<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings before I connect to the Tor&#160;network.">
 <!ENTITY torSettings.configure "Configura">
-<!ENTITY torSettings.connectPrompt2 "M'agradaria conectar-me directament a la xarxa Tor.">
+<!ENTITY torSettings.connectPrompt2 "I would like to make a direct connection to the Tor network.">
 <!ENTITY torSettings.connectPrompt3 "Això funciona en la majoria dels casos.">
 <!ENTITY torSettings.connect "Conectar">
 
-<!ENTITY torSettings.proxyPageTitle "Local Proxy Configuration">
+<!ENTITY torSettings.proxyPageTitle "Configuració del servidor intermediari local">
 <!ENTITY torSettings.proxyQuestion "Aquest ordinador ha de fer servir un proxy local per accedir a internet?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "Si no esteu segurs de com  respondre aquesta pregunta, mireu les preferències d'internet d'un altre navegador per veure si està configurat per usar un proxy local. ">
+<!ENTITY torSettings.proxyExplanation1 "In most cases a local proxy is not needed, but it may be required when connecting through a company, school, or university network.">
+<!ENTITY torSettings.proxyExplanation2 "If you are not sure how to answer this question, look at the Internet settings in another browser or check your system's network settings to see whether a local proxy is needed.">
 <!ENTITY torSettings.enterProxy "Introdueix les opcions del proxy.">
-<!ENTITY torSettings.bridgePageTitle "Tor Bridges Configuration">
+<!ENTITY torSettings.bridgePageTitle "Configuració dels ponts Tor">
 <!ENTITY torSettings.bridgeQuestion "El vostre proveïdor d'Internet (ISP) bloqueja o censura les connexions a la Xarxa Tor?">
-<!ENTITY torSettings.bridgeHelp "Si no esteu segurs de com respondre a aquesta pregunta, escolliu  No.&#160; Si escolliu Sí, se us demanarà que configureu Ponts Tor, que són relés no llistats que fan més dificil de bloquejar les connexions a la Xarxa Tor">
+<!ENTITY torSettings.bridgeExplanation1 "If you are not sure how to answer this question, choose No (if you are unable to connect to the Tor network without a bridge, you can add one later).">
+<!ENTITY torSettings.bridgeExplanation2 "If you choose Yes, you will be asked to configure Tor Bridges, which are unlisted relays that make it more difficult to block connections to the Tor Network.">
 <!ENTITY torSettings.bridgeSettingsPrompt "Hauries d'utilitzar el set de repetidors provist o customitzar el teu propi.">
 
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "Esperant a Tor per començar...">
 <!ENTITY torsettings.restartTor "Reinicia Tor">
+<!ENTITY torsettings.reconfigTor "Reconfigure">
+
+<!ENTITY torsettings.discardSettings.prompt "You have configured Tor bridges or you have entered local proxy settings.&#160; To make a direct connection to the Tor network, these settings must be removed.">
+<!ENTITY torsettings.discardSettings.proceed "Remove Settings and Connect">
 
 <!ENTITY torsettings.optional "Opcional
 ">
@@ -51,6 +57,7 @@
 <!ENTITY torsettings.firewall.allowedPorts "Ports permesos:">
 <!ENTITY torsettings.useBridges.checkbox "El meu proveidor d'internet (ISP) bloqueja les conexions a la xarxa Tor">
 <!ENTITY torsettings.useBridges.default "Connectar amb els repetidors porvistos.">
+<!ENTITY torsettings.useBridges.note "Each type of bridge uses a different method to avoid censorship.&#160; If one bridge does not work, try again using a different one.">
 <!ENTITY torsettings.useBridges.type "Tipus de transport:">
 <!ENTITY torsettings.useBridges.custom "Entra als repetidors customitzats.">
 <!ENTITY torsettings.useBridges.label "Entra en un o més repetidors (un per linia).">

@@ -13,26 +13,32 @@
 
 <!ENTITY torSettings.firstQuestion "Kaj od sledečega najbolj ustzrezno opisuje vašo situacijo?">
 <!ENTITY torSettings.configurePrompt1 "Ta računalniška internet povezava je cenzurirana ali neposredna.">
-<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings.">
+<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings before I connect to the Tor&#160;network.">
 <!ENTITY torSettings.configure "Oblikovanje">
-<!ENTITY torSettings.connectPrompt2 "Hočem se neposredno povezati na Tor omrežje.">
+<!ENTITY torSettings.connectPrompt2 "I would like to make a direct connection to the Tor network.">
 <!ENTITY torSettings.connectPrompt3 "To deluje v večini primerov.">
 <!ENTITY torSettings.connect "Povezava">
 
 <!ENTITY torSettings.proxyPageTitle "Local Proxy Configuration">
 <!ENTITY torSettings.proxyQuestion "Does this computer need to use a local proxy to access the Internet?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "If you are not sure how to answer this question, look at the Internet settings in another browser to see whether it is configured to use a local proxy.">
+<!ENTITY torSettings.proxyExplanation1 "In most cases a local proxy is not needed, but it may be required when connecting through a company, school, or university network.">
+<!ENTITY torSettings.proxyExplanation2 "If you are not sure how to answer this question, look at the Internet settings in another browser or check your system's network settings to see whether a local proxy is needed.">
 <!ENTITY torSettings.enterProxy "Vnesite nastavitve strežnika proxy.">
 <!ENTITY torSettings.bridgePageTitle "Tor Bridges Configuration">
 <!ENTITY torSettings.bridgeQuestion "Ali vaš internetni ponudnik (ISP) blokira ali kako drugače cenzurira povezavo na Tor omrežje?">
-<!ENTITY torSettings.bridgeHelp "Če niste prepričani kako odgovoriti na to vprašanje, izberite Ne.&#160; Če ste izbrali Da, boste morali nastaviti Tor premostitve na nenašteta vozlišča, za težje blokiranje povezave na Tor omrežje.">
+<!ENTITY torSettings.bridgeExplanation1 "If you are not sure how to answer this question, choose No (if you are unable to connect to the Tor network without a bridge, you can add one later).">
+<!ENTITY torSettings.bridgeExplanation2 "If you choose Yes, you will be asked to configure Tor Bridges, which are unlisted relays that make it more difficult to block connections to the Tor Network.">
 <!ENTITY torSettings.bridgeSettingsPrompt "Lahko uporabite pripravljene nastavitve povezav ali pridobite in vnesete običajne nastavitve povezav.">
 
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "Čakanje na zagon Tor-a...">
 <!ENTITY torsettings.restartTor "Ponovno zaženite Tor">
+<!ENTITY torsettings.reconfigTor "Reconfigure">
+
+<!ENTITY torsettings.discardSettings.prompt "You have configured Tor bridges or you have entered local proxy settings.&#160; To make a direct connection to the Tor network, these settings must be removed.">
+<!ENTITY torsettings.discardSettings.proceed "Remove Settings and Connect">
 
 <!ENTITY torsettings.optional "Po izbiri">
 
@@ -50,6 +56,7 @@
 <!ENTITY torsettings.firewall.allowedPorts "Dovoljena vrata:">
 <!ENTITY torsettings.useBridges.checkbox "Moj internetni ponudnik (ISP) blokira povezave na Tor omrežje">
 <!ENTITY torsettings.useBridges.default "Povezava z ponujeno premostitvijo">
+<!ENTITY torsettings.useBridges.note "Each type of bridge uses a different method to avoid censorship.&#160; If one bridge does not work, try again using a different one.">
 <!ENTITY torsettings.useBridges.type "Tip prometa:">
 <!ENTITY torsettings.useBridges.custom "Vnesite običajne premostitve">
 <!ENTITY torsettings.useBridges.label "Vnesite enega ali več premostitvenih vozlišč (vsakega v svojo vrsto)">

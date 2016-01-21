@@ -13,26 +13,32 @@
 
 <!ENTITY torSettings.firstQuestion "אילו מן הבאים מתאר את מצבך בצורה המדויקת ביותר?">
 <!ENTITY torSettings.configurePrompt1 "חיבור האינטרנט של מחשב זה מסונן או עובר דרך שרת פרוקסי.">
-<!ENTITY torSettings.configurePrompt2 "ברצוני להגדיר גשר או שרת פרוקסי מקומי.">
+<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings before I connect to the Tor&#160;network.">
 <!ENTITY torSettings.configure "הגדר">
-<!ENTITY torSettings.connectPrompt2 "ברצוני להתחבר ישירות לרשת Tor.">
+<!ENTITY torSettings.connectPrompt2 "I would like to make a direct connection to the Tor network.">
 <!ENTITY torSettings.connectPrompt3 "דבר זה יעבוד במרבית המקרים.">
 <!ENTITY torSettings.connect "התחבר">
 
 <!ENTITY torSettings.proxyPageTitle "הגדרות שרת פרוקסי מקומי">
 <!ENTITY torSettings.proxyQuestion "האם מחשב זה מוכרח להשתמש בשרת פרוקסי מקומי כדי לקבל גישה לאינטרנט?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "אם אינך בטוח כיצד להשיב לשאלה זו, בחן את הגדרות האינטרנט בדפדפן אחר כדי לראות האם הגדרות ההתחברות שלו כוללות שימוש בשרת פרוקסי מקומי.">
+<!ENTITY torSettings.proxyExplanation1 "In most cases a local proxy is not needed, but it may be required when connecting through a company, school, or university network.">
+<!ENTITY torSettings.proxyExplanation2 "If you are not sure how to answer this question, look at the Internet settings in another browser or check your system's network settings to see whether a local proxy is needed.">
 <!ENTITY torSettings.enterProxy "הזן את הגדרות הפרוקסי.">
 <!ENTITY torSettings.bridgePageTitle "הגדרת גשרים ל-Tor">
 <!ENTITY torSettings.bridgeQuestion "האם ספק שירותי האינטרנט (ISP) שלך חוסם או מסנן חיבורים לרשת Tor ?">
-<!ENTITY torSettings.bridgeHelp "אם אינך בטוח כיצד לענות לשאלה זו, בחר ב-'לא'. אם תבחר ב-'כן', תתבקש להגדיר גשרים ל-Tor, שהם שרתים לא פומביים המסייעים לעקוף חסימות גישה לרשת Tor. ">
+<!ENTITY torSettings.bridgeExplanation1 "If you are not sure how to answer this question, choose No (if you are unable to connect to the Tor network without a bridge, you can add one later).">
+<!ENTITY torSettings.bridgeExplanation2 "If you choose Yes, you will be asked to configure Tor Bridges, which are unlisted relays that make it more difficult to block connections to the Tor Network.">
 <!ENTITY torSettings.bridgeSettingsPrompt "באפשרותך להשתמש ברשימת הגשרים המוכנה או להשיג בעצמך ולהזין רשימת גשרים חדשה.">
 
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "ממתין כעת עבור Tor כדי להתחיל…">
 <!ENTITY torsettings.restartTor "התחל מחדש את Tor">
+<!ENTITY torsettings.reconfigTor "Reconfigure">
+
+<!ENTITY torsettings.discardSettings.prompt "You have configured Tor bridges or you have entered local proxy settings.&#160; To make a direct connection to the Tor network, these settings must be removed.">
+<!ENTITY torsettings.discardSettings.proceed "Remove Settings and Connect">
 
 <!ENTITY torsettings.optional "אופציונלי">
 
@@ -50,6 +56,7 @@
 <!ENTITY torsettings.firewall.allowedPorts "פורטים מורשים:">
 <!ENTITY torsettings.useBridges.checkbox "ספק האינטרנט שלי (ISP) חוסם חיבורים לרשת Tor">
 <!ENTITY torsettings.useBridges.default "התחבר באמצעות הגשרים המוכנים מראש">
+<!ENTITY torsettings.useBridges.note "Each type of bridge uses a different method to avoid censorship.&#160; If one bridge does not work, try again using a different one.">
 <!ENTITY torsettings.useBridges.type "סוג מסווה תעבורה:">
 <!ENTITY torsettings.useBridges.custom "הזן רשימת גשרים חדשה">
 <!ENTITY torsettings.useBridges.label "הזן פרטי גשר אחד לפחות (אחד לכל שורה)">

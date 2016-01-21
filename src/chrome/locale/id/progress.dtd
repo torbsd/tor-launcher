@@ -1,4 +1,4 @@
-<!ENTITY torprogress.dialog.title "Status Tor ">
+<!ENTITY torprogress.dialog.title "Status Tor">
 <!ENTITY torprogress.openSettings "Buka Pengaturan">
 <!ENTITY torprogress.heading "Menyambung ke jaringan Tor">
-<!ENTITY torprogress.pleaseWait "Mohon tunggu saat kami membangun koneksi ke jaringan Tor.">
+<!ENTITY torprogress.pleaseWait "Mohon tunggu sementara kami menyambung ke jaringan Tor.&#160; Ini mungkin memakan waktu beberapa menit.">

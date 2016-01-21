@@ -1,5 +1,4 @@
 <!ENTITY torprogress.dialog.title "ٹار اسٹیٹس">
 <!ENTITY torprogress.openSettings "ترتیبات کھولیں">
 <!ENTITY torprogress.heading "ٹار نیٹ ورکس سے رابطہ بنائیں">
-<!ENTITY torprogress.pleaseWait "برائے مہربانی انتظار فرمائیں
-ہم آپ کا رابطہ ٹار نیٹ ورک کے ساتھ کر رہیں">
+<!ENTITY torprogress.pleaseWait "Please wait while we establish a connection to the Tor network.&#160; This may take several minutes.">

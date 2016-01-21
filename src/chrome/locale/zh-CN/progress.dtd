@@ -1,4 +1,4 @@
 <!ENTITY torprogress.dialog.title "Tor 状态">
 <!ENTITY torprogress.openSettings "打开设置">
 <!ENTITY torprogress.heading "正在连接 Tor 网络">
-<!ENTITY torprogress.pleaseWait "正在连接 Tor 网络，请稍等。">
+<!ENTITY torprogress.pleaseWait "请等待我们建立到 Tor 网络的连接。这可能会需要几分钟。">

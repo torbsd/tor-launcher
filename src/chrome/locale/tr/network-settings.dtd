@@ -6,37 +6,43 @@
 
 <!-- For "first run" wizard: -->
 
-<!ENTITY torsettings.prompt "Tor ağına bağlanmadan önce, bu bilgisayarın Internet bağlantısı hakkında bilgi vermeniz gerekiyor.">
+<!ENTITY torsettings.prompt "Tor ağına bağlanmadan önce, bu bilgisayarın İnternet bağlantısı hakkında bilgi vermeniz gerekiyor.">
 
 <!ENTITY torSettings.yes "Evet">
 <!ENTITY torSettings.no "Hayır">
 
 <!ENTITY torSettings.firstQuestion "Aşağıdakilerden hangisi durumunuzu en iyi açıklıyor?">
-<!ENTITY torSettings.configurePrompt1 "Bu bilgisayarın Internet bağlantısı sansürlü ya da vekil sunucu arkasında.">
-<!ENTITY torSettings.configurePrompt2 "Köprü ve yerel vekil sunucu ayarlarını yapmam gerekiyor.">
+<!ENTITY torSettings.configurePrompt1 "Bu bilgisayarın İnternet bağlantısı sansürlü ya da vekil sunucu arkasında.">
+<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings before I connect to the Tor&#160;network.">
 <!ENTITY torSettings.configure "Yapılandır">
-<!ENTITY torSettings.connectPrompt2 "Doğrudan Tor ağına bağlanmak istiyorum.">
+<!ENTITY torSettings.connectPrompt2 "I would like to make a direct connection to the Tor network.">
 <!ENTITY torSettings.connectPrompt3 "Bu çoğu durumda çalışır.">
 <!ENTITY torSettings.connect "Bağlan">
 
 <!ENTITY torSettings.proxyPageTitle "Yerel Vekil Sunucu Ayarları">
-<!ENTITY torSettings.proxyQuestion "Bu bilgisayarın Internet'e erişmesi için bir yerel vekil sunucu kullanması gerekiyor mu?">
+<!ENTITY torSettings.proxyQuestion "Bu bilgisayarın İnternet'e erişmesi için bir yerel vekil sunucu kullanması gerekiyor mu?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "Bu soruyu nasıl yanıtlayacağınızı bilmiyorsanız, başka bir tarayıcıda Internet ayarlarına bakarak bir yerel vekil sunucu kullanılıp kullanılmadığını görün.">
+<!ENTITY torSettings.proxyExplanation1 "In most cases a local proxy is not needed, but it may be required when connecting through a company, school, or university network.">
+<!ENTITY torSettings.proxyExplanation2 "If you are not sure how to answer this question, look at the Internet settings in another browser or check your system's network settings to see whether a local proxy is needed.">
 <!ENTITY torSettings.enterProxy "Vekil sunucu ayarlarını girin.">
 <!ENTITY torSettings.bridgePageTitle "Tor Köprüleri Ayarları">
-<!ENTITY torSettings.bridgeQuestion "Internet Servis Sağlayıcınız (ISS) Tor Ağına olan bağlantıları engelliyor ya da sansürlüyor mu?">
-<!ENTITY torSettings.bridgeHelp "Bu soruyu nasıl yanıtlayacağınızı bilmiyorsanız, Hayır&#160;'ı seçin. Evet'i seçerseniz, Tor Ağı bağlantılarının engellenmesini daha zor hale getiren, listelenmeyen aktarıcılar olan Tor Köprülerini ayarlamanız istenir.">
+<!ENTITY torSettings.bridgeQuestion "İnternet Servis Sağlayıcınız (ISS) Tor Ağına olan bağlantıları engelliyor ya da sansürlüyor mu?">
+<!ENTITY torSettings.bridgeExplanation1 "If you are not sure how to answer this question, choose No (if you are unable to connect to the Tor network without a bridge, you can add one later).">
+<!ENTITY torSettings.bridgeExplanation2 "If you choose Yes, you will be asked to configure Tor Bridges, which are unlisted relays that make it more difficult to block connections to the Tor Network.">
 <!ENTITY torSettings.bridgeSettingsPrompt "Sağlanan köprüleri kullanabilir ya da özel köprüler edinip yazabilirsiniz.">
 
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "Tor'un başlaması bekleniyor…">
 <!ENTITY torsettings.restartTor "Tor'u Yeniden Başlat">
+<!ENTITY torsettings.reconfigTor "Reconfigure">
+
+<!ENTITY torsettings.discardSettings.prompt "You have configured Tor bridges or you have entered local proxy settings.&#160; To make a direct connection to the Tor network, these settings must be removed.">
+<!ENTITY torsettings.discardSettings.proceed "Remove Settings and Connect">
 
 <!ENTITY torsettings.optional "İsteğe bağlı">
 
-<!ENTITY torsettings.useProxy.checkbox "Bu bilgisayarın Internet'e erişmesi için bir yerel vekil sunucu kullanması gerekiyor">
+<!ENTITY torsettings.useProxy.checkbox "Bu bilgisayarın İnternet'e erişmesi için bir yerel vekil sunucu kullanması gerekiyor">
 <!ENTITY torsettings.useProxy.type "Vekil Sunucu Tipi:">
 <!ENTITY torsettings.useProxy.address "Adres:">
 <!ENTITY torsettings.useProxy.address.placeholder "IP adresi ya da sunucu adı">
@@ -48,8 +54,9 @@
 <!ENTITY torsettings.useProxy.type.http "HTTP / HTTPS">
 <!ENTITY torsettings.firewall.checkbox "Bu bilgisayar yalnız belirli bağlantı noktalarına bağlanmaya izin veren bir güvenlik duvarı kullanıyor">
 <!ENTITY torsettings.firewall.allowedPorts "İzin Verilen Bağlantı Noktaları:">
-<!ENTITY torsettings.useBridges.checkbox "Internet Servis Sağlayıcım (ISS) Tor ağına olan bağlantıları engelliyor">
+<!ENTITY torsettings.useBridges.checkbox "İnternet Servis Sağlayıcım (ISS) Tor ağına olan bağlantıları engelliyor">
 <!ENTITY torsettings.useBridges.default "Sağlanan köprüler ile bağlan">
+<!ENTITY torsettings.useBridges.note "Each type of bridge uses a different method to avoid censorship.&#160; If one bridge does not work, try again using a different one.">
 <!ENTITY torsettings.useBridges.type "Aktarım tipi:">
 <!ENTITY torsettings.useBridges.custom "Özel köprüler yazın">
 <!ENTITY torsettings.useBridges.label "Bir ya da birkaç köprü aktarıcısı yazın (her satıra bir tane).">
@@ -57,7 +64,7 @@
 
 <!ENTITY torsettings.copyLog "Tor Günlüğünü Panoya Kopyala">
 <!ENTITY torsettings.bridgeHelpTitle "Köprü Aktarıcı Yardımı">
-<!ENTITY torsettings.bridgeHelp1 "Tor ağına bağlanamıyorsanız, kullandığınız Internet Servis Sağlayıcısı (ISS) ya da başka bir kurum Tor&#160;'u engelliyor olabilir. Bu sorunu çoğunlukla, engellenmesi daha zor olan listelenmeyen aktarıcılar, Tor Köprülerini kullanarak çözebilirsiniz.">
+<!ENTITY torsettings.bridgeHelp1 "Tor ağına bağlanamıyorsanız, kullandığınız İnternet Servis Sağlayıcısı (ISS) ya da başka bir kurum Tor&#160;'u engelliyor olabilir. Bu sorunu çoğunlukla, engellenmesi daha zor olan listelenmeyen aktarıcılar, Tor Köprülerini kullanarak çözebilirsiniz.">
 <!ENTITY torsettings.bridgeHelp1B "Önceden ayarlanmış ve sunulmuş köprü adreslerini kullanabilir ya da şu üç yöntemden birini kullanarak özel adresler edinebilirsiniz:">
 <!ENTITY torsettings.bridgeHelp2Heading "Web yoluyla">
 <!ENTITY torsettings.bridgeHelp2 "Bir web tarayıcısı kullanarak https://bridges.torproject.org adresini ziyaret edin">

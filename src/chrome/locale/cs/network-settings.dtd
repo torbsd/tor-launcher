@@ -1,8 +1,8 @@
 <!ENTITY torsettings.dialog.title "Síťové nastavení TORu">
 
 <!-- For locale picker: -->
-<!ENTITY torlauncher.localePicker.title "Tor Browser Language">
-<!ENTITY torlauncher.localePicker.prompt "Please select a language.">
+<!ENTITY torlauncher.localePicker.title "Jazyk Tor Prohlížeče">
+<!ENTITY torlauncher.localePicker.prompt "Prosím zvolte jazyk.">
 
 <!-- For "first run" wizard: -->
 
@@ -13,26 +13,32 @@
 
 <!ENTITY torSettings.firstQuestion "Která možnost nejlépe popisuje Vaši situaci?">
 <!ENTITY torSettings.configurePrompt1 "Připojení k internetu u tohoto pořítače je cenzorováno nebo proxováno.">
-<!ENTITY torSettings.configurePrompt2 "Potřebuji nastavit most, nebo lokální nastavení proxy.">
+<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings before I connect to the Tor&#160;network.">
 <!ENTITY torSettings.configure "Konfigurovat">
-<!ENTITY torSettings.connectPrompt2 "Chtěl bych se přímo připojit k Tor síti.">
+<!ENTITY torSettings.connectPrompt2 "I would like to make a direct connection to the Tor network.">
 <!ENTITY torSettings.connectPrompt3 "Toto bude fungovat ve většině případů.">
 <!ENTITY torSettings.connect "Připojit">
 
 <!ENTITY torSettings.proxyPageTitle "Konfigurace místní proxy">
 <!ENTITY torSettings.proxyQuestion "Potřebuje tento počítač zapnutí lokální proxy, aby se připojil k internetu?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "Pokud nevíte, jak odpovědět, podívejte se na nastavení sítě Internet v jiném prohlížeči, abyste zjistili, zda je nakonfigurován k používání proxy.">
+<!ENTITY torSettings.proxyExplanation1 "In most cases a local proxy is not needed, but it may be required when connecting through a company, school, or university network.">
+<!ENTITY torSettings.proxyExplanation2 "If you are not sure how to answer this question, look at the Internet settings in another browser or check your system's network settings to see whether a local proxy is needed.">
 <!ENTITY torSettings.enterProxy "Zadejte nastavení serveru proxy.">
 <!ENTITY torSettings.bridgePageTitle "Konfigurace Tor přemostění">
 <!ENTITY torSettings.bridgeQuestion "Blokuje nebo jinak cenzuruje váš poskytovatel internetového připojení (ISP) spojení se sítí TORu?">
-<!ENTITY torSettings.bridgeHelp "Pokud si nejste jistí jak odpovědět na tuto otázku, zvolte No.&#160; Pokud vyberete Ano, budete vyzváni k nastavení Mostů TORu, což jsou přenašeče neuvedené v seznamu, které dělají blokování spojení se sítí TORu složitější.">
+<!ENTITY torSettings.bridgeExplanation1 "If you are not sure how to answer this question, choose No (if you are unable to connect to the Tor network without a bridge, you can add one later).">
+<!ENTITY torSettings.bridgeExplanation2 "If you choose Yes, you will be asked to configure Tor Bridges, which are unlisted relays that make it more difficult to block connections to the Tor Network.">
 <!ENTITY torSettings.bridgeSettingsPrompt "Můžete použít poskytnutou sadu síťových mostů nebo můžete získat a zadat vlastní sadu.">
 
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "Čekání na start TORu">
 <!ENTITY torsettings.restartTor "Restartovat Tor">
+<!ENTITY torsettings.reconfigTor "Reconfigure">
+
+<!ENTITY torsettings.discardSettings.prompt "You have configured Tor bridges or you have entered local proxy settings.&#160; To make a direct connection to the Tor network, these settings must be removed.">
+<!ENTITY torsettings.discardSettings.proceed "Remove Settings and Connect">
 
 <!ENTITY torsettings.optional "Volitelný">
 
@@ -50,6 +56,7 @@
 <!ENTITY torsettings.firewall.allowedPorts "Povolené porty:">
 <!ENTITY torsettings.useBridges.checkbox "Můj internetový poskytovatel (ISP) blokuje připojení k Tor síti">
 <!ENTITY torsettings.useBridges.default "Připojit pomocí poskytnuté sady mostů">
+<!ENTITY torsettings.useBridges.note "Each type of bridge uses a different method to avoid censorship.&#160; If one bridge does not work, try again using a different one.">
 <!ENTITY torsettings.useBridges.type "Typ přenosu:">
 <!ENTITY torsettings.useBridges.custom "Zadejete vlastní mosty">
 <!ENTITY torsettings.useBridges.label "Zadejte jedno nebo více mostních relé (jedno na řádek).">

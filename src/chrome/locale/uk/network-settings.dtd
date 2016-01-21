@@ -13,26 +13,32 @@
 
 <!ENTITY torSettings.firstQuestion "Яке з наступних тверджень найкраще описує Вашу ситуацію?">
 <!ENTITY torSettings.configurePrompt1 "Мережеве з'єднання цього комп'ютера цензурується або йде через проксі-сервер.">
-<!ENTITY torSettings.configurePrompt2 "Мені потрібно налаштувати міст або локальний проксі.">
+<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings before I connect to the Tor&#160;network.">
 <!ENTITY torSettings.configure "Налаштування">
-<!ENTITY torSettings.connectPrompt2 "Я бажаю підключатися до Tor напряму ">
+<!ENTITY torSettings.connectPrompt2 "I would like to make a direct connection to the Tor network.">
 <!ENTITY torSettings.connectPrompt3 "Це має працювати у більшості ситуацій.">
 <!ENTITY torSettings.connect "З'єднатися">
 
 <!ENTITY torSettings.proxyPageTitle "Локальна конфігурація проксі-сервера">
 <!ENTITY torSettings.proxyQuestion "Чи потрібно цьому комп'ютеру використовувати локальний проксі для доступу в Інтернет?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "Якщо ви не знаєте, як відповісти на це питання, перевірте налаштування Інтернету в іншому браузері, щоб побачити чи він налаштований на використання локального проксі.">
+<!ENTITY torSettings.proxyExplanation1 "In most cases a local proxy is not needed, but it may be required when connecting through a company, school, or university network.">
+<!ENTITY torSettings.proxyExplanation2 "If you are not sure how to answer this question, look at the Internet settings in another browser or check your system's network settings to see whether a local proxy is needed.">
 <!ENTITY torSettings.enterProxy "Задати параметри проксі">
 <!ENTITY torSettings.bridgePageTitle "Конфігурації Tor-мостів">
 <!ENTITY torSettings.bridgeQuestion "Ваш Інтернет-провайдер (ISP) блокує чи яким-небудь чином цензурує підключення до Tor мережі?">
-<!ENTITY torSettings.bridgeHelp "Якщо Ви не знаєте, як відповісти на це питання, виберіть Ні.&#160; Якщо Ви виберете Так, Вам буде запропоновано налаштувати мости Tor, що є приватними трансляторами, які роблять більш важким блокування з'єднань з Tor мережі.">
+<!ENTITY torSettings.bridgeExplanation1 "If you are not sure how to answer this question, choose No (if you are unable to connect to the Tor network without a bridge, you can add one later).">
+<!ENTITY torSettings.bridgeExplanation2 "If you choose Yes, you will be asked to configure Tor Bridges, which are unlisted relays that make it more difficult to block connections to the Tor Network.">
 <!ENTITY torSettings.bridgeSettingsPrompt "Ви можете використати визначений перелік мостів або можете отримати і ввести набір мостів вручну.">
 
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "Підключення до Tor...">
 <!ENTITY torsettings.restartTor "Перезапустити Tor">
+<!ENTITY torsettings.reconfigTor "Reconfigure">
+
+<!ENTITY torsettings.discardSettings.prompt "You have configured Tor bridges or you have entered local proxy settings.&#160; To make a direct connection to the Tor network, these settings must be removed.">
+<!ENTITY torsettings.discardSettings.proceed "Remove Settings and Connect">
 
 <!ENTITY torsettings.optional "Додатково">
 
@@ -50,6 +56,7 @@
 <!ENTITY torsettings.firewall.allowedPorts "Дозволенні порти:">
 <!ENTITY torsettings.useBridges.checkbox "Мій провайдер блокує доступ до мережі Tor">
 <!ENTITY torsettings.useBridges.default "Підключитися з визначеними мостами">
+<!ENTITY torsettings.useBridges.note "Each type of bridge uses a different method to avoid censorship.&#160; If one bridge does not work, try again using a different one.">
 <!ENTITY torsettings.useBridges.type "Тип транспорту:">
 <!ENTITY torsettings.useBridges.custom "Ввести мости вручну">
 <!ENTITY torsettings.useBridges.label "Введіть один або кілька ретрансляторів типу міст (по одному в рядок).">
