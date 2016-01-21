@@ -242,6 +242,19 @@ let TorLauncherUtil =  // Public
     } catch (e) {}
   },
 
+  // Currently, this returns a random permutation of an array, bridgeArray.
+  // Later, we might want to change this function to weight based on the
+  // bridges' bandwidths.
+  rearrangeBridges: function(bridgeArray)
+  {
+    for (var j, x, i = bridgeArray.length; i;
+           j = parseInt(Math.random() * i),
+           x = bridgeArray[--i],
+           bridgeArray[i] = bridgeArray[j],
+           bridgeArray[j] = x);
+    return bridgeArray;
+  },
+
   get shouldStartAndOwnTor()
   {
     const kPrefStartTor = "extensions.torlauncher.start_tor";
@@ -341,6 +354,7 @@ let TorLauncherUtil =  // Public
             bridgeArray.push(s);
         }
       }
+      this.rearrangeBridges(bridgeArray);
 
       return bridgeArray;
     } catch(e) {};
