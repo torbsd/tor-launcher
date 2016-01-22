@@ -1,39 +1,49 @@
-<!ENTITY torsettings.dialog.title "Tor tinklo parametrai">
+<!ENTITY torsettings.dialog.title "Tor tinklo nustatymai">
+
+<!-- For locale picker: -->
+<!ENTITY torlauncher.localePicker.title "Tor Browser kalba">
+<!ENTITY torlauncher.localePicker.prompt "Prašome pasirinkti kalbą.">
 
 <!-- For "first run" wizard: -->
 
-<!ENTITY torsettings.prompt "Before you connect to the Tor network, you need to provide information about this computer's Internet connection.">
+<!ENTITY torsettings.prompt "Prieš tai, kaip prisijungsite prie Tor tinklo, jūs turite pateikti informaciją apie šio kompiuterio interneto ryšį.">
 
 <!ENTITY torSettings.yes "Taip">
 <!ENTITY torSettings.no "Ne">
 
 <!ENTITY torSettings.firstQuestion "Kuris iš žemiau pateiktų apibrėžimų labiausiai atspindi Jūsų padėtį?">
-<!ENTITY torSettings.configurePrompt1 "This computer's Internet connection is censored or proxied.">
-<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings.">
-<!ENTITY torSettings.configure "Configure">
-<!ENTITY torSettings.connectPrompt2 "I would like to connect directly to the Tor network.">
-<!ENTITY torSettings.connectPrompt3 "This will work in most situations.">
+<!ENTITY torSettings.configurePrompt1 "Šio kompiuterio interneto ryšys yra cenzūruojamas arba jungiamas per įgaliotąjį serverį.">
+<!ENTITY torSettings.configurePrompt2 "Prieš jungiantis prie Tor&#160;tinklo, man reikia sukonfigūruoti tinklų tiltą ar vietinius įgaliotojo serverio nustatymus.">
+<!ENTITY torSettings.configure "Konfigūruoti">
+<!ENTITY torSettings.connectPrompt2 "Aš norėčiau tiesiogiai prisijungti prie Tor tinklo.">
+<!ENTITY torSettings.connectPrompt3 "Tai suveiks daugeliu situacijų.">
 <!ENTITY torSettings.connect "Prisijungti">
 
-<!ENTITY torSettings.proxyPageTitle "Local Proxy Configuration">
-<!ENTITY torSettings.proxyQuestion "Does this computer need to use a local proxy to access the Internet?">
+<!ENTITY torSettings.proxyPageTitle "Vietinio įgaliotojo serverio konfigūracija">
+<!ENTITY torSettings.proxyQuestion "Ar šis kompiuteris naudoja vietinį proxy prisijungimui prie interneto?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "If you are not sure how to answer this question, look at the Internet settings in another browser to see whether it is configured to use a local proxy.">
+<!ENTITY torSettings.proxyExplanation1 "Daugelyje atveju, vietinis įgaliotasis serveris yra nereikalingas, tačiau jo gali prireikti, jungiantis per kompanijos, mokyklos ar universiteto tinklą.">
+<!ENTITY torSettings.proxyExplanation2 "Jeigu nesate tikri kaip atsakyti į šį klausimą, pažiūrėkite interneto nustatymus kitoje naršyklėje arba patikrinkite savo sistemos tinklo nustatymus, kad pamatytumėte ar vietinis įgaliotasis serveris yra reikalingas.">
 <!ENTITY torSettings.enterProxy "Enter the proxy settings.">
 <!ENTITY torSettings.bridgePageTitle "Tor Bridges Configuration">
-<!ENTITY torSettings.bridgeQuestion "Does your Internet Service Provider (ISP) block or otherwise censor connections to the Tor Network?">
-<!ENTITY torSettings.bridgeHelp "If you are not sure how to answer this question, choose No.&#160; If you choose Yes, you will be asked to configure Tor Bridges, which are unlisted relays that make it more difficult to block connections to the Tor Network.">
+<!ENTITY torSettings.bridgeQuestion "Ar jūsų interneto paslaugų tiekėjas (ISP) blokuoja ar kitaip cenzūruoja prisijungimus prie Tor tinklo?">
+<!ENTITY torSettings.bridgeExplanation1 "Jeigu nesate tikri kaip atsakyti į šį klausimą, pasirinkite Ne (jeigu negalite prisijungti prie Tor tinklo be tinklų tilto, jūs galėsite jį pridėti vėliau).">
+<!ENTITY torSettings.bridgeExplanation2 "If you choose Yes, you will be asked to configure Tor Bridges, which are unlisted relays that make it more difficult to block connections to the Tor Network.">
 <!ENTITY torSettings.bridgeSettingsPrompt "You may use the provided set of bridges or you may obtain and enter a custom set of bridges.">
 
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "Waiting for Tor to start…">
 <!ENTITY torsettings.restartTor "Pakartotinai paleisti Tor">
+<!ENTITY torsettings.reconfigTor "Reconfigure">
 
-<!ENTITY torsettings.optional "Optional">
+<!ENTITY torsettings.discardSettings.prompt "Jūs esate sukofigūravę Tor tinklų tiltus arba esate įvedę vietinio įgaliotojo serverio nustatymus.&#160; Tam, kad galėtumėte tiesiogiai prisijungti prie Tor tinklo, šie nustatymai privalo būti pašalinti.">
+<!ENTITY torsettings.discardSettings.proceed "Šalinti nustatymus ir prisijungti">
 
-<!ENTITY torsettings.useProxy.checkbox "This computer needs to use a local proxy to access the Internet">
-<!ENTITY torsettings.useProxy.type "Proxy Type:">
+<!ENTITY torsettings.optional "Nebūtina">
+
+<!ENTITY torsettings.useProxy.checkbox "Šis kompiuteris turi naudoti vietinį įgaliotąjį serverį, kad gautų prieigą prie internetą.">
+<!ENTITY torsettings.useProxy.type "Proxy tipas:">
 <!ENTITY torsettings.useProxy.address "Adresas:">
 <!ENTITY torsettings.useProxy.address.placeholder "IP address or hostname">
 <!ENTITY torsettings.useProxy.port "Prievadas:">
@@ -43,15 +53,16 @@
 <!ENTITY torsettings.useProxy.type.socks5 "SOCKS 5">
 <!ENTITY torsettings.useProxy.type.http "HTTP / HTTPS">
 <!ENTITY torsettings.firewall.checkbox "This computer goes through a firewall that only allows connections to certain ports">
-<!ENTITY torsettings.firewall.allowedPorts "Allowed Ports:">
-<!ENTITY torsettings.useBridges.checkbox "My Internet Service Provider (ISP) blocks connections to the Tor network">
+<!ENTITY torsettings.firewall.allowedPorts "Leidžiami prievadai:">
+<!ENTITY torsettings.useBridges.checkbox "Mano interneto paslaugų tiekėjas (ISP) blokuoja prisijungimus prie Tor tinklo">
 <!ENTITY torsettings.useBridges.default "Connect with provided bridges">
+<!ENTITY torsettings.useBridges.note "Each type of bridge uses a different method to avoid censorship.&#160; If one bridge does not work, try again using a different one.">
 <!ENTITY torsettings.useBridges.type "Transport type:">
 <!ENTITY torsettings.useBridges.custom "Enter custom bridges">
 <!ENTITY torsettings.useBridges.label "Enter one or more bridge relays (one per line).">
 <!ENTITY torsettings.useBridges.placeholder "type address:port">
 
-<!ENTITY torsettings.copyLog "Copy Tor Log To Clipboard">
+<!ENTITY torsettings.copyLog "Kopijuoti Tor žurnalą į iškarpinę">
 <!ENTITY torsettings.bridgeHelpTitle "Bridge Relay Help">
 <!ENTITY torsettings.bridgeHelp1 "If you are unable to connect to the Tor network, it could be that your Internet Service Provider (ISP) or another agency is blocking Tor.&#160; Often, you can work around this problem by using Tor Bridges, which are unlisted relays that are more difficult to block.">
 <!ENTITY torsettings.bridgeHelp1B "You may use the preconfigured, provided set of bridge addresses or you may obtain a custom set of addresses by using one of these three methods:">
@@ -59,6 +70,6 @@
 <!ENTITY torsettings.bridgeHelp2 "Use a web browser to visit https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "Through the Email Autoresponder">
 <!ENTITY torsettings.bridgeHelp3.emailDesc "Send email to bridges@torproject.org with the line 'get bridges' by itself in the body of the message.&#160; However, to make it harder for an attacker to learn a lot of bridge addresses, you must send this request from one of the following email providers (listed in order of preference):">
-<!ENTITY torsettings.bridgeHelp3.emailList "https://www.riseup.net, https://mail.google.com, or https://mail.yahoo.com">
+<!ENTITY torsettings.bridgeHelp3.emailList "https://www.riseup.net, https://mail.google.com, ar https://mail.yahoo.com">
 <!ENTITY torsettings.bridgeHelp4Heading "Through the Help Desk">
 <!ENTITY torsettings.bridgeHelp4 "As a last resort, you can request bridge addresses by sending a polite email message to help@rt.torproject.org.&#160; Please note that a person will need to respond to each request.">

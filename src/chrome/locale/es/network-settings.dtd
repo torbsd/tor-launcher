@@ -1,5 +1,9 @@
 <!ENTITY torsettings.dialog.title "Configuración de la red Tor">
 
+<!-- For locale picker: -->
+<!ENTITY torlauncher.localePicker.title "Idioma del Navegador Tor">
+<!ENTITY torlauncher.localePicker.prompt "Por favor, seleccione un idioma.">
+
 <!-- For "first run" wizard: -->
 
 <!ENTITY torsettings.prompt "Antes de que se conecte a la red Tor, necesita proporcionar información sobre la conexión a Internet de este equipo.">
@@ -9,33 +13,39 @@
 
 <!ENTITY torSettings.firstQuestion "¿Cuál de las siguientes opciones describe mejor su situación?">
 <!ENTITY torSettings.configurePrompt1 "La conexión a Internet de este equipo está censurada o proxificada.">
-<!ENTITY torSettings.configurePrompt2 "Necesito ajustar la configuración del repetidor puente(bridge) o del proxy local.">
+<!ENTITY torSettings.configurePrompt2 "Necesito configurar bridge o los ajustes del proxy local antes de conectar a la red Tor. ">
 <!ENTITY torSettings.configure "Configurar">
-<!ENTITY torSettings.connectPrompt2 "Me gustaría conectarme directamente a la red Tor.">
+<!ENTITY torSettings.connectPrompt2 "Quisiera hacer una conexión directa a la red Tor.">
 <!ENTITY torSettings.connectPrompt3 "Esto funcionará en la mayoría de las situaciones.">
 <!ENTITY torSettings.connect "Conectar">
 
 <!ENTITY torSettings.proxyPageTitle "Configuración del proxy local">
 <!ENTITY torSettings.proxyQuestion "¿Necesita mi computadora utilizar un proxy local para acceder a Internet?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "Si no está seguro de cómo responder a esta pregunta, mire la configuración de Internet en otro navegador para ver si está configurado para utilizar un proxy (interpuesto) local.">
+<!ENTITY torSettings.proxyExplanation1 "En la mayoría de los casos no se requiere un proxy (interpuesto) local, pero puede ser necesario al realizar una conexión a través de una red de empresa, de escuela, o universitaria. ">
+<!ENTITY torSettings.proxyExplanation2 "Si no está seguro de cómo responder a esta pregunta, mire la configuración de Internet en otro navegador o compruebe la configuración de red de su sistema para ver si un proxy local es necesario.">
 <!ENTITY torSettings.enterProxy "Introduzca los ajustes del proxy.">
 <!ENTITY torSettings.bridgePageTitle "Configuración de puentes Tor">
 <!ENTITY torSettings.bridgeQuestion "Su proveedor de servicios de Internet (ISP) bloquea o censura de alguna forma las conexiones hacia la red Tor?">
-<!ENTITY torSettings.bridgeHelp "Si no está seguro de como responder a esta pregunta, elija No.&#160; Si usted elige Sí, se le pedirá configurar puentes Tor, los cuales son repetidores no listados que hacen más difícil el bloqueo de las conexiones hacia la red Tor.">
+<!ENTITY torSettings.bridgeExplanation1 "Si no está seguro de cómo responder a esta pregunta, elija No (si no puede conectarse a la red Tor sin un puente (bridge), puede añadir uno más adelante).">
+<!ENTITY torSettings.bridgeExplanation2 "Si elige Sí, se le pedirá que configure los puentes (bridges) de Tor, que son repetidores no listados que dificultan el bloqueo de conexiones hacia la red Tor.">
 <!ENTITY torSettings.bridgeSettingsPrompt "Puede utilizar el conjunto de repetidores puente (bridge) proporcionado, o puede obtener e introducir un juego de puentes personalizado.">
 
 <!-- Other: -->
 
-<!ENTITY torsettings.startingTor "Esperando a que Tor arranque...">
+<!ENTITY torsettings.startingTor "Esperando a que Tor se inicie...">
 <!ENTITY torsettings.restartTor "Reiniciar Tor">
+<!ENTITY torsettings.reconfigTor "Configurar de nuevo">
+
+<!ENTITY torsettings.discardSettings.prompt "Ha configurado los puentes (bridges) de Tor o ha introducido los ajustes para proxy (interpuesto) local.&#160; Para realizar una conexión directa a la red Tor, estos ajustes deben ser borrados.">
+<!ENTITY torsettings.discardSettings.proceed "Eliminar ajustes y conectar">
 
 <!ENTITY torsettings.optional "Opcional">
 
 <!ENTITY torsettings.useProxy.checkbox "Esta computadora necesita utilizar un proxy local para acceder a Internet">
 <!ENTITY torsettings.useProxy.type "Tipo de proxy:">
 <!ENTITY torsettings.useProxy.address "Dirección:">
-<!ENTITY torsettings.useProxy.address.placeholder "Dirección IP o nombre de máquina ('hostname')">
+<!ENTITY torsettings.useProxy.address.placeholder "Dirección IP o nombre de máquina (host)">
 <!ENTITY torsettings.useProxy.port "Puerto:">
 <!ENTITY torsettings.useProxy.username "Nombre de usuario:">
 <!ENTITY torsettings.useProxy.password "Contraseña:">
@@ -46,6 +56,7 @@
 <!ENTITY torsettings.firewall.allowedPorts "Puertos permitidos:">
 <!ENTITY torsettings.useBridges.checkbox "Mi Proveedor de Servicios de Internet (ISP) bloquea las conexiones a la red Tor">
 <!ENTITY torsettings.useBridges.default "Conectar con los puentes proporcionados">
+<!ENTITY torsettings.useBridges.note "Cada tipo de puente (bridge) usa un método diferente para evitar la censura.&#160; Si un repetidor puente no funciona, inténtelo de nuevo utilizando otro distinto.">
 <!ENTITY torsettings.useBridges.type "Tipo de transporte:">
 <!ENTITY torsettings.useBridges.custom "Introducir puentes personalizados">
 <!ENTITY torsettings.useBridges.label "Introduzca uno o más repetidores puente(uno por línea).">

@@ -1,43 +1,53 @@
-<!ENTITY torsettings.dialog.title "Tor Network Settings">
+<!ENTITY torsettings.dialog.title "Tor Netwerk Instellingen">
+
+<!-- For locale picker: -->
+<!ENTITY torlauncher.localePicker.title "Tor Browser Language">
+<!ENTITY torlauncher.localePicker.prompt "Please select a language.">
 
 <!-- For "first run" wizard: -->
 
-<!ENTITY torsettings.prompt "Before you connect to the Tor network, you need to provide information about this computer's Internet connection.">
+<!ENTITY torsettings.prompt "Voordat u connecteert met het Tor netwerk, dient u informatie op te geven inzake uw internetconnectie.">
 
 <!ENTITY torSettings.yes "Ja">
 <!ENTITY torSettings.no "Nee">
 
-<!ENTITY torSettings.firstQuestion "Which of the following best describes your situation?">
-<!ENTITY torSettings.configurePrompt1 "This computer's Internet connection is censored or proxied.">
-<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings.">
-<!ENTITY torSettings.configure "Configure">
-<!ENTITY torSettings.connectPrompt2 "I would like to connect directly to the Tor network.">
-<!ENTITY torSettings.connectPrompt3 "This will work in most situations.">
-<!ENTITY torSettings.connect "Connect">
+<!ENTITY torSettings.firstQuestion "Welke van devolgende situaties beschrijft uw situatie het best?">
+<!ENTITY torSettings.configurePrompt1 "De Internet connectie van deze computer is gecensureerd of connecteert via een proxy.">
+<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings before I connect to the Tor&#160;network.">
+<!ENTITY torSettings.configure "Configureer">
+<!ENTITY torSettings.connectPrompt2 "I would like to make a direct connection to the Tor network.">
+<!ENTITY torSettings.connectPrompt3 "Dit zal werken in de meeste situaties.">
+<!ENTITY torSettings.connect "Verbinden">
 
-<!ENTITY torSettings.proxyPageTitle "Local Proxy Configuration">
-<!ENTITY torSettings.proxyQuestion "Does this computer need to use a local proxy to access the Internet?">
+<!ENTITY torSettings.proxyPageTitle "Lokale Proxy Configuratie.">
+<!ENTITY torSettings.proxyQuestion "Gebruikt deze computer een lokale proxy om verbinding te maken met het Internet?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "If you are not sure how to answer this question, look at the Internet settings in another browser to see whether it is configured to use a local proxy.">
-<!ENTITY torSettings.enterProxy "Enter the proxy settings.">
-<!ENTITY torSettings.bridgePageTitle "Tor Bridges Configuration">
-<!ENTITY torSettings.bridgeQuestion "Does your Internet Service Provider (ISP) block or otherwise censor connections to the Tor Network?">
-<!ENTITY torSettings.bridgeHelp "If you are not sure how to answer this question, choose No.&#160; If you choose Yes, you will be asked to configure Tor Bridges, which are unlisted relays that make it more difficult to block connections to the Tor Network.">
+<!ENTITY torSettings.proxyExplanation1 "In most cases a local proxy is not needed, but it may be required when connecting through a company, school, or university network.">
+<!ENTITY torSettings.proxyExplanation2 "If you are not sure how to answer this question, look at the Internet settings in another browser or check your system's network settings to see whether a local proxy is needed.">
+<!ENTITY torSettings.enterProxy "Geef de proxy instellingen in">
+<!ENTITY torSettings.bridgePageTitle "Tor Bridges Configuratie">
+<!ENTITY torSettings.bridgeQuestion "Blokkeert of censureert uw internetleverancier (ISP) connecties naar het Tor netwerk?">
+<!ENTITY torSettings.bridgeExplanation1 "If you are not sure how to answer this question, choose No (if you are unable to connect to the Tor network without a bridge, you can add one later).">
+<!ENTITY torSettings.bridgeExplanation2 "If you choose Yes, you will be asked to configure Tor Bridges, which are unlisted relays that make it more difficult to block connections to the Tor Network.">
 <!ENTITY torSettings.bridgeSettingsPrompt "You may use the provided set of bridges or you may obtain and enter a custom set of bridges.">
 
 <!-- Other: -->
 
-<!ENTITY torsettings.startingTor "Waiting for Tor to start…">
-<!ENTITY torsettings.restartTor "Restart Tor">
+<!ENTITY torsettings.startingTor "Wachten tot Tor opstart...">
+<!ENTITY torsettings.restartTor "Tor herstarten">
+<!ENTITY torsettings.reconfigTor "Reconfigure">
 
-<!ENTITY torsettings.optional "Optional">
+<!ENTITY torsettings.discardSettings.prompt "You have configured Tor bridges or you have entered local proxy settings.&#160; To make a direct connection to the Tor network, these settings must be removed.">
+<!ENTITY torsettings.discardSettings.proceed "Remove Settings and Connect">
 
-<!ENTITY torsettings.useProxy.checkbox "This computer needs to use a local proxy to access the Internet">
+<!ENTITY torsettings.optional "Optioneel">
+
+<!ENTITY torsettings.useProxy.checkbox "Deze computer heeft een lokale proxy nodig om toegang te krijgen tot het Internet">
 <!ENTITY torsettings.useProxy.type "Proxy Type:">
-<!ENTITY torsettings.useProxy.address "Address:">
-<!ENTITY torsettings.useProxy.address.placeholder "IP address or hostname">
-<!ENTITY torsettings.useProxy.port "Port:">
-<!ENTITY torsettings.useProxy.username "Username:">
+<!ENTITY torsettings.useProxy.address "Adres:">
+<!ENTITY torsettings.useProxy.address.placeholder "IP adres of hostnaam">
+<!ENTITY torsettings.useProxy.port "Poort:">
+<!ENTITY torsettings.useProxy.username "Gebruikersnaam:">
 <!ENTITY torsettings.useProxy.password "Wachtwoord:">
 <!ENTITY torsettings.useProxy.type.socks4 "SOCKS 4">
 <!ENTITY torsettings.useProxy.type.socks5 "SOCKS 5">
@@ -46,6 +56,7 @@
 <!ENTITY torsettings.firewall.allowedPorts "Allowed Ports:">
 <!ENTITY torsettings.useBridges.checkbox "My Internet Service Provider (ISP) blocks connections to the Tor network">
 <!ENTITY torsettings.useBridges.default "Connect with provided bridges">
+<!ENTITY torsettings.useBridges.note "Each type of bridge uses a different method to avoid censorship.&#160; If one bridge does not work, try again using a different one.">
 <!ENTITY torsettings.useBridges.type "Transport type:">
 <!ENTITY torsettings.useBridges.custom "Enter custom bridges">
 <!ENTITY torsettings.useBridges.label "Enter one or more bridge relays (one per line).">
@@ -55,10 +66,10 @@
 <!ENTITY torsettings.bridgeHelpTitle "Bridge Relay Help">
 <!ENTITY torsettings.bridgeHelp1 "If you are unable to connect to the Tor network, it could be that your Internet Service Provider (ISP) or another agency is blocking Tor.&#160; Often, you can work around this problem by using Tor Bridges, which are unlisted relays that are more difficult to block.">
 <!ENTITY torsettings.bridgeHelp1B "You may use the preconfigured, provided set of bridge addresses or you may obtain a custom set of addresses by using one of these three methods:">
-<!ENTITY torsettings.bridgeHelp2Heading "Through the Web">
-<!ENTITY torsettings.bridgeHelp2 "Use a web browser to visit https://bridges.torproject.org">
+<!ENTITY torsettings.bridgeHelp2Heading "Via het Web">
+<!ENTITY torsettings.bridgeHelp2 "Gebruik een web browser om https://bridges.torproject.org te bezoeken">
 <!ENTITY torsettings.bridgeHelp3Heading "Through the Email Autoresponder">
 <!ENTITY torsettings.bridgeHelp3.emailDesc "Send email to bridges@torproject.org with the line 'get bridges' by itself in the body of the message.&#160; However, to make it harder for an attacker to learn a lot of bridge addresses, you must send this request from one of the following email providers (listed in order of preference):">
 <!ENTITY torsettings.bridgeHelp3.emailList "https://www.riseup.net, https://mail.google.com, or https://mail.yahoo.com">
-<!ENTITY torsettings.bridgeHelp4Heading "Through the Help Desk">
+<!ENTITY torsettings.bridgeHelp4Heading "Via de Help Desk">
 <!ENTITY torsettings.bridgeHelp4 "As a last resort, you can request bridge addresses by sending a polite email message to help@rt.torproject.org.&#160; Please note that a person will need to respond to each request.">

@@ -1,5 +1,9 @@
 <!ENTITY torsettings.dialog.title "ការ​កំណត់​បណ្ដាញ Tor">
 
+<!-- For locale picker: -->
+<!ENTITY torlauncher.localePicker.title "Tor Browser Language">
+<!ENTITY torlauncher.localePicker.prompt "Please select a language.">
+
 <!-- For "first run" wizard: -->
 
 <!ENTITY torsettings.prompt "មុន​ពេល​អ្នកភ្ជាប់​ទៅបណ្ដាញ Tor អ្នកត្រូវ​ផ្ដល់​ព័ត៌មាន​អំពី​ការ​ភ្ជាប់​អ៊ីនធឺណិត​កុំព្យូទ័រ​នេះ។">
@@ -9,26 +13,32 @@
 
 <!ENTITY torSettings.firstQuestion "តើ​ការ​ពណ៌នា​ណា​មួយ​​​ដូច​ខា​ងក្រោម​នេះ​ល្អ​បំផុត​សម្រាប់ស្ថានភាព​របស់​អ្នក?">
 <!ENTITY torSettings.configurePrompt1 "This computer's Internet connection is censored or proxied.">
-<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings.">
+<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings before I connect to the Tor&#160;network.">
 <!ENTITY torSettings.configure "កំណត់រចនាសម្ព័ន្ធ">
-<!ENTITY torSettings.connectPrompt2 "ខ្ញុំ​ចង់ភ្ជាប់​ដោយ​ផ្ទាល់ទៅ​បណ្ដាញ Tor ។">
+<!ENTITY torSettings.connectPrompt2 "I would like to make a direct connection to the Tor network.">
 <!ENTITY torSettings.connectPrompt3 "វា​នឹង​ដំណើរការ​ក្នុងស្ថានភាព​ភាគ​ច្រើន។">
 <!ENTITY torSettings.connect "តភ្ជាប់">
 
 <!ENTITY torSettings.proxyPageTitle "Local Proxy Configuration">
 <!ENTITY torSettings.proxyQuestion "Does this computer need to use a local proxy to access the Internet?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "If you are not sure how to answer this question, look at the Internet settings in another browser to see whether it is configured to use a local proxy.">
+<!ENTITY torSettings.proxyExplanation1 "In most cases a local proxy is not needed, but it may be required when connecting through a company, school, or university network.">
+<!ENTITY torSettings.proxyExplanation2 "If you are not sure how to answer this question, look at the Internet settings in another browser or check your system's network settings to see whether a local proxy is needed.">
 <!ENTITY torSettings.enterProxy "បញ្ចូល​ការ​កំណត់​ប្រូកស៊ី។">
 <!ENTITY torSettings.bridgePageTitle "Tor Bridges Configuration">
 <!ENTITY torSettings.bridgeQuestion "តើ​ក្រុមហ៊ុន​ផ្ដល់​អ៊ីនធឺណិត​របស់​អ្នក (ISP) ទប់ស្កាត់ ឬ​បើ​មិន​ដូច្នេះ​ទេ​ការ​ភ្ជាប់​ឧបករណ៍​ចាប់​សញ្ញាទៅ​បណ្ដាញ Tor ?">
-<!ENTITY torSettings.bridgeHelp "បើ​អ្នក​ប្រាកដ​ពី​វិធី​ឆ្លើយ​សំណួរ​នេះ ជ្រើស​ទេ។ &#160; បើ​អ្នក​ជ្រើស​បាទ/ចាស អ្នក​នឹង​ត្រូវ​បាន​ស្នើ​ឲ្យ​កំណត់​រចនាសម្ព័ន្ធ​ប៊្រីត Tor ដែល​​ជា​ការ​បញ្ជូន​បន្ត​មិន​បាន​រាយ​ដែល​ធ្វើ​ឲ្យ​វា​កាន់តែ​លំបាក​​ក្នុង​ការ​ទប់ស្កាត់​ការ​ភ្ជាប់​ទៅ​បណ្ដាញ Tor ។">
+<!ENTITY torSettings.bridgeExplanation1 "If you are not sure how to answer this question, choose No (if you are unable to connect to the Tor network without a bridge, you can add one later).">
+<!ENTITY torSettings.bridgeExplanation2 "If you choose Yes, you will be asked to configure Tor Bridges, which are unlisted relays that make it more difficult to block connections to the Tor Network.">
 <!ENTITY torSettings.bridgeSettingsPrompt "អ្នកអាច​ប្រើ​ការកំណត់ប៊្រីត​ដែល​បានផ្ដល់ ឬ​អ្នក​អាច​យក​ និង​បញ្ចូល​ការ​កំណត់ប៊្រីត​ផ្ទាល់​ខ្លួន។">
 
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "កំពុង​រង់ចាំ Tor ចាប់ផ្ដើម...">
 <!ENTITY torsettings.restartTor "ចាប់ផ្ដើម Tor ឡើង​វិញ">
+<!ENTITY torsettings.reconfigTor "Reconfigure">
+
+<!ENTITY torsettings.discardSettings.prompt "You have configured Tor bridges or you have entered local proxy settings.&#160; To make a direct connection to the Tor network, these settings must be removed.">
+<!ENTITY torsettings.discardSettings.proceed "Remove Settings and Connect">
 
 <!ENTITY torsettings.optional "ជា​ជម្រើស">
 
@@ -46,6 +56,7 @@
 <!ENTITY torsettings.firewall.allowedPorts "ច្រក​បាន​អនុញ្ញាត៖">
 <!ENTITY torsettings.useBridges.checkbox "ក្រុមហ៊ុន​ផ្ដល់​សេវាកម្ម​អ៊ីនធឺណិត (ISP)​ របស់​ខ្ញុំ​ទប់ស្កាត់ការភ្ជាប់​ទៅ​បណ្ដាញ Tor ។">
 <!ENTITY torsettings.useBridges.default "ភ្ជាប់​ជា​មួយ​ប៊្រីត​បាន​ផ្ដល់">
+<!ENTITY torsettings.useBridges.note "Each type of bridge uses a different method to avoid censorship.&#160; If one bridge does not work, try again using a different one.">
 <!ENTITY torsettings.useBridges.type "ប្រភេទ​បញ្ជូន៖">
 <!ENTITY torsettings.useBridges.custom "បញ្ចូល​ប៊្រីត​ផ្ទាល់​ខ្លួន">
 <!ENTITY torsettings.useBridges.label "បញ្ចូល​ការ​បញ្ជូន​ប្រ៊ីត​បន្ត​មួយ ឬ​ច្រើន (មួយ​ក្នុង​មួយ​ជួរ)។">

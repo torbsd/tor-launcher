@@ -1,5 +1,9 @@
 <!ENTITY torsettings.dialog.title "Tor-verkkoasetukset">
 
+<!-- For locale picker: -->
+<!ENTITY torlauncher.localePicker.title "Tor-selaimen kieli">
+<!ENTITY torlauncher.localePicker.prompt "Valitse kieli, ole hyvä.">
+
 <!-- For "first run" wizard: -->
 
 <!ENTITY torsettings.prompt "Ennen kuin voit yhdistää Tor-verkkoon, sinun on annettava tietoja tietokoneesi internet-yhteydestä.">
@@ -9,26 +13,32 @@
 
 <!ENTITY torSettings.firstQuestion "Mikä seuraavista kuvailee parhaiten tilannettasi?">
 <!ENTITY torSettings.configurePrompt1 "Tämän tietokoneen internet-yhteys on sensuroitu tai kulkee välityspalvelimen kautta.">
-<!ENTITY torSettings.configurePrompt2 "Minun on asetettava sillan tai paikallisen välityspalvelimen asetukset">
+<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings before I connect to the Tor&#160;network.">
 <!ENTITY torSettings.configure "Määritä">
-<!ENTITY torSettings.connectPrompt2 "Haluan yhdistää suoraan Tor-verkkoon.">
+<!ENTITY torSettings.connectPrompt2 "I would like to make a direct connection to the Tor network.">
 <!ENTITY torSettings.connectPrompt3 "Tämä toimii useimmissa tilanteissa.">
 <!ENTITY torSettings.connect "Yhdistä">
 
 <!ENTITY torSettings.proxyPageTitle "Paikallisen välityspalvelimen määritys">
 <!ENTITY torSettings.proxyQuestion "Tarvitseeko tämän tietokoneen käyttää paikallista välityspalvelinta Internet-pääsyyn?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "Jos et ole varma, kuinka vastata tähän kysymykseen, katso toisen selaimen Internet-asetuksista, onko se asetettu käyttämään paikallista välityspalvelinta.">
+<!ENTITY torSettings.proxyExplanation1 "In most cases a local proxy is not needed, but it may be required when connecting through a company, school, or university network.">
+<!ENTITY torSettings.proxyExplanation2 "If you are not sure how to answer this question, look at the Internet settings in another browser or check your system's network settings to see whether a local proxy is needed.">
 <!ENTITY torSettings.enterProxy "Kirjoita välityspalvelinasetukset.">
 <!ENTITY torSettings.bridgePageTitle "Tor-siltojen määritys">
 <!ENTITY torSettings.bridgeQuestion "Sensuroiko tai estääkö sinun operaattorisi (ISP) yhteydet Tor-verkkoon?">
-<!ENTITY torSettings.bridgeHelp "Ellet ole varma kuinka vastata tähän kysymykseen, valitse Ei.&#160; Jos valitset Kyllä, sinua pyydetään määrittämään Tor-sillat, jotka ovat listaamattomia välityspalvelimia, jotta yhteyksiä olisi vaikeampi estää Tor-verkkoon yhdistettäessä.">
+<!ENTITY torSettings.bridgeExplanation1 "If you are not sure how to answer this question, choose No (if you are unable to connect to the Tor network without a bridge, you can add one later).">
+<!ENTITY torSettings.bridgeExplanation2 "If you choose Yes, you will be asked to configure Tor Bridges, which are unlisted relays that make it more difficult to block connections to the Tor Network.">
 <!ENTITY torSettings.bridgeSettingsPrompt "Voit käyttää tarjottua siltajoukkoa tai voit hankkia ja kirjoittaa oman siltojen joukon.">
 
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "Odotetaan Tor-sovelluksen käynnistymistä...">
 <!ENTITY torsettings.restartTor "Käynnistä Tor uudelleen">
+<!ENTITY torsettings.reconfigTor "Reconfigure">
+
+<!ENTITY torsettings.discardSettings.prompt "You have configured Tor bridges or you have entered local proxy settings.&#160; To make a direct connection to the Tor network, these settings must be removed.">
+<!ENTITY torsettings.discardSettings.proceed "Remove Settings and Connect">
 
 <!ENTITY torsettings.optional "Vaihtoehtoinen">
 
@@ -46,6 +56,7 @@
 <!ENTITY torsettings.firewall.allowedPorts "Sallitut portit:">
 <!ENTITY torsettings.useBridges.checkbox "Minun internet-yhteyden tarjoajani (ISP) estää yhteydet Tor-verkkoon">
 <!ENTITY torsettings.useBridges.default "Yhdistä tarjotuilla silloilla">
+<!ENTITY torsettings.useBridges.note "Each type of bridge uses a different method to avoid censorship.&#160; If one bridge does not work, try again using a different one.">
 <!ENTITY torsettings.useBridges.type "Siirtotyyppi:">
 <!ENTITY torsettings.useBridges.custom "Kirjoita omat sillat">
 <!ENTITY torsettings.useBridges.label "Kirjoita yksi tai useampi siltavälityspalvelin (yksi per rivi).">

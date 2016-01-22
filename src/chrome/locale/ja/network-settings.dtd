@@ -1,5 +1,9 @@
 <!ENTITY torsettings.dialog.title "Torネットワーク設定">
 
+<!-- For locale picker: -->
+<!ENTITY torlauncher.localePicker.title "Tor ブラウザー言語">
+<!ENTITY torlauncher.localePicker.prompt "言語を選択してください。">
+
 <!-- For "first run" wizard: -->
 
 <!ENTITY torsettings.prompt "Tor ネットワークに接続する前に、このコンピューターのインターネット接続についての情報を提供して頂く必要があります。">
@@ -9,26 +13,32 @@
 
 <!ENTITY torSettings.firstQuestion "以下のうちあなたの状態に最も適しているのはどれですか？">
 <!ENTITY torSettings.configurePrompt1 "このコンピュータのインターネット接続は、検閲されているかプロキシを通します。">
-<!ENTITY torSettings.configurePrompt2 "ブリッジやローカルプロキシの設定を構成する必要があります。">
+<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings before I connect to the Tor&#160;network.">
 <!ENTITY torSettings.configure "構成">
-<!ENTITY torSettings.connectPrompt2 "Torネットワークへ直接接続します。">
+<!ENTITY torSettings.connectPrompt2 "I would like to make a direct connection to the Tor network.">
 <!ENTITY torSettings.connectPrompt3 "これはほとんどの状況で動作します。">
 <!ENTITY torSettings.connect "接続">
 
 <!ENTITY torSettings.proxyPageTitle "ローカルプロキシの設定">
 <!ENTITY torSettings.proxyQuestion "インターネットに接続するためにローカルプロキシを通す必要がありますか？">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "もし分からなければ、他のブラウザーのインターネット設定でローカルプロキシを使用しているかを確認してください。">
+<!ENTITY torSettings.proxyExplanation1 "In most cases a local proxy is not needed, but it may be required when connecting through a company, school, or university network.">
+<!ENTITY torSettings.proxyExplanation2 "If you are not sure how to answer this question, look at the Internet settings in another browser or check your system's network settings to see whether a local proxy is needed.">
 <!ENTITY torSettings.enterProxy "プロキシ設定を入力">
 <!ENTITY torSettings.bridgePageTitle "Torブリッジの設定">
 <!ENTITY torSettings.bridgeQuestion "あなたのインターネットサービスプロバイダー (ISP) は Tor ネットワークへの接続をブロックしているか、あるいは別のやり方で検閲していますか？">
-<!ENTITY torSettings.bridgeHelp "この質問にどう答えるべきかよくわからない場合は、いいえを選択してください。&#160; はいを選択すると、Tor ネットワークへの接続をブロックすることをさらに困難にするリスト化されていないリレーである Tor Bridges を構成することが求められます。">
+<!ENTITY torSettings.bridgeExplanation1 "If you are not sure how to answer this question, choose No (if you are unable to connect to the Tor network without a bridge, you can add one later).">
+<!ENTITY torSettings.bridgeExplanation2 "If you choose Yes, you will be asked to configure Tor Bridges, which are unlisted relays that make it more difficult to block connections to the Tor Network.">
 <!ENTITY torSettings.bridgeSettingsPrompt "提供されたブリッジのセットを使用するか、あるいはカスタムのブリッジのセットを取得して入力することができます。">
 
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "Torの開始を待っています...">
 <!ENTITY torsettings.restartTor "Torを再起動する">
+<!ENTITY torsettings.reconfigTor "Reconfigure">
+
+<!ENTITY torsettings.discardSettings.prompt "You have configured Tor bridges or you have entered local proxy settings.&#160; To make a direct connection to the Tor network, these settings must be removed.">
+<!ENTITY torsettings.discardSettings.proceed "Remove Settings and Connect">
 
 <!ENTITY torsettings.optional "オプション">
 
@@ -46,6 +56,7 @@
 <!ENTITY torsettings.firewall.allowedPorts "許可されたポート:">
 <!ENTITY torsettings.useBridges.checkbox "私のインターネットサービスプロバイダ(ISP)はTorネットワークへの接続をブロックします">
 <!ENTITY torsettings.useBridges.default "提供されたブリッジで接続">
+<!ENTITY torsettings.useBridges.note "Each type of bridge uses a different method to avoid censorship.&#160; If one bridge does not work, try again using a different one.">
 <!ENTITY torsettings.useBridges.type "トランスポートタイプ:">
 <!ENTITY torsettings.useBridges.custom "カスタムブリッジを入力">
 <!ENTITY torsettings.useBridges.label "1つ以上のブリッジリレーを入力してください(行あたり1つ)。">

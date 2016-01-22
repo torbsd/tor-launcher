@@ -1,5 +1,9 @@
 <!ENTITY torsettings.dialog.title "Tor 네트워크 설정">
 
+<!-- For locale picker: -->
+<!ENTITY torlauncher.localePicker.title "Tor 브라우저 언어">
+<!ENTITY torlauncher.localePicker.prompt "언어를 선택해 주십시오.">
+
 <!-- For "first run" wizard: -->
 
 <!ENTITY torsettings.prompt "Tor 네트워크에 연결을 시도하기 전에, 이 컴퓨터의 인터넷 연결에 대한 정보를 제공해야합니다.">
@@ -9,26 +13,32 @@
 
 <!ENTITY torSettings.firstQuestion "어떤 것이 귀하의 상황에 가깝습니까?">
 <!ENTITY torSettings.configurePrompt1 "이 컴퓨터의 인터넷 연결은 검열되어 있거나 프록시를 통합니다.">
-<!ENTITY torSettings.configurePrompt2 "브릿지 또는 프록시 설정 구성을 해야 합니다.">
+<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings before I connect to the Tor&#160;network.">
 <!ENTITY torSettings.configure "구성">
-<!ENTITY torSettings.connectPrompt2 "Tor 네트워크에 직접 연결하고 싶습니다.">
+<!ENTITY torSettings.connectPrompt2 "I would like to make a direct connection to the Tor network.">
 <!ENTITY torSettings.connectPrompt3 "이것은 대부분의 상황에서 동작합니다">
 <!ENTITY torSettings.connect "연결">
 
-<!ENTITY torSettings.proxyPageTitle "Local Proxy Configuration">
+<!ENTITY torSettings.proxyPageTitle "로컬 프록시 설정">
 <!ENTITY torSettings.proxyQuestion "이 컴퓨터는 인터넷에 접속하는 데 프록시가 필요한가요?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "뭔 질문인지 잘 모르시겠다면, 다른 브라우저의 인터넷 설정을 보고 프록시가 어떻게 설정되어 있는지 참고하세요.">
+<!ENTITY torSettings.proxyExplanation1 "In most cases a local proxy is not needed, but it may be required when connecting through a company, school, or university network.">
+<!ENTITY torSettings.proxyExplanation2 "If you are not sure how to answer this question, look at the Internet settings in another browser or check your system's network settings to see whether a local proxy is needed.">
 <!ENTITY torSettings.enterProxy "프록시 설정에 들어갑니다.">
-<!ENTITY torSettings.bridgePageTitle "Tor Bridges Configuration">
+<!ENTITY torSettings.bridgePageTitle "Tor 브릿지 설정">
 <!ENTITY torSettings.bridgeQuestion "인터넷 서비스 공급자(ISP)가 Tor 네트워크 접속을 차단하거나 검열하고 있나요?">
-<!ENTITY torSettings.bridgeHelp "이 질문에 어떻게 대답해야할지 잘 모르는 경우 아니오를 선택하십시오.&#160; 예를 선택하면 Tor 네트워크에 대한 연결을 차단하는 것을 더욱 어렵게하는 목록 화되지 않은 릴레이이고 Tor Bridges을 구성하는 것이 요구됩니다.">
+<!ENTITY torSettings.bridgeExplanation1 "If you are not sure how to answer this question, choose No (if you are unable to connect to the Tor network without a bridge, you can add one later).">
+<!ENTITY torSettings.bridgeExplanation2 "If you choose Yes, you will be asked to configure Tor Bridges, which are unlisted relays that make it more difficult to block connections to the Tor Network.">
 <!ENTITY torSettings.bridgeSettingsPrompt "제공된 브릿지 세트를 사용하거나 사용자 지정 브릿지 세트를 취득하여 입력 할 수 있습니다.">
 
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "Tor 시작 대기 중...">
 <!ENTITY torsettings.restartTor "Tor 재시작">
+<!ENTITY torsettings.reconfigTor "Reconfigure">
+
+<!ENTITY torsettings.discardSettings.prompt "You have configured Tor bridges or you have entered local proxy settings.&#160; To make a direct connection to the Tor network, these settings must be removed.">
+<!ENTITY torsettings.discardSettings.proceed "Remove Settings and Connect">
 
 <!ENTITY torsettings.optional "선택">
 
@@ -46,6 +56,7 @@
 <!ENTITY torsettings.firewall.allowedPorts "허용된 포트:">
 <!ENTITY torsettings.useBridges.checkbox "인터넷 서비스 공급자(ISP)가 Tor 네트워크 접속을 차단합니다.">
 <!ENTITY torsettings.useBridges.default "제공된 브릿지에 연결">
+<!ENTITY torsettings.useBridges.note "Each type of bridge uses a different method to avoid censorship.&#160; If one bridge does not work, try again using a different one.">
 <!ENTITY torsettings.useBridges.type "전송 유형:">
 <!ENTITY torsettings.useBridges.custom "이용자 브릿지 접속">
 <!ENTITY torsettings.useBridges.label "1개 이상의 브릿지 중계 서버를 입력해 주세요. (각 줄에 한 개씩)">

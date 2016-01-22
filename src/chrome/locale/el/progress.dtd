@@ -1,4 +1,4 @@
 <!ENTITY torprogress.dialog.title "Κατάσταση του Tor ">
 <!ENTITY torprogress.openSettings "Ανοιγμα ρυθμισεων">
 <!ENTITY torprogress.heading "Δημιουργια σύνδεσης στο δίκτυο Tor">
-<!ENTITY torprogress.pleaseWait "Παρακαλώ περιμένετε ενώ δημιουργούμε μια σύνδεση με το δίκτυο Tor.">
+<!ENTITY torprogress.pleaseWait "Please wait while we establish a connection to the Tor network.&#160; This may take several minutes.">

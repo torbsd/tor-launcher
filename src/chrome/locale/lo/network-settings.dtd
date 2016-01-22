@@ -1,5 +1,9 @@
 <!ENTITY torsettings.dialog.title "ການຕັ້ງຄ່າເຄືອຂ່າຍ Tor">
 
+<!-- For locale picker: -->
+<!ENTITY torlauncher.localePicker.title "Tor Browser Language">
+<!ENTITY torlauncher.localePicker.prompt "Please select a language.">
+
 <!-- For "first run" wizard: -->
 
 <!ENTITY torsettings.prompt "ກ່ອນທີ່ທ່ານຈະເຊື່ອມຕໍ່ເຂົ້າເຄືອຂ່າຍ Tor, ທ່ານຕ້ອງໄດ້ໃຫ້ລາຍລະອຽດກ່ຽວກັບ ການເຊື່ອມຕໍ່ ອິນເຕີເນັດ ຂອງ ຄັອມພິວເຕີຣ໌ ນີ້ກ່ອນ.">
@@ -9,26 +13,32 @@
 
 <!ENTITY torSettings.firstQuestion "ອັນໃດ ຕໍ່ໄປນີ້ ທີ່ ບັນຍາຍ ຢ່າງ ລະອຽດ ທີ່ສຸດ ກ່ຽວກັບ ສະພາບ ຂອງ ທ່ານ?">
 <!ENTITY torSettings.configurePrompt1 "This computer's Internet connection is censored or proxied.">
-<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings.">
+<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings before I connect to the Tor&#160;network.">
 <!ENTITY torSettings.configure "ກຳນົດຄ່າ">
-<!ENTITY torSettings.connectPrompt2 "ຂ້ອຍຕ້ອງການເຊື່ອມໂດຍກົງກັບເຄືອຂ່າຍ Tor.">
+<!ENTITY torSettings.connectPrompt2 "I would like to make a direct connection to the Tor network.">
 <!ENTITY torSettings.connectPrompt3 "ນີ້ຈະໃຊ້ໄດ້ກັບສະຖານະການສ່ວນໃຫຍ່.">
 <!ENTITY torSettings.connect "ເຊື່ອມຕໍ່">
 
 <!ENTITY torSettings.proxyPageTitle "Local Proxy Configuration">
 <!ENTITY torSettings.proxyQuestion "Does this computer need to use a local proxy to access the Internet?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "If you are not sure how to answer this question, look at the Internet settings in another browser to see whether it is configured to use a local proxy.">
+<!ENTITY torSettings.proxyExplanation1 "In most cases a local proxy is not needed, but it may be required when connecting through a company, school, or university network.">
+<!ENTITY torSettings.proxyExplanation2 "If you are not sure how to answer this question, look at the Internet settings in another browser or check your system's network settings to see whether a local proxy is needed.">
 <!ENTITY torSettings.enterProxy "ປ້ອນ ການຕັ້ງຄ່າ ພຣັອກຊີ ເຂົ້າໄປ.">
 <!ENTITY torSettings.bridgePageTitle "Tor Bridges Configuration">
 <!ENTITY torSettings.bridgeQuestion "ຜູ້ໃຫ້ບໍລິການ ອິນເຕີເນັດ (ISP) ກັນໄວ້ບໍ່ ຫຼືບໍ່ ກໍແມ່ນ ມີການກວດສອບ ກ່ອນທີ່ຈະເຊື່ອມຕໍ່ເຂົ້າກັບເຄືອຂ່າຍ Tor?">
-<!ENTITY torSettings.bridgeHelp "ຖ້າທ່ານຍັງບໍ່ແນ່ໃຈວ່າຈະຕອບຄໍາຖາມນີ້ແນວໃດ, ໃຫ້ເລືອກ No.&#160; ຖ້າທ່ານເລືກ Yes, ທ່ານ ຈະ ຖືກບອກ ໃຫ້ກຳນົດຄ່າ Tor Bridge ທີ່ບໍ່ໄດ້ຢູ່ໃນລາຍການ ຊຶ່ງຈະເຮັດໃຫ້ຫຍຸ້ງຍາກຕື່ມ ໃນການກັ້ນ ການເຊື່ອມຕໍ່ເຂົ້າເຄືອຂ່າຍ Tor.">
+<!ENTITY torSettings.bridgeExplanation1 "If you are not sure how to answer this question, choose No (if you are unable to connect to the Tor network without a bridge, you can add one later).">
+<!ENTITY torSettings.bridgeExplanation2 "If you choose Yes, you will be asked to configure Tor Bridges, which are unlisted relays that make it more difficult to block connections to the Tor Network.">
 <!ENTITY torSettings.bridgeSettingsPrompt "You may use the provided set of bridges or you may obtain and enter a custom set of bridges.">
 
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "Waiting for Tor to start…">
 <!ENTITY torsettings.restartTor "Restart Tor">
+<!ENTITY torsettings.reconfigTor "Reconfigure">
+
+<!ENTITY torsettings.discardSettings.prompt "You have configured Tor bridges or you have entered local proxy settings.&#160; To make a direct connection to the Tor network, these settings must be removed.">
+<!ENTITY torsettings.discardSettings.proceed "Remove Settings and Connect">
 
 <!ENTITY torsettings.optional "Optional">
 
@@ -46,6 +56,7 @@
 <!ENTITY torsettings.firewall.allowedPorts "Allowed Ports:">
 <!ENTITY torsettings.useBridges.checkbox "My Internet Service Provider (ISP) blocks connections to the Tor network">
 <!ENTITY torsettings.useBridges.default "Connect with provided bridges">
+<!ENTITY torsettings.useBridges.note "Each type of bridge uses a different method to avoid censorship.&#160; If one bridge does not work, try again using a different one.">
 <!ENTITY torsettings.useBridges.type "Transport type:">
 <!ENTITY torsettings.useBridges.custom "Enter custom bridges">
 <!ENTITY torsettings.useBridges.label "Enter one or more bridge relays (one per line).">

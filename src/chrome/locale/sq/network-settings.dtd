@@ -1,5 +1,9 @@
 <!ENTITY torsettings.dialog.title "Konfigurimi i Rrjetit të Tor">
 
+<!-- For locale picker: -->
+<!ENTITY torlauncher.localePicker.title "Tor Browser Language">
+<!ENTITY torlauncher.localePicker.prompt "Please select a language.">
+
 <!-- For "first run" wizard: -->
 
 <!ENTITY torsettings.prompt "Përpara se të lidheni me rrjetin e Tor, ju nevojitet të ofroni informacion rreth lidhjes së Internetit të këtij kompjuteri.">
@@ -9,26 +13,32 @@
 
 <!ENTITY torSettings.firstQuestion "Cila nga këto e përshkruan më mirë situatën tuaj të tanishme?">
 <!ENTITY torSettings.configurePrompt1 "Lidhja e Internetit të këtij kompjuteri është e censuruar ose me proxy">
-<!ENTITY torSettings.configurePrompt2 "Më duhet të konfiguroj urën ose parametrat e proxy-t.">
+<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings before I connect to the Tor&#160;network.">
 <!ENTITY torSettings.configure "Konfiguroni">
-<!ENTITY torSettings.connectPrompt2 "Do të dëshiroja të lidhesha drejtpërdrejt me rrjetin e Tor.">
+<!ENTITY torSettings.connectPrompt2 "I would like to make a direct connection to the Tor network.">
 <!ENTITY torSettings.connectPrompt3 "Kjo do të funksionojë në shumë situata.">
 <!ENTITY torSettings.connect "Lidhuni">
 
 <!ENTITY torSettings.proxyPageTitle "Konfigurimi i Proxy-t Lokal  ">
 <!ENTITY torSettings.proxyQuestion "A i nevojitet këtij kompjuteri që të përdorë një proxy lokal, për t'u qasur në Internet?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyHelp "Nëse s'jeni i sigurt sesi t'i përgjigjeni kësaj pyetje, shikoni tek konfigurimi i Internetit në një tjetër shfletues, për të parë nëse ai është i konfiguruar për të përdorur një proxy lokal.">
+<!ENTITY torSettings.proxyExplanation1 "In most cases a local proxy is not needed, but it may be required when connecting through a company, school, or university network.">
+<!ENTITY torSettings.proxyExplanation2 "If you are not sure how to answer this question, look at the Internet settings in another browser or check your system's network settings to see whether a local proxy is needed.">
 <!ENTITY torSettings.enterProxy "Futni konfigurimin e proxy-t.">
 <!ENTITY torSettings.bridgePageTitle "Konfigurimi i Urave të Tor">
 <!ENTITY torSettings.bridgeQuestion "A i pengon ose censuron lidhjet për tek Rrjeti Tor, Ofruesi juaj i Shërbimit Internet (ISP)?">
-<!ENTITY torSettings.bridgeHelp "Nëse s'jeni i sigurt sesi t'i përgjigjeni kësaj pyetje, përzgjidhni &quot;Jo&quot;.&#160; Nëse përzgjidhni &quot;Po&quot;, do t'ju kërkohet të konfiguroni Tor bridges, të cilat janë rele të palistuara, që e bëjnë më të vështirë pengimin e lidhjeve për tek Rrjeti Tor.">
+<!ENTITY torSettings.bridgeExplanation1 "If you are not sure how to answer this question, choose No (if you are unable to connect to the Tor network without a bridge, you can add one later).">
+<!ENTITY torSettings.bridgeExplanation2 "If you choose Yes, you will be asked to configure Tor Bridges, which are unlisted relays that make it more difficult to block connections to the Tor Network.">
 <!ENTITY torSettings.bridgeSettingsPrompt "Ju mund të përdorni grupin e dhënë të urave, ose mund të përftoni dhe futni një sasi të personalizuar urash.">
 
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "Duke pritur që Tor të nisë...">
 <!ENTITY torsettings.restartTor "Riniseni Tor-in">
+<!ENTITY torsettings.reconfigTor "Reconfigure">
+
+<!ENTITY torsettings.discardSettings.prompt "You have configured Tor bridges or you have entered local proxy settings.&#160; To make a direct connection to the Tor network, these settings must be removed.">
+<!ENTITY torsettings.discardSettings.proceed "Remove Settings and Connect">
 
 <!ENTITY torsettings.optional "Me zgjedhje">
 
@@ -46,6 +56,7 @@
 <!ENTITY torsettings.firewall.allowedPorts "Portat e Lejuara:">
 <!ENTITY torsettings.useBridges.checkbox "Ofruesi im i Shërbimit të Internetit (ISP) pengon lidhjet drejt rrjetit Tor">
 <!ENTITY torsettings.useBridges.default "Lidhuni me urat e ofruara">
+<!ENTITY torsettings.useBridges.note "Each type of bridge uses a different method to avoid censorship.&#160; If one bridge does not work, try again using a different one.">
 <!ENTITY torsettings.useBridges.type "Lloji i Transportit:">
 <!ENTITY torsettings.useBridges.custom "Futini urat e përshtatura">
 <!ENTITY torsettings.useBridges.label "Futni një ose më shumë rele urë (një për rresht)">
