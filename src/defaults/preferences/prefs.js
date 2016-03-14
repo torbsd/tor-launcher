@@ -8,8 +8,15 @@ pref("extensions.torlauncher.control_port", 9151);
 pref("extensions.torlauncher.start_tor", true);
 pref("extensions.torlauncher.prompt_at_startup", true);
 
-// All path prefs. are relative to the firefox executable's directory
+// The tor_path is relative to the application directory. On Linux and
+// Windows this is the Browser/ directory that contains the firefox
+// executables, and on Mac OS it is the TorBrowser.app directory.
 pref("extensions.torlauncher.tor_path", "");
+
+// The torrc_path and tordatadir_path are relative to the data directory,
+// which is TorBrowser-Data/ if it exists as a sibling of the application
+// directory. If TorBrowser-Data/ does not exist, these paths are relative
+// to the TorBrowser/ directory within the application directory.
 pref("extensions.torlauncher.torrc_path", "");
 pref("extensions.torlauncher.tordatadir_path", "");
 
