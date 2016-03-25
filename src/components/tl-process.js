@@ -822,12 +822,13 @@ TorProcessService.prototype =
     if (this.mIsUserDataOutsideOfAppDir == undefined)
     {
       // Determine if we are using a "side-by-side" data model by checking
-      // for the existence of the TorBrowser-Data/ directory.
+      // whether the user profile is outside of the app directory.
       try
       {
-        let f = this._appDir.parent;
-        f.append("TorBrowser-Data");
-        this.mIsUserDataOutsideOfAppDir = f.exists() && f.isDirectory();
+        let ds = Cc["@mozilla.org/file/directory_service;1"]
+                        .getService(Ci.nsIProperties);
+        let profDir = ds.get("ProfD", Ci.nsIFile);
+        this.mIsUserDataOutsideOfAppDir = !this._appDir.contains(profDir);
       }
       catch (e)
       {
@@ -881,14 +882,16 @@ TorProcessService.prototype =
   }, // get _appDir
 
   // Returns an nsIFile that points to the TorBrowser-Data/ directory.
+  // This function is only used when this._isUserDataOutsideOfAppDir == true.
   // May throw.
   get _dataDir()
   {
     if (!this.mDataDir)
     {
-      let f = this._appDir.parent.clone();
-      f.append("TorBrowser-Data");
-      this.mDataDir = f;
+      let ds = Cc["@mozilla.org/file/directory_service;1"]
+                      .getService(Ci.nsIProperties);
+      let profDir = ds.get("ProfD", Ci.nsIFile);
+      this.mDataDir = profDir.parent.parent;
     }
 
     return this.mDataDir;
