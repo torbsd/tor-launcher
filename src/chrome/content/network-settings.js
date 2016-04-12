@@ -1,4 +1,4 @@
-// Copyright (c) 2015, The Tor Project, Inc.
+// Copyright (c) 2016, The Tor Project, Inc.
 // See LICENSE for licensing information.
 //
 // vim: set sw=2 sts=2 ts=8 et syntax=javascript:
@@ -23,7 +23,9 @@ const kPrefDefaultBridgeRecommendedType =
                    "extensions.torlauncher.default_bridge_recommended_type";
 const kPrefDefaultBridgeType = "extensions.torlauncher.default_bridge_type";
 
-const kSupportAddr = "help@rt.torproject.org";
+// As of April 2016, no one is responding to help desk email. Hopefully this will change soon.
+//const kSupportAddr = "help@rt.torproject.org";
+const kSupportURL = "torproject.org/about/contact.html#support";
 
 const kTorProcessReadyTopic = "TorProcessIsReady";
 const kTorProcessExitedTopic = "TorProcessExited";
@@ -89,7 +91,7 @@ function initDialogCommon(aHasQuitButton)
   if (forAssistance)
   {
     forAssistance.textContent = TorLauncherUtil.getFormattedLocalizedString(
-                                        "forAssistance", [kSupportAddr], 1);
+                                        "forAssistance2", [kSupportURL], 1);
   }
 
   if (aHasQuitButton)
