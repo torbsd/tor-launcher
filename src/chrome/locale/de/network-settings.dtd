@@ -13,32 +13,32 @@
 
 <!ENTITY torSettings.firstQuestion "Was beschreibt Ihre Situation am besten?">
 <!ENTITY torSettings.configurePrompt1 "Die Internetverbindung dieses Rechner ist zensiert oder vermittelt.">
-<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings before I connect to the Tor&#160;network.">
+<!ENTITY torSettings.configurePrompt2 "Ich muss eine Netzwerkbrücke oder lokale Proxy-Einstellungen konfigurieren, bevor ich mich mit dem Tor&#160;Netzwerk verbinde.">
 <!ENTITY torSettings.configure "Konfigurieren">
-<!ENTITY torSettings.connectPrompt2 "I would like to make a direct connection to the Tor network.">
+<!ENTITY torSettings.connectPrompt2 "Ich würde gerne eine direkte Verbindung mit dem Tor-Netzwerk  herstellen">
 <!ENTITY torSettings.connectPrompt3 "Das wird in den meisten Situationen funktionieren.">
 <!ENTITY torSettings.connect "Verbinden">
 
 <!ENTITY torSettings.proxyPageTitle "Lokale Proxy-Konfiguration">
 <!ENTITY torSettings.proxyQuestion "Benötigt dieser Rechner einen lokalen Proxy um auf das Internet zuzugreifen?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyExplanation1 "In most cases a local proxy is not needed, but it may be required when connecting through a company, school, or university network.">
-<!ENTITY torSettings.proxyExplanation2 "If you are not sure how to answer this question, look at the Internet settings in another browser or check your system's network settings to see whether a local proxy is needed.">
+<!ENTITY torSettings.proxyExplanation1 "In den meisten Fällen ist ein lokaler Proxy nicht nötig, er könnte aber notwendig werden, falls eine Verbindung durch ein Firmen-, Schul- oder Universitätsnetzwerk aufgebaut werden soll.">
+<!ENTITY torSettings.proxyExplanation2 "Wenn Sie sich nicht sicher sind, wie Sie diese Frage beantworten sollen, sehen Sie sich die Interneteinstellungen in einem anderen Browser an oder überprüfen Sie die Netzwerkeinstellungen des Systems um zu bestimmen, ob sie einen lokalen Proxyserver benötigen.">
 <!ENTITY torSettings.enterProxy "Proxy-Einstellungen eingeben.">
 <!ENTITY torSettings.bridgePageTitle "Torbrücken-Konfiguration">
 <!ENTITY torSettings.bridgeQuestion "Blockiert oder zensiert Ihr Internetdienstanbieter (ISP) Verbindungen zum Tor-Netzwerk?">
-<!ENTITY torSettings.bridgeExplanation1 "If you are not sure how to answer this question, choose No (if you are unable to connect to the Tor network without a bridge, you can add one later).">
-<!ENTITY torSettings.bridgeExplanation2 "If you choose Yes, you will be asked to configure Tor Bridges, which are unlisted relays that make it more difficult to block connections to the Tor Network.">
+<!ENTITY torSettings.bridgeExplanation1 "Wenn Sie sich nicht sicher sind, wie Sie diese Frage beantworten sollen, wählen Sie nein (falls Sie nicht in der Lage sind, sich ohne Brücke mit dem Tor-Netzwerk zu verbinden, können Sie sie später hinzufügen).">
+<!ENTITY torSettings.bridgeExplanation2 "Wenn Sie Ja wählen, werden sie gebeten, Tor-Brücken zu konfigurieren. Tor-Brücken sind nicht gelistete Relais, die es erschweren, Verbindungen zum Tor-Netzwerk zu blockieren.">
 <!ENTITY torSettings.bridgeSettingsPrompt "Sie könne den bereitgestellten Satz an Brücken verwenden oder Sie können welche erhalten, und geben einen benutzerdefinierten Satz an Brücken ein.">
 
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "Auf den Start von Tor wird gewartet …">
 <!ENTITY torsettings.restartTor "Tor neu starten">
-<!ENTITY torsettings.reconfigTor "Reconfigure">
+<!ENTITY torsettings.reconfigTor "Neu einstellen">
 
-<!ENTITY torsettings.discardSettings.prompt "You have configured Tor bridges or you have entered local proxy settings.&#160; To make a direct connection to the Tor network, these settings must be removed.">
-<!ENTITY torsettings.discardSettings.proceed "Remove Settings and Connect">
+<!ENTITY torsettings.discardSettings.prompt "Sie haben Tor-Brücken konfiguriert oder lokale Proxyeinstellungen eingetragen.&#160; Um eine direkte Verbindung zum Tor-Netzwerk herzustellen, müssen diese Einstellungen entfernt werden.">
+<!ENTITY torsettings.discardSettings.proceed "Einstellungen entfernen und verbinden">
 
 <!ENTITY torsettings.optional "Optional">
 
@@ -56,7 +56,7 @@
 <!ENTITY torsettings.firewall.allowedPorts "Erlaubte Anschlüsse:">
 <!ENTITY torsettings.useBridges.checkbox "Mein Internetdienstanbieter (ISP) blockiert Verbindungen zum Tor-Netzwerk">
 <!ENTITY torsettings.useBridges.default "Mit bereitgestellten Brücken verbinden ">
-<!ENTITY torsettings.useBridges.note "Each type of bridge uses a different method to avoid censorship.&#160; If one bridge does not work, try again using a different one.">
+<!ENTITY torsettings.useBridges.note "Jede Art von Brücke verwendet eine andere Methode um Zensur zu umgehen. Wenn eine Brücke nicht funktioniert, versuchen Sie es erneut, unter Verwendung einer anderen Brücke.">
 <!ENTITY torsettings.useBridges.type "Übertragungstyp:">
 <!ENTITY torsettings.useBridges.custom "Benutzerdefinierte Brücken eingeben">
 <!ENTITY torsettings.useBridges.label "Ein oder mehrere Brückenrelais eingeben (eins pro Zeile).">

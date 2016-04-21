@@ -35,10 +35,10 @@
 
 <!ENTITY torsettings.startingTor "Torの開始を待っています...">
 <!ENTITY torsettings.restartTor "Torを再起動する">
-<!ENTITY torsettings.reconfigTor "Reconfigure">
+<!ENTITY torsettings.reconfigTor "再設定">
 
 <!ENTITY torsettings.discardSettings.prompt "You have configured Tor bridges or you have entered local proxy settings.&#160; To make a direct connection to the Tor network, these settings must be removed.">
-<!ENTITY torsettings.discardSettings.proceed "Remove Settings and Connect">
+<!ENTITY torsettings.discardSettings.proceed "設定と接続を削除">
 
 <!ENTITY torsettings.optional "オプション">
 

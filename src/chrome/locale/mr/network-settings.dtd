@@ -8,7 +8,7 @@
 
 <!ENTITY torsettings.prompt "Before you connect to the Tor network, you need to provide information about this computer's Internet connection.">
 
-<!ENTITY torSettings.yes "Yes">
+<!ENTITY torSettings.yes "होय">
 <!ENTITY torSettings.no "नाही">
 
 <!ENTITY torSettings.firstQuestion "Which of the following best describes your situation?">

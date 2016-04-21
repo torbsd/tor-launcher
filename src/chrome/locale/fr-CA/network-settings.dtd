@@ -13,7 +13,7 @@
 
 <!ENTITY torSettings.firstQuestion "Laquelle des suivantes décrit le mieux votre situation?">
 <!ENTITY torSettings.configurePrompt1 "La connexion Internet de cet ordinateur est censurée ou relayée.">
-<!ENTITY torSettings.configurePrompt2 "Je dois paramétrer un pont ou un mandataire local avant de me connecter au réseau&#160; Tor.">
+<!ENTITY torSettings.configurePrompt2 "Je dois paramétrer un pont ou un mandataire local avant de me connecter au réseau&#160;Tor.">
 <!ENTITY torSettings.configure "Configurer">
 <!ENTITY torSettings.connectPrompt2 "J'aimerais établir une connexion directe vers le réseau Tor.">
 <!ENTITY torSettings.connectPrompt3 "Ceci fonctionnera dans la plupart des situations.">

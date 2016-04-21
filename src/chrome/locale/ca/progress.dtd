@@ -1,4 +1,4 @@
 <!ENTITY torprogress.dialog.title "Estat de Tor">
 <!ENTITY torprogress.openSettings "Obrir preferències.">
 <!ENTITY torprogress.heading "S'està connectant a la xarxa Tor">
-<!ENTITY torprogress.pleaseWait "Please wait while we establish a connection to the Tor network.&#160; This may take several minutes.">
+<!ENTITY torprogress.pleaseWait "Per favor, esperi mentre establim la connexió amb la red de Tor.&#160; L'acció pot durar varis minuts.">

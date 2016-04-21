@@ -1,4 +1,4 @@
-<!ENTITY torsettings.dialog.title "Tor Nettverksinnstillinger">
+<!ENTITY torsettings.dialog.title "Nettverksinnstillinger for Tor">
 
 <!-- For locale picker: -->
 <!ENTITY torlauncher.localePicker.title "Språk i Tor-nettleser">
@@ -6,44 +6,44 @@
 
 <!-- For "first run" wizard: -->
 
-<!ENTITY torsettings.prompt "Før du kan koble til Tor-nettverket, må du gi informasjon om denne datamaskinens internett-tilkobling.">
+<!ENTITY torsettings.prompt "Før du kan koble til Tor-nettverket, må du gi informasjon om denne datamaskinens Internett-tilkobling.">
 
 <!ENTITY torSettings.yes "Ja">
 <!ENTITY torSettings.no "Nei">
 
 <!ENTITY torSettings.firstQuestion "Hvilket av følgende beskriver best din situasjon?">
-<!ENTITY torSettings.configurePrompt1 "Computeren's internett tilkobling er sensurert eller under proxy.">
-<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings before I connect to the Tor&#160;network.">
-<!ENTITY torSettings.configure "Konfigurer">
-<!ENTITY torSettings.connectPrompt2 "I would like to make a direct connection to the Tor network.">
+<!ENTITY torSettings.configurePrompt1 "Datamaskinens Internett-tilkobling er sensurert eller bak mellomtjener.">
+<!ENTITY torSettings.configurePrompt2 "Jeg trenger å sette opp bro eller lokale mellomtjenerinnstillinger før jeg kobler til Tor&#160;nettverket.">
+<!ENTITY torSettings.configure "Sett opp">
+<!ENTITY torSettings.connectPrompt2 "Jeg ønsker å opprette en direkte forbindelse til Tor-nettverket.">
 <!ENTITY torSettings.connectPrompt3 "Dette vil fungere i de fleste situasjoner.">
 <!ENTITY torSettings.connect "Koble til">
 
-<!ENTITY torSettings.proxyPageTitle "Lokal proxy-konfigurasjon">
+<!ENTITY torSettings.proxyPageTitle "Lokalt mellomtjener-oppsett">
 <!ENTITY torSettings.proxyQuestion "Trenger denne maskinen å bruke en lokal mellomtjener for å nå Internett?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyExplanation1 "In most cases a local proxy is not needed, but it may be required when connecting through a company, school, or university network.">
-<!ENTITY torSettings.proxyExplanation2 "If you are not sure how to answer this question, look at the Internet settings in another browser or check your system's network settings to see whether a local proxy is needed.">
-<!ENTITY torSettings.enterProxy "Skriv inn proxy-innstillingene.">
+<!ENTITY torSettings.proxyExplanation1 "I de fleste tilfeller en lokal mellomtjener ikke er nødvendig, men det kan være påkrevd når du kobler til gjennom et firma, skole eller universitetsnettverk.">
+<!ENTITY torSettings.proxyExplanation2 "Hvis du er usikker på hvordan du skal svare på dette spørsmålet, se på Internett-innstillingene i en annen nettleser eller sjekk nettverksinnstillingene systemets å se om en lokal mellomtjener er nødvendig.">
+<!ENTITY torSettings.enterProxy "Skriv inn mellomtjenings-innstillingene.">
 <!ENTITY torSettings.bridgePageTitle "Oppsett av Tor-broer.">
-<!ENTITY torSettings.bridgeQuestion "Blokkerer eller sensurerer internettleverandøren (ISP) din tilkoblinger til Tor-nettverket?">
-<!ENTITY torSettings.bridgeExplanation1 "If you are not sure how to answer this question, choose No (if you are unable to connect to the Tor network without a bridge, you can add one later).">
-<!ENTITY torSettings.bridgeExplanation2 "If you choose Yes, you will be asked to configure Tor Bridges, which are unlisted relays that make it more difficult to block connections to the Tor Network.">
+<!ENTITY torSettings.bridgeQuestion "Blokkerer eller på annet vis sensurerer Internettleverandøren (ISP) dine tilkoblinger til Tor-nettverket?">
+<!ENTITY torSettings.bridgeExplanation1 "Hvis du er usikker på hvordan du skal svare på dette spørsmålet, velg Nei (hvis du ikke klarer å koble til Tor-nettverket uten en bro, kan du legge til en senere).">
+<!ENTITY torSettings.bridgeExplanation2 "Hvis du velger Ja, vil du bli bedt om å sette opp Tor-broer, som er unoterte rutingsstafettoppsett som gjør det vanskeligere å blokkere tilkoblinger til Tor-nettverket.">
 <!ENTITY torSettings.bridgeSettingsPrompt "Du kan bruke de angitte broene eller du kan skaffe og oppgi egendefinerte broer.">
 
 <!-- Other: -->
 
-<!ENTITY torsettings.startingTor "Venter på at Tor skal starte...">
+<!ENTITY torsettings.startingTor "Venter på at Tor skal starte…">
 <!ENTITY torsettings.restartTor "Omstart av Tor">
-<!ENTITY torsettings.reconfigTor "Reconfigure">
+<!ENTITY torsettings.reconfigTor "Sett opp på ny">
 
-<!ENTITY torsettings.discardSettings.prompt "You have configured Tor bridges or you have entered local proxy settings.&#160; To make a direct connection to the Tor network, these settings must be removed.">
-<!ENTITY torsettings.discardSettings.proceed "Remove Settings and Connect">
+<!ENTITY torsettings.discardSettings.prompt "Du har satt opp Tor-broer eller du har angitt lokale mellomtjeningsinnstillinger. &#160; For å gjøre en direkte forbindelse til Tor-nettverket, må disse innstillingene fjernes.">
+<!ENTITY torsettings.discardSettings.proceed "Fjern innstillinger og koble til">
 
 <!ENTITY torsettings.optional "Valgfritt">
 
 <!ENTITY torsettings.useProxy.checkbox "Denne maskinen trenger å bruke en mellomtjener for å nå Internett">
-<!ENTITY torsettings.useProxy.type "Proxytype:">
+<!ENTITY torsettings.useProxy.type "Mellomtjeningstype:">
 <!ENTITY torsettings.useProxy.address "Adresse:">
 <!ENTITY torsettings.useProxy.address.placeholder "IP-adresse, eller vertsnavn">
 <!ENTITY torsettings.useProxy.port "Port:">
@@ -53,19 +53,19 @@
 <!ENTITY torsettings.useProxy.type.socks5 "SOCKS 5">
 <!ENTITY torsettings.useProxy.type.http "HTTP / HTTPS">
 <!ENTITY torsettings.firewall.checkbox "Denne datamaskinen går gjennom en brannmur som kun tillater tilkoblinger til visse porter">
-<!ENTITY torsettings.firewall.allowedPorts "Tillatte Porter:">
+<!ENTITY torsettings.firewall.allowedPorts "Tillatte porter:">
 <!ENTITY torsettings.useBridges.checkbox "Min Internettleverandør (ISP) blokkerer tilkoblinger til Tor-nettverket">
 <!ENTITY torsettings.useBridges.default "Koble til med angitte broer">
-<!ENTITY torsettings.useBridges.note "Each type of bridge uses a different method to avoid censorship.&#160; If one bridge does not work, try again using a different one.">
+<!ENTITY torsettings.useBridges.note "Hver type bro bruker en annen metode for å unngå sensur.&#160; Hvis en bro ikke virker, prøv på nytt med en annen.">
 <!ENTITY torsettings.useBridges.type "Tilkoblingstype:">
 <!ENTITY torsettings.useBridges.custom "Angi egendefinerte broer">
-<!ENTITY torsettings.useBridges.label "Angi én eller flere bro-reléer (én per linje).">
+<!ENTITY torsettings.useBridges.label "Angi én eller flere bro-rutingsstafettoppsett (ett per linje).">
 <!ENTITY torsettings.useBridges.placeholder "type adresse:port">
 
 <!ENTITY torsettings.copyLog "Kopier Torloggen til Utklippstavlen">
-<!ENTITY torsettings.bridgeHelpTitle "Bro-relé Hjelp">
-<!ENTITY torsettings.bridgeHelp1 "Hvis du ikke får koblet til Tor-nettverket, kan det være at internettleverandøren din (ISP), eller et annet byrå/institusjon/etat blokkerer Tor.&#160; Som regel kan du omgå dette problemet ved å bruke Tor-broer, som er ulistede reléer og derfor vanskeligere å blokkere.">
-<!ENTITY torsettings.bridgeHelp1B "Du kan bruke de prekonfigurerte, angitte bro-adressene eller du kan skaffe deg egendefinerte adresser ved å bruke en av følgende tre metoder:">
+<!ENTITY torsettings.bridgeHelpTitle "Hjelp med Bro-rutingsstafettoppsett">
+<!ENTITY torsettings.bridgeHelp1 "Hvis du ikke får koblet til Tor-nettverket, kan det være at internettleverandøren din (ISP), eller et annet byrå/institusjon/etat blokkerer Tor.&#160; Som regel kan du omgå dette problemet ved å bruke Tor-broer, som er ulistede rutingsstafettoppsett og derfor vanskeligere å blokkere.">
+<!ENTITY torsettings.bridgeHelp1B "Du kan bruke forvalgsoppsatte bro-adressene eller du kan skaffe deg egendefinerte adresser ved å bruk av en av følgende tre metoder:">
 <!ENTITY torsettings.bridgeHelp2Heading "Via nettet">
 <!ENTITY torsettings.bridgeHelp2 "Bruk en nettleser for å besøke https://bridges.torproject.org/?lang=nb">
 <!ENTITY torsettings.bridgeHelp3Heading "Via e-post autosvar">

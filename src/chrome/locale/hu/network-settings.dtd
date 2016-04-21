@@ -13,32 +13,32 @@
 
 <!ENTITY torSettings.firstQuestion "A következők közül melyik illik jobban a szituációhoz?">
 <!ENTITY torSettings.configurePrompt1 "Ennek a számítógépnek a forgalma cenzorált vagy proxizott.">
-<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings before I connect to the Tor&#160;network.">
+<!ENTITY torSettings.configurePrompt2 "A Tor&#160; hálózathoz való csatlakozás előtt be kell állítanom a hálózati hidat vagy a helyi proxyt.">
 <!ENTITY torSettings.configure "Beállít">
-<!ENTITY torSettings.connectPrompt2 "I would like to make a direct connection to the Tor network.">
+<!ENTITY torSettings.connectPrompt2 "Közvetlen kapcsolatot szeretnék létesíteni a Tor hálózattal.">
 <!ENTITY torSettings.connectPrompt3 "A legtöbb esetben ez működni fog.">
 <!ENTITY torSettings.connect "Csatlakozás">
 
 <!ENTITY torSettings.proxyPageTitle "Helyi proxybeállítások">
 <!ENTITY torSettings.proxyQuestion "Ez a számítgép helyi proxyn keresztül éri el az Internetet? ">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyExplanation1 "In most cases a local proxy is not needed, but it may be required when connecting through a company, school, or university network.">
-<!ENTITY torSettings.proxyExplanation2 "If you are not sure how to answer this question, look at the Internet settings in another browser or check your system's network settings to see whether a local proxy is needed.">
+<!ENTITY torSettings.proxyExplanation1 "A helyi proxy a legtöbb esetben nem kell, de vállalati, iskolai vagy egyetemi hálózat esetén elfordulhat, hogy szükséges beállítani.">
+<!ENTITY torSettings.proxyExplanation2 "Ha nem vagy biztos benne, hogyan válaszolj erre a kérdésre, akkor nézd meg egy másik böngésző vagy a rendszer hálózati beállításait, hogy szükséges-e proxyt beállítani.">
 <!ENTITY torSettings.enterProxy "Adja meg a proxy beállításokat.">
 <!ENTITY torSettings.bridgePageTitle "Tor hidak konfigurálása">
 <!ENTITY torSettings.bridgeQuestion "Az internet szolgáltatód (ISP) blokkolja vagy cenzúrázza a kapcsolatot a Tor hálózathoz?">
-<!ENTITY torSettings.bridgeExplanation1 "If you are not sure how to answer this question, choose No (if you are unable to connect to the Tor network without a bridge, you can add one later).">
-<!ENTITY torSettings.bridgeExplanation2 "If you choose Yes, you will be asked to configure Tor Bridges, which are unlisted relays that make it more difficult to block connections to the Tor Network.">
+<!ENTITY torSettings.bridgeExplanation1 "Ha nem vagy biztos benne, hogyan válaszolj erre a kérdésre, válaszd a Nem lehetőséget (ha hálózati híd nélkül nem tudsz kapcsolódni a Tor hálózathoz, akkor később is hozzáadhatsz egyet).">
+<!ENTITY torSettings.bridgeExplanation2 " Ha az Igen-t választod neked kell konfigurálni a Tor Hidak-et, maleyek nem listázott csomópontok, így lehetővé nehezebbé teszik a Tor hálózathoz kapcsolódás blokkolását.">
 <!ENTITY torSettings.bridgeSettingsPrompt "Használhatod a szolgáltatott bridge címeket vagy beszerezhetsz egyedi bridge címeket.">
 
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "Várakozás a Tor indulására...">
 <!ENTITY torsettings.restartTor "Tor újraindítása">
-<!ENTITY torsettings.reconfigTor "Reconfigure">
+<!ENTITY torsettings.reconfigTor "Újrakonfigurál">
 
-<!ENTITY torsettings.discardSettings.prompt "You have configured Tor bridges or you have entered local proxy settings.&#160; To make a direct connection to the Tor network, these settings must be removed.">
-<!ENTITY torsettings.discardSettings.proceed "Remove Settings and Connect">
+<!ENTITY torsettings.discardSettings.prompt "Beállított Tor Hidakat, vagy megadott egy helyi proxy-t.&#160; A közvetlen kapcsolódáshoz ezeket a beállításokat el kell távolítania.">
+<!ENTITY torsettings.discardSettings.proceed "Beállítások eltávolítása és Csatlakozás">
 
 <!ENTITY torsettings.optional "Opcionális">
 
@@ -56,7 +56,7 @@
 <!ENTITY torsettings.firewall.allowedPorts "Engedélyezett portok:">
 <!ENTITY torsettings.useBridges.checkbox "Az internet szolgáltatóm (ISP) blokkolja a Tor hálózathoz való csatlakozásokat">
 <!ENTITY torsettings.useBridges.default "Csatlakozás a szolgáltatott bridge címekkel.">
-<!ENTITY torsettings.useBridges.note "Each type of bridge uses a different method to avoid censorship.&#160; If one bridge does not work, try again using a different one.">
+<!ENTITY torsettings.useBridges.note "Minden híd más megoldást használ a cenzorálás elkerülésére.&#160; Ha egyik nem működik, próbálkozzon újra egy másikkal.">
 <!ENTITY torsettings.useBridges.type "Átvitel típusa:">
 <!ENTITY torsettings.useBridges.custom "Addj meg egyedi bridge címeket">
 <!ENTITY torsettings.useBridges.label "Addj meg egy vagy több bridge relay címet (soronként egy)">

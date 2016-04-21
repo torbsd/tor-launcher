@@ -60,7 +60,7 @@
 <!ENTITY torsettings.useBridges.type "Transport type:">
 <!ENTITY torsettings.useBridges.custom "Enter custom bridges">
 <!ENTITY torsettings.useBridges.label "Enter one or more bridge relays (one per line).">
-<!ENTITY torsettings.useBridges.placeholder "type address:port">
+<!ENTITY torsettings.useBridges.placeholder "tip adrese: port ">
 
 <!ENTITY torsettings.copyLog "Copy Tor Log To Clipboard">
 <!ENTITY torsettings.bridgeHelpTitle "Bridge Relay Help">

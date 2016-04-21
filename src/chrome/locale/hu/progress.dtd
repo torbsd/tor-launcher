@@ -1,4 +1,4 @@
 <!ENTITY torprogress.dialog.title "Tor állapot">
 <!ENTITY torprogress.openSettings "Beállítások megnyitása">
 <!ENTITY torprogress.heading "Kapcsolódás a Tor hálózathoz">
-<!ENTITY torprogress.pleaseWait "Please wait while we establish a connection to the Tor network.&#160; This may take several minutes.">
+<!ENTITY torprogress.pleaseWait "Kérlek várj, amíg létrehozunk egy kapcsolatot a Tor hálózathoz.&#160; Ez eltarthat néhány percig.">

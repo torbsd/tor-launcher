@@ -15,7 +15,7 @@
 <!ENTITY torSettings.configurePrompt1 "Tämän tietokoneen internet-yhteys on sensuroitu tai kulkee välityspalvelimen kautta.">
 <!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings before I connect to the Tor&#160;network.">
 <!ENTITY torSettings.configure "Määritä">
-<!ENTITY torSettings.connectPrompt2 "I would like to make a direct connection to the Tor network.">
+<!ENTITY torSettings.connectPrompt2 "Haluan tehdä suoran yhteyden Tor-verkkoon.">
 <!ENTITY torSettings.connectPrompt3 "Tämä toimii useimmissa tilanteissa.">
 <!ENTITY torSettings.connect "Yhdistä">
 
@@ -35,10 +35,10 @@
 
 <!ENTITY torsettings.startingTor "Odotetaan Tor-sovelluksen käynnistymistä...">
 <!ENTITY torsettings.restartTor "Käynnistä Tor uudelleen">
-<!ENTITY torsettings.reconfigTor "Reconfigure">
+<!ENTITY torsettings.reconfigTor "Uudelleenmääritä">
 
 <!ENTITY torsettings.discardSettings.prompt "You have configured Tor bridges or you have entered local proxy settings.&#160; To make a direct connection to the Tor network, these settings must be removed.">
-<!ENTITY torsettings.discardSettings.proceed "Remove Settings and Connect">
+<!ENTITY torsettings.discardSettings.proceed "Poista asetukset ja yhdistä">
 
 <!ENTITY torsettings.optional "Vaihtoehtoinen">
 

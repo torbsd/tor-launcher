@@ -8,8 +8,8 @@
 
 <!ENTITY torsettings.prompt "Before you connect to the Tor network, you need to provide information about this computer's Internet connection.">
 
-<!ENTITY torSettings.yes "Yes">
-<!ENTITY torSettings.no "No">
+<!ENTITY torSettings.yes "დიახ">
+<!ENTITY torSettings.no "არა">
 
 <!ENTITY torSettings.firstQuestion "Which of the following best describes your situation?">
 <!ENTITY torSettings.configurePrompt1 "This computer's Internet connection is censored or proxied.">
@@ -48,7 +48,7 @@
 <!ENTITY torsettings.useProxy.address.placeholder "IP address or hostname">
 <!ENTITY torsettings.useProxy.port "პორტი:">
 <!ENTITY torsettings.useProxy.username "Username:">
-<!ENTITY torsettings.useProxy.password "Password:">
+<!ENTITY torsettings.useProxy.password "პაროლი">
 <!ENTITY torsettings.useProxy.type.socks4 "SOCKS 4">
 <!ENTITY torsettings.useProxy.type.socks5 "SOCKS 5">
 <!ENTITY torsettings.useProxy.type.http "HTTP / HTTPS">

@@ -1,4 +1,5 @@
-<!ENTITY torprogress.dialog.title "Tor status">
+<!ENTITY torprogress.dialog.title "Tor Status">
 <!ENTITY torprogress.openSettings "Open Instellingen">
 <!ENTITY torprogress.heading "Bezig met verbinden met het Tor-netwerk">
-<!ENTITY torprogress.pleaseWait "Please wait while we establish a connection to the Tor network.&#160; This may take several minutes.">
+<!ENTITY torprogress.pleaseWait "Even geduld terwijl we verbinding maken met het Tor netwerk.&#160;
+Dit kan enkele minuten duren.">

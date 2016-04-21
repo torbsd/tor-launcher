@@ -13,32 +13,32 @@
 
 <!ENTITY torSettings.firstQuestion "以下哪个描述与你的情况最为匹配？">
 <!ENTITY torSettings.configurePrompt1 "网络连接受到审查或需要代理。">
-<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings before I connect to the Tor&#160;network.">
+<!ENTITY torSettings.configurePrompt2 "我需要配置网桥或本地代理设置才能连接到 Tor 网络。">
 <!ENTITY torSettings.configure "配置">
-<!ENTITY torSettings.connectPrompt2 "I would like to make a direct connection to the Tor network.">
+<!ENTITY torSettings.connectPrompt2 "我想直接连接 Tor 网络。">
 <!ENTITY torSettings.connectPrompt3 "通常这种方式是有效的。">
 <!ENTITY torSettings.connect "连接">
 
 <!ENTITY torSettings.proxyPageTitle "本地代理配置">
 <!ENTITY torSettings.proxyQuestion "是否需要本地代理访问互联网？">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyExplanation1 "In most cases a local proxy is not needed, but it may be required when connecting through a company, school, or university network.">
-<!ENTITY torSettings.proxyExplanation2 "If you are not sure how to answer this question, look at the Internet settings in another browser or check your system's network settings to see whether a local proxy is needed.">
+<!ENTITY torSettings.proxyExplanation1 "大多数情况下不需要使用本地代理，但在使用公司、校园等网络时这可能必需。">
+<!ENTITY torSettings.proxyExplanation2 "如果您不确定此问题的答案，请查看其他网络浏览器或者您的系统中的网络设置，检查其是否使用了一个本地代理。">
 <!ENTITY torSettings.enterProxy "输入代理设置。">
 <!ENTITY torSettings.bridgePageTitle "Tor 网桥配置">
 <!ENTITY torSettings.bridgeQuestion "互联网服务提供商  (ISP)  是否对 Tor 网络连接进行了封锁或审查？">
-<!ENTITY torSettings.bridgeExplanation1 "If you are not sure how to answer this question, choose No (if you are unable to connect to the Tor network without a bridge, you can add one later).">
-<!ENTITY torSettings.bridgeExplanation2 "If you choose Yes, you will be asked to configure Tor Bridges, which are unlisted relays that make it more difficult to block connections to the Tor Network.">
+<!ENTITY torSettings.bridgeExplanation1 "如果您不确定此问题的答案，请选择否（如果您在不使用网桥时无法连接到 Tor 网络，您可以在稍后回来添加一个）">
+<!ENTITY torSettings.bridgeExplanation2 "如果您选择“是”，那么需要对 Tor 网桥进行配置。网桥指用于连接 Tor 网络的非公开网络中继，更难被封锁。">
 <!ENTITY torSettings.bridgeSettingsPrompt "可以使用集成的网桥，也可以获取网桥，以自定义方式手动输入。">
 
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "等待 Tor 启动...">
 <!ENTITY torsettings.restartTor "重新启动 Tor">
-<!ENTITY torsettings.reconfigTor "Reconfigure">
+<!ENTITY torsettings.reconfigTor "重新配置">
 
-<!ENTITY torsettings.discardSettings.prompt "You have configured Tor bridges or you have entered local proxy settings.&#160; To make a direct connection to the Tor network, these settings must be removed.">
-<!ENTITY torsettings.discardSettings.proceed "Remove Settings and Connect">
+<!ENTITY torsettings.discardSettings.prompt "您已配置 Tor 网桥，或者您已输入本地代理设置。若要直接连接到 Tor 网络，这些设置必须被移除。">
+<!ENTITY torsettings.discardSettings.proceed "移除设置并连接">
 
 <!ENTITY torsettings.optional "可选">
 
@@ -55,8 +55,8 @@
 <!ENTITY torsettings.firewall.checkbox "该计算机的防火墙仅允许特定端口的互联网连接">
 <!ENTITY torsettings.firewall.allowedPorts "允许的端口：">
 <!ENTITY torsettings.useBridges.checkbox "我的互联网服务提供商 (ISP) 封锁了 Tor 网络连接">
-<!ENTITY torsettings.useBridges.default "使用集成的网桥进行连接">
-<!ENTITY torsettings.useBridges.note "Each type of bridge uses a different method to avoid censorship.&#160; If one bridge does not work, try again using a different one.">
+<!ENTITY torsettings.useBridges.default "使用集成的网桥连接">
+<!ENTITY torsettings.useBridges.note "每种网桥使用不同的方法以避免被封锁。如果某个网桥不工作，请换用另一种重试。">
 <!ENTITY torsettings.useBridges.type "传输类型：">
 <!ENTITY torsettings.useBridges.custom "输入自定义网桥">
 <!ENTITY torsettings.useBridges.label "输入一个或多个网桥中继(一行一个)。">
