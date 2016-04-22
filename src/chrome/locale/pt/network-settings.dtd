@@ -1,8 +1,8 @@
 <!ENTITY torsettings.dialog.title "Configurações da Rede Tor">
 
 <!-- For locale picker: -->
-<!ENTITY torlauncher.localePicker.title "Linguagem do Navegador Tor">
-<!ENTITY torlauncher.localePicker.prompt "Por favor seleccione um idioma.">
+<!ENTITY torlauncher.localePicker.title "Idioma do Navegador Tor">
+<!ENTITY torlauncher.localePicker.prompt "Por favor, selecione um idioma.">
 
 <!-- For "first run" wizard: -->
 
@@ -11,16 +11,16 @@
 <!ENTITY torSettings.yes "Sim">
 <!ENTITY torSettings.no "Não">
 
-<!ENTITY torSettings.firstQuestion "Qual das seguintes frases melhor descreve a sua situação?">
+<!ENTITY torSettings.firstQuestion "Qual das seguintes frases descreve melhor a sua situação?">
 <!ENTITY torSettings.configurePrompt1 "Esta ligação à Internet deste computador está censurada ou é efetuada via proxy.">
-<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings before I connect to the Tor&#160;network.">
+<!ENTITY torSettings.configurePrompt2 "Eu preciso de configurar a ponte ou as definições do proxy local  antes de ligar à rede Tor&#160;.">
 <!ENTITY torSettings.configure "Configurar">
-<!ENTITY torSettings.connectPrompt2 "I would like to make a direct connection to the Tor network.">
-<!ENTITY torSettings.connectPrompt3 "Isto irá funcionar na maior parte das situações.">
+<!ENTITY torSettings.connectPrompt2 "Eu gostaria de efetuar uma ligação direta à rede Tor.">
+<!ENTITY torSettings.connectPrompt3 "Isto irá funcionar na maioria das situações.">
 <!ENTITY torSettings.connect "Ligar">
 
 <!ENTITY torSettings.proxyPageTitle "Configuração do Proxy Local">
-<!ENTITY torSettings.proxyQuestion "Este computador precisa de utilizar um proxy para aceder à Internet.">
+<!ENTITY torSettings.proxyQuestion "Este computador precisa de utilizar um proxy para aceder à Internet?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
 <!ENTITY torSettings.proxyExplanation1 "In most cases a local proxy is not needed, but it may be required when connecting through a company, school, or university network.">
 <!ENTITY torSettings.proxyExplanation2 "If you are not sure how to answer this question, look at the Internet settings in another browser or check your system's network settings to see whether a local proxy is needed.">
@@ -34,11 +34,11 @@
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "A aguardar que o Tor inicie...">
-<!ENTITY torsettings.restartTor "Reiniciar o Tor">
-<!ENTITY torsettings.reconfigTor "Reconfigure">
+<!ENTITY torsettings.restartTor "Reiniciar Tor">
+<!ENTITY torsettings.reconfigTor "Reconfigurar">
 
 <!ENTITY torsettings.discardSettings.prompt "You have configured Tor bridges or you have entered local proxy settings.&#160; To make a direct connection to the Tor network, these settings must be removed.">
-<!ENTITY torsettings.discardSettings.proceed "Remove Settings and Connect">
+<!ENTITY torsettings.discardSettings.proceed "Remover Definições e Ligar">
 
 <!ENTITY torsettings.optional "Opcional">
 
@@ -52,7 +52,7 @@
 <!ENTITY torsettings.useProxy.type.socks4 "SOCKS 4">
 <!ENTITY torsettings.useProxy.type.socks5 "SOCKS 5">
 <!ENTITY torsettings.useProxy.type.http "HTTP / HTTPS">
-<!ENTITY torsettings.firewall.checkbox "Este computador atravessa uma firewall que só permite ligações a algumas portas.">
+<!ENTITY torsettings.firewall.checkbox "Este computador liga através de uma firewall que só permite ligações para determinadas portas.">
 <!ENTITY torsettings.firewall.allowedPorts "Portas permitidas:">
 <!ENTITY torsettings.useBridges.checkbox "O meu Provedor de Serviço da Internet (ISP) bloqueia as ligações à rede Tor">
 <!ENTITY torsettings.useBridges.default "Ligar com as pontes fornecidas">
@@ -64,12 +64,12 @@
 
 <!ENTITY torsettings.copyLog "Copiar o Registo do Tor para a Área de Transferência">
 <!ENTITY torsettings.bridgeHelpTitle "Ajuda da Retransmissão de Ponte">
-<!ENTITY torsettings.bridgeHelp1 "Se não consegue ligar-se à rede Tor, pode ser devido a algum bloqueio do seu provedor de internet (ISP) ou outro intermediário está a bloquear o Tor.&#160; Normalmente, pode contornar este problema usando Tor Bridges, que são pontos de passagem não listados mais difíceis de bloquear.">
-<!ENTITY torsettings.bridgeHelp1B "Pode usar o conjunto de bridges pré-configurado fornecido, ou pode obter um conjunto de endereços personalizados usando um dos três métodos:">
+<!ENTITY torsettings.bridgeHelp1 "Se não consegue ligar-se à rede Tor, pode ser devido a algum bloqueio do seu Provedor de Serviço de Internet (ISP) ou outra agência está a bloquear o Tor.&#160; Frequentemente, pode contornar este problema utilizando Tor Bridges, o qual são pontos de passagem não listados que são mais difíceis de bloquear.">
+<!ENTITY torsettings.bridgeHelp1B "You may use the preconfigured, provided set of bridge addresses or you may obtain a custom set of addresses by using one of these methods:">
 <!ENTITY torsettings.bridgeHelp2Heading "Através da Web">
 <!ENTITY torsettings.bridgeHelp2 "Utilize um navegador da Web para visitar https://bridges.torproject.org">
-<!ENTITY torsettings.bridgeHelp3Heading "Através do Respondedor Automático do Correio Eletrónico">
-<!ENTITY torsettings.bridgeHelp3.emailDesc "Enviar mensagem para bridges@torproject.org com a linha 'get bridges' sozinha no corpo da mensagem.&#160; Contudo, para tornar mais difícil para os atacantes aprenderem sobre os endereços de pontes, tem de enviar a mensagem de um dos seguintes fornecedores de serviços de correio eletrónico (por esta ordem de preferência):">
+<!ENTITY torsettings.bridgeHelp3Heading "Através do Respondedor Automático de Correio Eletrónico">
+<!ENTITY torsettings.bridgeHelp3.emailDesc "Envie uma mensagem para bridges@torproject.org com a linha 'get bridges' no corpo da mensagem.&#160; Contudo, para tornar mais difícil para um atacante aprender sobre os endereços de pontes, deve enviar este pedido a partir dos seguintes provedores de serviços de correio eletrónico (listados pela ordem de preferência):">
 <!ENTITY torsettings.bridgeHelp3.emailList "https://www.riseup.net, https://mail.google.com, ou https://mail.yahoo.com">
 <!ENTITY torsettings.bridgeHelp4Heading "Através do Suporte">
 <!ENTITY torsettings.bridgeHelp4 "Em último caso, pode solicitar os endereços de ponte, enviando uma mensagem elegante para help@rt.torproject.org.&#160; Por favor, note que uma pessoa irá precisar de responder a cada pedido.">

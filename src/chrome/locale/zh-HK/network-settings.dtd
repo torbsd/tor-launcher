@@ -1,75 +1,75 @@
-<!ENTITY torsettings.dialog.title "Tor Network Settings">
+<!ENTITY torsettings.dialog.title "設定Tor洋蔥路由網絡">
 
 <!-- For locale picker: -->
-<!ENTITY torlauncher.localePicker.title "Tor Browser Language">
-<!ENTITY torlauncher.localePicker.prompt "Please select a language.">
+<!ENTITY torlauncher.localePicker.title "Tor洋蔥路由瀏覽器嘅語言">
+<!ENTITY torlauncher.localePicker.prompt "請選取一種語言。">
 
 <!-- For "first run" wizard: -->
 
-<!ENTITY torsettings.prompt "Before you connect to the Tor network, you need to provide information about this computer's Internet connection.">
+<!ENTITY torsettings.prompt "連接到Tor洋蔥路由網絡前，請提供呢部電腦網絡連線嘅相關資訊。">
 
 <!ENTITY torSettings.yes "是">
 <!ENTITY torSettings.no "否">
 
-<!ENTITY torSettings.firstQuestion "Which of the following best describes your situation?">
-<!ENTITY torSettings.configurePrompt1 "This computer's Internet connection is censored or proxied.">
-<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings before I connect to the Tor&#160;network.">
-<!ENTITY torSettings.configure "Configure">
-<!ENTITY torSettings.connectPrompt2 "I would like to make a direct connection to the Tor network.">
-<!ENTITY torSettings.connectPrompt3 "This will work in most situations.">
+<!ENTITY torSettings.firstQuestion "下列邊項最符合你嘅實際情況？">
+<!ENTITY torSettings.configurePrompt1 "呢部電腦嘅網絡連線有被監控過濾或有透過代理伺服器。">
+<!ENTITY torSettings.configurePrompt2 "我必須喺連上Tor洋蔥路由&#160;網絡之前，先設定好橋接器或本地代理伺服器。">
+<!ENTITY torSettings.configure "設定">
+<!ENTITY torSettings.connectPrompt2 "我想直接連上Tor洋蔥路由網絡">
+<!ENTITY torSettings.connectPrompt3 "呢樣可以喺大多數情況下正常運作。">
 <!ENTITY torSettings.connect "連接">
 
-<!ENTITY torSettings.proxyPageTitle "Local Proxy Configuration">
-<!ENTITY torSettings.proxyQuestion "Does this computer need to use a local proxy to access the Internet?">
+<!ENTITY torSettings.proxyPageTitle "設定本地代理伺服器">
+<!ENTITY torSettings.proxyQuestion "呢部電腦需要使用本地代理伺服器嚟存取網絡嗎？">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyExplanation1 "In most cases a local proxy is not needed, but it may be required when connecting through a company, school, or university network.">
-<!ENTITY torSettings.proxyExplanation2 "If you are not sure how to answer this question, look at the Internet settings in another browser or check your system's network settings to see whether a local proxy is needed.">
-<!ENTITY torSettings.enterProxy "Enter the proxy settings.">
-<!ENTITY torSettings.bridgePageTitle "Tor Bridges Configuration">
-<!ENTITY torSettings.bridgeQuestion "Does your Internet Service Provider (ISP) block or otherwise censor connections to the Tor Network?">
-<!ENTITY torSettings.bridgeExplanation1 "If you are not sure how to answer this question, choose No (if you are unable to connect to the Tor network without a bridge, you can add one later).">
-<!ENTITY torSettings.bridgeExplanation2 "If you choose Yes, you will be asked to configure Tor Bridges, which are unlisted relays that make it more difficult to block connections to the Tor Network.">
-<!ENTITY torSettings.bridgeSettingsPrompt "You may use the provided set of bridges or you may obtain and enter a custom set of bridges.">
+<!ENTITY torSettings.proxyExplanation1 "大部份情況係唔需要本地代理伺服器，但當使用嘅係企業或學校等嘅內部網絡時，就有可能需要。">
+<!ENTITY torSettings.proxyExplanation2 "如果唔確定，可參考其他網絡瀏覽器嘅網際網絡設定或者作業系統嘅網絡相關設定，以確定係咪需要設定本地代理伺服器。">
+<!ENTITY torSettings.enterProxy "輸入代理伺服器設定。">
+<!ENTITY torSettings.bridgePageTitle "設定Tor洋蔥路由橋接器">
+<!ENTITY torSettings.bridgeQuestion "你嘅互聯網服務提供者(ISP)會唔會阻擋或過濾連接到Tor洋蔥路由嘅網絡活動？">
+<!ENTITY torSettings.bridgeExplanation1 "唔確定，請選「否」(往後若發現唔使用橋接器無法連上Tor洋蔥路由網絡嘅話，可以返嚟加入此設定)。">
+<!ENTITY torSettings.bridgeExplanation2 "若選取「是」，則須進行Tor洋蔥路由橋接器設定。橋接器係未被列表嘅秘密Tor洋蔥路由節點，可令阻擋連接Tor洋蔥路由網絡更加困難。">
+<!ENTITY torSettings.bridgeSettingsPrompt "你可以使用提供嘅橋接器，也可輸入一組自訂嘅橋接器。">
 
 <!-- Other: -->
 
-<!ENTITY torsettings.startingTor "Waiting for Tor to start…">
-<!ENTITY torsettings.restartTor "Restart Tor">
-<!ENTITY torsettings.reconfigTor "Reconfigure">
+<!ENTITY torsettings.startingTor "等待Tor洋蔥路由啟動…">
+<!ENTITY torsettings.restartTor "重新啟動Tor洋蔥路由">
+<!ENTITY torsettings.reconfigTor "重新設定">
 
-<!ENTITY torsettings.discardSettings.prompt "You have configured Tor bridges or you have entered local proxy settings.&#160; To make a direct connection to the Tor network, these settings must be removed.">
-<!ENTITY torsettings.discardSettings.proceed "Remove Settings and Connect">
+<!ENTITY torsettings.discardSettings.prompt "你已設定Tor洋蔥路由嘅橋接器或本地代理伺服器。&#160; 若想要直接連上Tor洋蔥路由網絡嘅話，必須要先移除呢部份嘅設定。">
+<!ENTITY torsettings.discardSettings.proceed "移除設定值並且連線">
 
-<!ENTITY torsettings.optional "Optional">
+<!ENTITY torsettings.optional "選用">
 
-<!ENTITY torsettings.useProxy.checkbox "This computer needs to use a local proxy to access the Internet">
-<!ENTITY torsettings.useProxy.type "Proxy Type:">
-<!ENTITY torsettings.useProxy.address "Address:">
-<!ENTITY torsettings.useProxy.address.placeholder "IP address or hostname">
-<!ENTITY torsettings.useProxy.port "Port:">
-<!ENTITY torsettings.useProxy.username "Username:">
-<!ENTITY torsettings.useProxy.password "密碼:">
+<!ENTITY torsettings.useProxy.checkbox "呢部電腦需要透過本地代理伺服器存取互聯網">
+<!ENTITY torsettings.useProxy.type "代理伺服器類型：">
+<!ENTITY torsettings.useProxy.address "位址：">
+<!ENTITY torsettings.useProxy.address.placeholder "IP位址或主機名稱">
+<!ENTITY torsettings.useProxy.port "連接埠：">
+<!ENTITY torsettings.useProxy.username "用戶名：">
+<!ENTITY torsettings.useProxy.password "密碼：">
 <!ENTITY torsettings.useProxy.type.socks4 "SOCKS 4">
 <!ENTITY torsettings.useProxy.type.socks5 "SOCKS 5">
-<!ENTITY torsettings.useProxy.type.http "HTTP / HTTPS">
-<!ENTITY torsettings.firewall.checkbox "This computer goes through a firewall that only allows connections to certain ports">
-<!ENTITY torsettings.firewall.allowedPorts "Allowed Ports:">
-<!ENTITY torsettings.useBridges.checkbox "My Internet Service Provider (ISP) blocks connections to the Tor network">
-<!ENTITY torsettings.useBridges.default "Connect with provided bridges">
-<!ENTITY torsettings.useBridges.note "Each type of bridge uses a different method to avoid censorship.&#160; If one bridge does not work, try again using a different one.">
-<!ENTITY torsettings.useBridges.type "Transport type:">
-<!ENTITY torsettings.useBridges.custom "Enter custom bridges">
-<!ENTITY torsettings.useBridges.label "Enter one or more bridge relays (one per line).">
-<!ENTITY torsettings.useBridges.placeholder "type address:port">
+<!ENTITY torsettings.useProxy.type.http "http╱https">
+<!ENTITY torsettings.firewall.checkbox "呢部電腦通過某個只容許連接至特定連線埠嘅防火牆">
+<!ENTITY torsettings.firewall.allowedPorts "容許嘅連接埠：">
+<!ENTITY torsettings.useBridges.checkbox "我嘅互聯網服務提供者(ISP)會阻擋連接到Tor洋蔥路由嘅網絡活動">
+<!ENTITY torsettings.useBridges.default "使用提供嘅橋接器連線">
+<!ENTITY torsettings.useBridges.note "每種橋接器都使用唔同嘅方式去規避網絡封包過濾，&#160; 如果發現使用咗某個橋接器仍無法順利連線嘅話，可以更換另一個橋接器再行嘗試。">
+<!ENTITY torsettings.useBridges.type "傳輸類型：">
+<!ENTITY torsettings.useBridges.custom "輸入自訂嘅橋接器">
+<!ENTITY torsettings.useBridges.label "輸入一個或多個橋接轉向站(每行一個)。">
+<!ENTITY torsettings.useBridges.placeholder "請輸入「位址:連接埠」">
 
-<!ENTITY torsettings.copyLog "Copy Tor Log To Clipboard">
-<!ENTITY torsettings.bridgeHelpTitle "Bridge Relay Help">
-<!ENTITY torsettings.bridgeHelp1 "If you are unable to connect to the Tor network, it could be that your Internet Service Provider (ISP) or another agency is blocking Tor.&#160; Often, you can work around this problem by using Tor Bridges, which are unlisted relays that are more difficult to block.">
-<!ENTITY torsettings.bridgeHelp1B "You may use the preconfigured, provided set of bridge addresses or you may obtain a custom set of addresses by using one of these three methods:">
-<!ENTITY torsettings.bridgeHelp2Heading "Through the Web">
-<!ENTITY torsettings.bridgeHelp2 "Use a web browser to visit https://bridges.torproject.org">
-<!ENTITY torsettings.bridgeHelp3Heading "Through the Email Autoresponder">
-<!ENTITY torsettings.bridgeHelp3.emailDesc "Send email to bridges@torproject.org with the line 'get bridges' by itself in the body of the message.&#160; However, to make it harder for an attacker to learn a lot of bridge addresses, you must send this request from one of the following email providers (listed in order of preference):">
-<!ENTITY torsettings.bridgeHelp3.emailList "https://www.riseup.net, https://mail.google.com, or https://mail.yahoo.com">
-<!ENTITY torsettings.bridgeHelp4Heading "Through the Help Desk">
-<!ENTITY torsettings.bridgeHelp4 "As a last resort, you can request bridge addresses by sending a polite email message to help@rt.torproject.org.&#160; Please note that a person will need to respond to each request.">
+<!ENTITY torsettings.copyLog "將Tor洋蔥路由嘅日誌複製到剪貼簿">
+<!ENTITY torsettings.bridgeHelpTitle "橋接轉向站嘅說明">
+<!ENTITY torsettings.bridgeHelp1 "若無法連接到Tor洋蔥路由網絡，可能係因為你嘅互聯網服務提供者(ISP)或其他機構正在封鎖Tor洋蔥路由網絡。&#160; 通常你可以使用橋接器連上Tor洋蔥路由網絡，以解決此問題。呢類橋接器係未被羅列於清單中嘅秘密轉向站，非常難以被過濾阻擋。">
+<!ENTITY torsettings.bridgeHelp1B "你可使用提供並預先設定好嘅橋接器位址，或使用下列方法嘅任何一種以取得一組自訂嘅位址：">
+<!ENTITY torsettings.bridgeHelp2Heading "透過網絡">
+<!ENTITY torsettings.bridgeHelp2 "使用瀏覽器到訪 https://bridges.torproject.org">
+<!ENTITY torsettings.bridgeHelp3Heading "透過電郵自動回覆">
+<!ENTITY torsettings.bridgeHelp3.emailDesc "傳送郵件到 bridges@torproject.org 並在內文中輸入「get bridges」字串。&#160; 然而，要使網絡攻擊者更難取得橋接器位址，你必須使用以下電郵提供者之一嚟寄送呢個要求(順序係依照優先建議)：">
+<!ENTITY torsettings.bridgeHelp3.emailList "https://www.riseup.net 、 https://mail.google.com 或 https://mail.yahoo.com">
+<!ENTITY torsettings.bridgeHelp4Heading "透過服務台">
+<!ENTITY torsettings.bridgeHelp4 "最後方法係：寄電郵到 help@rt.torproject.org。&#160; 請注意，此類郵件我哋須一封封手動回覆。">

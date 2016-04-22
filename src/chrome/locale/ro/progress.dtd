@@ -1,4 +1,4 @@
 <!ENTITY torprogress.dialog.title "Stare Tor">
 <!ENTITY torprogress.openSettings "Setări">
 <!ENTITY torprogress.heading "Conctare la reţeaua Tor">
-<!ENTITY torprogress.pleaseWait "Please wait while we establish a connection to the Tor network.&#160; This may take several minutes.">
+<!ENTITY torprogress.pleaseWait "Vă rugăm așteptați în timp ce stabilim o conexiune la rețeaua Tor.&#160; Acest proces poate dura câteva minute.">

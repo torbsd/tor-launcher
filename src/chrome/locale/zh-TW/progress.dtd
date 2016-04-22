@@ -1,4 +1,4 @@
-<!ENTITY torprogress.dialog.title "Tor 狀態">
+<!ENTITY torprogress.dialog.title "洋蔥路由狀態">
 <!ENTITY torprogress.openSettings "開啟設定">
-<!ENTITY torprogress.heading "正在連線至 Tor 網路">
-<!ENTITY torprogress.pleaseWait "Please wait while we establish a connection to the Tor network.&#160; This may take several minutes.">
+<!ENTITY torprogress.heading "正在連線至洋蔥路由網路">
+<!ENTITY torprogress.pleaseWait "我們正在建立通往洋蔥路由網路的連線，敬請稍作等待，&#160;因為這可能會需要幾分鐘的時間。">

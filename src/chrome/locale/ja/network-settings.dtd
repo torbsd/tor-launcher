@@ -35,10 +35,10 @@
 
 <!ENTITY torsettings.startingTor "Torの開始を待っています...">
 <!ENTITY torsettings.restartTor "Torを再起動する">
-<!ENTITY torsettings.reconfigTor "Reconfigure">
+<!ENTITY torsettings.reconfigTor "再設定">
 
 <!ENTITY torsettings.discardSettings.prompt "You have configured Tor bridges or you have entered local proxy settings.&#160; To make a direct connection to the Tor network, these settings must be removed.">
-<!ENTITY torsettings.discardSettings.proceed "Remove Settings and Connect">
+<!ENTITY torsettings.discardSettings.proceed "設定と接続を削除">
 
 <!ENTITY torsettings.optional "オプション">
 
@@ -65,7 +65,7 @@
 <!ENTITY torsettings.copyLog "Torのログをクリップボードにコピー">
 <!ENTITY torsettings.bridgeHelpTitle "ブリッジリレーのヘルプ">
 <!ENTITY torsettings.bridgeHelp1 "Tor ネットワークに接続できないなら、あなたのインターネットサービスプロバイダー(ISP)や別の機関が Tor をブロックしている可能性があります。&#160; ブロックが比較的困難なリストされていないリレーである Tor ブリッジを使用することでこの問題を回避できることもあります。">
-<!ENTITY torsettings.bridgeHelp1B "事前設定された提供されたブリッジアドレスのセットを使用するか、あるいは以下の3つの方法のいずれかを用いてカスタムのアドレスのセットを取得することができます。">
+<!ENTITY torsettings.bridgeHelp1B "You may use the preconfigured, provided set of bridge addresses or you may obtain a custom set of addresses by using one of these methods:">
 <!ENTITY torsettings.bridgeHelp2Heading "ウェブ経由">
 <!ENTITY torsettings.bridgeHelp2 "ウェブを使用して、https://bridges.torproject.orgを開く">
 <!ENTITY torsettings.bridgeHelp3Heading "メール自動応答システム経由">

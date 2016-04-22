@@ -65,7 +65,7 @@
 <!ENTITY torsettings.copyLog "Kopēt Tor žurnālu starpliktuvē">
 <!ENTITY torsettings.bridgeHelpTitle "Palīdzība par tiltu retranslatoriem">
 <!ENTITY torsettings.bridgeHelp1 "Ja nevarat izveidot savienojumu ar tīklu Tor, tad, iespējams, ka Jūsu interneta pakalpojumu sniedzējs (ISP) vai cita iestāde bloķē Tor.&#160; Bieži, šo problemu var apiet izmantojot Tor tiltus jeb Tor Bridges, proti, neuzskaitītus retranslatorus, kurus grūtāk bloķēt.">
-<!ENTITY torsettings.bridgeHelp1B "Jūs varat izmantot iepriekš nokonfigurētas un piedāvātas tiltu adreses vai varat iegūt pielāgotu adrešu kopumu, sekojot vienai no trim metodēm:">
+<!ENTITY torsettings.bridgeHelp1B "You may use the preconfigured, provided set of bridge addresses or you may obtain a custom set of addresses by using one of these methods:">
 <!ENTITY torsettings.bridgeHelp2Heading "Caur tīmekli">
 <!ENTITY torsettings.bridgeHelp2 "Izmanto pārlūkprogrammu, lai apmeklētu https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "Caur E-pasta Auto-atbildētāju">

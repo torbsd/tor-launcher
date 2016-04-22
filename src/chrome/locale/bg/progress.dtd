@@ -1,4 +1,4 @@
 <!ENTITY torprogress.dialog.title "Състояние на Тор">
 <!ENTITY torprogress.openSettings "Отвори настройки">
 <!ENTITY torprogress.heading "Свързване с Тор мрежата">
-<!ENTITY torprogress.pleaseWait "Please wait while we establish a connection to the Tor network.&#160; This may take several minutes.">
+<!ENTITY torprogress.pleaseWait "Моля изчакайте,докато установим връзка с Тор мрежата..&#160; Toва може да отнеме няколко минути.">

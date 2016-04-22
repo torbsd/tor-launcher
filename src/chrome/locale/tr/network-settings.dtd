@@ -43,7 +43,7 @@
 <!ENTITY torsettings.optional "İsteğe bağlı">
 
 <!ENTITY torsettings.useProxy.checkbox "Bu bilgisayarın İnternet'e erişmesi için bir yerel vekil sunucu kullanması gerekiyor">
-<!ENTITY torsettings.useProxy.type "Vekil Sunucu Tipi:">
+<!ENTITY torsettings.useProxy.type "Vekil Sunucu Türü:">
 <!ENTITY torsettings.useProxy.address "Adres:">
 <!ENTITY torsettings.useProxy.address.placeholder "IP adresi ya da sunucu adı">
 <!ENTITY torsettings.useProxy.port "Bağlantı noktası:">
@@ -56,8 +56,8 @@
 <!ENTITY torsettings.firewall.allowedPorts "İzin Verilen Bağlantı Noktaları:">
 <!ENTITY torsettings.useBridges.checkbox "İnternet Servis Sağlayıcım (ISS) Tor ağına olan bağlantıları engelliyor">
 <!ENTITY torsettings.useBridges.default "Sağlanan köprüler ile bağlan">
-<!ENTITY torsettings.useBridges.note "Her bir köprü tipinde engellemeyi aşmak için farklı yöntemler kullanılır.&#160; Bir köprü çalışmazsa farklı bir tanesini deneyin.">
-<!ENTITY torsettings.useBridges.type "Aktarım tipi:">
+<!ENTITY torsettings.useBridges.note "Her bir köprü türünde engellemeyi aşmak için farklı yöntemler kullanılır.&#160; Bir köprü çalışmazsa farklı bir tanesini deneyin.">
+<!ENTITY torsettings.useBridges.type "Aktarım tür:">
 <!ENTITY torsettings.useBridges.custom "Özel köprüler yazın">
 <!ENTITY torsettings.useBridges.label "Bir ya da birkaç köprü aktarıcısı yazın (her satıra bir tane).">
 <!ENTITY torsettings.useBridges.placeholder "adres:bağlantı noktası şeklinde yazın">
@@ -65,7 +65,7 @@
 <!ENTITY torsettings.copyLog "Tor Günlüğünü Panoya Kopyala">
 <!ENTITY torsettings.bridgeHelpTitle "Köprü Aktarıcı Yardımı">
 <!ENTITY torsettings.bridgeHelp1 "Tor ağına bağlanamıyorsanız, kullandığınız İnternet Servis Sağlayıcısı (ISS) ya da başka bir kurum Tor&#160;'u engelliyor olabilir. Bu sorunu çoğunlukla, engellenmesi daha zor olan listelenmeyen aktarıcılar, Tor Köprülerini kullanarak çözebilirsiniz.">
-<!ENTITY torsettings.bridgeHelp1B "Önceden ayarlanmış ve sunulmuş köprü adreslerini kullanabilir ya da şu üç yöntemden birini kullanarak özel adresler edinebilirsiniz:">
+<!ENTITY torsettings.bridgeHelp1B "You may use the preconfigured, provided set of bridge addresses or you may obtain a custom set of addresses by using one of these methods:">
 <!ENTITY torsettings.bridgeHelp2Heading "Web yoluyla">
 <!ENTITY torsettings.bridgeHelp2 "Bir web tarayıcısı kullanarak https://bridges.torproject.org adresini ziyaret edin">
 <!ENTITY torsettings.bridgeHelp3Heading "Otomatik e-posta yanıtı yoluyla">

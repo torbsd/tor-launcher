@@ -65,7 +65,7 @@
 <!ENTITY torsettings.copyLog "ចម្លង​កំណត់ហេតុ Tor ទៅ​ក្ដារ​តម្បៀតខ្ទាស់">
 <!ENTITY torsettings.bridgeHelpTitle "ជំនួយ​បញ្ជូន​ប្រ៊ីត​បន្ត">
 <!ENTITY torsettings.bridgeHelp1 "បើ​អ្នក​មិន​អាច​ភ្ជាប់​ទៅបណ្ដាញ Tor វា​អាច​មកពី​ក្រុមហ៊ុន​ផ្ដល់សេវាកម្ម​អ៊ីនធឺណិត (ISP) ឬ​ភ្នាក់ងារ​ផ្សេង​​កំពុង​ទប់ស្កាត់ Tor ។ &#160; ជា​រឿយៗ​អ្នក​អាច​ស្វែងយល់​ពី​បញ្ហា​នេះ ដោយ​ប្រើ​ប៊្រីត Tor ដែល​ត្រូវ​បាន​លាក់​ការ​បញ្ជូន​បន្ត​ដែល​ពិបាក​ទប់ស្កាត់។">
-<!ENTITY torsettings.bridgeHelp1B "អ្នកអាច​ប្រើ​ការ​កំណត់​រចនាសម្ព័ន្ធ​ជា​មុន ការកំណត់អាសយដ្ឋាន​ប៊្រីត​ដែល​បាន​ផ្ដល់ ឬ​អ្នកអាច​យក​ការ​កំណត់​អាសយដ្ឋាន​ផ្ទាល់ខ្លួន​ដោយ​ប្រើ​វិធី​មួយ​ក្នុង​ចំណោមវិធី​សាស្ត្រ​ទាំង​បី៖">
+<!ENTITY torsettings.bridgeHelp1B "You may use the preconfigured, provided set of bridge addresses or you may obtain a custom set of addresses by using one of these methods:">
 <!ENTITY torsettings.bridgeHelp2Heading "តាម​រយៈ​បណ្ដាញ">
 <!ENTITY torsettings.bridgeHelp2 "ប្រើ​កម្មវិធីរុករកបណ្ដាញ ដើម្បីមើល https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "តាមរយៈ​ការឆ្លើយតប​ដោយ​ស្វ័យ​ប្រវត្តិ​របស់​អ៊ីមែល">

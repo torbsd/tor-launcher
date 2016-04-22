@@ -1,12 +1,12 @@
 <!ENTITY torsettings.dialog.title "Configuraciones de red de Tor">
 
 <!-- For locale picker: -->
-<!ENTITY torlauncher.localePicker.title "Tor Browser Language">
-<!ENTITY torlauncher.localePicker.prompt "Please select a language.">
+<!ENTITY torlauncher.localePicker.title "Idioma del Navegador Tor">
+<!ENTITY torlauncher.localePicker.prompt "Por favor selecciona un idioma.">
 
 <!-- For "first run" wizard: -->
 
-<!ENTITY torsettings.prompt "Antes de conectar con la red de Tor, necesitas proveer informacion acerca de la coneccion de internet de este computador.">
+<!ENTITY torsettings.prompt "Antes de conectar con la red de Tor, necesitas proveer información acerca de la conexión de internet de este computador.">
 
 <!ENTITY torSettings.yes "Si">
 <!ENTITY torSettings.no "No">
@@ -65,7 +65,7 @@
 <!ENTITY torsettings.copyLog "Copy Tor Log To Clipboard">
 <!ENTITY torsettings.bridgeHelpTitle "Bridge Relay Help">
 <!ENTITY torsettings.bridgeHelp1 "If you are unable to connect to the Tor network, it could be that your Internet Service Provider (ISP) or another agency is blocking Tor.&#160; Often, you can work around this problem by using Tor Bridges, which are unlisted relays that are more difficult to block.">
-<!ENTITY torsettings.bridgeHelp1B "You may use the preconfigured, provided set of bridge addresses or you may obtain a custom set of addresses by using one of these three methods:">
+<!ENTITY torsettings.bridgeHelp1B "You may use the preconfigured, provided set of bridge addresses or you may obtain a custom set of addresses by using one of these methods:">
 <!ENTITY torsettings.bridgeHelp2Heading "Through the Web">
 <!ENTITY torsettings.bridgeHelp2 "Use a web browser to visit https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "Through the Email Autoresponder">

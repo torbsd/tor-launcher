@@ -1,4 +1,4 @@
 <!ENTITY torprogress.dialog.title "حالة تور">
 <!ENTITY torprogress.openSettings "افتح الإعدادات">
 <!ENTITY torprogress.heading "جاري الاتصال بشبكة تور">
-<!ENTITY torprogress.pleaseWait "Please wait while we establish a connection to the Tor network.&#160; This may take several minutes.">
+<!ENTITY torprogress.pleaseWait "الرجاء الانتظار حتى نتمكن من تفعيل اتصال الى شبكه &quot;تور&quot; .&#160; قد يستغرق الامر عده دقائق.">

@@ -13,7 +13,7 @@
 
 <!ENTITY torSettings.firstQuestion "Laquelle des suivantes décrit le mieux votre situation?">
 <!ENTITY torSettings.configurePrompt1 "La connexion Internet de cet ordinateur est censurée ou relayée.">
-<!ENTITY torSettings.configurePrompt2 "Je dois paramétrer un pont ou un mandataire local avant de me connecter au réseau&#160; Tor.">
+<!ENTITY torSettings.configurePrompt2 "Je dois paramétrer un pont ou un mandataire local avant de me connecter au réseau&#160;Tor.">
 <!ENTITY torSettings.configure "Configurer">
 <!ENTITY torSettings.connectPrompt2 "J'aimerais établir une connexion directe vers le réseau Tor.">
 <!ENTITY torSettings.connectPrompt3 "Ceci fonctionnera dans la plupart des situations.">
@@ -65,7 +65,7 @@
 <!ENTITY torsettings.copyLog "Copier le journal de Tor dans le presse-papier">
 <!ENTITY torsettings.bridgeHelpTitle "Aide pour les relais-ponts">
 <!ENTITY torsettings.bridgeHelp1 "Si vous ne pouvez pas vous connecter au réseau Tor, il se peut que votre fournisseur d'accès à Internet (FAI) ou une autre organisme bloque Tor.&#160; Vous pouvez souvent le contourner en utilisant des ponts Tor qui sont des relais non répertoriés, plus difficiles à bloquer.">
-<!ENTITY torsettings.bridgeHelp1B "Vous pouvez utiliser le jeu préconfiguré d'adresses de ponts fourni ou vous pouvez obtenir un jeu personnalisé d'adresses en utilisant une de ces trois méthodes :">
+<!ENTITY torsettings.bridgeHelp1B "You may use the preconfigured, provided set of bridge addresses or you may obtain a custom set of addresses by using one of these methods:">
 <!ENTITY torsettings.bridgeHelp2Heading "par le Web">
 <!ENTITY torsettings.bridgeHelp2 "en utilisant un navigateur Web pour visiter https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "Par le répondeur automatique de courriel">

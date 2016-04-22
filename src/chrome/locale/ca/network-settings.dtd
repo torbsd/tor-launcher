@@ -15,7 +15,7 @@
 <!ENTITY torSettings.configurePrompt1 "La connexió a internet d'aquest ordinador està censurada o configurada amb un proxy. ">
 <!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings before I connect to the Tor&#160;network.">
 <!ENTITY torSettings.configure "Configura">
-<!ENTITY torSettings.connectPrompt2 "I would like to make a direct connection to the Tor network.">
+<!ENTITY torSettings.connectPrompt2 "M'agradaria fer una connexió directa a la red Tor.">
 <!ENTITY torSettings.connectPrompt3 "Això funciona en la majoria dels casos.">
 <!ENTITY torSettings.connect "Conectar">
 
@@ -66,7 +66,7 @@
 <!ENTITY torsettings.copyLog "Copiar el Log al portapapers">
 <!ENTITY torsettings.bridgeHelpTitle "Ajuda Repetidors">
 <!ENTITY torsettings.bridgeHelp1 "Si no sóu capaçps de connectar-vos a la xarxa Tor, pot ser que el vostre proveidor d'internet (ISP) o alguna altra agència estigui bloquejant Tor.&#160; normalment, podeu evitar aquest problema usant Ponts Tor, que son relés no llistats més difícils de bloquejar. ">
-<!ENTITY torsettings.bridgeHelp1B "Podeu usar el conjunt d'adreces pont preconfigurades o podeu obtenir un conjunt personalitzat d'adreces usant un d'aquests tres mètodes: ">
+<!ENTITY torsettings.bridgeHelp1B "You may use the preconfigured, provided set of bridge addresses or you may obtain a custom set of addresses by using one of these methods:">
 <!ENTITY torsettings.bridgeHelp2Heading "A través del web">
 <!ENTITY torsettings.bridgeHelp2 "Utilitza un navegador web o vés a: https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "A través del mail d'autorresposta.">

@@ -65,7 +65,7 @@
 <!ENTITY torsettings.copyLog "Kopiatu Tor erregistroa arbelera">
 <!ENTITY torsettings.bridgeHelpTitle "Zubi errele laguntza">
 <!ENTITY torsettings.bridgeHelp1 "Tor sarera konektatu ezin bazara, baliteke zure Internet Zerbitzu Hornitzaileak (ISP ingeleraz) edo beste agentziaren batek Tor blokeatzen egotea.&#160; Askotan, arazo honen inguruan Tor zubiak, ezkutatuta dauden eta blokeatzeko zailagoak diren erreleak erabiliz lan egin dezakezu.">
-<!ENTITY torsettings.bridgeHelp1B "Aurrez konfiguratutako, emandako zubi taldea erabili dezakezu, edo zubi talde pertsonalizatua eskuratu dezakezu hurrengo hiru metodoetako bat aukeratuz: ">
+<!ENTITY torsettings.bridgeHelp1B "You may use the preconfigured, provided set of bridge addresses or you may obtain a custom set of addresses by using one of these methods:">
 <!ENTITY torsettings.bridgeHelp2Heading "Webean bidez">
 <!ENTITY torsettings.bridgeHelp2 "Erabili ezazu web nabigatzaile bat https://bridges.torproject.org bisitatzeko">
 <!ENTITY torsettings.bridgeHelp3Heading "Email erantzule automatikoaren bidez">

@@ -55,7 +55,7 @@
 <!ENTITY torsettings.firewall.checkbox "该计算机的防火墙仅允许特定端口的互联网连接">
 <!ENTITY torsettings.firewall.allowedPorts "允许的端口：">
 <!ENTITY torsettings.useBridges.checkbox "我的互联网服务提供商 (ISP) 封锁了 Tor 网络连接">
-<!ENTITY torsettings.useBridges.default "使用集成的网桥进行连接">
+<!ENTITY torsettings.useBridges.default "使用集成的网桥连接">
 <!ENTITY torsettings.useBridges.note "每种网桥使用不同的方法以避免被封锁。如果某个网桥不工作，请换用另一种重试。">
 <!ENTITY torsettings.useBridges.type "传输类型：">
 <!ENTITY torsettings.useBridges.custom "输入自定义网桥">
@@ -65,7 +65,7 @@
 <!ENTITY torsettings.copyLog "点击复制 Tor 日志">
 <!ENTITY torsettings.bridgeHelpTitle "网桥中继帮助">
 <!ENTITY torsettings.bridgeHelp1 "如果 Tor 网络无法连接，可能是因为互联网服务提供商 (ISP) 或其他机构对 Tor 进行了封锁。通常，使用 Tor 网桥可以解决这种问题。网桥指未公开的网络中继，更难于封锁。">
-<!ENTITY torsettings.bridgeHelp1B "你可以使用本软件集成的一组网桥，也可以通过以下三种方法获取网桥。">
+<!ENTITY torsettings.bridgeHelp1B "You may use the preconfigured, provided set of bridge addresses or you may obtain a custom set of addresses by using one of these methods:">
 <!ENTITY torsettings.bridgeHelp2Heading "网页方式">
 <!ENTITY torsettings.bridgeHelp2 "使用浏览器访问 https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "电子邮件自动回复方式">

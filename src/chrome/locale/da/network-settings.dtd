@@ -65,7 +65,7 @@
 <!ENTITY torsettings.copyLog "Kopier Tor loggen til udklipsholderen">
 <!ENTITY torsettings.bridgeHelpTitle "Bro-relæ hjælp">
 <!ENTITY torsettings.bridgeHelp1 "Hvis du ikke kan forbinde dig til Tor netværket er det muligt at din internet udbyder (ISP) eller anden myndighed blokerer Tor. &#160; Det er ofte muligt at komme rundt om en blokade ved at bruge en Tor bro. En bro er et relæ som ikke er på den offentliggjorte liste og som derfor er sværere at blokkere.">
-<!ENTITY torsettings.bridgeHelp1B "Du kan bruge det pre-konfigurerede tildelte sæt af bro-adresser eller du kan hente et skræddersyet sæt adresser ved at bruge en af følgende tre metoder:">
+<!ENTITY torsettings.bridgeHelp1B "You may use the preconfigured, provided set of bridge addresses or you may obtain a custom set of addresses by using one of these methods:">
 <!ENTITY torsettings.bridgeHelp2Heading "På nettet">
 <!ENTITY torsettings.bridgeHelp2 "Brug en browser og besøg https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "Via den automatiske email service">
