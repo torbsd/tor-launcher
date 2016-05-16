@@ -150,8 +150,25 @@ TorProcessService.prototype =
       {
         this.mProtocolSvc.TorCleanupConnection();
 
-        var s = TorLauncherUtil.getLocalizedString("tor_exited") + "\n\n"
+        let s;
+        if (!this.mDidConnectToTorControlPort)
+        {
+          // The "tor_exited_during_startup" property string was added in
+          // May 2016. If it is available, we use it; otherwise, we fall back
+          // to the older "tor_exited" message (below). Once this new string
+          // has been translated into all of the languages that we ship, we
+          // can simplify this code.
+          let key = "tor_exited_during_startup";
+          s = TorLauncherUtil.getLocalizedString(key)
+          if (s == key)  // No string found for key.
+            s = undefined;
+        }
+
+        if (!s)
+        {
+          s = TorLauncherUtil.getLocalizedString("tor_exited") + "\n\n"
                 + TorLauncherUtil.getLocalizedString("tor_exited2");
+        }
         TorLauncherLogger.log(4, s);
         var defaultBtnLabel = TorLauncherUtil.getLocalizedString("restart_tor");
         var cancelBtnLabel = "OK";
@@ -178,6 +195,7 @@ TorProcessService.prototype =
         var haveConnection = this.mProtocolSvc.TorHaveControlConnection();
         if (haveConnection)
         {
+          this.mDidConnectToTorControlPort = true;
           this.mControlConnTimer = null;
           this.mTorProcessStatus = this.kStatusRunning;
           this.mProtocolSvc.TorStartEventMonitor();
@@ -282,6 +300,7 @@ TorProcessService.prototype =
 
   // Private Member Variables ////////////////////////////////////////////////
   mTorProcessStatus: 0,  // kStatusUnknown
+  mDidConnectToTorControlPort: false,  // Have we ever made a connection?
   mIsBootstrapDone: false,
   mBootstrapErrorOccurred: false,
   mIsQuitting: false,
