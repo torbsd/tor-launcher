@@ -1,8 +1,8 @@
 <!ENTITY torsettings.dialog.title "Сетевые настройки Tor">
 
 <!-- For locale picker: -->
-<!ENTITY torlauncher.localePicker.title "Язык Браузера Tor">
-<!ENTITY torlauncher.localePicker.prompt "Пожалуйста, выберите язык.">
+<!ENTITY torlauncher.localePicker.title "Язык браузера Tor">
+<!ENTITY torlauncher.localePicker.prompt "Выберите язык.">
 
 <!-- For "first run" wizard: -->
 
@@ -12,19 +12,19 @@
 <!ENTITY torSettings.no "Нет">
 
 <!ENTITY torSettings.firstQuestion "Что лучше описывает вашу ситуацию?">
-<!ENTITY torSettings.configurePrompt1 "Интернет-соединение этого компьютера цензурируется или находится за прокси.">
-<!ENTITY torSettings.configurePrompt2 "Необходимо настроить параметры моста или локальный прокси, прежде чем подключаться к сети Tor.&#160;">
+<!ENTITY torSettings.configurePrompt1 "Интернет-соединение этого компьютера цензурируется или включает прокси-сервер.">
+<!ENTITY torSettings.configurePrompt2 "Необходимо настроить параметры моста или локальный прокси-сервер, прежде чем подключаться к сети Tor.&#160;">
 <!ENTITY torSettings.configure "Настроить">
 <!ENTITY torSettings.connectPrompt2 "Я хочу напрямую подключиться к сети Tor.">
 <!ENTITY torSettings.connectPrompt3 "Это должно работать в большинстве ситуаций.">
 <!ENTITY torSettings.connect "Соединиться">
 
-<!ENTITY torSettings.proxyPageTitle "Настройки локального прокси">
-<!ENTITY torSettings.proxyQuestion "Требуется ли этому компьютеру локальный прокси для доступа к Интернету?">
+<!ENTITY torSettings.proxyPageTitle "Настройки локального прокси-сервера">
+<!ENTITY torSettings.proxyQuestion "Требуется ли этому компьютеру локальный прокси-сервер для доступа к Интернету?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyExplanation1 "В большинстве случаев локальный прокси не нужен, но он может потребоваться при подключении через сеть компании, школы или университета.">
+<!ENTITY torSettings.proxyExplanation1 "В большинстве случаев локальный прокси-сервер не нужен, но он может потребоваться при подключении через сеть компании, школы или университета.">
 <!ENTITY torSettings.proxyExplanation2 "Если вы не знаете, как ответить на этот вопрос, проверьте настройки интернета другого браузера или проверьте системные настройки своей сети, чтобы посмотреть, нужен ли локальный прокси.">
-<!ENTITY torSettings.enterProxy "Введите настройки прокси.">
+<!ENTITY torSettings.enterProxy "Введите настройки прокси-сервера.">
 <!ENTITY torSettings.bridgePageTitle "Настройки шлюзов Tor">
 <!ENTITY torSettings.bridgeQuestion "Ваш провайдер (ISP) блокирует или как-либо цензурирует подключения к сети Tor?">
 <!ENTITY torSettings.bridgeExplanation1 "Если вы не знаете, как ответить на данный вопрос, выберите &quot;Нет&quot; (если вы не можете подключиться к сети Tor, вы можете ответить позже).">
@@ -65,8 +65,8 @@
 <!ENTITY torsettings.copyLog "Скопировать журнал Tor в буфер обмена">
 <!ENTITY torsettings.bridgeHelpTitle "Помощь по ретрансляторам типа мост">
 <!ENTITY torsettings.bridgeHelp1 "Если вы не можете подключиться к сети Tor, возможно ваш провайдер (ISP) или иная организация блокирует Tor.&#160; Часто эту проблему можно обойти при помощи мостов Tor, не перечисленных в публичных списках, которые сложнее заблокировать.">
-<!ENTITY torsettings.bridgeHelp1B "You may use the preconfigured, provided set of bridge addresses or you may obtain a custom set of addresses by using one of these methods:">
-<!ENTITY torsettings.bridgeHelp2Heading "Из Веб">
+<!ENTITY torsettings.bridgeHelp1B "Вы можете воспользоваться готовым сконфигурированным набором адресов мостов, либо получить пользовательский список адресов с помощью одного из следующих методов:">
+<!ENTITY torsettings.bridgeHelp2Heading "В Интернете">
 <!ENTITY torsettings.bridgeHelp2 "Откройте в веб-браузере https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "Через автоответчик электронной почты">
 <!ENTITY torsettings.bridgeHelp3.emailDesc "Отправьте имейл по адресу bridges@torproject.org со строкой 'get bridges' в теле сообщения.&#160; Однако чтобы усложнить сбор атакующими адресов всех мостов, от Вас требуется отправить запрос с одного из следующих адресов (в порядке предпочтения)">

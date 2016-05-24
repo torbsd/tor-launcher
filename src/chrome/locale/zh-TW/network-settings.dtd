@@ -65,7 +65,7 @@
 <!ENTITY torsettings.copyLog "將洋蔥路由的訊息記錄複製到剪貼簿">
 <!ENTITY torsettings.bridgeHelpTitle "橋接中繼器之說明">
 <!ENTITY torsettings.bridgeHelp1 "若您無法連接到洋蔥路由網路，可能是因為您的網際網路服務提供者 (ISP) 或其它機構正在封鎖洋蔥路由網路。&#160; 通常您可以使用橋接中繼器來連上洋蔥路由網路，以便解決此問題。該種中繼器是未被羅列於清單中的秘密中繼節點，非常難以被過濾阻擋。">
-<!ENTITY torsettings.bridgeHelp1B "You may use the preconfigured, provided set of bridge addresses or you may obtain a custom set of addresses by using one of these methods:">
+<!ENTITY torsettings.bridgeHelp1B "您可以使用我們所提供的預設橋接器位址組合，或者也可以由以下的方法取得客製化的橋接器位址組合：">
 <!ENTITY torsettings.bridgeHelp2Heading "透過網路">
 <!ENTITY torsettings.bridgeHelp2 "使用網路瀏覽器造訪 https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "透過電子郵件自動回覆">

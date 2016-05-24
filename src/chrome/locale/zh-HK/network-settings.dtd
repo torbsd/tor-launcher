@@ -69,7 +69,7 @@
 <!ENTITY torsettings.bridgeHelp2Heading "透過網絡">
 <!ENTITY torsettings.bridgeHelp2 "使用瀏覽器到訪 https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "透過電郵自動回覆">
-<!ENTITY torsettings.bridgeHelp3.emailDesc "傳送郵件到 bridges@torproject.org 並在內文中輸入「get bridges」字串。&#160; 然而，要使網絡攻擊者更難取得橋接器位址，你必須使用以下電郵提供者之一嚟寄送呢個要求(順序係依照優先建議)：">
+<!ENTITY torsettings.bridgeHelp3.emailDesc "傳送郵件到 bridges@torproject.org 並喺內文中輸入「get bridges」字串。&#160; 然而，要使網絡攻擊者更難取得橋接器位址，你必須使用以下電郵提供者之一嚟寄送呢個要求(順序係依照優先建議)：">
 <!ENTITY torsettings.bridgeHelp3.emailList "https://www.riseup.net 、 https://mail.google.com 或 https://mail.yahoo.com">
 <!ENTITY torsettings.bridgeHelp4Heading "透過服務台">
 <!ENTITY torsettings.bridgeHelp4 "最後方法係：寄電郵到 help@rt.torproject.org。&#160; 請注意，此類郵件我哋須一封封手動回覆。">
