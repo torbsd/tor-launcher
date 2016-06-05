@@ -65,7 +65,7 @@
 <!ENTITY torsettings.copyLog "Copiar el registro de mensajes(log) de Tor al portapapeles">
 <!ENTITY torsettings.bridgeHelpTitle "Ayuda de repetidores puente ('bridge relays')">
 <!ENTITY torsettings.bridgeHelp1 "Si no puede conectarse a la red Tor, podría ser que su proveedor de servicios de Internet (ISP) u otra agencia, esté bloqueando Tor.&#160; A menudo, puede evitar este problema usando puentes ('bridges') de Tor, que son repetidores ('relays') de salida de la red Tor que no son públicos, y es más difícil que sean bloqueados.">
-<!ENTITY torsettings.bridgeHelp1B "Puede usar el conjunto de direcciones de repetidores puente ('bridge') preconfigurado proporcionado, o puede obtener un conjunto de direcciones personalizado usando uno de estos tres métodos:">
+<!ENTITY torsettings.bridgeHelp1B "Puede usar el juego preconfigurado de direcciones de puentes proporcionado, o puede obtener un juego personalizado de direcciones usando uno de estos métodos:">
 <!ENTITY torsettings.bridgeHelp2Heading "Mediante la web">
 <!ENTITY torsettings.bridgeHelp2 "Use un navegador web para visitar https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "Mediante el correo electrónico automático">

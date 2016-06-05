@@ -13,7 +13,7 @@
 
 <!ENTITY torSettings.firstQuestion "Laquelle des phrases suivantes décrit le mieux votre situation ?">
 <!ENTITY torSettings.configurePrompt1 "Le connexion internet de cet ordinateur est restreinte (censurée) ou passe par un proxy.">
-<!ENTITY torSettings.configurePrompt2 "Je dois configurer le pont réseau ou les paramètres du proxy avant de me connecter au réseau Tor.">
+<!ENTITY torSettings.configurePrompt2 "Je dois configurer le bridge ou les paramètres du proxy avant de me connecter au réseau Tor.">
 <!ENTITY torSettings.configure "Configurer">
 <!ENTITY torSettings.connectPrompt2 "Je voudrais faire une connexion directe au réseau Tor.">
 <!ENTITY torSettings.connectPrompt3 "Cela fonctionnera dans la plupart des situations.">
@@ -55,17 +55,17 @@
 <!ENTITY torsettings.firewall.checkbox "Cet ordinateur passe par un pare-feu qui autorise uniquement les connexions à certains ports">
 <!ENTITY torsettings.firewall.allowedPorts "Ports autorisés :">
 <!ENTITY torsettings.useBridges.checkbox "Mon Fournisseur d'Accès à Internet (FAI) bloque les connexions au réseau Tor">
-<!ENTITY torsettings.useBridges.default "Se connecter en utilisant les ponts pré-configurés">
-<!ENTITY torsettings.useBridges.note "Chaque type de pont utilise une méthode différente pour éviter la censure. Si un pont ne marche pas, essayez de nouveau avec un autre.">
+<!ENTITY torsettings.useBridges.default "Se connecter en utilisant les bridges pré-configurés">
+<!ENTITY torsettings.useBridges.note "Chaque type de bridge utilise une méthode différente pour éviter la censure. Si un bridge ne marche pas, essayez de nouveau avec un autre.">
 <!ENTITY torsettings.useBridges.type "Mode de transport:">
 <!ENTITY torsettings.useBridges.custom "Entrez vos ponts personnels">
-<!ENTITY torsettings.useBridges.label "Saisir un ou davantage de ponts relais (un par ligne).">
+<!ENTITY torsettings.useBridges.label "Saisir un ou davantage de relais bridges (un par ligne).">
 <!ENTITY torsettings.useBridges.placeholder "tapez adresse:port">
 
 <!ENTITY torsettings.copyLog "Copier le journal des messages de Tor dans le presse-papier">
-<!ENTITY torsettings.bridgeHelpTitle "Aide pour les ponts">
+<!ENTITY torsettings.bridgeHelpTitle "Aide pour les bridges">
 <!ENTITY torsettings.bridgeHelp1 "Si vous ne pouvez pas vous connecter au réseau Tor, il se pourrait que votre fournisseur d'accès à Internet (FAI) ou une autre agence bloque le Tor.&#160; Souvent, vous pouvez contourner ce problème en utilisant des bridges Tor, qui sont des relais non listés qui sont plus difficiles à bloquer.">
-<!ENTITY torsettings.bridgeHelp1B "Vous pouvez utiliser les liste de bridges pré-configurés par défaut ou en obtenir une liste personnalisée d'adresses en utilisant l'une des trois méthodes ci-dessous :">
+<!ENTITY torsettings.bridgeHelp1B "Vous pouvez utiliser la liste fournie et pré-configurée d'adresses de bridges, ou alors obtenir une liste personnalisée d'adresses en utilisant une de ces méthodes :">
 <!ENTITY torsettings.bridgeHelp2Heading "Par le Web">
 <!ENTITY torsettings.bridgeHelp2 "Utilisez un navigateur web pour visiter https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "Par le répondeur automatique de courriel">

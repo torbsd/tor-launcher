@@ -6,7 +6,7 @@
 
 <!-- For "first run" wizard: -->
 
-<!ENTITY torsettings.prompt "Преди да се свържете към Tor мрежата, Вие трябва да предоставите информация относно интернет връзката на този компютър">
+<!ENTITY torsettings.prompt "Преди да се свържете към Tor мрежата, Вие трябва да ни предоставите информация относно интернет връзката на този компютър">
 
 <!ENTITY torSettings.yes "Да">
 <!ENTITY torSettings.no "Не">
@@ -65,7 +65,7 @@
 <!ENTITY torsettings.copyLog "Копирай Tor лога в клипборда">
 <!ENTITY torsettings.bridgeHelpTitle "Bridge Relay помощ">
 <!ENTITY torsettings.bridgeHelp1 "Ако не може да се свържете към Tor network, причината може да бъде във вашия Интернет доставчик (ISP) или определена агенция интернет наблюдение блокира Tor.&#160; Често, вие може да заобиколите този проблем с използване на Tor Bridges, които са непубликувани relays и са много по трудни за блокиране.">
-<!ENTITY torsettings.bridgeHelp1B "Вие може да използвате пре-конфигурирани, предоставени комплекти от bridge адреси или може да изисквате собствен персонализиран комплект от адреси като използвате един от следните три метода:">
+<!ENTITY torsettings.bridgeHelp1B "Може да използвате преконфигуриран, предоставен комплект от bridge адреси, или да получите персонализиран комплект от адреси, като използвате един от следните методи:">
 <!ENTITY torsettings.bridgeHelp2Heading "През Web">
 <!ENTITY torsettings.bridgeHelp2 "Използвайте уеб браузър за да посетите https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "През автоматично отговарящия имейл">

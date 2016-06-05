@@ -11,66 +11,66 @@
 <!ENTITY torSettings.yes "Sí">
 <!ENTITY torSettings.no "No">
 
-<!ENTITY torSettings.firstQuestion "Quina de les següuens descriula teva situació?">
-<!ENTITY torSettings.configurePrompt1 "La connexió a internet d'aquest ordinador està censurada o configurada amb un proxy. ">
-<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings before I connect to the Tor&#160;network.">
+<!ENTITY torSettings.firstQuestion "Quina de les situacions següents descriu millor la teva?">
+<!ENTITY torSettings.configurePrompt1 "La connexió a internet d'aquest ordinador està censurada o configurada amb un servidor intermediari.">
+<!ENTITY torSettings.configurePrompt2 "He de configurar el pont o el servidor intermediari local abans de connectar a la red Tor&amp;#160">
 <!ENTITY torSettings.configure "Configura">
-<!ENTITY torSettings.connectPrompt2 "M'agradaria fer una connexió directa a la red Tor.">
+<!ENTITY torSettings.connectPrompt2 "Vull connectar-me directament a la xarxa Tor.">
 <!ENTITY torSettings.connectPrompt3 "Això funciona en la majoria dels casos.">
-<!ENTITY torSettings.connect "Conectar">
+<!ENTITY torSettings.connect "Conecta't">
 
 <!ENTITY torSettings.proxyPageTitle "Configuració del servidor intermediari local">
-<!ENTITY torSettings.proxyQuestion "Aquest ordinador ha de fer servir un proxy local per accedir a internet?">
+<!ENTITY torSettings.proxyQuestion "Aquest ordinador ha de fer servir un servidor intermediari local per accedir a internet?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyExplanation1 "In most cases a local proxy is not needed, but it may be required when connecting through a company, school, or university network.">
-<!ENTITY torSettings.proxyExplanation2 "If you are not sure how to answer this question, look at the Internet settings in another browser or check your system's network settings to see whether a local proxy is needed.">
-<!ENTITY torSettings.enterProxy "Introdueix les opcions del proxy.">
+<!ENTITY torSettings.proxyExplanation1 "En la majoria dels casos, un servidor intermediari local no és necessari, però pot ser que ho sigui quan la connexió és a través d'una xarxa d'empresa, d'una escola, o d'una universitat.">
+<!ENTITY torSettings.proxyExplanation2 "Si no sabeu com respondre aquesta pregunta, mireu les preferències d'internet d'un altre navegador o reviseu la configuració de xarxa del vostre sistema per veure si cal un servidor intermediari local.">
+<!ENTITY torSettings.enterProxy "Introdueix les opcions del servidor intermediari local.">
 <!ENTITY torSettings.bridgePageTitle "Configuració dels ponts Tor">
 <!ENTITY torSettings.bridgeQuestion "El vostre proveïdor d'Internet (ISP) bloqueja o censura les connexions a la Xarxa Tor?">
-<!ENTITY torSettings.bridgeExplanation1 "If you are not sure how to answer this question, choose No (if you are unable to connect to the Tor network without a bridge, you can add one later).">
-<!ENTITY torSettings.bridgeExplanation2 "If you choose Yes, you will be asked to configure Tor Bridges, which are unlisted relays that make it more difficult to block connections to the Tor Network.">
-<!ENTITY torSettings.bridgeSettingsPrompt "Hauries d'utilitzar el set de repetidors provist o customitzar el teu propi.">
+<!ENTITY torSettings.bridgeExplanation1 "Si no sabeu com respondre aquesta pregunta, escolliu No (si no podeu connectar-vos a la xarxa Tor sense un pont, podeu afegir-lo després).">
+<!ENTITY torSettings.bridgeExplanation2 "Si escolliu Sí, se us demanarà que configureu els ponts Tor, que són repetidors no llistats que fan que sigui més difícil bloquejar les connexions a la xarxa Tor.">
+<!ENTITY torSettings.bridgeSettingsPrompt "Podeu utilitzar el joc de repetidors aportat o fer-vos-en un de personalitzat. ">
 
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "Esperant a Tor per començar...">
 <!ENTITY torsettings.restartTor "Reinicia Tor">
-<!ENTITY torsettings.reconfigTor "Reconfigure">
+<!ENTITY torsettings.reconfigTor "Reconfigura">
 
-<!ENTITY torsettings.discardSettings.prompt "You have configured Tor bridges or you have entered local proxy settings.&#160; To make a direct connection to the Tor network, these settings must be removed.">
-<!ENTITY torsettings.discardSettings.proceed "Remove Settings and Connect">
+<!ENTITY torsettings.discardSettings.prompt "Heu configurat ponts Tor o heu introduit una configuració de servidor intermediari.&#160; Per a connectar-se directament a la xarxa Tor, aquestes preferències s'han de treure. ">
+<!ENTITY torsettings.discardSettings.proceed "Elimina les preferències i connecta">
 
 <!ENTITY torsettings.optional "Opcional
 ">
 
-<!ENTITY torsettings.useProxy.checkbox "Aquest ordinador ha de fer servir  un proxy local per accedir a internet. ">
-<!ENTITY torsettings.useProxy.type "Tipus de Proxy:">
+<!ENTITY torsettings.useProxy.checkbox "Aquest ordinador ha de fer servir un servidor intermediari local per accedir a internet. ">
+<!ENTITY torsettings.useProxy.type "Tipus de servidor intermediari local:">
 <!ENTITY torsettings.useProxy.address "Adreça:">
-<!ENTITY torsettings.useProxy.address.placeholder "Direcció IP o nom del host">
+<!ENTITY torsettings.useProxy.address.placeholder "Adreça IP o nom del host">
 <!ENTITY torsettings.useProxy.port "Port:">
 <!ENTITY torsettings.useProxy.username "Nom d'usuari:">
 <!ENTITY torsettings.useProxy.password "Contrasenya:">
 <!ENTITY torsettings.useProxy.type.socks4 "SOCKS 4">
 <!ENTITY torsettings.useProxy.type.socks5 "SOCKS 5">
 <!ENTITY torsettings.useProxy.type.http "HTTP / HTTPS">
-<!ENTITY torsettings.firewall.checkbox "Aquest ordinador va a través d'un proxy que només permet connexions a certs ports">
+<!ENTITY torsettings.firewall.checkbox "Aquest ordinador va a través d'un tallafoc que només permet connexions a certs ports">
 <!ENTITY torsettings.firewall.allowedPorts "Ports permesos:">
 <!ENTITY torsettings.useBridges.checkbox "El meu proveidor d'internet (ISP) bloqueja les conexions a la xarxa Tor">
-<!ENTITY torsettings.useBridges.default "Connectar amb els repetidors porvistos.">
-<!ENTITY torsettings.useBridges.note "Each type of bridge uses a different method to avoid censorship.&#160; If one bridge does not work, try again using a different one.">
+<!ENTITY torsettings.useBridges.default "Connecta't amb els ponts predefinits.">
+<!ENTITY torsettings.useBridges.note "Cada tipus de pont fa servir un mètode diferent per evitar la censura.&#160; Si un pont no funciona, intenteu-ho amb un altre.">
 <!ENTITY torsettings.useBridges.type "Tipus de transport:">
-<!ENTITY torsettings.useBridges.custom "Entra als repetidors customitzats.">
-<!ENTITY torsettings.useBridges.label "Entra en un o més repetidors (un per linia).">
+<!ENTITY torsettings.useBridges.custom "Entra els ponts propis">
+<!ENTITY torsettings.useBridges.label "Entra un o més repetidor de pont (un per línia).">
 <!ENTITY torsettings.useBridges.placeholder "introdueix adreça:port">
 
-<!ENTITY torsettings.copyLog "Copiar el Log al portapapers">
-<!ENTITY torsettings.bridgeHelpTitle "Ajuda Repetidors">
-<!ENTITY torsettings.bridgeHelp1 "Si no sóu capaçps de connectar-vos a la xarxa Tor, pot ser que el vostre proveidor d'internet (ISP) o alguna altra agència estigui bloquejant Tor.&#160; normalment, podeu evitar aquest problema usant Ponts Tor, que son relés no llistats més difícils de bloquejar. ">
-<!ENTITY torsettings.bridgeHelp1B "Podeu usar el conjunt d'adreces pont preconfigurades o podeu obtenir un conjunt personalitzat d'adreces usant un d'aquests tres mètodes: ">
+<!ENTITY torsettings.copyLog "Copia el registre de Tor al porta-retalls">
+<!ENTITY torsettings.bridgeHelpTitle "Ajuda per als repetidors de pont">
+<!ENTITY torsettings.bridgeHelp1 "Si no podeu connectar-vos a la xarxa Tor, pot ser que el vostre proveidor d'internet (ISP) o alguna altra agència estigui bloquejant Tor.&#160; En principi, podeu evitar aquest problema fent servir Ponts Tor, que son repetidors no llistats més difícils de bloquejar. ">
+<!ENTITY torsettings.bridgeHelp1B "Podeu fer servir el joc de ponts preconfigurat o podeu fer-vos en un de propi mitjançant aquests tres mètodes:">
 <!ENTITY torsettings.bridgeHelp2Heading "A través del web">
-<!ENTITY torsettings.bridgeHelp2 "Utilitza un navegador web o vés a: https://bridges.torproject.org">
-<!ENTITY torsettings.bridgeHelp3Heading "A través del mail d'autorresposta.">
-<!ENTITY torsettings.bridgeHelp3.emailDesc "Envieu un e-mail a bridges@torproject.org només amb el text 'get bridges' al cos del missatge.&#160; No obstant, per a fer més difícil per a l'atacant d'aprendre moltes adreces pont, heu d'enviar aquesta petició des d'un dels proveïdors de correu següents (llistats en ordre de preferència):">
+<!ENTITY torsettings.bridgeHelp2 "Utilitza un navegador web per visitar https://bridges.torproject.org">
+<!ENTITY torsettings.bridgeHelp3Heading "A través del correu d'autorresposta.">
+<!ENTITY torsettings.bridgeHelp3.emailDesc "Envieu un correu electrònic a bridges@torproject.org només amb el text 'get bridges' al cos del missatge.&#160; No obstant, per fer més difícil que l'atacant esbrini moltes adreces pont, heu d'enviar aquesta petició des d'un dels proveïdors de correu següents (llistats en ordre de preferència):">
 <!ENTITY torsettings.bridgeHelp3.emailList "https://www.riseup.net, https://mail.google.com, o https://mail.yahoo.com">
-<!ENTITY torsettings.bridgeHelp4Heading "A través del Escriptori d'Ajuda">
-<!ENTITY torsettings.bridgeHelp4 "Com a última opció, pots demanar adreces de repetidors enviant un missatge a help@rt.torproject.org.&#160; siusplau recorda que serà una persona qui et respondrà, siguis pacient i amable.">
+<!ENTITY torsettings.bridgeHelp4Heading "A través de l'Escriptori d'Ajuda">
+<!ENTITY torsettings.bridgeHelp4 "Com a última opció, podeu demanar adreces de pont enviant un missatge a help@rt.torproject.org.&#160; Una persona respondrà cada petició.">

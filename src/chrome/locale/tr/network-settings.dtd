@@ -65,7 +65,7 @@
 <!ENTITY torsettings.copyLog "Tor Günlüğünü Panoya Kopyala">
 <!ENTITY torsettings.bridgeHelpTitle "Köprü Aktarıcı Yardımı">
 <!ENTITY torsettings.bridgeHelp1 "Tor ağına bağlanamıyorsanız, kullandığınız İnternet Servis Sağlayıcısı (ISS) ya da başka bir kurum Tor&#160;'u engelliyor olabilir. Bu sorunu çoğunlukla, engellenmesi daha zor olan listelenmeyen aktarıcılar, Tor Köprülerini kullanarak çözebilirsiniz.">
-<!ENTITY torsettings.bridgeHelp1B "Önceden ayarlanmış ve sunulmuş köprü adreslerini kullanabilir ya da şu üç yöntemden birini kullanarak özel adresler edinebilirsiniz:">
+<!ENTITY torsettings.bridgeHelp1B "Önceden ayarlanmış, sunulan köprü adreslerini kullanabilir ya da şu üç yöntemden biriyle özel adresler edinebilirsiniz:">
 <!ENTITY torsettings.bridgeHelp2Heading "Web yoluyla">
 <!ENTITY torsettings.bridgeHelp2 "Bir web tarayıcısı kullanarak https://bridges.torproject.org adresini ziyaret edin">
 <!ENTITY torsettings.bridgeHelp3Heading "Otomatik e-posta yanıtı yoluyla">

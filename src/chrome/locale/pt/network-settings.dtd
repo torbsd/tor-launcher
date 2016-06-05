@@ -65,7 +65,7 @@
 <!ENTITY torsettings.copyLog "Copiar o Registo do Tor para a Área de Transferência">
 <!ENTITY torsettings.bridgeHelpTitle "Ajuda da Retransmissão de Ponte">
 <!ENTITY torsettings.bridgeHelp1 "Se não consegue ligar-se à rede Tor, pode ser devido a algum bloqueio do seu Provedor de Serviço de Internet (ISP) ou outra agência está a bloquear o Tor.&#160; Frequentemente, pode contornar este problema utilizando Tor Bridges, o qual são pontos de passagem não listados que são mais difíceis de bloquear.">
-<!ENTITY torsettings.bridgeHelp1B "Poderá utilizar o conjunto de bridges pré-configurado fornecido, ou poderá obter um conjunto de endereços personalizados utilizando um destes três métodos:">
+<!ENTITY torsettings.bridgeHelp1B "You may use the preconfigured, provided set of bridge addresses or you may obtain a custom set of addresses by using one of these methods:">
 <!ENTITY torsettings.bridgeHelp2Heading "Através da Web">
 <!ENTITY torsettings.bridgeHelp2 "Utilize um navegador da Web para visitar https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "Através do Respondedor Automático de Correio Eletrónico">

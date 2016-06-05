@@ -65,7 +65,7 @@
 <!ENTITY torsettings.copyLog "Kopioi Tor-loki leikepöydälle">
 <!ENTITY torsettings.bridgeHelpTitle "Siltavälityspalvelinopaste">
 <!ENTITY torsettings.bridgeHelp1 "Jos et pysty yhdistämään Tor-verkkoon, syy voi olla, että Internet palveluntarjoajasi (ISP) tai muu taho estää Tor-sovelluksen.&#160; Usein voit kiertää tämän ongelman käyttämällä Tor-siltoja, jotka ovat listaamattomia välityspalvelimia, joita on vaikeampi estää.">
-<!ENTITY torsettings.bridgeHelp1B "Voit käyttää esiasetettuja, tarjottuja siltaosoitejoukkoja tai voit hankkia oman osoitejoukon käyttämällä yhtä näistä kolmesta menetelmästä:">
+<!ENTITY torsettings.bridgeHelp1B "You may use the preconfigured, provided set of bridge addresses or you may obtain a custom set of addresses by using one of these methods:">
 <!ENTITY torsettings.bridgeHelp2Heading "Verkon yli">
 <!ENTITY torsettings.bridgeHelp2 "Käytä internet-selainta vieraillaksesi osoitteessa: https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "Sähköpostin automaattivastaajan läpi">

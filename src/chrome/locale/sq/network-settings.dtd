@@ -65,7 +65,7 @@
 <!ENTITY torsettings.copyLog "Kopjojeni Regjistrin e Tor në Kujtesën e fragmenteve">
 <!ENTITY torsettings.bridgeHelpTitle "Ndihma mbi Relenë e Urë">
 <!ENTITY torsettings.bridgeHelp1 "Nëse s'mundeni të lidheni me rrjetin Tor, mund të jetë sepse Ofruesi juaj i Shërbimit të Internetit (ISP), ose ndonjë agjenci tjetër po pengojnë Tor.&#160; Shpesh, ju mund ta shmangni këtë problem, duke përdorur urat e Tor, të cilat janë rele të palistuara, që janë shumë më të vështira për t'u penguar.">
-<!ENTITY torsettings.bridgeHelp1B "Ju mund të përdorni grupin e ofruar e të parakonfiguruar të adresave ura, ose mund të përftoni një grup adresash të përshtatura, duke përdorur një nga këto tre metoda:">
+<!ENTITY torsettings.bridgeHelp1B "You may use the preconfigured, provided set of bridge addresses or you may obtain a custom set of addresses by using one of these methods:">
 <!ENTITY torsettings.bridgeHelp2Heading "Përmes Web-it">
 <!ENTITY torsettings.bridgeHelp2 "Përdorni një shfletues web-i që të vizitoni https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "Përmes Vetëpërgjigjes se E-postës">

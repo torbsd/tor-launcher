@@ -67,7 +67,7 @@ s Tor mrežom?">
 <!ENTITY torsettings.copyLog "Kopiraj Tor zapisnik u međuspremnik">
 <!ENTITY torsettings.bridgeHelpTitle "Pomoć za relej-mostove">
 <!ENTITY torsettings.bridgeHelp1 "Ako se ne možete spojiti na Tor mrežu, to može biti zato što Vaš pružatelj Internet usluge (ISP) ili druga agencija blokira Tor.&#160; Najčešće možete zaobići ovaj problem koristeći Tor Mostove, koji su neizlistani releji koje je teže blokirati.">
-<!ENTITY torsettings.bridgeHelp1B "Možete koristiti već konfigurirani, osigurani set adresa mostova ili možete dobiti vlastiti set adresa koristeći jednu od ove tri metode:">
+<!ENTITY torsettings.bridgeHelp1B "Možete koristiti unaprijed konfigurirane setove adresa mostova ili možete dobiti prilagođene setove korištenjem jedne od ovih metoda:">
 <!ENTITY torsettings.bridgeHelp2Heading "Kroz Web">
 <!ENTITY torsettings.bridgeHelp2 "Koristite web preglednik kako bi posjetili https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "Kroz Email Autoresponder">

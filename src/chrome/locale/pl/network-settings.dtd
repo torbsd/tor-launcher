@@ -65,7 +65,7 @@
 <!ENTITY torsettings.copyLog "Skopiuj log do schowka">
 <!ENTITY torsettings.bridgeHelpTitle "Pomoc Przekaźników Mostkowych">
 <!ENTITY torsettings.bridgeHelp1 "Jeśli nie jesteś w stanie połączyć się z siecią Tor, może to oznaczać, że Twój Dostawca Usług Internetowych (ISP) lub inna agencja blokuje dostęp do sieci Tor.&#160; Często można obejść ten problem używając Mostów Tor, które są nienotowanymi przekaźnikami, dzięki czemu trudniej je zablokować.">
-<!ENTITY torsettings.bridgeHelp1B "Możesz użyć wstępnie skonfigurowany, domyślny zestaw adresów mostów lub możesz uzyskać własny zestaw adresów za pomocą jednej z tych trzech metod:">
+<!ENTITY torsettings.bridgeHelp1B "Możesz użyć prekonfigurowanego, dostarczonego zestawu adresów mostu(bridge adresses) lubmożesz uzyskać niestandardowe zestawy adresów, poprzzez używanie jednej z tych trzech metod:">
 <!ENTITY torsettings.bridgeHelp2Heading "Za pośrednictwem sieci Web">
 <!ENTITY torsettings.bridgeHelp2 "Użyj przeglądarki internetowej do odwiedzenia https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "Poprzez Email Autoresponder">

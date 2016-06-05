@@ -65,7 +65,7 @@
 <!ENTITY torsettings.copyLog "העתק את יומן Tor אל לוח גזירה">
 <!ENTITY torsettings.bridgeHelpTitle "עזרה בנוגע לגשרים">
 <!ENTITY torsettings.bridgeHelp1 "אם אין באפשרותך להתחבר לרשת Tor, ייתכן שהסיבה לכך היא שספק האינטרנט שלך או גורם אחר חוסמים את Tor. לעתים קרובות, ניתן להתגבר על בעיה זו באמצעות שימוש בגשרים, שהם שרתים חסויים שקשה יותר לחסום אותם.">
-<!ENTITY torsettings.bridgeHelp1B "באפשרותך להשתמש ברשימה מוכנה מראש של גשרים או להשיג בעצמך רשימה חדשה של כתובות באמצעות אחת משלוש הדרכים הבאות:">
+<!ENTITY torsettings.bridgeHelp1B "You may use the preconfigured, provided set of bridge addresses or you may obtain a custom set of addresses by using one of these methods:">
 <!ENTITY torsettings.bridgeHelp2Heading "באמצעות רשת האינטרנט">
 <!ENTITY torsettings.bridgeHelp2 "היעזר בדפדפן אינטרנט על מנת לבקר באתר https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "דרך שירות הדואל האוטומטי">

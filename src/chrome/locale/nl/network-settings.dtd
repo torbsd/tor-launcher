@@ -13,7 +13,7 @@
 
 <!ENTITY torSettings.firstQuestion "Welke van de volgende beschrijft het best jouw situatie?">
 <!ENTITY torSettings.configurePrompt1 "De internetverbinding van deze computer is gecensureerd of loopt via een proxy.">
-<!ENTITY torSettings.configurePrompt2 "Ik moet een bridge of lokale proxy instellingen voordat ik verbinding kan maken met het Tor&#160;netwerk.">
+<!ENTITY torSettings.configurePrompt2 "Ik moet een bridge of lokale proxy instellen voordat ik verbinding kan maken met het Tor&#160;netwerk.">
 <!ENTITY torSettings.configure "Configureren">
 <!ENTITY torSettings.connectPrompt2 "Ik wil een directe verbinding met het Tor netwerk maken.">
 <!ENTITY torSettings.connectPrompt3 "Dit zal in de meeste omstandigheden werken.">
@@ -37,7 +37,7 @@
 <!ENTITY torsettings.restartTor "Herstart Tor">
 <!ENTITY torsettings.reconfigTor "Herconfigureer">
 
-<!ENTITY torsettings.discardSettings.prompt "U heeft Tor bridges geconfigureerd of u heeft locale proxy instellingen ingevuld.&#160; Om een directe verbinding tot het Tor netwerk te kunnen maken, dient u deze instellingen te verwijderen.">
+<!ENTITY torsettings.discardSettings.prompt "Je hebt Tor bridges geconfigureerd of je hebt lokale proxy-instellingen ingevuld.&#160; Om een directe verbinding tot het Tor netwerk te kunnen maken, moet je deze instellingen verwijderen.">
 <!ENTITY torsettings.discardSettings.proceed "Instellingen Verwijderen en Verbinden">
 
 <!ENTITY torsettings.optional "Facultatief">
@@ -65,7 +65,7 @@
 <!ENTITY torsettings.copyLog "Kopieer Tor-log naar het klembord">
 <!ENTITY torsettings.bridgeHelpTitle "Bridge relay-hulp">
 <!ENTITY torsettings.bridgeHelp1 "Indien je geen verbinding kan maken met het Tor-netwerk, zou het kunnen dat je Internet Service Provider (ISP) of een andere instelling Tor blokkeert.&#160; Vaak kan je dit omzeilen door gebruik te maken van Tor-bridges, dit zijn ongeregistreerde relays die moeilijker te blokkeren zijn.">
-<!ENTITY torsettings.bridgeHelp1B "Je kan de voorgeconfigureerde bridge-adresinstellingen gebruiken, of je kan hier zelf een eigen adres instellen met een van de volgende drie methodes: ">
+<!ENTITY torsettings.bridgeHelp1B "Je kunt voorgedefinieerde set met bridge-adressen gebruiken of je kunt een maatwerk adressenset krijgen via een van deze methoden:">
 <!ENTITY torsettings.bridgeHelp2Heading "Door middel van het Web">
 <!ENTITY torsettings.bridgeHelp2 "Gebruik een browser om https://bridges.torproject.org te bezoeken">
 <!ENTITY torsettings.bridgeHelp3Heading "Door middel van de e-mail-autoresponder">

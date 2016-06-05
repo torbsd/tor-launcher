@@ -65,7 +65,7 @@
 <!ENTITY torsettings.copyLog "Kopier Torloggen til Utklippstavlen">
 <!ENTITY torsettings.bridgeHelpTitle "Hjelp med Bro-rutingsstafettoppsett">
 <!ENTITY torsettings.bridgeHelp1 "Hvis du ikke får koblet til Tor-nettverket, kan det være at internettleverandøren din (ISP), eller et annet byrå/institusjon/etat blokkerer Tor.&#160; Som regel kan du omgå dette problemet ved å bruke Tor-broer, som er ulistede rutingsstafettoppsett og derfor vanskeligere å blokkere.">
-<!ENTITY torsettings.bridgeHelp1B "Du kan bruke forvalgsoppsatte bro-adressene eller du kan skaffe deg egendefinerte adresser ved å bruk av en av følgende tre metoder:">
+<!ENTITY torsettings.bridgeHelp1B "Du kan bruke de ferdig oppsatte, medfølgende broene eller du kan skaffe et egendefinert sett adresser ved bruk av én av disse metodene:.">
 <!ENTITY torsettings.bridgeHelp2Heading "Via nettet">
 <!ENTITY torsettings.bridgeHelp2 "Bruk en nettleser for å besøke https://bridges.torproject.org/?lang=nb">
 <!ENTITY torsettings.bridgeHelp3Heading "Via e-post autosvar">

@@ -65,7 +65,7 @@
 <!ENTITY torsettings.copyLog "Kopirajte Tor poročilo v odložišče">
 <!ENTITY torsettings.bridgeHelpTitle "Pomoč premostitveno vozlišče">
 <!ENTITY torsettings.bridgeHelp1 "Če se ne morete povezati v omrežje Tor, je mogoče, da vaš ponudnik internetnih storitev (ISP) ali druga agencija blokira Tor.&#160; Pogosto lahko to obidete s pomočjo Tor premostitvijo, na nenašteta vozlišča, za težje blokiranje.">
-<!ENTITY torsettings.bridgeHelp1B "Uporabite lahko že prednastavljen, ponujen niz premostitvenih naslovov ali pa lahko pridobite običajen set naslovov z uporabo enega od treh načinov:">
+<!ENTITY torsettings.bridgeHelp1B "You may use the preconfigured, provided set of bridge addresses or you may obtain a custom set of addresses by using one of these methods:">
 <!ENTITY torsettings.bridgeHelp2Heading "Preko Web">
 <!ENTITY torsettings.bridgeHelp2 "Uporabite web brskalnik za obisk https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "Preko poštnega avtomatskega odzivnika">

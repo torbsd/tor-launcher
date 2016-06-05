@@ -65,7 +65,7 @@
 <!ENTITY torsettings.copyLog "Copiați jurnalul Tor în Clipboard">
 <!ENTITY torsettings.bridgeHelpTitle "Ajutor Bridge Relay">
 <!ENTITY torsettings.bridgeHelp1 "Dacă nu puteți să vă conectați la rețeaua tor, poate să fie din cauză că Internet Service Providerul (ISP) sau altă agenție blochează Tor.&#160; Des, puteți ocoli această problemă folosind Tor Bridges, care sînt relayuri nelistate, mai dificil de blocat.">
-<!ENTITY torsettings.bridgeHelp1B "Puteți folosi setul de adrese de punți preconfigurate oferite sau puteți obține un set personalizat de adrese folosind una din aceste trei metode:">
+<!ENTITY torsettings.bridgeHelp1B "Puteți folosi setul de adrese de punți preconfigurate oferite sau puteți obține un set personalizat de adrese folosind una din aceste metode:">
 <!ENTITY torsettings.bridgeHelp2Heading "Prin Web">
 <!ENTITY torsettings.bridgeHelp2 "Folosiți un webbrowser pentru a vizita https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "Prin email automat">

@@ -65,7 +65,7 @@
 <!ENTITY torsettings.copyLog "A Tor log Vágólapra másolása">
 <!ENTITY torsettings.bridgeHelpTitle "Híd kapcsoló súgó">
 <!ENTITY torsettings.bridgeHelp1 "Ha nem tudsz csatlakozni a Tor.&#160; hálózathoz, akkor valószínű az internet szolgáltató (ISP) vagy egy másik szervezet blokkolja. Gyakran megkerülhető a probléma Tor bridges használatával. Ezek nem listázott átjátszók amiket sokkal nehezebb blokkolni.">
-<!ENTITY torsettings.bridgeHelp1B "Használhatod az előre beállított bridge címeket vagy beszerezhetsz egyedi címeket ezzel a három módszerrel:">
+<!ENTITY torsettings.bridgeHelp1B "Használhatod az előre konfigurált híd címeket, vagy beszerezhetsz egyedi címek készletét az alábbi módok egyikét használva:">
 <!ENTITY torsettings.bridgeHelp2Heading "Interneten keresztül">
 <!ENTITY torsettings.bridgeHelp2 "Használj egy böngészőt megnézni ezt az oldalt: https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "Az automata email válaszok által.">

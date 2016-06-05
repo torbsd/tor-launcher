@@ -65,7 +65,7 @@
 <!ENTITY torsettings.copyLog "نسخ سجل تور إلي الحافظة">
 <!ENTITY torsettings.bridgeHelpTitle "المساعدة الخاصة بالجسور المُرحلة">
 <!ENTITY torsettings.bridgeHelp1 "قد يكون السبب في عدم قدرتك علي الاتصال بشبكة تورهو ان مزود خدمة الإنترنت الخاص بك (ISP) أو منظمة اخري يمنع محاولات الاتصال بشبكة تور. وغالباً، تستطيع تخطي هذا المنع عن طريق استخدام جسور تور و الجسور عبارة عن مُرحلات مخفية صعب منعها.">
-<!ENTITY torsettings.bridgeHelp1B "يمكنك استخدام مجموعة عناوين الجسور المتوفرة التي تم تكوينها مسبقا أو الحصول على مجموعة مخصصة من العناوين باستخدام إحدى هذه الطرق الثلاث:">
+<!ENTITY torsettings.bridgeHelp1B "You may use the preconfigured, provided set of bridge addresses or you may obtain a custom set of addresses by using one of these methods:">
 <!ENTITY torsettings.bridgeHelp2Heading "من خلال الويب">
 <!ENTITY torsettings.bridgeHelp2 "استخدم متصفح ويب لزيارة https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "من خلال المستجيب التلقائي للبريد الإلكتروني">

@@ -65,7 +65,7 @@
 <!ENTITY torsettings.copyLog "Skopírovať záznam Tor do schránky clipboard">
 <!ENTITY torsettings.bridgeHelpTitle "Nápoveda o relé premosteniach">
 <!ENTITY torsettings.bridgeHelp1 "Ak nie ste schopný sa pripojiť k sieti Toru, je možné, že vás blokuje váš Poskytovateľ Internetú (ISP) alebo nejaké iná agentúra. &#160; Tento problém môžete často obísť použivaním Mostov Toru, čo sú nezaradené relé náročnejšie na blokovanie.">
-<!ENTITY torsettings.bridgeHelp1B "Môžete použiť prekonfigurovanú poskytnutú sadu mostových adries alebo vložiť vlastnú sadu adries použitím jednej z nasledujúcich metód:">
+<!ENTITY torsettings.bridgeHelp1B "You may use the preconfigured, provided set of bridge addresses or you may obtain a custom set of addresses by using one of these methods:">
 <!ENTITY torsettings.bridgeHelp2Heading "Cez Web">
 <!ENTITY torsettings.bridgeHelp2 "Použite webový prehliadač na navštívenie https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "Cez Email Autoresponder">
