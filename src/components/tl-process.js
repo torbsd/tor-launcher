@@ -31,6 +31,8 @@ TorProcessService.prototype =
 {
   kContractID : "@torproject.org/torlauncher-process-service;1",
   kServiceName : "Tor Launcher Process Service",
+  kThunderbirdID: "{3550f703-e582-4d05-9a08-453d09bdfdc6}",
+  kInstantbirdID: "{33cb9019-c295-46dd-be21-8c4936574bee}",
   kClassID: Components.ID("{FE7B4CAF-BCF4-4848-8BFF-EFA66C9AFDA1}"),
   kTorLauncherExtPath: "tor-launcher@torproject.org", // This could vary.
 
@@ -873,6 +875,14 @@ TorProcessService.prototype =
       // Because topDir points to Contents/Resources/browser on Mac OS,
       // we need to go up 3 levels.
       let tbbBrowserDepth = (TorLauncherUtil.isMac) ? 3 : 1;
+      if ((appInfo.ID == this.kThunderbirdID) ||
+          (appInfo.ID == this.kInstantbirdID))
+      {
+        // On Thunderbird/Instantbird, the topDir is the root dir and not
+        // browser/, so we need to iterate one level less than Firefox.
+        --tbbBrowserDepth;
+      }
+
       while (tbbBrowserDepth > 0)
       {
         let didRemove = (topDir.leafName != ".");
