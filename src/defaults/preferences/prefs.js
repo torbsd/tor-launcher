@@ -1,12 +1,20 @@
+pref("extensions.torlauncher.start_tor", true);
+pref("extensions.torlauncher.prompt_at_startup", true);
+
 pref("extensions.torlauncher.loglevel", 4);  // 1=verbose, 2=debug, 3=info, 4=note, 5=warn
 pref("extensions.torlauncher.logmethod", 1);  // 0=stdout, 1=errorconsole, 2=debuglog
 pref("extensions.torlauncher.max_tor_log_entries", 1000);
 
+// By default, a Unix domain socket at a default location is used for
+// the Tor control port.
+// Change control_port_use_socket to false to use a TCP connection
+// instead, as defined by control_host and control_port.
+// Modify control_socket_path to override the default socket location. If a
+// relative path is used, it is handled like torrc_path (see below).
+pref("extensions.torlauncher.control_port_use_socket", true);
+pref("extensions.torlauncher.control_socket_path", "");
 pref("extensions.torlauncher.control_host", "127.0.0.1");
 pref("extensions.torlauncher.control_port", 9151);
-
-pref("extensions.torlauncher.start_tor", true);
-pref("extensions.torlauncher.prompt_at_startup", true);
 
 // The tor_path is relative to the application directory. On Linux and
 // Windows this is the Browser/ directory that contains the firefox

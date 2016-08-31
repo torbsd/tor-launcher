@@ -1,4 +1,4 @@
-// Copyright (c) 2015, The Tor Project, Inc.
+// Copyright (c) 2016, The Tor Project, Inc.
 // See LICENSE for licensing information.
 // TODO: Some code came from torbutton.js (pull in copyright and license?)
 //
@@ -17,6 +17,8 @@ XPCOMUtils.defineLazyModuleGetter(this, "TorLauncherUtil",
                           "resource://torlauncher/modules/tl-util.jsm");
 XPCOMUtils.defineLazyModuleGetter(this, "TorLauncherLogger",
                           "resource://torlauncher/modules/tl-logger.jsm");
+XPCOMUtils.defineLazyModuleGetter(this, "FileUtils",
+                                  "resource://gre/modules/FileUtils.jsm");
 
 
 function TorProtocolService()
@@ -31,23 +33,44 @@ function TorProtocolService()
 
   try
   {
-    var env = Cc["@mozilla.org/process/environment;1"]
+    let isWindows = TorLauncherUtil.isWindows;
+    let env = Cc["@mozilla.org/process/environment;1"]
                 .getService(Ci.nsIEnvironment);
-
-    if (env.exists("TOR_CONTROL_HOST"))
-      this.mControlHost = env.get("TOR_CONTROL_HOST");
-    else
+    // Determine how Tor Launcher will connect to the Tor control port.
+    // Environment variables get top priority followed by preferences.
+    if (!isWindows && env.exists("TOR_CONTROL_SOCKET"))
     {
-      this.mControlHost = TorLauncherUtil.getCharPref(
-                        "extensions.torlauncher.control_host", "127.0.0.1");
+      let socketPath = env.get("TOR_CONTROL_SOCKET");
+      this.mControlSocketFile = new FileUtils.File(socketPath);
     }
-
-    if (env.exists("TOR_CONTROL_PORT"))
-      this.mControlPort = parseInt(env.get("TOR_CONTROL_PORT"), 10);
     else
     {
-      this.mControlPort = TorLauncherUtil.getIntPref(
+      // Check for TCP host and port environment variables.
+      if (env.exists("TOR_CONTROL_HOST"))
+        this.mControlHost = env.get("TOR_CONTROL_HOST");
+      if (env.exists("TOR_CONTROL_PORT"))
+        this.mControlPort = parseInt(env.get("TOR_CONTROL_PORT"), 10);
+
+      let useSocket = !isWindows && TorLauncherUtil.getBoolPref(
+                      "extensions.torlauncher.control_port_use_socket", true);
+      if (!this.mControlHost && !this.mControlPort && useSocket)
+      {
+        this.mControlSocketFile = TorLauncherUtil.getTorFile("control_socket",
+                                                             false);
+      }
+      else
+      {
+        if (!this.mControlHost)
+        {
+          this.mControlHost = TorLauncherUtil.getCharPref(
+                        "extensions.torlauncher.control_host", "127.0.0.1");
+        }
+        if (!this.mControlPort)
+        {
+          this.mControlPort = TorLauncherUtil.getIntPref(
                                "extensions.torlauncher.control_port", 9151);
+        }
+      }
     }
 
     // Populate mControlPassword so it is available when starting tor.
@@ -140,6 +163,19 @@ TorProtocolService.prototype =
   // Public Constants and Methods ////////////////////////////////////////////
   kCmdStatusOK: 250,
   kCmdStatusEventNotification: 650,
+
+  TorGetControlSocketFile: function()
+  {
+    if (!this.mControlSocketFile)
+      return undefined;
+
+    return this.mControlSocketFile.clone();
+  },
+
+  TorGetControlPort: function()
+  {
+    return this.mControlPort;
+  },
 
   // Returns Tor password string or null if an error occurs.
   TorGetPassword: function(aPleaseHash)
@@ -512,6 +548,7 @@ TorProtocolService.prototype =
   mConsoleSvc: null,
   mControlPort: null,
   mControlHost: null,
+  mControlSocketFile: null,   // An nsIFile if using a UNIX domain socket.
   mControlPassword: null,     // JS string that contains hex-encoded password.
   mControlConnection: null,   // This is cached and reused.
   mEventMonitorConnection: null,
@@ -560,12 +597,43 @@ TorProtocolService.prototype =
     var conn;
     try
     {
-      var sts = Cc["@mozilla.org/network/socket-transport-service;1"]
+      let sts = Cc["@mozilla.org/network/socket-transport-service;1"]
                   .getService(Ci.nsISocketTransportService);
-      TorLauncherLogger.log(2, "Opening control connection to " +
+      let socket;
+      if (this.mControlSocketFile)
+      {
+        let exists = this.mControlSocketFile.exists();
+        if (!exists)
+        {
+          TorLauncherLogger.log(5, "Control port socket does not exist: " +
+                                    this.mControlSocketFile.path);
+        }
+        else
+        {
+          let isSpecial = this.mControlSocketFile.isSpecial();
+          if (!isSpecial)
+          {
+            TorLauncherLogger.log(5, "Control port socket is not a socket: " +
+                                  this.mControlSocketFile.path);
+          }
+          else
+          {
+            TorLauncherLogger.log(2, "Opening control connection to socket " +
+                                  this.mControlSocketFile.path);
+            socket = sts.createUnixDomainTransport(this.mControlSocketFile);
+          }
+        }
+      }
+      else
+      {
+        TorLauncherLogger.log(2, "Opening control connection to " +
                                  this.mControlHost + ":" + this.mControlPort);
-      var socket = sts.createTransport(null, 0, this.mControlHost,
-                                       this.mControlPort, null);
+        socket = sts.createTransport(null, 0, this.mControlHost,
+                                     this.mControlPort, null);
+      }
+
+      if (!socket)
+        return null;
 
       // Our event monitor connection is non-blocking and unbuffered (an
       // asyncWait() call is used so we only read data when we know that
