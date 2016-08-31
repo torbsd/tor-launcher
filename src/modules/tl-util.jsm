@@ -1,4 +1,4 @@
-// Copyright (c) 2015, The Tor Project, Inc.
+// Copyright (c) 2016, The Tor Project, Inc.
 // See LICENSE for licensing information.
 //
 // vim: set sw=2 sts=2 ts=8 et syntax=javascript:
@@ -11,14 +11,19 @@ let EXPORTED_SYMBOLS = [ "TorLauncherUtil" ];
 
 const Cc = Components.classes;
 const Ci = Components.interfaces;
+const Cu = Components.utils;
 const kPropBundleURI = "chrome://torlauncher/locale/torlauncher.properties";
 const kPropNamePrefix = "torlauncher.";
+
+Cu.import("resource://gre/modules/XPCOMUtils.jsm");
+XPCOMUtils.defineLazyModuleGetter(this, "TorLauncherLogger",
+                          "resource://torlauncher/modules/tl-logger.jsm");
 
 let TorLauncherUtil =  // Public
 {
   get isMac()
   {
-    return ("Darwin" == TLUtilInternal._OS);
+    return TLUtilInternal._isMac;
   },
 
   get isWindows()
@@ -381,6 +386,163 @@ let TorLauncherUtil =  // Public
 
     return undefined;
   },
+
+  // Returns an nsIFile.
+  // If aTorFileType is "control_socket", aCreate is ignored and there is
+  // no requirement that the socket exist.
+  // For all other file types, null is returned if the file does not exist
+  // and it cannot be created (it will be created if aCreate is true).
+  getTorFile: function(aTorFileType, aCreate)
+  {
+    if (!aTorFileType)
+      return null;
+
+    let isRelativePath = true;
+    let isUserData = (aTorFileType != "tor") &&
+                     (aTorFileType != "torrc-defaults");
+    let isControlSocket = ("control_socket" == aTorFileType);
+    let prefName = "extensions.torlauncher." + aTorFileType + "_path";
+    let path = this.getCharPref(prefName);
+    if (path)
+    {
+      let re = (this.isWindows) ?  /^[A-Za-z]:\\/ : /^\//;
+      isRelativePath = !re.test(path);
+    }
+    else
+    {
+      // Get default path.
+      if (TLUtilInternal._isUserDataOutsideOfAppDir)
+      {
+        // This block is used for the TorBrowser-Data/ case.
+        if (this.isWindows)
+        {
+          if ("tor" == aTorFileType)
+            path = "TorBrowser\\Tor\\tor.exe";
+          else if ("torrc-defaults" == aTorFileType)
+            path = "TorBrowser\\Tor\\torrc-defaults";
+          else if ("torrc" == aTorFileType)
+            path = "Tor\\torrc";
+          else if ("tordatadir" == aTorFileType)
+            path = "Tor";
+        }
+        else if (this.isMac)
+        {
+          if ("tor" == aTorFileType)
+            path = "Contents/Resources/TorBrowser/Tor/tor";
+          else if ("torrc-defaults" == aTorFileType)
+            path = "Contents/Resources/TorBrowser/Tor/torrc-defaults";
+          else if ("torrc" == aTorFileType)
+            path = "Tor/torrc";
+          else if ("tordatadir" == aTorFileType)
+            path = "Tor";
+          else if (isControlSocket)
+            path = "Tor/control.socket";
+        }
+        else // Linux and others.
+        {
+          if ("tor" == aTorFileType)
+            path = "TorBrowser/Tor/tor";
+          else if ("torrc-defaults" == aTorFileType)
+            path = "TorBrowser/Tor/torrc-defaults";
+          else if ("torrc" == aTorFileType)
+            path = "Tor/torrc";
+          else if ("tordatadir" == aTorFileType)
+            path = "Tor";
+          else if (isControlSocket)
+            path = "Tor/control.socket";
+        }
+      }
+      else if (this.isWindows)
+      {
+        // This block is used for the non-TorBrowser-Data/ case.
+        if ("tor" == aTorFileType)
+          path = "Tor\\tor.exe";
+        else if ("torrc-defaults" == aTorFileType)
+          path = "Data\\Tor\\torrc-defaults";
+        else if ("torrc" == aTorFileType)
+          path = "Data\\Tor\\torrc";
+        else if ("tordatadir" == aTorFileType)
+          path = "Data\\Tor";
+      }
+      else // Linux, Mac OS and others.
+      {
+        // This block is also used for the non-TorBrowser-Data/ case.
+        if ("tor" == aTorFileType)
+          path = "Tor/tor";
+        else if ("torrc-defaults" == aTorFileType)
+          path = "Data/Tor/torrc-defaults";
+        else if ("torrc" == aTorFileType)
+          path = "Data/Tor/torrc";
+        else if ("tordatadir" == aTorFileType)
+          path = "Data/Tor";
+        else if (isControlSocket)
+          path = "Data/Tor/control.socket";
+      }
+    }
+
+    if (!path)
+      return null;
+
+    try
+    {
+      let f;
+      if (isRelativePath)
+      {
+        // Turn 'path' into an absolute path.
+        if (TLUtilInternal._isUserDataOutsideOfAppDir)
+        {
+          let baseDir = isUserData ? TLUtilInternal._dataDir
+                                   : TLUtilInternal._appDir;
+          f = baseDir.clone();
+        }
+        else
+        {
+          f = TLUtilInternal._appDir.clone();
+          f.append("TorBrowser");
+        }
+        f.appendRelativePath(path);
+      }
+      else
+      {
+        f = Cc['@mozilla.org/file/local;1'].createInstance(Ci.nsIFile);
+        f.initWithPath(path);
+      }
+
+      if (!f.exists() && !isControlSocket && aCreate)
+      {
+        try
+        {
+          if ("tordatadir" == aTorFileType)
+            f.create(f.DIRECTORY_TYPE, FileUtils.PERMS_DIRECTORY);
+          else
+            f.create(f.NORMAL_FILE_TYPE, FileUtils.PERMS_FILE);
+        }
+        catch (e)
+        {
+          TorLauncherLogger.safelog(4, "unable to create " + f.path + ": ", e);
+          return null;
+        }
+      }
+
+      // If the file exists or the control socket was requested, normalize
+      // the path and return a file object. The control socket will be
+      // created by tor.
+      if (f.exists() || isControlSocket)
+      {
+        try { f.normalize(); } catch(e) {}
+        return f;
+      }
+
+      TorLauncherLogger.log(4, aTorFileType + " file not found: " + f.path);
+    }
+    catch(e)
+    {
+      TorLauncherLogger.safelog(4, "getTorFile " + aTorFileType +
+                                     " failed for " + path + ": ", e);
+    }
+
+    return null;  // File not found or error (logged above).
+  }, // getTorFile()
 };
 
 
@@ -389,9 +551,17 @@ Object.freeze(TorLauncherUtil);
 
 let TLUtilInternal =  // Private
 {
+  kThunderbirdID: "{3550f703-e582-4d05-9a08-453d09bdfdc6}",
+  kInstantbirdID: "{33cb9019-c295-46dd-be21-8c4936574bee}",
+
   mPrefsSvc : null,
   mStringBundle : null,
   mOS : "",
+  // mIsUserDataOutsideOfAppDir is true when TorBrowser-Data is used.
+  mIsUserDataOutsideOfAppDir: undefined, // Boolean (cached; access via
+                                         //   this._isUserDataOutsideOfAppDir)
+  mAppDir: null,        // nsIFile (cached; access via this._appDir)
+  mDataDir: null,       // nsIFile (cached; access via this._dataDir)
 
   _init: function()
   {
@@ -421,6 +591,89 @@ let TLUtilInternal =  // Private
 
     return this.mOS;
   },
+
+  get _isMac()
+  {
+    return ("Darwin" == this._OS);
+  },
+
+  get _isUserDataOutsideOfAppDir()
+  {
+    if (this.mIsUserDataOutsideOfAppDir == undefined)
+    {
+      // Determine if we are using a "side-by-side" data model by checking
+      // whether the user profile is outside of the app directory.
+      try
+      {
+        let ds = Cc["@mozilla.org/file/directory_service;1"]
+                        .getService(Ci.nsIProperties);
+        let profDir = ds.get("ProfD", Ci.nsIFile);
+        this.mIsUserDataOutsideOfAppDir = !this._appDir.contains(profDir);
+      }
+      catch (e)
+      {
+        this.mIsUserDataOutsideOfAppDir = false;
+      }
+    }
+
+    return this.mIsUserDataOutsideOfAppDir;
+  }, // get _isUserDataOutsideOfAppDir
+
+  // Returns an nsIFile that points to the application directory.
+  // May throw.
+  get _appDir()
+  {
+    if (!this.mAppDir)
+    {
+      let topDir = Cc["@mozilla.org/file/directory_service;1"]
+                    .getService(Ci.nsIProperties).get("CurProcD", Ci.nsIFile);
+      let appInfo = Cc["@mozilla.org/xre/app-info;1"]
+                      .getService(Ci.nsIXULAppInfo);
+      // On Linux and Windows, we want to return the Browser/ directory.
+      // Because topDir ("CurProcD") points to Browser/browser on those
+      // platforms, we need to go up one level.
+      // On Mac OS, we want to return the TorBrowser.app/ directory.
+      // Because topDir points to Contents/Resources/browser on Mac OS,
+      // we need to go up 3 levels.
+      let tbbBrowserDepth = (this._isMac) ? 3 : 1;
+      if ((appInfo.ID == this.kThunderbirdID) ||
+          (appInfo.ID == this.kInstantbirdID))
+      {
+        // On Thunderbird/Instantbird, the topDir is the root dir and not
+        // browser/, so we need to iterate one level less than Firefox.
+        --tbbBrowserDepth;
+      }
+
+      while (tbbBrowserDepth > 0)
+      {
+        let didRemove = (topDir.leafName != ".");
+        topDir = topDir.parent;
+        if (didRemove)
+          tbbBrowserDepth--;
+      }
+
+      this.mAppDir = topDir;
+    }
+
+    return this.mAppDir;
+  }, // get _appDir
+
+  // Returns an nsIFile that points to the TorBrowser-Data/ directory.
+  // This function is only used when this._isUserDataOutsideOfAppDir == true.
+  // May throw.
+  get _dataDir()
+  {
+    if (!this.mDataDir)
+    {
+      let ds = Cc["@mozilla.org/file/directory_service;1"]
+                      .getService(Ci.nsIProperties);
+      let profDir = ds.get("ProfD", Ci.nsIFile);
+      this.mDataDir = profDir.parent.parent;
+    }
+
+    return this.mDataDir;
+  }, // get _dataDir
+
 };
 
 
