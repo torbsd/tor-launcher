@@ -369,7 +369,7 @@ let TorLauncherUtil =  // Public
 
   // Returns an nsIFile.
   // If aTorFileType is "control_socket", aCreate is ignored and there is
-  // no requirement that the socket exist.
+  // no requirement that the socket exists.
   // For all other file types, null is returned if the file does not exist
   // and it cannot be created (it will be created if aCreate is true).
   getTorFile: function(aTorFileType, aCreate)
