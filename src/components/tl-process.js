@@ -16,8 +16,6 @@ XPCOMUtils.defineLazyModuleGetter(this, "TorLauncherUtil",
                           "resource://torlauncher/modules/tl-util.jsm");
 XPCOMUtils.defineLazyModuleGetter(this, "TorLauncherLogger",
                           "resource://torlauncher/modules/tl-logger.jsm");
-XPCOMUtils.defineLazyModuleGetter(this, "FileUtils",
-                                  "resource://gre/modules/FileUtils.jsm");
 
 function TorProcessService()
 {
