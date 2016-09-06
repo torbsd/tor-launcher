@@ -493,9 +493,9 @@ let TorLauncherUtil =  // Public
         try
         {
           if ("tordatadir" == aTorFileType)
-            f.create(f.DIRECTORY_TYPE, FileUtils.PERMS_DIRECTORY);
+            f.create(f.DIRECTORY_TYPE, 0700);
           else
-            f.create(f.NORMAL_FILE_TYPE, FileUtils.PERMS_FILE);
+            f.create(f.NORMAL_FILE_TYPE, 0600);
         }
         catch (e)
         {
