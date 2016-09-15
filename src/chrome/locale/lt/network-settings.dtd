@@ -20,14 +20,14 @@
 <!ENTITY torSettings.connect "Prisijungti">
 
 <!ENTITY torSettings.proxyPageTitle "Vietinio įgaliotojo serverio konfigūracija">
-<!ENTITY torSettings.proxyQuestion "Ar šis kompiuteris naudoja vietinį proxy prisijungimui prie interneto?">
+<!ENTITY torSettings.proxyQuestion "Ar šis kompiuteris prisijungimui prie interneto naudoja vietinį įgaliotąjį serverį?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyExplanation1 "Daugelyje atveju, vietinis įgaliotasis serveris yra nereikalingas, tačiau jo gali prireikti, jungiantis per kompanijos, mokyklos ar universiteto tinklą.">
+<!ENTITY torSettings.proxyExplanation1 "Daugeliu atveju, vietinis įgaliotasis serveris yra nereikalingas, tačiau jo gali prireikti, jungiantis per kompanijos, mokyklos ar universiteto tinklą.">
 <!ENTITY torSettings.proxyExplanation2 "Jeigu nesate tikri kaip atsakyti į šį klausimą, pažiūrėkite interneto nustatymus kitoje naršyklėje arba patikrinkite savo sistemos tinklo nustatymus, kad pamatytumėte ar vietinis įgaliotasis serveris yra reikalingas.">
-<!ENTITY torSettings.enterProxy "Enter the proxy settings.">
-<!ENTITY torSettings.bridgePageTitle "Tor Bridges Configuration">
+<!ENTITY torSettings.enterProxy "Įrašykite įgaliotojo serverio nustatymus.">
+<!ENTITY torSettings.bridgePageTitle "Tor tiltų konfigūracija">
 <!ENTITY torSettings.bridgeQuestion "Ar jūsų interneto paslaugų tiekėjas (ISP) blokuoja ar kitaip cenzūruoja prisijungimus prie Tor tinklo?">
-<!ENTITY torSettings.bridgeExplanation1 "Jeigu nesate tikri kaip atsakyti į šį klausimą, pasirinkite Ne (jeigu negalite prisijungti prie Tor tinklo be tinklų tilto, jūs galėsite jį pridėti vėliau).">
+<!ENTITY torSettings.bridgeExplanation1 "Jeigu nesate tikri kaip atsakyti į šį klausimą, pasirinkite Ne (jeigu negalėsite prisijungti prie Tor tinklo be tinklų tilto, tuomet galėsite jį pridėti vėliau).">
 <!ENTITY torSettings.bridgeExplanation2 "If you choose Yes, you will be asked to configure Tor Bridges, which are unlisted relays that make it more difficult to block connections to the Tor Network.">
 <!ENTITY torSettings.bridgeSettingsPrompt "You may use the provided set of bridges or you may obtain and enter a custom set of bridges.">
 
@@ -37,15 +37,15 @@
 <!ENTITY torsettings.restartTor "Pakartotinai paleisti Tor">
 <!ENTITY torsettings.reconfigTor "Reconfigure">
 
-<!ENTITY torsettings.discardSettings.prompt "Jūs esate sukofigūravę Tor tinklų tiltus arba esate įvedę vietinio įgaliotojo serverio nustatymus.&#160; Tam, kad galėtumėte tiesiogiai prisijungti prie Tor tinklo, šie nustatymai privalo būti pašalinti.">
+<!ENTITY torsettings.discardSettings.prompt "Jūs esate sukofigūravę Tor tinklų tiltus arba esate įrašę vietinio įgaliotojo serverio nustatymus.&#160; Tam, kad galėtumėte tiesiogiai prisijungti prie Tor tinklo, šie nustatymai privalo būti pašalinti.">
 <!ENTITY torsettings.discardSettings.proceed "Šalinti nustatymus ir prisijungti">
 
 <!ENTITY torsettings.optional "Nebūtina">
 
 <!ENTITY torsettings.useProxy.checkbox "Šis kompiuteris turi naudoti vietinį įgaliotąjį serverį, kad gautų prieigą prie internetą.">
-<!ENTITY torsettings.useProxy.type "Proxy tipas:">
+<!ENTITY torsettings.useProxy.type "Įgaliotojo serverio tipas:">
 <!ENTITY torsettings.useProxy.address "Adresas:">
-<!ENTITY torsettings.useProxy.address.placeholder "IP address or hostname">
+<!ENTITY torsettings.useProxy.address.placeholder "IP adresas arba serverio vardas">
 <!ENTITY torsettings.useProxy.port "Prievadas:">
 <!ENTITY torsettings.useProxy.username "Vartotojo vardas:">
 <!ENTITY torsettings.useProxy.password "Slaptažodis:">
@@ -60,7 +60,7 @@
 <!ENTITY torsettings.useBridges.type "Transport type:">
 <!ENTITY torsettings.useBridges.custom "Enter custom bridges">
 <!ENTITY torsettings.useBridges.label "Enter one or more bridge relays (one per line).">
-<!ENTITY torsettings.useBridges.placeholder "type address:port">
+<!ENTITY torsettings.useBridges.placeholder "įrašykite adresą:prievadą">
 
 <!ENTITY torsettings.copyLog "Kopijuoti Tor žurnalą į iškarpinę">
 <!ENTITY torsettings.bridgeHelpTitle "Bridge Relay Help">

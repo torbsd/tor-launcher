@@ -1,8 +1,8 @@
 <!ENTITY torsettings.dialog.title "Подешавања Тор мреже">
 
 <!-- For locale picker: -->
-<!ENTITY torlauncher.localePicker.title "Tor Browser Language">
-<!ENTITY torlauncher.localePicker.prompt "Please select a language.">
+<!ENTITY torlauncher.localePicker.title "Тор језик">
+<!ENTITY torlauncher.localePicker.prompt "Молимо вас одаберите језик.">
 
 <!-- For "first run" wizard: -->
 

@@ -1,8 +1,8 @@
 <!ENTITY torsettings.dialog.title "Tor sare ezarpenak">
 
 <!-- For locale picker: -->
-<!ENTITY torlauncher.localePicker.title "Tor Browser Language">
-<!ENTITY torlauncher.localePicker.prompt "Please select a language.">
+<!ENTITY torlauncher.localePicker.title "Tor nabigatzailearen hizkuntza">
+<!ENTITY torlauncher.localePicker.prompt "Mesedez hautatu ezazu hizkuntz bat.">
 
 <!-- For "first run" wizard: -->
 
@@ -13,13 +13,13 @@
 
 <!ENTITY torSettings.firstQuestion "Hurrengoetako zeinek deskribatzen du zure egoera hobekien?">
 <!ENTITY torSettings.configurePrompt1 "Ordenagailu honen Interneteko konexioa zentsuratuta dago edo proxy batetik igarotzen da.">
-<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings before I connect to the Tor&#160;network.">
+<!ENTITY torSettings.configurePrompt2 "Zubi edo proxy lokalaren ezarpenak konfiguratu behar ditut Tor sarera konektatu baino lehen.">
 <!ENTITY torSettings.configure "Konfiguratu">
-<!ENTITY torSettings.connectPrompt2 "I would like to make a direct connection to the Tor network.">
+<!ENTITY torSettings.connectPrompt2 "Tor sarera zuzenean konektatu nahiko nuke.">
 <!ENTITY torSettings.connectPrompt3 "Hau egoera gehienetan funtzionatuko du.">
 <!ENTITY torSettings.connect "Konektatu">
 
-<!ENTITY torSettings.proxyPageTitle "Local Proxy Configuration">
+<!ENTITY torSettings.proxyPageTitle "Proxy lokalaren konfigurazioa">
 <!ENTITY torSettings.proxyQuestion "Ordenagailu honek Internetera sartzeko proxy lokalen bat erabili behar al du?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
 <!ENTITY torSettings.proxyExplanation1 "In most cases a local proxy is not needed, but it may be required when connecting through a company, school, or university network.">
@@ -35,10 +35,10 @@
 
 <!ENTITY torsettings.startingTor "Tor abiarazi dadin itxaroten...">
 <!ENTITY torsettings.restartTor "Tor berrabiarazi">
-<!ENTITY torsettings.reconfigTor "Reconfigure">
+<!ENTITY torsettings.reconfigTor "Birkonfiguratu">
 
 <!ENTITY torsettings.discardSettings.prompt "You have configured Tor bridges or you have entered local proxy settings.&#160; To make a direct connection to the Tor network, these settings must be removed.">
-<!ENTITY torsettings.discardSettings.proceed "Remove Settings and Connect">
+<!ENTITY torsettings.discardSettings.proceed "Ezarpenak ezabatu eta konektatu">
 
 <!ENTITY torsettings.optional "Hautazkoa">
 
