@@ -1,4 +1,4 @@
 <!ENTITY torprogress.dialog.title "Tor'a statuss">
 <!ENTITY torprogress.openSettings "Atvērt iestatījumus">
 <!ENTITY torprogress.heading "Veido savienojumu ar Tor'a tīklu">
-<!ENTITY torprogress.pleaseWait "Please wait while we establish a connection to the Tor network.&#160; This may take several minutes.">
+<!ENTITY torprogress.pleaseWait "Lūdzu pagaidiet kamēr mēs izveidojam savienojumu ar tīklu Tor.&#160; tam var būt nepieciešamas vairākas minūtes.">

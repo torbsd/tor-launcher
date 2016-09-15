@@ -1,23 +1,23 @@
-<!ENTITY torsettings.dialog.title "Tor Network Settings">
+<!ENTITY torsettings.dialog.title "Tor 네트워크 설정">
 
 <!-- For locale picker: -->
-<!ENTITY torlauncher.localePicker.title "Tor Browser Language">
-<!ENTITY torlauncher.localePicker.prompt "Please select a language.">
+<!ENTITY torlauncher.localePicker.title "Tor 사용 언어">
+<!ENTITY torlauncher.localePicker.prompt "사용할 언어를 설정해주세요.">
 
 <!-- For "first run" wizard: -->
 
-<!ENTITY torsettings.prompt "Before you connect to the Tor network, you need to provide information about this computer's Internet connection.">
+<!ENTITY torsettings.prompt "Tor 네트워크에 접속하기 전, 이 컴퓨터의 인터넷 접속 정보를 제공해 주셔야 합니다.">
 
 <!ENTITY torSettings.yes "네">
 <!ENTITY torSettings.no "아니오">
 
-<!ENTITY torSettings.firstQuestion "Which of the following best describes your situation?">
-<!ENTITY torSettings.configurePrompt1 "This computer's Internet connection is censored or proxied.">
+<!ENTITY torSettings.firstQuestion "무엇이 당신의 상황과 가장 가까운가요?">
+<!ENTITY torSettings.configurePrompt1 "이 컴퓨터의 인터넷 연결은 검열 또는 프록시에 연결되어 있습니다.">
 <!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings before I connect to the Tor&#160;network.">
 <!ENTITY torSettings.configure "Configure">
-<!ENTITY torSettings.connectPrompt2 "I would like to make a direct connection to the Tor network.">
-<!ENTITY torSettings.connectPrompt3 "This will work in most situations.">
-<!ENTITY torSettings.connect "Connect">
+<!ENTITY torSettings.connectPrompt2 "나는 Tor 네트워크와 직접적인 연결을 하고 싶습니다.">
+<!ENTITY torSettings.connectPrompt3 "이것은 대부분의 상황에서 동작할 것입니다.">
+<!ENTITY torSettings.connect "연결">
 
 <!ENTITY torSettings.proxyPageTitle "Local Proxy Configuration">
 <!ENTITY torSettings.proxyQuestion "Does this computer need to use a local proxy to access the Internet?">
@@ -34,7 +34,7 @@
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "Waiting for Tor to start…">
-<!ENTITY torsettings.restartTor "Restart Tor">
+<!ENTITY torsettings.restartTor "Tor 재시작">
 <!ENTITY torsettings.reconfigTor "Reconfigure">
 
 <!ENTITY torsettings.discardSettings.prompt "You have configured Tor bridges or you have entered local proxy settings.&#160; To make a direct connection to the Tor network, these settings must be removed.">
