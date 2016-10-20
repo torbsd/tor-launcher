@@ -330,8 +330,9 @@ TorProcessService.prototype =
       var torrcDefaultsFile =
                     TorLauncherUtil.getTorFile("torrc-defaults", false);
       var hashedPassword = this.mProtocolSvc.TorGetPassword(true);
-      var controlSocketFile = this.mProtocolSvc.TorGetControlSocketFile();
+      var controlIPCFile = this.mProtocolSvc.TorGetControlIPCFile();
       var controlPort = this.mProtocolSvc.TorGetControlPort();
+      var socksPortInfo = this.mProtocolSvc.TorGetSOCKSPortInfo();
 
       var detailsKey;
       if (!exeFile)
@@ -378,16 +379,31 @@ TorProcessService.prototype =
       args.push(hashedPassword);
 
       // Include a ControlPort argument to support switching between
-      // a TCP port and a Unix domain socket.
+      // a TCP port and an IPC port (e.g., a Unix domain socket).
       let controlPortArg;
-      if (controlSocketFile)
-        controlPortArg = "unix:" + controlSocketFile.path;
+      if (controlIPCFile)
+        controlPortArg = this._ipcPortArg(controlIPCFile);
       else if (controlPort)
         controlPortArg = "" + controlPort;
       if (controlPortArg)
       {
         args.push("ControlPort");
         args.push(controlPortArg);
+      }
+
+      // Include a SocksPort argument to support switching between
+      // a TCP port and an IPC port (e.g., a Unix domain socket).
+      if (socksPortInfo)
+      {
+        let socksPortArg = (socksPortInfo.ipcFile)
+                          ? this._ipcPortArg(socksPortInfo.ipcFile)
+                          : socksPortInfo.host + ':' + socksPortInfo.port;
+        let socksPortFlags = TorLauncherUtil.getCharPref(
+                                "extensions.torlauncher.socks_port_flags");
+        if (socksPortFlags)
+          socksPortArg += ' ' + socksPortFlags;
+        args.push("SocksPort");
+        args.push(socksPortArg);
       }
 
       var pid = this._getpid();
@@ -454,6 +470,13 @@ TorProcessService.prototype =
     }
   }, // _startTor()
 
+  // Return a ControlPort or SocksPort argument for aIPCFile (an nsIFile).
+  // The result is unix:/path or unix:"/path with spaces" with appropriate
+  // C-style escaping within the path portion.
+  _ipcPortArg: function(aIPCFile)
+  {
+    return "unix:" + this.mProtocolSvc.TorEscapeString(aIPCFile.path);
+  },
 
   _controlTor: function()
   {
