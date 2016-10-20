@@ -368,8 +368,8 @@ let TorLauncherUtil =  // Public
   },
 
   // Returns an nsIFile.
-  // If aTorFileType is "control_socket", aCreate is ignored and there is
-  // no requirement that the socket exists.
+  // If aTorFileType is "control_ipc" or "socks_ipc", aCreate is ignored
+  // and there is no requirement that the IPC object exists.
   // For all other file types, null is returned if the file does not exist
   // and it cannot be created (it will be created if aCreate is true).
   getTorFile: function(aTorFileType, aCreate)
@@ -380,7 +380,9 @@ let TorLauncherUtil =  // Public
     let isRelativePath = true;
     let isUserData = (aTorFileType != "tor") &&
                      (aTorFileType != "torrc-defaults");
-    let isControlSocket = ("control_socket" == aTorFileType);
+    let isControlIPC = ("control_ipc" == aTorFileType);
+    let isSOCKSIPC = ("socks_ipc" == aTorFileType);
+    let isIPC = isControlIPC || isSOCKSIPC;
     let prefName = "extensions.torlauncher." + aTorFileType + "_path";
     let path = this.getCharPref(prefName);
     if (path)
@@ -415,8 +417,10 @@ let TorLauncherUtil =  // Public
             path = "Tor/torrc";
           else if ("tordatadir" == aTorFileType)
             path = "Tor";
-          else if (isControlSocket)
+          else if (isControlIPC)
             path = "Tor/control.socket";
+          else if (isSOCKSIPC)
+            path = "Tor/socks.socket";
         }
         else // Linux and others.
         {
@@ -428,8 +432,10 @@ let TorLauncherUtil =  // Public
             path = "Tor/torrc";
           else if ("tordatadir" == aTorFileType)
             path = "Tor";
-          else if (isControlSocket)
+          else if (isControlIPC)
             path = "Tor/control.socket";
+          else if (isSOCKSIPC)
+            path = "Tor/socks.socket";
         }
       }
       else if (this.isWindows)
@@ -455,8 +461,10 @@ let TorLauncherUtil =  // Public
           path = "Data/Tor/torrc";
         else if ("tordatadir" == aTorFileType)
           path = "Data/Tor";
-        else if (isControlSocket)
+        else if (isControlIPC)
           path = "Data/Tor/control.socket";
+        else if (isSOCKSIPC)
+          path = "Data/Tor/socks.socket";
       }
     }
 
@@ -488,7 +496,7 @@ let TorLauncherUtil =  // Public
         f.initWithPath(path);
       }
 
-      if (!f.exists() && !isControlSocket && aCreate)
+      if (!f.exists() && !isIPC && aCreate)
       {
         try
         {
@@ -504,10 +512,10 @@ let TorLauncherUtil =  // Public
         }
       }
 
-      // If the file exists or the control socket was requested, normalize
-      // the path and return a file object. The control socket will be
+      // If the file exists or an IPC object was requested, normalize the path
+      // and return a file object. The control and SOCKS IPC objects will be
       // created by tor.
-      if (f.exists() || isControlSocket)
+      if (f.exists() || isIPC)
       {
         try { f.normalize(); } catch(e) {}
         return f;
@@ -518,7 +526,7 @@ let TorLauncherUtil =  // Public
     catch(e)
     {
       TorLauncherLogger.safelog(4, "getTorFile " + aTorFileType +
-                                     " failed for " + path + ": ", e);
+                                   " failed for " + path + ": ", e);
     }
 
     return null;  // File not found or error (logged above).

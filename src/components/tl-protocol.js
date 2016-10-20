@@ -38,10 +38,10 @@ function TorProtocolService()
                 .getService(Ci.nsIEnvironment);
     // Determine how Tor Launcher will connect to the Tor control port.
     // Environment variables get top priority followed by preferences.
-    if (!isWindows && env.exists("TOR_CONTROL_SOCKET"))
+    if (!isWindows && env.exists("TOR_CONTROL_IPC_PATH"))
     {
-      let socketPath = env.get("TOR_CONTROL_SOCKET");
-      this.mControlSocketFile = new FileUtils.File(socketPath);
+      let ipcPath = env.get("TOR_CONTROL_IPC_PATH");
+      this.mControlIPCFile = new FileUtils.File(ipcPath);
     }
     else
     {
@@ -51,13 +51,10 @@ function TorProtocolService()
       if (env.exists("TOR_CONTROL_PORT"))
         this.mControlPort = parseInt(env.get("TOR_CONTROL_PORT"), 10);
 
-      let useSocket = !isWindows && TorLauncherUtil.getBoolPref(
-                      "extensions.torlauncher.control_port_use_socket", true);
-      if (!this.mControlHost && !this.mControlPort && useSocket)
-      {
-        this.mControlSocketFile = TorLauncherUtil.getTorFile("control_socket",
-                                                             false);
-      }
+      let useIPC = !isWindows && TorLauncherUtil.getBoolPref(
+                      "extensions.torlauncher.control_port_use_ipc", true);
+      if (!this.mControlHost && !this.mControlPort && useIPC)
+        this.mControlIPCFile = TorLauncherUtil.getTorFile("control_ipc", false);
       else
       {
         if (!this.mControlHost)
@@ -75,7 +72,9 @@ function TorProtocolService()
 
     // Populate mControlPassword so it is available when starting tor.
     if (env.exists("TOR_CONTROL_PASSWD"))
+    {
       this.mControlPassword = env.get("TOR_CONTROL_PASSWD");
+    }
     else if (env.exists("TOR_CONTROL_COOKIE_AUTH_FILE"))
     {
       // TODO: test this code path (TOR_CONTROL_COOKIE_AUTH_FILE).
@@ -86,6 +85,117 @@ function TorProtocolService()
 
     if (!this.mControlPassword)
       this.mControlPassword = this._generateRandomPassword();
+
+    // Determine what kind of SOCKS port Tor and the browser will use.
+    // On Windows (where Unix domain sockets are not supported), TCP is
+    // always used.
+    //
+    // The following environment variables are supported and take
+    // precedence over preferences:
+    //    TOR_SOCKS_IPC_PATH  (file system path; ignored on Windows)
+    //    TOR_SOCKS_HOST
+    //    TOR_SOCKS_PORT
+    //
+    // The following preferences are consulted:
+    //    network.proxy.socks
+    //    network.proxy.socks_port
+    //    extensions.torlauncher.socks_port_use_ipc (Boolean)
+    //    extensions.torlauncher.socks_ipc_path (file system path)
+    // If extensions.torlauncher.socks_ipc_path is empty, a default
+    // path is used (<tor-data-directory>/socks.socket).
+    //
+    // When using TCP, if a value is not defined via an env variable it is
+    // taken from the corresponding browser preference if possible. The
+    // exceptions are:
+    //   If network.proxy.socks contains a file: URL, a default value of
+    //     "127.0.0.1" is used instead.
+    //   If the network.proxy.socks_port value is 0, a default value of
+    //     9150 is used instead.
+    //
+    // Supported scenarios:
+    // 1. By default, an IPC object at a default path is used.
+    // 2. If extensions.torlauncher.socks_port_use_ipc is set to false,
+    //    a TCP socket at 127.0.0.1:9150 is used, unless different values
+    //    are set in network.proxy.socks and network.proxy.socks_port.
+    // 3. If the TOR_SOCKS_IPC_PATH env var is set, an IPC object at that
+    //    path is used (e.g., a Unix domain socket).
+    // 4. If the TOR_SOCKS_HOST and/or TOR_SOCKS_PORT env vars are set, TCP
+    //    is used. Values not set via env vars will be taken from the
+    //    network.proxy.socks and network.proxy.socks_port prefs as described
+    //    above.
+    // 5. If extensions.torlauncher.socks_port_use_ipc is true and
+    //    extensions.torlauncher.socks_ipc_path is set, an IPC object at
+    //    the specified path is used.
+    // 6. Tor Launcher is disabled. Torbutton will respect the env vars if
+    //    present; if not, the values in network.proxy.socks and
+    //    network.proxy.socks_port are used without modification.
+
+    let useIPC;
+    this.mSOCKSPortInfo = { ipcFile: undefined, host: undefined, port: 0 };
+    if (!isWindows && env.exists("TOR_SOCKS_IPC_PATH"))
+    {
+      let ipcPath = env.get("TOR_SOCKS_IPC_PATH");
+      this.mSOCKSPortInfo.ipcFile = new FileUtils.File(ipcPath);
+      useIPC = true;
+    }
+    else
+    {
+      // Check for TCP host and port environment variables.
+      if (env.exists("TOR_SOCKS_HOST"))
+      {
+        this.mSOCKSPortInfo.host = env.get("TOR_SOCKS_HOST");
+        useIPC = false;
+      }
+      if (env.exists("TOR_SOCKS_PORT"))
+      {
+        this.mSOCKSPortInfo.port = parseInt(env.get("TOR_SOCKS_PORT"), 10);
+        useIPC = false;
+      }
+    }
+
+    if (useIPC === undefined)
+    {
+      useIPC = !isWindows && TorLauncherUtil.getBoolPref(
+                       "extensions.torlauncher.socks_port_use_ipc", true);
+    }
+
+    // Fill in missing SOCKS info from prefs.
+    if (useIPC)
+    {
+      if (!this.mSOCKSPortInfo.ipcFile)
+      {
+        this.mSOCKSPortInfo.ipcFile =
+                            TorLauncherUtil.getTorFile("socks_ipc", false);
+      }
+    }
+    else
+    {
+      if (!this.mSOCKSPortInfo.host)
+      {
+        let socksAddr = TorLauncherUtil.getCharPref("network.proxy.socks",
+                                                    "127.0.0.1");
+        let socksAddrHasHost = (socksAddr && !socksAddr.startsWith("file:"));
+        this.mSOCKSPortInfo.host = socksAddrHasHost ? socksAddr : "127.0.0.1";
+      }
+
+      if (!this.mSOCKSPortInfo.port)
+      {
+        let socksPort = TorLauncherUtil.getIntPref("network.proxy.socks_port",
+                                                   0);
+        this.mSOCKSPortInfo.port = (socksPort != 0) ? socksPort : 9150;
+      }
+    }
+
+    TorLauncherLogger.log(3, "SOCKS port type: " + (useIPC ? "IPC" : "TCP"));
+    if (useIPC)
+    {
+      TorLauncherLogger.log(3, "ipcFile: " + this.mSOCKSPortInfo.ipcFile.path);
+    }
+    else
+    {
+      TorLauncherLogger.log(3, "SOCKS host: " + this.mSOCKSPortInfo.host);
+      TorLauncherLogger.log(3, "SOCKS port: " + this.mSOCKSPortInfo.port);
+    }
   }
   catch(e)
   {
@@ -164,12 +274,12 @@ TorProtocolService.prototype =
   kCmdStatusOK: 250,
   kCmdStatusEventNotification: 650,
 
-  TorGetControlSocketFile: function()
+  TorGetControlIPCFile: function()
   {
-    if (!this.mControlSocketFile)
+    if (!this.mControlIPCFile)
       return undefined;
 
-    return this.mControlSocketFile.clone();
+    return this.mControlIPCFile.clone();
   },
 
   TorGetControlPort: function()
@@ -182,6 +292,18 @@ TorProtocolService.prototype =
   {
     var pw = this.mControlPassword;
     return (aPleaseHash) ? this._hashPassword(pw) : pw;
+  },
+
+  TorGetSOCKSPortInfo: function()
+  {
+    return this.mSOCKSPortInfo;
+  },
+
+  // Escape non-ASCII characters for use within the Tor Control protocol.
+  // Returns a string.
+  TorEscapeString: function(aStr)
+  {
+    return this._strEscape(aStr);
   },
 
   // NOTE: Many Tor protocol functions return a reply object, which is a
@@ -373,11 +495,13 @@ TorProtocolService.prototype =
       else
       {
         token = tokenAndVal.substring(0, idx);
-        var valObj = {};
-        if (!this._strUnescape(tokenAndVal.substring(idx + 1), valObj))
-          continue; // skip this token/value pair.
+        try
+        {
+          val = this._strUnescape(tokenAndVal.substring(idx + 1));
+        } catch (e) {}
 
-        val = valObj.result;
+        if (!val)
+          continue; // skip this token/value pair.
       }
 
       if ("BOOTSTRAP" == token)
@@ -548,8 +672,9 @@ TorProtocolService.prototype =
   mConsoleSvc: null,
   mControlPort: null,
   mControlHost: null,
-  mControlSocketFile: null,   // An nsIFile if using a UNIX domain socket.
+  mControlIPCFile: null,      // An nsIFile if using IPC for control port.
   mControlPassword: null,     // JS string that contains hex-encoded password.
+  mSOCKSPortInfo: null,       // An object that contains ipcFile, host, port.
   mControlConnection: null,   // This is cached and reused.
   mEventMonitorConnection: null,
   mEventMonitorBuffer: null,
@@ -600,27 +725,28 @@ TorProtocolService.prototype =
       let sts = Cc["@mozilla.org/network/socket-transport-service;1"]
                   .getService(Ci.nsISocketTransportService);
       let socket;
-      if (this.mControlSocketFile)
+      if (this.mControlIPCFile)
       {
-        let exists = this.mControlSocketFile.exists();
+        let exists = this.mControlIPCFile.exists();
         if (!exists)
         {
-          TorLauncherLogger.log(5, "Control port socket does not exist: " +
-                                    this.mControlSocketFile.path);
+          TorLauncherLogger.log(5, "Control port IPC object does not exist: " +
+                                    this.mControlIPCFile.path);
         }
         else
         {
-          let isSpecial = this.mControlSocketFile.isSpecial();
+          let isSpecial = this.mControlIPCFile.isSpecial();
           if (!isSpecial)
           {
-            TorLauncherLogger.log(5, "Control port socket is not a socket: " +
-                                  this.mControlSocketFile.path);
+            TorLauncherLogger.log(5,
+                          "Control port IPC object is not a special file: " +
+                          this.mControlIPCFile.path);
           }
           else
           {
-            TorLauncherLogger.log(2, "Opening control connection to socket " +
-                                  this.mControlSocketFile.path);
-            socket = sts.createUnixDomainTransport(this.mControlSocketFile);
+            TorLauncherLogger.log(2, "Opening control connection to " +
+                                  this.mControlIPCFile.path);
+            socket = sts.createUnixDomainTransport(this.mControlIPCFile);
           }
         }
       }
@@ -855,14 +981,16 @@ TorProtocolService.prototype =
       }
       else
       {
-        var valObj = {};
-        if (!this._strUnescape(line.substring(prefixLen), valObj))
+        try
         {
-          TorLauncherLogger.safelog(4, "Invalid string within " + aCmd +
+          let s = this._strUnescape(line.substring(prefixLen));
+          tmpArray.push(s);
+        }
+        catch (e)
+        {
+          TorLauncherLogger.safelog(4, e + " within " + aCmd +
                                          " response: ", line);
         }
-        else
-          tmpArray.push(valObj.result);
       }
     }
 
@@ -954,25 +1082,20 @@ TorProtocolService.prototype =
 
   // Unescape Tor Control string aStr (removing surrounding "" and \ escapes).
   // Based on Vidalia's src/common/stringutil.cpp:string_unescape().
-  // Returns true if successful and sets aResultObj.result.
-  _strUnescape: function(aStr, aResultObj)
+  // Returns the unescaped string. Throws upon failure.
+  // Within Torbutton, the file modules/utils.js also contains a copy of
+  // _strUnescape().
+  _strUnescape: function(aStr)
   {
-    if (!aResultObj)
-      return false;
-
     if (!aStr)
-    {
-      aResultObj.result = aStr;
-      return true;
-    }
+      return aStr;
 
     var len = aStr.length;
     if ((len < 2) || ('"' != aStr.charAt(0)) || ('"' != aStr.charAt(len - 1)))
-    {
-      aResultObj.result = aStr;
-      return true;
-    }
+      return aStr;
 
+    const kHexRE = /[0-9A-Fa-f]{2}/;
+    const kOctalRE = /[0-7]{3}/;
     var rv = "";
     var i = 1;
     var lastCharIndex = len - 2;
@@ -982,7 +1105,7 @@ TorProtocolService.prototype =
       if ('\\' == c)
       {
         if (++i > lastCharIndex)
-          return false; // error: \ without next character.
+          throw new Error("missing character after \\");
 
         c = aStr.charAt(i);
         if ('n' == c)
@@ -994,24 +1117,26 @@ TorProtocolService.prototype =
         else if ('x' == c)
         {
           if ((i + 2) > lastCharIndex)
-            return false; // error: not enough hex characters.
+            throw new Error("not enough hex characters");
 
-          var val = parseInt(aStr.substr(i, 2), 16);
-          if (isNaN(val))
-            return false; // error: invalid hex characters.
+          let s = aStr.substr(i + 1, 2);
+          if (!kHexRE.test(s))
+            throw new Error("invalid hex character");
 
+          let val = parseInt(s, 16);
           rv += String.fromCharCode(val);
-          i += 2;
+          i += 3;
         }
         else if (this._isDigit(c))
         {
-          if ((i + 3) > lastCharIndex)
-            return false; // error: not enough octal characters.
+          let s = aStr.substr(i, 3);
+          if ((i + 2) > lastCharIndex)
+            throw new Error("not enough octal characters");
 
-          var val = parseInt(aStr.substr(i, 3), 8);
-          if (isNaN(val))
-            return false; // error: invalid octal characters.
+          if (!kOctalRE.test(s))
+            throw new Error("invalid octal character");
 
+          let val = parseInt(s, 8);
           rv += String.fromCharCode(val);
           i += 3;
         }
@@ -1022,7 +1147,7 @@ TorProtocolService.prototype =
         }
       }
       else if ('"' == c)
-        return false; // error: unescaped double quote in middle of string.
+        throw new Error("unescaped \" within string");
       else
       {
         rv += c;
@@ -1031,10 +1156,7 @@ TorProtocolService.prototype =
     }
 
     // Convert from UTF-8 to Unicode. TODO: is UTF-8 always used in protocol?
-    rv = decodeURIComponent(escape(rv));
-
-    aResultObj.result = rv;
-    return true;
+    return decodeURIComponent(escape(rv));
   }, // _strUnescape()
 
   // Returns a random 16 character password, hex-encoded.
@@ -1188,6 +1310,8 @@ TorProtocolService.prototype =
     return rv;
   },
 
+  // Within Torbutton, the file modules/utils.js also contains a copy of
+  // _isDigit().
   _isDigit: function(aChar)
   {
     const kRE = /^\d$/;
