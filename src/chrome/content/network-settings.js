@@ -1209,10 +1209,21 @@ function useSettings()
 {
   var settings = {};
   settings[kTorConfKeyDisableNetwork] = false;
-  setConfAndReportErrors(settings, null);
+  let didApply = setConfAndReportErrors(settings, null);
+  if (!didApply)
+    return;
 
   gProtocolSvc.TorSendCommand("SAVECONF");
   gTorProcessService.TorClearBootstrapError();
+
+  // If we are not responsible for starting tor we do not monitor bootstrap
+  // status, so just close this dialog and return rather than opening the
+  // progress dialog (which will make no progress).
+  if (!TorLauncherUtil.shouldStartAndOwnTor)
+  {
+    close();
+    return;
+  }
 
   gIsBootstrapComplete = gTorProcessService.TorIsBootstrapDone;
   if (!gIsBootstrapComplete)
