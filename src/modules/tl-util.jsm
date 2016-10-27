@@ -251,6 +251,14 @@ let TorLauncherUtil =  // Public
     } catch (e) {}
   },
 
+  clearUserPref: function(aPrefName)
+  {
+    try
+    {
+      TLUtilInternal.mPrefsSvc.clearUserPref(aPrefName);
+    } catch (e) {}
+  },
+
   // Currently, this returns a random permutation of an array, bridgeArray.
   // Later, we might want to change this function to weight based on the
   // bridges' bandwidths.
@@ -397,22 +405,97 @@ let TorLauncherUtil =  // Public
     if (!aTorFileType)
       return null;
 
-    let isRelativePath = true;
+    let torFile;  // an nsIFile to be returned
+    let path;     // a relative or absolute path that will determine torFile
+
+    let isRelativePath = false;
     let isUserData = (aTorFileType != "tor") &&
                      (aTorFileType != "torrc-defaults");
     let isControlIPC = ("control_ipc" == aTorFileType);
     let isSOCKSIPC = ("socks_ipc" == aTorFileType);
     let isIPC = isControlIPC || isSOCKSIPC;
+    let checkIPCPathLen = true;
+
+    const kControlIPCFileName = "control.socket";
+    const kSOCKSIPCFileName = "socks.socket";
+    let extraIPCPathLen = (isSOCKSIPC) ? 2 : 0;
+    let ipcFileName;
+    if (isControlIPC)
+      ipcFileName = kControlIPCFileName;
+    else if (isSOCKSIPC)
+      ipcFileName = kSOCKSIPCFileName;
+
+    // If this is the first request for an IPC path during this browser
+    // session, remove the old temporary directory. This helps to keep /tmp
+    // clean if the browser crashes or is killed.
+    let ipcDirPath;
+    if (isIPC && TLUtilInternal.mIsFirstIPCPathRequest)
+    {
+      this.cleanupTempDirectories();
+      TLUtilInternal.mIsFirstIPCPathRequest = false;
+    }
+    else
+    {
+      // Retrieve path for IPC objects (it may have already been determined).
+      ipcDirPath = this.getCharPref(TLUtilInternal.kIPCDirPrefName);
+    }
+
+    // First, check the _path preference for this file type.
     let prefName = "extensions.torlauncher." + aTorFileType + "_path";
-    let path = this.getCharPref(prefName);
+    path = this.getCharPref(prefName);
     if (path)
     {
       let re = (this.isWindows) ?  /^[A-Za-z]:\\/ : /^\//;
       isRelativePath = !re.test(path);
+      checkIPCPathLen = false; // always try to use path if provided in pref
     }
-    else
+    else if (isIPC)
     {
-      // Get default path.
+      if (ipcDirPath)
+      {
+        // We have already determined where IPC objects will be placed.
+        torFile = Cc['@mozilla.org/file/local;1'].createInstance(Ci.nsIFile);
+        torFile.initWithPath(ipcDirPath);
+        torFile.append(ipcFileName);
+        checkIPCPathLen = false; // already checked.
+      }
+      else
+      {
+        // If XDG_RUNTIME_DIR is set, use it as the base directory for IPC
+        // objects (e.g., Unix domain sockets) -- assuming it is not too long.
+        let env = Cc["@mozilla.org/process/environment;1"]
+                    .getService(Ci.nsIEnvironment);
+        if (env.exists("XDG_RUNTIME_DIR"))
+        {
+          let ipcDir = TLUtilInternal._createUniqueIPCDir(
+                                               env.get("XDG_RUNTIME_DIR"));
+          if (ipcDir)
+          {
+            let f = ipcDir.clone();
+            f.append(ipcFileName);
+            if (TLUtilInternal._isIPCPathLengthOK(f.path, extraIPCPathLen))
+            {
+              torFile = f;
+              checkIPCPathLen = false; // no need to check again.
+
+              // Store directory path so it can be reused for other IPC objects
+              // and so it can be removed during exit.
+              this.setCharPref(TLUtilInternal.kIPCDirPrefName, ipcDir.path);
+            }
+            else
+            {
+              // too long; remove the directory that we just created.
+              ipcDir.remove(false);
+            }
+          }
+        }
+      }
+    }
+
+    if (!path && !torFile)
+    {
+      // No preference and no pre-determined IPC path: use a default path.
+      isRelativePath = true;
       if (TLUtilInternal._isUserDataOutsideOfAppDir)
       {
         // This block is used for the TorBrowser-Data/ case.
@@ -437,10 +520,8 @@ let TorLauncherUtil =  // Public
             path = "Tor/torrc";
           else if ("tordatadir" == aTorFileType)
             path = "Tor";
-          else if (isControlIPC)
-            path = "Tor/control.socket";
-          else if (isSOCKSIPC)
-            path = "Tor/socks.socket";
+          else if (isIPC)
+            path = "Tor/" + ipcFileName;
         }
         else // Linux and others.
         {
@@ -452,10 +533,8 @@ let TorLauncherUtil =  // Public
             path = "Tor/torrc";
           else if ("tordatadir" == aTorFileType)
             path = "Tor";
-          else if (isControlIPC)
-            path = "Tor/control.socket";
-          else if (isSOCKSIPC)
-            path = "Tor/socks.socket";
+          else if (isIPC)
+            path = "Tor/" + ipcFileName;
         }
       }
       else if (this.isWindows)
@@ -481,67 +560,90 @@ let TorLauncherUtil =  // Public
           path = "Data/Tor/torrc";
         else if ("tordatadir" == aTorFileType)
           path = "Data/Tor";
-        else if (isControlIPC)
-          path = "Data/Tor/control.socket";
-        else if (isSOCKSIPC)
-          path = "Data/Tor/socks.socket";
+        else if (isIPC)
+          path = "Data/Tor/" + ipcFileName;
       }
-    }
 
-    if (!path)
-      return null;
+      if (!path)
+        return null;
+    }
 
     try
     {
-      let f;
-      if (isRelativePath)
+      if (path)
       {
-        // Turn 'path' into an absolute path.
-        if (TLUtilInternal._isUserDataOutsideOfAppDir)
+        if (isRelativePath)
         {
-          let baseDir = isUserData ? TLUtilInternal._dataDir
-                                   : TLUtilInternal._appDir;
-          f = baseDir.clone();
+          // Turn 'path' into an absolute path.
+          if (TLUtilInternal._isUserDataOutsideOfAppDir)
+          {
+            let baseDir = isUserData ? TLUtilInternal._dataDir
+                                     : TLUtilInternal._appDir;
+            torFile = baseDir.clone();
+          }
+          else
+          {
+            torFile = TLUtilInternal._appDir.clone();
+            torFile.append("TorBrowser");
+          }
+          torFile.appendRelativePath(path);
         }
         else
         {
-          f = TLUtilInternal._appDir.clone();
-          f.append("TorBrowser");
+          torFile = Cc['@mozilla.org/file/local;1'].createInstance(Ci.nsIFile);
+          torFile.initWithPath(path);
         }
-        f.appendRelativePath(path);
-      }
-      else
-      {
-        f = Cc['@mozilla.org/file/local;1'].createInstance(Ci.nsIFile);
-        f.initWithPath(path);
-      }
 
-      if (!f.exists() && !isIPC && aCreate)
-      {
-        try
+        if (!torFile.exists() && !isIPC && aCreate)
         {
-          if ("tordatadir" == aTorFileType)
-            f.create(f.DIRECTORY_TYPE, 0700);
-          else
-            f.create(f.NORMAL_FILE_TYPE, 0600);
-        }
-        catch (e)
-        {
-          TorLauncherLogger.safelog(4, "unable to create " + f.path + ": ", e);
-          return null;
+          try
+          {
+            if ("tordatadir" == aTorFileType)
+              torFile.create(torFile.DIRECTORY_TYPE, 0700);
+            else
+              torFile.create(torFile.NORMAL_FILE_TYPE, 0600);
+          }
+          catch (e)
+          {
+            TorLauncherLogger.safelog(4,
+                                "unable to create " + torFile.path + ": ", e);
+            return null;
+          }
         }
       }
 
       // If the file exists or an IPC object was requested, normalize the path
       // and return a file object. The control and SOCKS IPC objects will be
       // created by tor.
-      if (f.exists() || isIPC)
+      if (torFile.exists() || isIPC)
       {
-        try { f.normalize(); } catch(e) {}
-        return f;
+        try { torFile.normalize(); } catch(e) {}
+
+        // Ensure that the IPC path length is short enough for use by the
+        // operating system. If not, create and use a unique directory under
+        // /tmp for all IPC objects. The created directory path is stored in
+        // a preference so it can be reused for other IPC objects and so it
+        // can be removed during exit.
+        if (isIPC && checkIPCPathLen &&
+            !TLUtilInternal._isIPCPathLengthOK(torFile.path, extraIPCPathLen))
+        {
+          torFile = TLUtilInternal._createUniqueIPCDir("/tmp");
+          if (!torFile)
+          {
+            TorLauncherLogger.log(4,
+                              "failed to create unique directory under /tmp");
+            return null;
+          }
+
+          this.setCharPref(TLUtilInternal.kIPCDirPrefName, torFile.path);
+          torFile.append(ipcFileName);
+        }
+
+        return torFile;
       }
 
-      TorLauncherLogger.log(4, aTorFileType + " file not found: " + f.path);
+      TorLauncherLogger.log(4, aTorFileType + " file not found: "
+                               + torFile.path);
     }
     catch(e)
     {
@@ -551,6 +653,22 @@ let TorLauncherUtil =  // Public
 
     return null;  // File not found or error (logged above).
   }, // getTorFile()
+
+  cleanupTempDirectories: function()
+  {
+    try
+    {
+      let dirPath = this.getCharPref(TLUtilInternal.kIPCDirPrefName);
+      this.clearUserPref(TLUtilInternal.kIPCDirPrefName);
+      if (dirPath)
+      {
+        let f = Cc['@mozilla.org/file/local;1'].createInstance(Ci.nsIFile);
+        f.initWithPath(dirPath);
+        if (f.exists())
+          f.remove(false); // Remove directory if it is empty
+      }
+    } catch(e) {}
+  },
 };
 
 
@@ -561,6 +679,7 @@ let TLUtilInternal =  // Private
 {
   kThunderbirdID: "{3550f703-e582-4d05-9a08-453d09bdfdc6}",
   kInstantbirdID: "{33cb9019-c295-46dd-be21-8c4936574bee}",
+  kIPCDirPrefName: "extensions.torlauncher.tmp_ipc_dir",
 
   mPrefsSvc : null,
   mStringBundle : null,
@@ -570,6 +689,7 @@ let TLUtilInternal =  // Private
                                          //   this._isUserDataOutsideOfAppDir)
   mAppDir: null,        // nsIFile (cached; access via this._appDir)
   mDataDir: null,       // nsIFile (cached; access via this._dataDir)
+  mIsFirstIPCPathRequest : true,
 
   _init: function()
   {
@@ -682,6 +802,38 @@ let TLUtilInternal =  // Private
     return this.mDataDir;
   }, // get _dataDir
 
+  // Return true if aPath is short enough to be used as an IPC object path,
+  // e.g., for a Unix domain socket path. aExtraLen is the "delta" necessary
+  // to accommodate other IPC objects that have longer names; it is used to
+  // account for "control.socket" vs. "socks.socket" (we want to ensure that
+  // all IPC objects are placed in the same parent directory unless the user
+  // has set prefs or env vars to explicitly specify the path for an object).
+  // We enforce a maximum length of 100 because all operating systems allow
+  // at least 100 characters for Unix domain socket paths.
+  _isIPCPathLengthOK: function(aPath, aExtraLen)
+  {
+    const kMaxIPCPathLen = 100;
+    return aPath && ((aPath.length + aExtraLen) <= kMaxIPCPathLen);
+  },
+
+  // Returns an nsIFile or null if a unique directory could not be created.
+  _createUniqueIPCDir: function(aBasePath)
+  {
+    try
+    {
+      let d = Cc['@mozilla.org/file/local;1'].createInstance(Ci.nsIFile);
+      d.initWithPath(aBasePath);
+      d.append("Tor");
+      d.createUnique(Ci.nsIFile.DIRECTORY_TYPE, 0700);
+      return d;
+    }
+    catch (e)
+    {
+      TorLauncherLogger.safelog(4, "_createUniqueIPCDir failed for "
+                                   + aBasePath + ": ", e);
+      return null;
+    }
+  },
 };
 
 

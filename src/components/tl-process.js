@@ -142,7 +142,11 @@ TorProcessService.prototype =
 
       this.mObsSvc.notifyObservers(null, "TorProcessExited", null);
 
-      if (!this.mIsQuitting)
+      if (this.mIsQuitting)
+      {
+        TorLauncherUtil.cleanupTempDirectories();
+      }
+      else
       {
         this.mProtocolSvc.TorCleanupConnection();
 
@@ -395,15 +399,21 @@ TorProcessService.prototype =
       // a TCP port and an IPC port (e.g., a Unix domain socket).
       if (socksPortInfo)
       {
-        let socksPortArg = (socksPortInfo.ipcFile)
-                          ? this._ipcPortArg(socksPortInfo.ipcFile)
-                          : socksPortInfo.host + ':' + socksPortInfo.port;
-        let socksPortFlags = TorLauncherUtil.getCharPref(
-                                "extensions.torlauncher.socks_port_flags");
-        if (socksPortFlags)
-          socksPortArg += ' ' + socksPortFlags;
-        args.push("SocksPort");
-        args.push(socksPortArg);
+        let socksPortArg;
+        if (socksPortInfo.ipcFile)
+          socksPortArg = this._ipcPortArg(socksPortInfo.ipcFile)
+        else if (socksPortInfo.host && (socksPortInfo.port != 0))
+          socksPortArg = socksPortInfo.host + ':' + socksPortInfo.port;
+
+        if (socksPortArg)
+        {
+          let socksPortFlags = TorLauncherUtil.getCharPref(
+                                  "extensions.torlauncher.socks_port_flags");
+          if (socksPortFlags)
+            socksPortArg += ' ' + socksPortFlags;
+          args.push("SocksPort");
+          args.push(socksPortArg);
+        }
       }
 
       var pid = this._getpid();
