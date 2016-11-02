@@ -449,13 +449,18 @@ TorProcessService.prototype =
         args.push("1");
       }
 
+      // Set an environment variable that points to the Tor data directory.
+      // This is used by meek-client-torbrowser to find the location for
+      // the meek browser profile.
+      let env = Cc["@mozilla.org/process/environment;1"]
+                  .getService(Ci.nsIEnvironment);
+      env.set("TOR_BROWSER_TOR_DATA_DIR", dataDir.path);
+
       // On Windows, prepend the Tor program directory to PATH.  This is
       // needed so that pluggable transports can find OpenSSL DLLs, etc.
       // See https://trac.torproject.org/projects/tor/ticket/10845
       if (TorLauncherUtil.isWindows)
       {
-        var env = Cc["@mozilla.org/process/environment;1"]
-                    .getService(Ci.nsIEnvironment);
         var path = exeFile.parent.path;
         if (env.exists("PATH"))
           path += ";" + env.get("PATH");
