@@ -2,19 +2,19 @@
 
 <!-- For locale picker: -->
 <!ENTITY torlauncher.localePicker.title "Tor Browser Language">
-<!ENTITY torlauncher.localePicker.prompt "Please select a language.">
+<!ENTITY torlauncher.localePicker.prompt "โปรดเลือกภาษา">
 
 <!-- For "first run" wizard: -->
 
 <!ENTITY torsettings.prompt "Before you connect to the Tor network, you need to provide information about this computer's Internet connection.">
 
 <!ENTITY torSettings.yes "ใช่">
-<!ENTITY torSettings.no "ไม่ใช่">
+<!ENTITY torSettings.no "ไม่">
 
 <!ENTITY torSettings.firstQuestion "สิ่งต่อไปนี้อันไหนบ้างที่บรรยายลักษณะสถานการณ์ของคุณ">
 <!ENTITY torSettings.configurePrompt1 "การเชื่อมต่ออินเตอร์เน็ตของคอมพิวเตอร์เครื่องนี้ถูกตรวจสอบหรือมีการใช้พร็อกซี่">
 <!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings before I connect to the Tor&#160;network.">
-<!ENTITY torSettings.configure "ปรับแต่ง">
+<!ENTITY torSettings.configure "กำหนดค่า">
 <!ENTITY torSettings.connectPrompt2 "I would like to make a direct connection to the Tor network.">
 <!ENTITY torSettings.connectPrompt3 "นี่จะทำงานในสถานการณ์ส่วนใหญ่">
 <!ENTITY torSettings.connect "เชื่อมต่อ">

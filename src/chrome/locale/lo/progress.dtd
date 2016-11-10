@@ -1,4 +1,4 @@
 <!ENTITY torprogress.dialog.title "ສະຖານະ Tor">
-<!ENTITY torprogress.openSettings "Open Settings">
-<!ENTITY torprogress.heading "Connecting to the Tor network">
-<!ENTITY torprogress.pleaseWait "Please wait while we establish a connection to the Tor network.&#160; This may take several minutes.">
+<!ENTITY torprogress.openSettings "ໄຂການຕັ້ງຄ່າ">
+<!ENTITY torprogress.heading "ກຳລັງເຊື່ອມຕໍ່ເຂົ້າກັບເຄືອຂ່າຍ Tor">
+<!ENTITY torprogress.pleaseWait "ກະລຸນາລໍຖ້າໃນຂະນະທີ່ພວກເຮົາຈັດແຈງການເຊື່ອມຕໍ່ເຂົ້າເຄືອຂ່າຍ Tor.&#160; ອາດຈະໃຊ້ເວລາຫລາຍນາທີ.">

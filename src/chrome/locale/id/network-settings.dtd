@@ -65,7 +65,7 @@
 <!ENTITY torsettings.copyLog "Salin Log Tor Ke Clipboard">
 <!ENTITY torsettings.bridgeHelpTitle "Bantuan Bridge Relay">
 <!ENTITY torsettings.bridgeHelp1 "Jika Anda tidak dapat terhubung ke jaringan Tor, bisa jadi Provider Layanan Internet (ISP) atau lembaga lain yang menghalangi Tor. &#160; Sering kali, Anda dapat mengatasi masalah ini dengan menggunakan Tor Bridges, yang relai terdaftar yang lebih sulit untuk memblokir.">
-<!ENTITY torsettings.bridgeHelp1B "You may use the preconfigured, provided set of bridge addresses or you may obtain a custom set of addresses by using one of these methods:">
+<!ENTITY torsettings.bridgeHelp1B "Anda dapat menggunakan prakonfigurasi, disediakan alamat-alamat jembatan atau anda dapat mendapat barisan khusus dari alamat-alamat dengan menggunakan satu dari metode berikut:">
 <!ENTITY torsettings.bridgeHelp2Heading "Lewat web">
 <!ENTITY torsettings.bridgeHelp2 "Menggunakan applikasi penjelajah interet untuk mengunjungi https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "Melalui Email Autoresponder">
