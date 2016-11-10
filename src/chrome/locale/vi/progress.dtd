@@ -1,4 +1,4 @@
 <!ENTITY torprogress.dialog.title "Trạng thái Tor">
 <!ENTITY torprogress.openSettings "Những cài đặt mở">
-<!ENTITY torprogress.heading "Kết nối với mạng Tor">
-<!ENTITY torprogress.pleaseWait "Vui lòng chờ trong khi chúng tôi thiết lập kết nối tới mạng lưới Tor.&#160; Việc này có thể tốn một vài phút.">
+<!ENTITY torprogress.heading "Đang kết nối với mạng Tor">
+<!ENTITY torprogress.pleaseWait "Vui lòng chờ trong khi chúng tôi thiết lập kết nối tới mạng lưới Tor.&#160; Việc này có thể mất một vài phút.">

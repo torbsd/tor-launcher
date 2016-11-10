@@ -1,48 +1,48 @@
-<!ENTITY torsettings.dialog.title "Cài đặt mạng Tor">
+<!ENTITY torsettings.dialog.title "Những cài đặt của mạng Tor">
 
 <!-- For locale picker: -->
-<!ENTITY torlauncher.localePicker.title "Tor Browser Language">
-<!ENTITY torlauncher.localePicker.prompt "Please select a language.">
+<!ENTITY torlauncher.localePicker.title "Ngôn ngữ Trình duyệt Tor">
+<!ENTITY torlauncher.localePicker.prompt "Vui lòng chọn một ngôn ngữ.">
 
 <!-- For "first run" wizard: -->
 
-<!ENTITY torsettings.prompt "Trước khi kết nối đến mạng lưới Tor, bạn cần phải cung cấp thông tin về kết nối Internet của máy tính này.">
+<!ENTITY torsettings.prompt "Trước khi bạn kết nối với mạng lưới Tor, bạn cần phải cung cấp thông tin về kết nối Internet của máy tính này.">
 
 <!ENTITY torSettings.yes "Có">
 <!ENTITY torSettings.no "Không">
 
-<!ENTITY torSettings.firstQuestion "Những mục này có miêu tả đúng vị trí của bạn không?">
-<!ENTITY torSettings.configurePrompt1 "This computer's Internet connection is censored or proxied.">
-<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings before I connect to the Tor&#160;network.">
+<!ENTITY torSettings.firstQuestion "Những thứ nào dưới đây mô tả đúng nhất về tình huống của bạn?">
+<!ENTITY torSettings.configurePrompt1 "Việc kết nối Internet của máy tính này bị kiểm duyệt và được đại diện.">
+<!ENTITY torSettings.configurePrompt2 "Tôi cần cấu hình cầu nối hoặc những cài đặt đại diện nội bộ trước khi tôi kết nối tới Tor&#160;network.">
 <!ENTITY torSettings.configure "Cấu hình">
-<!ENTITY torSettings.connectPrompt2 "I would like to make a direct connection to the Tor network.">
-<!ENTITY torSettings.connectPrompt3 "This will work in most situations.">
+<!ENTITY torSettings.connectPrompt2 "Tôi muốn tạo kết nối trực tiếp với mạng lưới Tor.">
+<!ENTITY torSettings.connectPrompt3 "Việc này sẽ hoạt động trong hầu hết các tình huống.">
 <!ENTITY torSettings.connect "Kết nối">
 
-<!ENTITY torSettings.proxyPageTitle "Local Proxy Configuration">
-<!ENTITY torSettings.proxyQuestion "Does this computer need to use a local proxy to access the Internet?">
+<!ENTITY torSettings.proxyPageTitle "Cấu hình ủy quyền nội bộ">
+<!ENTITY torSettings.proxyQuestion "Máy tính này có cần sử dụng ủy quyền nội bộ để kết nối Internet?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyExplanation1 "In most cases a local proxy is not needed, but it may be required when connecting through a company, school, or university network.">
-<!ENTITY torSettings.proxyExplanation2 "If you are not sure how to answer this question, look at the Internet settings in another browser or check your system's network settings to see whether a local proxy is needed.">
-<!ENTITY torSettings.enterProxy "Enter the proxy settings.">
-<!ENTITY torSettings.bridgePageTitle "Tor Bridges Configuration">
+<!ENTITY torSettings.proxyExplanation1 "Trong hầu hết các tình huống, một sự ủy quyền nội bộ là không cần thiết, nhưng nó có thể cần thiết khi kết nối thông qua một công ty, trường học, hoặc mạng lưới trường đại học.">
+<!ENTITY torSettings.proxyExplanation2 "Nếu bạn không chắc cách trả lời câu hỏi này, xem cài đặt Internet trong một trình duyệt khác hoặc kiểm tra cài đặt mạng lưới của hệ thống của bạn để xem sự ủy quyền nội bộ có cần thiết không.">
+<!ENTITY torSettings.enterProxy "Nhập những cài đặt ủy quyền.">
+<!ENTITY torSettings.bridgePageTitle "Cấu hình cầu nối Tor">
 <!ENTITY torSettings.bridgeQuestion "Nhà cung cấp dịch vụ (ISP) của bạn có ngăn chặn hoặc kiểm duyệt kết nối đến mạng Tor không?">
-<!ENTITY torSettings.bridgeExplanation1 "If you are not sure how to answer this question, choose No (if you are unable to connect to the Tor network without a bridge, you can add one later).">
-<!ENTITY torSettings.bridgeExplanation2 "If you choose Yes, you will be asked to configure Tor Bridges, which are unlisted relays that make it more difficult to block connections to the Tor Network.">
-<!ENTITY torSettings.bridgeSettingsPrompt "You may use the provided set of bridges or you may obtain and enter a custom set of bridges.">
+<!ENTITY torSettings.bridgeExplanation1 "Nếu bạn không chắc cách trả lời câu hỏi này, chọn Không (nếu bạn không thể kết nối mạng lưới Tor mà không có cầu nối, bạn có thể thêm một cái sau đó).">
+<!ENTITY torSettings.bridgeExplanation2 "Nếu bạn chọn Có, bạn sẽ được hỏi để cấu hình Cầu nối Tor, những sự lặp không được liệt kê mà làm cho khó khăn khi chặn kết nối tới Mạng lưới Tor.">
+<!ENTITY torSettings.bridgeSettingsPrompt "Bạn có thể sử dụng bộ cầu nối đã được cung cấp hoặc bạn có thể lấy và nhập một bộ cầu nối riêng.">
 
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "Chờ đợi để Tor khởi động..">
-<!ENTITY torsettings.restartTor "Restart Tor">
-<!ENTITY torsettings.reconfigTor "Reconfigure">
+<!ENTITY torsettings.restartTor "Khởi động lại Tor">
+<!ENTITY torsettings.reconfigTor "Cấu hình lại">
 
-<!ENTITY torsettings.discardSettings.prompt "You have configured Tor bridges or you have entered local proxy settings.&#160; To make a direct connection to the Tor network, these settings must be removed.">
-<!ENTITY torsettings.discardSettings.proceed "Remove Settings and Connect">
+<!ENTITY torsettings.discardSettings.prompt "Bạn phải cấu hình cầu nối Tor hoặc bạn phải nhập cài đặt ủy quyền nội bộ.&#160; Để tạo một kết nối trực tiếp tới mạng lưới Tor, những cài đặt này phải được loại bỏ.">
+<!ENTITY torsettings.discardSettings.proceed "Loại bỏ những cài đặt và kết nối">
 
 <!ENTITY torsettings.optional "Tuỳ chọn">
 
-<!ENTITY torsettings.useProxy.checkbox "This computer needs to use a local proxy to access the Internet">
+<!ENTITY torsettings.useProxy.checkbox "Máy tính này cần sử dụng một ủy quyền nội bộ để truy cập Internet">
 <!ENTITY torsettings.useProxy.type "Dạng proxy:">
 <!ENTITY torsettings.useProxy.address "Địa chỉ:">
 <!ENTITY torsettings.useProxy.address.placeholder "Địa chỉ IP hoặc hostname">
@@ -52,24 +52,24 @@
 <!ENTITY torsettings.useProxy.type.socks4 "SOCK 4">
 <!ENTITY torsettings.useProxy.type.socks5 "SOCK 5">
 <!ENTITY torsettings.useProxy.type.http "HTTP / HTTPS">
-<!ENTITY torsettings.firewall.checkbox "This computer goes through a firewall that only allows connections to certain ports">
+<!ENTITY torsettings.firewall.checkbox "Máy tính này đi qua một tường lửa mà chỉ cho phép tới một vài cổng">
 <!ENTITY torsettings.firewall.allowedPorts "Những Cổng Được phép:">
 <!ENTITY torsettings.useBridges.checkbox "Nhà cung cấp dịch vụ của tôi (ISP) đã chặn kết nối đến mạng Tor">
 <!ENTITY torsettings.useBridges.default "Kết nối với những cầu được cung cấp">
-<!ENTITY torsettings.useBridges.note "Each type of bridge uses a different method to avoid censorship.&#160; If one bridge does not work, try again using a different one.">
+<!ENTITY torsettings.useBridges.note "Mỗi loại cầu nối sử dụng một phương pháp khác nhau để tránh việc kiểm duyệt.&#160; Nếu một cầu nối không hoạt động, thử lại bằng một cái khác.">
 <!ENTITY torsettings.useBridges.type "Loại hình vận chuyển:">
 <!ENTITY torsettings.useBridges.custom "Nhập những cầu quen thuộc">
-<!ENTITY torsettings.useBridges.label "Enter one or more bridge relays (one per line).">
-<!ENTITY torsettings.useBridges.placeholder "type address:port">
+<!ENTITY torsettings.useBridges.label "Nhập một hoăc nhiều hơn những tiếp sức cầu nối (một cái trên mỗi dòng).">
+<!ENTITY torsettings.useBridges.placeholder "nhập address:port">
 
-<!ENTITY torsettings.copyLog "Copy Tor Log To Clipboard">
-<!ENTITY torsettings.bridgeHelpTitle "Bridge Relay Help">
+<!ENTITY torsettings.copyLog "Chép nhật ký của Tor vào Clipboard">
+<!ENTITY torsettings.bridgeHelpTitle "Giúp đỡ về Tiếp sức cầu nối">
 <!ENTITY torsettings.bridgeHelp1 "Nếu như bạn không thể kết nối đến mạng Tor, có thể là nhà cung cấp dịch vụ của bạn (ISP) hoặc cơ quan khác đã chặn kết nối đến Tor. Thông thường, bạn có thể giải quyết vấn này bằng cách sử dụng Tor Bridges, các Tor Bridges này sẽ không được liệt kê để làm cho việc ngăn chặn khó khăn hơn.">
-<!ENTITY torsettings.bridgeHelp1B "You may use the preconfigured, provided set of bridge addresses or you may obtain a custom set of addresses by using one of these methods:">
+<!ENTITY torsettings.bridgeHelp1B "Bạn có thể sử dụng bộ cầu nối đã được cấu hình trước, được cung cấp hoặc bạn có thể lấy một bộ địa chỉ riêng bằng cách sử dụng một trong những phương pháp:">
 <!ENTITY torsettings.bridgeHelp2Heading "Đi qua Web">
 <!ENTITY torsettings.bridgeHelp2 "Sử dụng trình duyệt web truy cập vào https://bridges.torproject.org">
-<!ENTITY torsettings.bridgeHelp3Heading "Through the Email Autoresponder">
-<!ENTITY torsettings.bridgeHelp3.emailDesc "Send email to bridges@torproject.org with the line 'get bridges' by itself in the body of the message.&#160; However, to make it harder for an attacker to learn a lot of bridge addresses, you must send this request from one of the following email providers (listed in order of preference):">
+<!ENTITY torsettings.bridgeHelp3Heading "Thông qua Hệ thống tự động trả lời email">
+<!ENTITY torsettings.bridgeHelp3.emailDesc "Gửi email tới bridges@torproject.org với dòng 'get bridges' bởi bản thân nó trong phần thân thông điệp.&#160; Tuy nhiên, để làm khó hơn cho một kẻ tấn công có thể hiểu nhiều về địa chỉ cầu nối, bạn phải gửi yêu cầu này từ một trong những nhà cung cấp email dưới đây (được liệt kê theo sự ưa thích):">
 <!ENTITY torsettings.bridgeHelp3.emailList "https://www.riseup.net, https://mail.google.com, or https://mail.yahoo.com">
-<!ENTITY torsettings.bridgeHelp4Heading "Through the Help Desk">
-<!ENTITY torsettings.bridgeHelp4 "As a last resort, you can request bridge addresses by sending a polite email message to help@rt.torproject.org.&#160; Please note that a person will need to respond to each request.">
+<!ENTITY torsettings.bridgeHelp4Heading "Thông qua Help Desk">
+<!ENTITY torsettings.bridgeHelp4 "Như là phương thức cuối cùng, bạn có thể yêu cầu địa chỉ cầu nối bằng cách gửi một email lịch sự tới help@rt.torproject.org.&#160; Vui lòng lưu ý rằng một người cần phải phản hồi tới từng yêu cầu.">

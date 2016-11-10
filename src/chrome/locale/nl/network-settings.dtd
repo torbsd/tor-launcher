@@ -1,7 +1,7 @@
 <!ENTITY torsettings.dialog.title "Tor netwerkinstellingen">
 
 <!-- For locale picker: -->
-<!ENTITY torlauncher.localePicker.title "Tor Browser Taal">
+<!ENTITY torlauncher.localePicker.title "Tor-browsertaal">
 <!ENTITY torlauncher.localePicker.prompt "Selecteer een taal.">
 
 <!-- For "first run" wizard: -->
@@ -38,9 +38,9 @@
 <!ENTITY torsettings.reconfigTor "Herconfigureer">
 
 <!ENTITY torsettings.discardSettings.prompt "Je hebt Tor bridges geconfigureerd of je hebt lokale proxy-instellingen ingevuld.&#160; Om een directe verbinding tot het Tor netwerk te kunnen maken, moet je deze instellingen verwijderen.">
-<!ENTITY torsettings.discardSettings.proceed "Instellingen Verwijderen en Verbinden">
+<!ENTITY torsettings.discardSettings.proceed "Instellingen verwijderen en verbinden">
 
-<!ENTITY torsettings.optional "Facultatief">
+<!ENTITY torsettings.optional "Optioneel">
 
 <!ENTITY torsettings.useProxy.checkbox "Deze computer heeft een lokale proxy nodig om toegang te krijgen tot het internet">
 <!ENTITY torsettings.useProxy.type "Proxytype:">
