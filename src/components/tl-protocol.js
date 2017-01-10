@@ -17,8 +17,6 @@ XPCOMUtils.defineLazyModuleGetter(this, "TorLauncherUtil",
                           "resource://torlauncher/modules/tl-util.jsm");
 XPCOMUtils.defineLazyModuleGetter(this, "TorLauncherLogger",
                           "resource://torlauncher/modules/tl-logger.jsm");
-XPCOMUtils.defineLazyModuleGetter(this, "FileUtils",
-                                  "resource://gre/modules/FileUtils.jsm");
 
 
 function TorProtocolService()
@@ -33,48 +31,28 @@ function TorProtocolService()
 
   try
   {
-    let isWindows = TorLauncherUtil.isWindows;
-    let env = Cc["@mozilla.org/process/environment;1"]
+    var env = Cc["@mozilla.org/process/environment;1"]
                 .getService(Ci.nsIEnvironment);
-    // Determine how Tor Launcher will connect to the Tor control port.
-    // Environment variables get top priority followed by preferences.
-    if (!isWindows && env.exists("TOR_CONTROL_IPC_PATH"))
-    {
-      let ipcPath = env.get("TOR_CONTROL_IPC_PATH");
-      this.mControlIPCFile = new FileUtils.File(ipcPath);
-    }
+
+    if (env.exists("TOR_CONTROL_HOST"))
+      this.mControlHost = env.get("TOR_CONTROL_HOST");
     else
     {
-      // Check for TCP host and port environment variables.
-      if (env.exists("TOR_CONTROL_HOST"))
-        this.mControlHost = env.get("TOR_CONTROL_HOST");
-      if (env.exists("TOR_CONTROL_PORT"))
-        this.mControlPort = parseInt(env.get("TOR_CONTROL_PORT"), 10);
-
-      let useIPC = !isWindows && TorLauncherUtil.getBoolPref(
-                      "extensions.torlauncher.control_port_use_ipc", true);
-      if (!this.mControlHost && !this.mControlPort && useIPC)
-        this.mControlIPCFile = TorLauncherUtil.getTorFile("control_ipc", false);
-      else
-      {
-        if (!this.mControlHost)
-        {
-          this.mControlHost = TorLauncherUtil.getCharPref(
+      this.mControlHost = TorLauncherUtil.getCharPref(
                         "extensions.torlauncher.control_host", "127.0.0.1");
-        }
-        if (!this.mControlPort)
-        {
-          this.mControlPort = TorLauncherUtil.getIntPref(
+    }
+
+    if (env.exists("TOR_CONTROL_PORT"))
+      this.mControlPort = parseInt(env.get("TOR_CONTROL_PORT"), 10);
+    else
+    {
+      this.mControlPort = TorLauncherUtil.getIntPref(
                                "extensions.torlauncher.control_port", 9151);
-        }
-      }
     }
 
     // Populate mControlPassword so it is available when starting tor.
     if (env.exists("TOR_CONTROL_PASSWD"))
-    {
       this.mControlPassword = env.get("TOR_CONTROL_PASSWD");
-    }
     else if (env.exists("TOR_CONTROL_COOKIE_AUTH_FILE"))
     {
       // TODO: test this code path (TOR_CONTROL_COOKIE_AUTH_FILE).
@@ -85,117 +63,6 @@ function TorProtocolService()
 
     if (!this.mControlPassword)
       this.mControlPassword = this._generateRandomPassword();
-
-    // Determine what kind of SOCKS port Tor and the browser will use.
-    // On Windows (where Unix domain sockets are not supported), TCP is
-    // always used.
-    //
-    // The following environment variables are supported and take
-    // precedence over preferences:
-    //    TOR_SOCKS_IPC_PATH  (file system path; ignored on Windows)
-    //    TOR_SOCKS_HOST
-    //    TOR_SOCKS_PORT
-    //
-    // The following preferences are consulted:
-    //    network.proxy.socks
-    //    network.proxy.socks_port
-    //    extensions.torlauncher.socks_port_use_ipc (Boolean)
-    //    extensions.torlauncher.socks_ipc_path (file system path)
-    // If extensions.torlauncher.socks_ipc_path is empty, a default
-    // path is used (<tor-data-directory>/socks.socket).
-    //
-    // When using TCP, if a value is not defined via an env variable it is
-    // taken from the corresponding browser preference if possible. The
-    // exceptions are:
-    //   If network.proxy.socks contains a file: URL, a default value of
-    //     "127.0.0.1" is used instead.
-    //   If the network.proxy.socks_port value is 0, a default value of
-    //     9150 is used instead.
-    //
-    // Supported scenarios:
-    // 1. By default, an IPC object at a default path is used.
-    // 2. If extensions.torlauncher.socks_port_use_ipc is set to false,
-    //    a TCP socket at 127.0.0.1:9150 is used, unless different values
-    //    are set in network.proxy.socks and network.proxy.socks_port.
-    // 3. If the TOR_SOCKS_IPC_PATH env var is set, an IPC object at that
-    //    path is used (e.g., a Unix domain socket).
-    // 4. If the TOR_SOCKS_HOST and/or TOR_SOCKS_PORT env vars are set, TCP
-    //    is used. Values not set via env vars will be taken from the
-    //    network.proxy.socks and network.proxy.socks_port prefs as described
-    //    above.
-    // 5. If extensions.torlauncher.socks_port_use_ipc is true and
-    //    extensions.torlauncher.socks_ipc_path is set, an IPC object at
-    //    the specified path is used.
-    // 6. Tor Launcher is disabled. Torbutton will respect the env vars if
-    //    present; if not, the values in network.proxy.socks and
-    //    network.proxy.socks_port are used without modification.
-
-    let useIPC;
-    this.mSOCKSPortInfo = { ipcFile: undefined, host: undefined, port: 0 };
-    if (!isWindows && env.exists("TOR_SOCKS_IPC_PATH"))
-    {
-      let ipcPath = env.get("TOR_SOCKS_IPC_PATH");
-      this.mSOCKSPortInfo.ipcFile = new FileUtils.File(ipcPath);
-      useIPC = true;
-    }
-    else
-    {
-      // Check for TCP host and port environment variables.
-      if (env.exists("TOR_SOCKS_HOST"))
-      {
-        this.mSOCKSPortInfo.host = env.get("TOR_SOCKS_HOST");
-        useIPC = false;
-      }
-      if (env.exists("TOR_SOCKS_PORT"))
-      {
-        this.mSOCKSPortInfo.port = parseInt(env.get("TOR_SOCKS_PORT"), 10);
-        useIPC = false;
-      }
-    }
-
-    if (useIPC === undefined)
-    {
-      useIPC = !isWindows && TorLauncherUtil.getBoolPref(
-                       "extensions.torlauncher.socks_port_use_ipc", true);
-    }
-
-    // Fill in missing SOCKS info from prefs.
-    if (useIPC)
-    {
-      if (!this.mSOCKSPortInfo.ipcFile)
-      {
-        this.mSOCKSPortInfo.ipcFile =
-                            TorLauncherUtil.getTorFile("socks_ipc", false);
-      }
-    }
-    else
-    {
-      if (!this.mSOCKSPortInfo.host)
-      {
-        let socksAddr = TorLauncherUtil.getCharPref("network.proxy.socks",
-                                                    "127.0.0.1");
-        let socksAddrHasHost = (socksAddr && !socksAddr.startsWith("file:"));
-        this.mSOCKSPortInfo.host = socksAddrHasHost ? socksAddr : "127.0.0.1";
-      }
-
-      if (!this.mSOCKSPortInfo.port)
-      {
-        let socksPort = TorLauncherUtil.getIntPref("network.proxy.socks_port",
-                                                   0);
-        this.mSOCKSPortInfo.port = (socksPort != 0) ? socksPort : 9150;
-      }
-    }
-
-    TorLauncherLogger.log(3, "SOCKS port type: " + (useIPC ? "IPC" : "TCP"));
-    if (useIPC)
-    {
-      TorLauncherLogger.log(3, "ipcFile: " + this.mSOCKSPortInfo.ipcFile.path);
-    }
-    else
-    {
-      TorLauncherLogger.log(3, "SOCKS host: " + this.mSOCKSPortInfo.host);
-      TorLauncherLogger.log(3, "SOCKS port: " + this.mSOCKSPortInfo.port);
-    }
   }
   catch(e)
   {
@@ -274,36 +141,11 @@ TorProtocolService.prototype =
   kCmdStatusOK: 250,
   kCmdStatusEventNotification: 650,
 
-  TorGetControlIPCFile: function()
-  {
-    if (!this.mControlIPCFile)
-      return undefined;
-
-    return this.mControlIPCFile.clone();
-  },
-
-  TorGetControlPort: function()
-  {
-    return this.mControlPort;
-  },
-
   // Returns Tor password string or null if an error occurs.
   TorGetPassword: function(aPleaseHash)
   {
     var pw = this.mControlPassword;
     return (aPleaseHash) ? this._hashPassword(pw) : pw;
-  },
-
-  TorGetSOCKSPortInfo: function()
-  {
-    return this.mSOCKSPortInfo;
-  },
-
-  // Escape non-ASCII characters for use within the Tor Control protocol.
-  // Returns a string.
-  TorEscapeString: function(aStr)
-  {
-    return this._strEscape(aStr);
   },
 
   // NOTE: Many Tor protocol functions return a reply object, which is a
@@ -672,9 +514,7 @@ TorProtocolService.prototype =
   mConsoleSvc: null,
   mControlPort: null,
   mControlHost: null,
-  mControlIPCFile: null,      // An nsIFile if using IPC for control port.
   mControlPassword: null,     // JS string that contains hex-encoded password.
-  mSOCKSPortInfo: null,       // An object that contains ipcFile, host, port.
   mControlConnection: null,   // This is cached and reused.
   mEventMonitorConnection: null,
   mEventMonitorBuffer: null,
@@ -722,44 +562,12 @@ TorProtocolService.prototype =
     var conn;
     try
     {
-      let sts = Cc["@mozilla.org/network/socket-transport-service;1"]
+      var sts = Cc["@mozilla.org/network/socket-transport-service;1"]
                   .getService(Ci.nsISocketTransportService);
-      let socket;
-      if (this.mControlIPCFile)
-      {
-        let exists = this.mControlIPCFile.exists();
-        if (!exists)
-        {
-          TorLauncherLogger.log(5, "Control port IPC object does not exist: " +
-                                    this.mControlIPCFile.path);
-        }
-        else
-        {
-          let isSpecial = this.mControlIPCFile.isSpecial();
-          if (!isSpecial)
-          {
-            TorLauncherLogger.log(5,
-                          "Control port IPC object is not a special file: " +
-                          this.mControlIPCFile.path);
-          }
-          else
-          {
-            TorLauncherLogger.log(2, "Opening control connection to " +
-                                  this.mControlIPCFile.path);
-            socket = sts.createUnixDomainTransport(this.mControlIPCFile);
-          }
-        }
-      }
-      else
-      {
-        TorLauncherLogger.log(2, "Opening control connection to " +
+      TorLauncherLogger.log(2, "Opening control connection to " +
                                  this.mControlHost + ":" + this.mControlPort);
-        socket = sts.createTransport(null, 0, this.mControlHost,
-                                     this.mControlPort, null);
-      }
-
-      if (!socket)
-        return null;
+      var socket = sts.createTransport(null, 0, this.mControlHost,
+                                       this.mControlPort, null);
 
       // Our event monitor connection is non-blocking and unbuffered (an
       // asyncWait() call is used so we only read data when we know that
