@@ -1,7 +1,7 @@
 <!ENTITY torsettings.dialog.title "ตั้งค่าเครือข่าย Tor">
 
 <!-- For locale picker: -->
-<!ENTITY torlauncher.localePicker.title "Tor Browser Language">
+<!ENTITY torlauncher.localePicker.title "ภาษาของทอร์เบราว์เซอร์">
 <!ENTITY torlauncher.localePicker.prompt "โปรดเลือกภาษา">
 
 <!-- For "first run" wizard: -->
@@ -15,7 +15,7 @@
 <!ENTITY torSettings.configurePrompt1 "การเชื่อมต่ออินเตอร์เน็ตของคอมพิวเตอร์เครื่องนี้ถูกตรวจสอบหรือมีการใช้พร็อกซี่">
 <!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings before I connect to the Tor&#160;network.">
 <!ENTITY torSettings.configure "กำหนดค่า">
-<!ENTITY torSettings.connectPrompt2 "I would like to make a direct connection to the Tor network.">
+<!ENTITY torSettings.connectPrompt2 "ฉันต้องการสร้างการเชื่อมต่อโดยตรงไปยังเครือข่ายทอร์.">
 <!ENTITY torSettings.connectPrompt3 "นี่จะทำงานในสถานการณ์ส่วนใหญ่">
 <!ENTITY torSettings.connect "เชื่อมต่อ">
 
@@ -25,7 +25,7 @@
 <!ENTITY torSettings.proxyExplanation1 "In most cases a local proxy is not needed, but it may be required when connecting through a company, school, or university network.">
 <!ENTITY torSettings.proxyExplanation2 "If you are not sure how to answer this question, look at the Internet settings in another browser or check your system's network settings to see whether a local proxy is needed.">
 <!ENTITY torSettings.enterProxy "ใส่ค่าติดตั้งพร็อกซี">
-<!ENTITY torSettings.bridgePageTitle "Tor Bridges Configuration">
+<!ENTITY torSettings.bridgePageTitle "การตั้งค่า Tor Bridges">
 <!ENTITY torSettings.bridgeQuestion "ผู้ให้บริการอินเตอร์เน็ต (ISP) ของคุณปิดกั้นหรือคัดกรองการเชื่อมต่อไปยังเครือข่าย Tor หรือไม่?">
 <!ENTITY torSettings.bridgeExplanation1 "If you are not sure how to answer this question, choose No (if you are unable to connect to the Tor network without a bridge, you can add one later).">
 <!ENTITY torSettings.bridgeExplanation2 "If you choose Yes, you will be asked to configure Tor Bridges, which are unlisted relays that make it more difficult to block connections to the Tor Network.">
@@ -60,14 +60,14 @@
 <!ENTITY torsettings.useBridges.type "Transport type:">
 <!ENTITY torsettings.useBridges.custom "Enter custom bridges">
 <!ENTITY torsettings.useBridges.label "ใส่สะพานรีเลย์อย่างน้อยหนึ่งอัน (บรรทัดละอัน)">
-<!ENTITY torsettings.useBridges.placeholder "type address:port">
+<!ENTITY torsettings.useBridges.placeholder "พิมพ์ address:port">
 
 <!ENTITY torsettings.copyLog "คัดลอกปูม Tor ไปที่คลิปบอร์ด">
 <!ENTITY torsettings.bridgeHelpTitle "การช่วยเหลือรีเลย์สะพาน">
 <!ENTITY torsettings.bridgeHelp1 "If you are unable to connect to the Tor network, it could be that your Internet Service Provider (ISP) or another agency is blocking Tor.&#160; Often, you can work around this problem by using Tor Bridges, which are unlisted relays that are more difficult to block.">
 <!ENTITY torsettings.bridgeHelp1B "You may use the preconfigured, provided set of bridge addresses or you may obtain a custom set of addresses by using one of these methods:">
-<!ENTITY torsettings.bridgeHelp2Heading "Through the Web">
-<!ENTITY torsettings.bridgeHelp2 "Use a web browser to visit https://bridges.torproject.org">
+<!ENTITY torsettings.bridgeHelp2Heading "ผ่านทางเว็บ">
+<!ENTITY torsettings.bridgeHelp2 "ใช้เว็บเบราว์เซอร์เพื่อเข้าชม https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "Through the Email Autoresponder">
 <!ENTITY torsettings.bridgeHelp3.emailDesc "Send email to bridges@torproject.org with the line 'get bridges' by itself in the body of the message.&#160; However, to make it harder for an attacker to learn a lot of bridge addresses, you must send this request from one of the following email providers (listed in order of preference):">
 <!ENTITY torsettings.bridgeHelp3.emailList "https://www.riseup.net, https://mail.google.com, or https://mail.yahoo.com">

@@ -66,7 +66,7 @@
 <!ENTITY torsettings.bridgeHelpTitle "Bridge Relay Help">
 <!ENTITY torsettings.bridgeHelp1 "If you are unable to connect to the Tor network, it could be that your Internet Service Provider (ISP) or another agency is blocking Tor.&#160; Often, you can work around this problem by using Tor Bridges, which are unlisted relays that are more difficult to block.">
 <!ENTITY torsettings.bridgeHelp1B "You may use the preconfigured, provided set of bridge addresses or you may obtain a custom set of addresses by using one of these methods:">
-<!ENTITY torsettings.bridgeHelp2Heading "Through the Web">
+<!ENTITY torsettings.bridgeHelp2Heading "Gjennom nettet">
 <!ENTITY torsettings.bridgeHelp2 "Nytt ein nettlesar for å vitja https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "Through the Email Autoresponder">
 <!ENTITY torsettings.bridgeHelp3.emailDesc "Send email to bridges@torproject.org with the line 'get bridges' by itself in the body of the message.&#160; However, to make it harder for an attacker to learn a lot of bridge addresses, you must send this request from one of the following email providers (listed in order of preference):">
