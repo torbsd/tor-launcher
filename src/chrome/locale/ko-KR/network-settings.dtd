@@ -13,20 +13,20 @@
 
 <!ENTITY torSettings.firstQuestion "무엇이 당신의 상황과 가장 가까운가요?">
 <!ENTITY torSettings.configurePrompt1 "이 컴퓨터의 인터넷 연결은 검열 또는 프록시에 연결되어 있습니다.">
-<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings before I connect to the Tor&#160;network.">
-<!ENTITY torSettings.configure "Configure">
+<!ENTITY torSettings.configurePrompt2 "저는 &#160;Tor 네트워크에 접속하는 데 브릿지나 로컬 프록시 설정을 필요로 합니다.">
+<!ENTITY torSettings.configure "구성">
 <!ENTITY torSettings.connectPrompt2 "나는 Tor 네트워크와 직접적인 연결을 하고 싶습니다.">
 <!ENTITY torSettings.connectPrompt3 "이것은 대부분의 상황에서 동작할 것입니다.">
 <!ENTITY torSettings.connect "연결">
 
-<!ENTITY torSettings.proxyPageTitle "Local Proxy Configuration">
-<!ENTITY torSettings.proxyQuestion "Does this computer need to use a local proxy to access the Internet?">
+<!ENTITY torSettings.proxyPageTitle "로컬 프록시 구성">
+<!ENTITY torSettings.proxyQuestion "이 컴퓨터로 인터넷에 접근할 때 로컬 프록시를 사용해야 하나요?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyExplanation1 "In most cases a local proxy is not needed, but it may be required when connecting through a company, school, or university network.">
-<!ENTITY torSettings.proxyExplanation2 "If you are not sure how to answer this question, look at the Internet settings in another browser or check your system's network settings to see whether a local proxy is needed.">
-<!ENTITY torSettings.enterProxy "Enter the proxy settings.">
-<!ENTITY torSettings.bridgePageTitle "Tor Bridges Configuration">
-<!ENTITY torSettings.bridgeQuestion "Does your Internet Service Provider (ISP) block or otherwise censor connections to the Tor Network?">
+<!ENTITY torSettings.proxyExplanation1 "당신이 회사, 학교 네트워크에서 접속하지 않는다면, 웬만하면 로컬 프록시는 필요하지 않습니다.">
+<!ENTITY torSettings.proxyExplanation2 "당신이 이에 대해 잘 모른다면, 다른 브라우저의 인터넷 설정이나 시스템 네트워크 설정에서 로컬 프록시가 필요한 지 확인하세요.">
+<!ENTITY torSettings.enterProxy "프록시 정보를 입력하세요.">
+<!ENTITY torSettings.bridgePageTitle "Tor 브릿지 구성">
+<!ENTITY torSettings.bridgeQuestion "당신의 인터넷 서비스 제공자 (ISP)가 Tor 네트워크 연결을 차단 혹은 검열합니까?">
 <!ENTITY torSettings.bridgeExplanation1 "If you are not sure how to answer this question, choose No (if you are unable to connect to the Tor network without a bridge, you can add one later).">
 <!ENTITY torSettings.bridgeExplanation2 "If you choose Yes, you will be asked to configure Tor Bridges, which are unlisted relays that make it more difficult to block connections to the Tor Network.">
 <!ENTITY torSettings.bridgeSettingsPrompt "You may use the provided set of bridges or you may obtain and enter a custom set of bridges.">
