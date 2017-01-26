@@ -1,0 +1,50 @@
+PLEASE NOTE:
+  Tor Launcher is packaged with Tor Browser, Tor Messenger, and
+  other Tor-enabled applications and is designed for those
+  applications. You should not install and try to use it in
+  Mozilla Firefox or another Firefox-based browser.
+
+OVERVIEW
+Tor Launcher is a browser extension that starts the tor process
+(which connects the browser and other applications to the Tor
+Network), and Tor Launcher helps people configure and use Tor. The
+first window that you see when you start Tor Browser is displayed
+by Tor Launcher.
+
+BUG TRACKER
+Tor Launcher bugs and enhancement requests are tracked using the
+Tor Project's Trac system. Open the following link to view a list
+of open tickets:
+  https://trac.torproject.org/projects/tor/query?status=!closed&component=Applications%2FTor+Launcher&order=id
+
+SOURCE CODE
+The main Tor Launcher Git repository may be cloned by using either
+of these URLs:
+  https://git.torproject.org/tor-launcher.git
+  http://dccbbv6cooddgcrq.onion/tor-launcher.git
+
+A browsable view of the code is available via:
+  https://gitweb.torproject.org/tor-launcher.git
+
+The main development branch is master, which is currently used for
+the hardened Tor Browser releases. Maintenance branches are used
+for other product releases; e.g., maint-0.2.10 is a branch that is
+used for releases in the Tor Browser 6.5 series.
+
+BUILDING TOR LAUNCHER
+Official builds of Tor Launcher are done as part of a larger
+application build process. For example, look here for information
+about the Tor Browser build process:
+  https://trac.torproject.org/projects/tor/wiki/doc/TorBrowser/Hacking
+
+If you want to build your own standalone copy of Tor Launcher in
+order to test a translation or code change that you have made, run
+the following command:
+  make package
+
+The resulting xpi file is created in a subdirectory named pkg.
+
+CONTACTING THE DEVELOPERS
+To contact the Tor Launcher developers, use the #tor-dev channel
+on irc.oftc.net or post a message to the tbb-dev mailing list (see
+https://lists.torproject.org/cgi-bin/mailman/listinfo/tbb-dev).
