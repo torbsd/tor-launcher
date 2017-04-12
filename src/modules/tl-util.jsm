@@ -290,7 +290,10 @@ let TorLauncherUtil =  // Public
 
   get shouldPromptForLocale()
   {
-    const kPrefPromptForLocale = "extensions.torlauncher.prompt_for_locale";
+    // We are not supporting locale selection on the alpha/stable channel
+    // right now. Thus, no prompt for the user.
+    return false;
+    /* const kPrefPromptForLocale = "extensions.torlauncher.prompt_for_locale";
     try
     {
       const kEnvSkipLocalePrompt = "TOR_SKIP_LOCALE_PROMPT";
@@ -301,7 +304,7 @@ let TorLauncherUtil =  // Public
         return ("1" != env.get(kEnvSkipLocalePrompt));
     } catch(e) {}
 
-    return this.getBoolPref(kPrefPromptForLocale, true);
+    return this.getBoolPref(kPrefPromptForLocale, true); */
   },
 
   get shouldShowNetworkSettings()
