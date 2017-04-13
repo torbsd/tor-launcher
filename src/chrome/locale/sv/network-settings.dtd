@@ -58,7 +58,7 @@
 <!ENTITY torsettings.useBridges.default "Anslut med tillgängliga bryggor">
 <!ENTITY torsettings.useBridges.note "Varje typ av brygga använder en egen metod för att undvika censur.&#160; Om en brygga inte fungerar, försök igen genom att använda en annan.">
 <!ENTITY torsettings.useBridges.type "Transport-typ:">
-<!ENTITY torsettings.useBridges.custom "Fyll i anpassade bryggor">
+<!ENTITY torsettings.useBridges.custom "Ange egna bryggor">
 <!ENTITY torsettings.useBridges.label "Ange en eller flera Tor-bryggor (en per rad).">
 <!ENTITY torsettings.useBridges.placeholder "typ adress:port">
 

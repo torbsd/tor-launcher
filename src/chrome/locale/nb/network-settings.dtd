@@ -1,7 +1,7 @@
 <!ENTITY torsettings.dialog.title "Nettverksinnstillinger for Tor">
 
 <!-- For locale picker: -->
-<!ENTITY torlauncher.localePicker.title "Språk i Tor-nettleser">
+<!ENTITY torlauncher.localePicker.title "Språk i Tor-nettleseren">
 <!ENTITY torlauncher.localePicker.prompt "Velg språk">
 
 <!-- For "first run" wizard: -->

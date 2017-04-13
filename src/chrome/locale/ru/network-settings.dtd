@@ -1,4 +1,4 @@
-<!ENTITY torsettings.dialog.title "Сетевые настройки Tor">
+<!ENTITY torsettings.dialog.title "Настройки сети Tor">
 
 <!-- For locale picker: -->
 <!ENTITY torlauncher.localePicker.title "Язык браузера Tor">

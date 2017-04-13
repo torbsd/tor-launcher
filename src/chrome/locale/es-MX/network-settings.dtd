@@ -40,7 +40,7 @@
 <!ENTITY torsettings.discardSettings.prompt "Has configurado los puentes Tor o has introducido un proxy local settings.&#160; Para hacer una conexión directa a la red Tor, esta configuración debe removerse. ">
 <!ENTITY torsettings.discardSettings.proceed "Remover configuración y conectarse">
 
-<!ENTITY torsettings.optional "Optional">
+<!ENTITY torsettings.optional "Opcional">
 
 <!ENTITY torsettings.useProxy.checkbox "This computer needs to use a local proxy to access the Internet">
 <!ENTITY torsettings.useProxy.type "Proxy Type:">

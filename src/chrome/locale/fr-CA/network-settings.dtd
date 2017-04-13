@@ -27,7 +27,7 @@
 <!ENTITY torSettings.enterProxy "Saisir les paramètres du serveur mandataire.">
 <!ENTITY torSettings.bridgePageTitle "Configuration des ponts Tor">
 <!ENTITY torSettings.bridgeQuestion "Votre fournisseur d'accès à Internet (FAI) bloque-t-il ou censure-t-il vos connexions au réseau Tor?">
-<!ENTITY torSettings.bridgeExplanation1 "Si vous n'êtes pas certain de savoir comment répondre à cette question, choisissez Non (si vous n'arrivez pas à vous connecter au réseau Tor sans pont, pour pourrez en ajouter un ultérieurement).">
+<!ENTITY torSettings.bridgeExplanation1 "Si vous n'êtes pas certain de savoir comment répondre à cette question, choisissez Non (si vous n'arrivez pas à vous connecter au réseau Tor sans pont, vous pourrez en ajouter un ultérieurement).">
 <!ENTITY torSettings.bridgeExplanation2 "Si vous choisissez Oui, l'on vous demandera de configurer des ponts Tor, qui sont des relais non répertoriés rendant le blocage des connexions au réseau Tor plus difficile.">
 <!ENTITY torSettings.bridgeSettingsPrompt "Vous pouvez utiliser le jeu de ponts fourni ou vous pouvez obtenir et saisir un jeu de ponts personnalisé.">
 
@@ -58,7 +58,7 @@
 <!ENTITY torsettings.useBridges.default "Se connecter avec les ponts fournis">
 <!ENTITY torsettings.useBridges.note "Chaque type de pont utilise une méthode différente pour contourner la censure.&#160; Si un pont ne fonctionne pas, ressayez en utilisant un autre type.">
 <!ENTITY torsettings.useBridges.type "Type de transport :">
-<!ENTITY torsettings.useBridges.custom "Saisir les ponts personnalisés">
+<!ENTITY torsettings.useBridges.custom "Saisir des ponts personnalisés">
 <!ENTITY torsettings.useBridges.label "Saisir un ou plusieurs relais-ponts (un par ligne).">
 <!ENTITY torsettings.useBridges.placeholder "type adresse:port">
 

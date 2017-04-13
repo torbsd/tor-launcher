@@ -65,7 +65,7 @@
 <!ENTITY torsettings.copyLog "点击复制 Tor 日志">
 <!ENTITY torsettings.bridgeHelpTitle "网桥中继帮助">
 <!ENTITY torsettings.bridgeHelp1 "如果 Tor 网络无法连接，可能是因为互联网服务提供商 (ISP) 或其他机构对 Tor 进行了封锁。通常，使用 Tor 网桥可以解决这种问题。网桥指未公开的网络中继，更难于封锁。">
-<!ENTITY torsettings.bridgeHelp1B "您可以使用集成的网桥，也可以以下列方式获取一些网桥并手动输入：">
+<!ENTITY torsettings.bridgeHelp1B "您可以使用预先配置好的默认设置的网桥地址集成，也可以以下列方式获取一些自定的网桥地址：">
 <!ENTITY torsettings.bridgeHelp2Heading "网页方式">
 <!ENTITY torsettings.bridgeHelp2 "使用浏览器访问 https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "电子邮件自动回复方式">

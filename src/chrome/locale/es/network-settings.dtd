@@ -13,9 +13,9 @@
 
 <!ENTITY torSettings.firstQuestion "¿Cuál de las siguientes opciones describe mejor su situación?">
 <!ENTITY torSettings.configurePrompt1 "La conexión a Internet de este equipo está censurada o proxificada.">
-<!ENTITY torSettings.configurePrompt2 "Necesito configurar los ajustes de puente de red o proxy local antes de conectar a la red Tor. ">
+<!ENTITY torSettings.configurePrompt2 "Necesito configurar puentes de red o proxy local antes de conectar a la red Tor. ">
 <!ENTITY torSettings.configure "Configurar">
-<!ENTITY torSettings.connectPrompt2 "Quisiera hacer una conexión directa a la red Tor.">
+<!ENTITY torSettings.connectPrompt2 "Me gustaría conectar directamente a la red Tor.">
 <!ENTITY torSettings.connectPrompt3 "Esto funcionará en la mayoría de las situaciones.">
 <!ENTITY torSettings.connect "Conectar">
 
@@ -23,13 +23,13 @@
 <!ENTITY torSettings.proxyQuestion "¿Necesita mi computadora utilizar un proxy local para acceder a Internet?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
 <!ENTITY torSettings.proxyExplanation1 "En la mayoría de los casos no se requiere un proxy (interpuesto) local, pero puede ser necesario al realizar una conexión a través de una red de empresa, de escuela, o universitaria. ">
-<!ENTITY torSettings.proxyExplanation2 "Si no está seguro de cómo responder a esta pregunta, mire la configuración de Internet en otro navegador o compruebe la configuración de red de su sistema para ver si un proxy local es necesario.">
-<!ENTITY torSettings.enterProxy "Introduzca los ajustes del proxy.">
+<!ENTITY torSettings.proxyExplanation2 "Si no estás seguro de cómo responder a esta pregunta mira la configuración de Internet en otro navegador o comprueba la configuración de red de tu sistema para ver si necesitas un proxy local.">
+<!ENTITY torSettings.enterProxy "Introduce los ajustes del proxy.">
 <!ENTITY torSettings.bridgePageTitle "Configuración de puentes de red Tor">
 <!ENTITY torSettings.bridgeQuestion "Su proveedor de servicios de Internet (ISP) bloquea o censura de alguna forma las conexiones hacia la red Tor?">
-<!ENTITY torSettings.bridgeExplanation1 "Si no está seguro de cómo responder a esta pregunta, elija No (si no puede conectarse a la red Tor sin un puente de red (bridge), puede añadir uno más adelante).">
-<!ENTITY torSettings.bridgeExplanation2 "Si elige Sí, se le pedirá que configure los puentes de red (bridges) de Tor, que son repetidores no listados que dificultan el bloqueo de conexiones hacia la red Tor.">
-<!ENTITY torSettings.bridgeSettingsPrompt "Puede utilizar el conjunto de puentes de red (bridges) proporcionado, o puede obtener e introducir un juego de puentes personalizado.">
+<!ENTITY torSettings.bridgeExplanation1 "Si no estás seguro de cómo responder a esta pregunta elige No (si no puedes conectarte a la red Tor sin un puente de red o bridge, puedes añadir uno más adelante).">
+<!ENTITY torSettings.bridgeExplanation2 "Si eliges Sí se te pedirá que configures los puentes de red (bridges) de Tor, que son repetidores no listados que dificultan el bloqueo de conexiones hacia la red Tor.">
+<!ENTITY torSettings.bridgeSettingsPrompt "Puedes utilizar el grupo de puentes de red (bridges) proporcionado, o puedes obtener e introducir un grupo de puentes propio.">
 
 <!-- Other: -->
 
@@ -37,8 +37,8 @@
 <!ENTITY torsettings.restartTor "Reiniciar Tor">
 <!ENTITY torsettings.reconfigTor "Configurar de nuevo">
 
-<!ENTITY torsettings.discardSettings.prompt "Ha configurado los puentes de red (bridges) de Tor o ha introducido los ajustes para proxy (interpuesto) local.&#160; Para realizar una conexión directa a la red Tor, estos ajustes deben ser borrados.">
-<!ENTITY torsettings.discardSettings.proceed "Eliminar ajustes y conectar">
+<!ENTITY torsettings.discardSettings.prompt "Has configurado los puentes de red (bridges) de Tor o has introducido los ajustes para proxy (interpuesto) local.&#160; Para realizar una conexión directa a la red Tor, estos ajustes se deben borrar.">
+<!ENTITY torsettings.discardSettings.proceed "Elimina ajustes y conecta">
 
 <!ENTITY torsettings.optional "Opcional">
 
@@ -56,7 +56,7 @@
 <!ENTITY torsettings.firewall.allowedPorts "Puertos permitidos:">
 <!ENTITY torsettings.useBridges.checkbox "Mi Proveedor de Servicios de Internet (ISP) bloquea las conexiones a la red Tor">
 <!ENTITY torsettings.useBridges.default "Conectar con los puentes proporcionados">
-<!ENTITY torsettings.useBridges.note "Cada tipo de puente de red  usa un método diferente para evitar la censura.&#160; Si un puente no funciona, inténtelo de nuevo utilizando otro distinto.">
+<!ENTITY torsettings.useBridges.note "Cada tipo de puente de red usa un método diferente para evitar la censura.&#160; Si un puente no funciona, inténtalo de nuevo utilizando otro.">
 <!ENTITY torsettings.useBridges.type "Tipo de transporte:">
 <!ENTITY torsettings.useBridges.custom "Introducir puentes personalizados">
 <!ENTITY torsettings.useBridges.label "Introduzca uno o más repetidores puente(uno por línea).">
@@ -65,12 +65,12 @@
 <!ENTITY torsettings.copyLog "Copiar el registro de mensajes(log) de Tor al portapapeles">
 <!ENTITY torsettings.bridgeHelpTitle "Ayuda de repetidores puente ('bridge relays')">
 <!ENTITY torsettings.bridgeHelp1 "Si no puede conectarse a la red Tor, podría ser que su proveedor de servicios de Internet (ISP) u otra agencia, esté bloqueando Tor.&#160; A menudo, puede evitar este problema usando puentes ('bridges') de Tor, que son repetidores ('relays') de salida de la red Tor que no son públicos, y es más difícil que sean bloqueados.">
-<!ENTITY torsettings.bridgeHelp1B "Puede usar el juego preajustado de direcciones de puentes de red proporcionado, o puede obtener un juego personalizado de direcciones usando uno de estos métodos:">
+<!ENTITY torsettings.bridgeHelp1B "Puedes usar grupo de direcciones de puentes de red proporcionado aquí, o puedes obtener un nuevo grupo de direcciones usando uno de estos métodos:">
 <!ENTITY torsettings.bridgeHelp2Heading "Mediante la web">
 <!ENTITY torsettings.bridgeHelp2 "Use un navegador web para visitar https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "Mediante el correo electrónico automático">
-<!ENTITY torsettings.bridgeHelp3.emailDesc "Envíe un correo electrónico a bridges@torproject.org únicamente con la línea 'get bridges' en el cuerpo del mensaje.&#160; Sin embargo, para ponerle más difícil a un atacante el poder adquirir muchas direcciones de puentes, tiene que enviar esta petición desde uno de los siguientes proveedores de correo electrónico (listados en orden de preferencia):">
+<!ENTITY torsettings.bridgeHelp3.emailDesc "Envía un correo electrónico a bridges@torproject.org únicamente con la línea 'get bridges' en el cuerpo del mensaje.&#160; Para que sea más difícil para un atacante adquirir muchas direcciones de puentes, tienes que enviar esta petición desde uno de los siguientes proveedores de correo electrónico (listados en orden de preferencia):">
 <!ENTITY torsettings.bridgeHelp3.emailList "https://www.riseup.net, https://mail.google.com o https://mail.yahoo.com">
 <!ENTITY torsettings.bridgeHelp4Heading "Mediante el soporte de usuario">
-<!ENTITY torsettings.bridgeHelp4 "Como último recurso, puede pedir direcciones de repetidores puente enviando un cortés mensaje de correo a help@rt.torproject.org .&#160;
-Por favor tenga en cuenta que es una persona la que tendrá que responder a cada petición.">
+<!ENTITY torsettings.bridgeHelp4 "Como último recurso, puedes pedir direcciones de repetidores puente enviando un mensaje de correo amable a help@rt.torproject.org .&#160;
+Por favor ten en cuenta que es una persona la que tendrá que responder a cada petición.">

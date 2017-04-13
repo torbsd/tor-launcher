@@ -22,13 +22,13 @@
 <!ENTITY torSettings.proxyPageTitle "Configuração do Proxy Local">
 <!ENTITY torSettings.proxyQuestion "Este computador precisa de utilizar um proxy para aceder à Internet?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyExplanation1 "In most cases a local proxy is not needed, but it may be required when connecting through a company, school, or university network.">
-<!ENTITY torSettings.proxyExplanation2 "If you are not sure how to answer this question, look at the Internet settings in another browser or check your system's network settings to see whether a local proxy is needed.">
+<!ENTITY torSettings.proxyExplanation1 "Na maioria dos casos não é necessário um proxy local, mas este poderá ser necessário quando ligar através da rede de uma empresa, escola ou universidade.">
+<!ENTITY torSettings.proxyExplanation2 "Se não tem a certeza de como responder a esta pergunta, consulte as definições da Internet noutro navegador ou verifique as definições da rede do seu sistema para verificar se é necessário ou não um proxy local.">
 <!ENTITY torSettings.enterProxy "Insira as definições do proxy.">
 <!ENTITY torSettings.bridgePageTitle "Configuração das Pontes Tor">
 <!ENTITY torSettings.bridgeQuestion "O seu Provedor de Serviços da Internet (ISP) bloqueia ou então censura as ligações à Rede Tor?">
-<!ENTITY torSettings.bridgeExplanation1 "If you are not sure how to answer this question, choose No (if you are unable to connect to the Tor network without a bridge, you can add one later).">
-<!ENTITY torSettings.bridgeExplanation2 "If you choose Yes, you will be asked to configure Tor Bridges, which are unlisted relays that make it more difficult to block connections to the Tor Network.">
+<!ENTITY torSettings.bridgeExplanation1 "Se não tem a certeza sobre como responder a esta pergunta, escolha Não (se não consegue ligar-se à rede Tor sem uma ponte, pode adicionar uma mais tarde).">
+<!ENTITY torSettings.bridgeExplanation2 "Se escolher 'Sim', ser-lhe-á pedido para configurar as Pontes do Tor, que são retransmissões não listadas o que torna mais difícil o bloqueio das ligações à Rede Tor.">
 <!ENTITY torSettings.bridgeSettingsPrompt "Poderá utilizar o conjunto de pontes fornecido ou poderá obter um conjunto de pontes personalizadas.">
 
 <!-- Other: -->
@@ -37,7 +37,7 @@
 <!ENTITY torsettings.restartTor "Reiniciar Tor">
 <!ENTITY torsettings.reconfigTor "Reconfigurar">
 
-<!ENTITY torsettings.discardSettings.prompt "You have configured Tor bridges or you have entered local proxy settings.&#160; To make a direct connection to the Tor network, these settings must be removed.">
+<!ENTITY torsettings.discardSettings.prompt "Configurou as pontes do Tor ou inseriu as definições do proxy local.&#160; Para efetuar uma ligação direta à rede Tor, estas definições devem ser removidas.">
 <!ENTITY torsettings.discardSettings.proceed "Remover Definições e Ligar">
 
 <!ENTITY torsettings.optional "Opcional">
@@ -56,7 +56,7 @@
 <!ENTITY torsettings.firewall.allowedPorts "Portas permitidas:">
 <!ENTITY torsettings.useBridges.checkbox "O meu Provedor de Serviço da Internet (ISP) bloqueia as ligações à rede Tor">
 <!ENTITY torsettings.useBridges.default "Ligar com as pontes fornecidas">
-<!ENTITY torsettings.useBridges.note "Each type of bridge uses a different method to avoid censorship.&#160; If one bridge does not work, try again using a different one.">
+<!ENTITY torsettings.useBridges.note "Cada tipo de ponte utiliza um método diferente para evitar a censura.&#160; Se uma ponte não funcionar, tente novamente utilizando uma diferente.">
 <!ENTITY torsettings.useBridges.type "Tipo de transporte:">
 <!ENTITY torsettings.useBridges.custom "Insira as pontes personalizadas">
 <!ENTITY torsettings.useBridges.label "Insira uma ou mais retransmissões de ponte (uma por linha).">
@@ -65,7 +65,7 @@
 <!ENTITY torsettings.copyLog "Copiar o Registo do Tor para a Área de Transferência">
 <!ENTITY torsettings.bridgeHelpTitle "Ajuda da Retransmissão de Ponte">
 <!ENTITY torsettings.bridgeHelp1 "Se não consegue ligar-se à rede Tor, pode ser devido a algum bloqueio do seu Provedor de Serviço de Internet (ISP) ou outra agência está a bloquear o Tor.&#160; Frequentemente, pode contornar este problema utilizando Tor Bridges, o qual são pontos de passagem não listados que são mais difíceis de bloquear.">
-<!ENTITY torsettings.bridgeHelp1B "You may use the preconfigured, provided set of bridge addresses or you may obtain a custom set of addresses by using one of these methods:">
+<!ENTITY torsettings.bridgeHelp1B "Poderá utilizar o conjunto de pontes pré-configurado fornecido ou poderá obter um conjunto de endereços personalizados, utilizando um deste métodos:">
 <!ENTITY torsettings.bridgeHelp2Heading "Através da Web">
 <!ENTITY torsettings.bridgeHelp2 "Utilize um navegador da Web para visitar https://bridges.torproject.org">
 <!ENTITY torsettings.bridgeHelp3Heading "Através do Respondedor Automático de Correio Eletrónico">

@@ -1,4 +1,4 @@
 <!ENTITY torprogress.dialog.title "Tor Status">
 <!ENTITY torprogress.openSettings "Buksan ang Settings">
 <!ENTITY torprogress.heading "Nakikipag-ugnayan sa network ng Tor.">
-<!ENTITY torprogress.pleaseWait "Please wait while we establish a connection to the Tor network.&#160; This may take several minutes.">
+<!ENTITY torprogress.pleaseWait "Mag-hintay habang ginagawa ang pag-establish ng connection sa Tor network.&#160; Maari itong tumagal ng ilang minuto.">

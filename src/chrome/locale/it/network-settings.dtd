@@ -23,7 +23,7 @@
 <!ENTITY torSettings.proxyQuestion "Questo computer richiede l'uso di un proxy locale per accedere ad Internet?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
 <!ENTITY torSettings.proxyExplanation1 "Nella maggior parte dei casi un proxy locale non è necessario, ma può essere richiesto quando ci si connette da una rete scolastica, universitaria o aziendale.">
-<!ENTITY torSettings.proxyExplanation2 "Se non sei sicuro su come rispondere a questa domanda, controlla le impostazioni di Rete in un altro browser o nelle impostazioni del tuo sistema per vedere se è necessario un proxy locale.">
+<!ENTITY torSettings.proxyExplanation2 "Se non sei sicuro su come rispondere a questa domanda, controlla le impostazioni Internet di un altro browser web per vedere se sia configurato l'uso di un proxy.">
 <!ENTITY torSettings.enterProxy "Inserisci le impostazioni del proxy.">
 <!ENTITY torSettings.bridgePageTitle "Configurazione Bridge di Tor">
 <!ENTITY torSettings.bridgeQuestion "Il tuo fornitore di servizi internet (ISP) blocca o censura la connessione alla rete Tor?">
