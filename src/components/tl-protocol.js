@@ -1,4 +1,4 @@
-// Copyright (c) 2016, The Tor Project, Inc.
+// Copyright (c) 2017, The Tor Project, Inc.
 // See LICENSE for licensing information.
 // TODO: Some code came from torbutton.js (pull in copyright and license?)
 //
@@ -297,6 +297,13 @@ TorProtocolService.prototype =
   TorGetSOCKSPortInfo: function()
   {
     return this.mSOCKSPortInfo;
+  },
+
+  // Unescape Tor Control string aStr (removing surrounding "" and \ escapes).
+  // Returns a string.
+  TorUnescapeString: function(aStr)
+  {
+    return this._strUnescape(aStr);
   },
 
   // Escape non-ASCII characters for use within the Tor Control protocol.

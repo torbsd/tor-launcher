@@ -1,4 +1,4 @@
-// Copyright (c) 2016, The Tor Project, Inc.
+// Copyright (c) 2017, The Tor Project, Inc.
 // See LICENSE for licensing information.
 //
 // vim: set sw=2 sts=2 ts=8 et syntax=javascript:
@@ -99,6 +99,17 @@ TorProcessService.prototype =
       }
       else if (TorLauncherUtil.shouldStartAndOwnTor)
       {
+        // If we have not already done so, perform a one-time fixup to remove
+        // any ControlPort and SocksPort lines from the user's torrc file that
+        // will conflict with the arguments we plan to pass when starting tor.
+        // See bug 20761.
+        const kTorrcFixupPref = "extensions.torlauncher.torrc_fixup_version";
+        if ((TorLauncherUtil.getIntPref(kTorrcFixupPref, 0) < 1)
+            && this._fixupTorrc())
+        {
+          TorLauncherUtil.setIntPref(kTorrcFixupPref, 1);
+        }
+
         this._startTor();
         this._controlTor();
       }
@@ -383,7 +394,10 @@ TorProcessService.prototype =
       args.push(hashedPassword);
 
       // Include a ControlPort argument to support switching between
-      // a TCP port and an IPC port (e.g., a Unix domain socket).
+      // a TCP port and an IPC port (e.g., a Unix domain socket). We
+      // include a "+__" prefix so that (1) this control port is added
+      // to any control ports that the user has defined in their torrc
+      // file and (2) it is never written to torrc.
       let controlPortArg;
       if (controlIPCFile)
         controlPortArg = this._ipcPortArg(controlIPCFile);
@@ -391,12 +405,15 @@ TorProcessService.prototype =
         controlPortArg = "" + controlPort;
       if (controlPortArg)
       {
-        args.push("ControlPort");
+        args.push("+__ControlPort");
         args.push(controlPortArg);
       }
 
       // Include a SocksPort argument to support switching between
-      // a TCP port and an IPC port (e.g., a Unix domain socket).
+      // a TCP port and an IPC port (e.g., a Unix domain socket). We
+      // include a "+__" prefix so that (1) this SOCKS port is added
+      // to any SOCKS ports that the user has defined in their torrc
+      // file and (2) it is never written to torrc.
       if (socksPortInfo)
       {
         let socksPortArg;
@@ -411,7 +428,7 @@ TorProcessService.prototype =
                                   "extensions.torlauncher.socks_port_flags");
           if (socksPortFlags)
             socksPortArg += ' ' + socksPortFlags;
-          args.push("SocksPort");
+          args.push("+__SocksPort");
           args.push(socksPortArg);
         }
       }
@@ -791,6 +808,298 @@ TorProcessService.prototype =
     }
 
     return pid;
+  },
+
+  // Returns true if successful.
+  _fixupTorrc: function()
+  {
+    let torrcFile = TorLauncherUtil.getTorFile("torrc", true);
+    if (!torrcFile)
+      return true; // No torrc file; nothing to fixup.
+
+    let torrcStr = this._getFileAsString(torrcFile);
+    if (torrcStr == undefined)
+      return false;
+    else if (torrcStr.length == 0)
+      return true;
+
+    let controlIPCFile = this.mProtocolSvc.TorGetControlIPCFile();
+    let controlPort = this.mProtocolSvc.TorGetControlPort();
+    let socksPortInfo = this.mProtocolSvc.TorGetSOCKSPortInfo();
+
+    let lines = this._joinContinuedTorrcLines(torrcStr);
+
+    let removedLinesCount = 0;
+    let revisedLines = [];
+    lines.forEach(aLine =>
+    {
+      let removeLine = false;
+      // Look for "+ControlPort value" or "ControlPort value", skipping leading
+      // whitespace and ignoring case.
+      let matchResult = aLine.match(/\s*\+*controlport\s+(.*)/i);
+      if (matchResult)
+      {
+        if (controlIPCFile)
+        {
+          removeLine = this._valueContainsFilePath(matchResult[1],
+                                                   controlIPCFile);
+        }
+        else
+        {
+          removeLine = this._valueContainsPort(matchResult[1],
+                                               controlPort);
+        }
+      }
+      else if (socksPortInfo)
+      {
+        // Look for "+SocksPort value" or "SocksPort value", skipping leading
+        // whitespace and ignoring case.
+        matchResult = aLine.match(/\s*\+*socksport\s+(.*)/i);
+        if (matchResult)
+        {
+          if (socksPortInfo.ipcFile)
+          {
+            removeLine = this._valueContainsFilePath(matchResult[1],
+                                                     socksPortInfo.ipcFile);
+          }
+          else
+          {
+            removeLine = this._valueContainsPort(matchResult[1],
+                                                 socksPortInfo.port);
+          }
+        }
+      }
+
+      if (removeLine)
+      {
+        ++removedLinesCount;
+        TorLauncherLogger.log(3, "_fixupTorrc: removing " + aLine);
+      }
+      else
+      {
+        revisedLines.push(aLine);
+      }
+    });
+
+    if (removedLinesCount > 0)
+    {
+      let s = revisedLines.join('\n');
+      if (!this._overwriteFile(torrcFile, s))
+        return false;
+
+      TorLauncherLogger.log(4, "_fixupTorrc: removed " + removedLinesCount +
+                               " configuration options");
+    }
+
+    return true;
+  },
+
+  // Returns undefined if file contents could not be read.
+  _getFileAsString: function(aFile)
+  {
+    let str = ""
+    let inStream;
+    try
+    {
+      let fis = Cc['@mozilla.org/network/file-input-stream;1']
+                .createInstance(Ci.nsIFileInputStream);
+      const kOpenFlagsReadOnly = 0x01;
+      fis.init(aFile, kOpenFlagsReadOnly, 0, 0);
+      inStream = Cc["@mozilla.org/intl/converter-input-stream;1"]
+                 .createInstance(Ci.nsIConverterInputStream);
+      inStream.init(fis, "UTF-8", 0,
+               Ci.nsIConverterInputStream.DEFAULT_REPLACEMENT_CHARACTER);
+      const kReadSize = 0xffffffff; // PR_UINT32_MAX
+      while (true)
+      {
+        let outStr = {};
+        let count = inStream.readString(kReadSize, outStr);
+        if (count == 0)
+          break;
+
+        str += outStr.value;
+      }
+    }
+    catch (e)
+    {
+      TorLauncherLogger.log(5, "_getFileAsString " + aFile.path +
+                                   "  error: " + e);
+      str = undefined;
+    }
+
+    if (inStream)
+      inStream.close();
+
+    return str;
+  },
+
+  // After making a backup, replace the contents of aFile with aStr.
+  // Returns true if successful.
+  _overwriteFile: function(aFile, aStr)
+  {
+    let backupFile;
+
+    try
+    {
+      // Convert the data to UTF-8.
+      let conv = Cc["@mozilla.org/intl/scriptableunicodeconverter"]
+                   .createInstance(Ci.nsIScriptableUnicodeConverter);
+      conv.charset = "UTF-8";
+      let data = conv.ConvertFromUnicode(aStr) + conv.Finish();
+
+      // Rename the file to .bak (we avoid .orig because tor uses it). This
+      // backup will be left on disk so the user can recover the original
+      // file contents.
+      backupFile = aFile.clone();
+      backupFile.leafName += ".bak";
+      backupFile.createUnique(Ci.nsIFile.NORMAL_FILE_TYPE, aFile.permissions);
+      aFile.renameTo(null, backupFile.leafName);
+      TorLauncherLogger.log(3, "created backup of " + aFile.leafName +
+                               " in " + backupFile.leafName);
+
+      // Write the new data to the file.
+      let stream = Cc["@mozilla.org/network/safe-file-output-stream;1"]
+                     .createInstance(Ci.nsIFileOutputStream);
+      stream.init(aFile, 0x02 | 0x08 | 0x20, /* WRONLY CREATE TRUNCATE */
+                  0600, 0);
+      stream.write(data, data.length);
+      stream.QueryInterface(Ci.nsISafeOutputStream).finish();
+    }
+    catch (e)
+    {
+      // Report an error and try to recover by renaming the backup to the
+      // original name.
+      TorLauncherLogger.log(5, "failed to overwrite file " + aFile.path +
+                               ": " + e);
+      if (backupFile)
+        backupFile.renameTo(null, aFile.leafName);
+
+      return false;
+    }
+
+    return true;
+  },
+
+  // Split aTorrcStr into lines, joining continued lines.
+  _joinContinuedTorrcLines: function(aTorrcStr)
+  {
+    let lines = [];
+    let rawLines = aTorrcStr.split('\n');
+    let isContinuedLine = false;
+    let tmpLine;
+    rawLines.forEach(aLine =>
+    {
+      let len = aLine.length;
+
+      // Strip trailing CR if present.
+      if ((len > 0) && aLine.substr(len - 1) == '\r')
+      {
+        --len;
+        aLine = aLine.substr(0, len);
+      }
+
+      // Check for a continued line. This is indicated by a trailing \ or, if
+      // we are already within a continued line sequence, a trailing comment.
+      if ((len > 0) && (aLine.substr(len - 1) == '\\'))
+      {
+        --len;
+        aLine = aLine.substr(0, len);
+
+        // If this is the start of a continued line and it only contains a
+        // keyword (i.e., no spaces are present), append a space so that
+        // the keyword will be recognized (as it is by tor) after we join
+        // the pieces of the continued line into one line.
+        if (!isContinuedLine && (aLine.indexOf(' ') < 0))
+          aLine += ' ';
+
+        isContinuedLine = true;
+      }
+      else if (isContinuedLine)
+      {
+        if (len == 0)
+        {
+          isContinuedLine = false;
+        }
+        else
+        {
+          // Check for a comment. According to tor's doc/torrc_format.txt,
+          // comments do not terminate a sequence of continued lines.
+          let idx = aLine.indexOf("#");
+          if (idx < 0)
+          {
+            isContinuedLine = false;  // Not a comment; end continued line.
+          }
+          else
+          {
+            // Remove trailing comment from continued line. The continued
+            // line sequence continues.
+            aLine = aLine.substr(0, idx);
+          }
+        }
+      }
+
+      if (isContinuedLine)
+      {
+        if (tmpLine)
+          tmpLine += aLine;
+        else
+          tmpLine = aLine;
+      }
+      else if (tmpLine)
+      {
+        lines.push(tmpLine + aLine);
+        tmpLine = undefined;
+      }
+      else
+      {
+        lines.push(aLine);
+      }
+    });
+
+    return lines;
+  },
+
+  _valueContainsFilePath: function(aValue, aFile)
+  {
+    // Handle several cases:
+    //  "unix:/path options"
+    //  unix:"/path" options
+    //  unix:/path options
+    if (aValue.startsWith('"'))
+      aValue = this.mProtocolSvc.TorUnescapeString(aValue);
+
+    let path;
+    let matchResult = aValue.match(/^unix:("[^"]*")/);
+    if (matchResult)
+      path = this.mProtocolSvc.TorUnescapeString(matchResult[1]);
+    else
+    {
+      matchResult = aValue.match(/^unix:(\S*)/);
+      if (matchResult)
+        path = matchResult[1];
+    }
+
+    if (!path)
+      return false;
+
+    let file = Cc['@mozilla.org/file/local;1'].createInstance(Ci.nsIFile);
+    file.initWithPath(path);
+    return file.equals(aFile);
+  },
+
+  _valueContainsPort: function(aValue, aPort)
+  {
+    // Check for a match, ignoring "127.0.0.1" and "localhost" prefixes.
+    let val = this.mProtocolSvc.TorUnescapeString(aValue);
+    let pieces = val.split(':');
+    if ((pieces.length >= 2)
+        && ((pieces[0] == "127.0.0.1")
+            || (pieces[0].toLowerCase() == "localhost")))
+    {
+      val = pieces[1];
+    }
+
+    return aPort === parseInt(val);
   },
 
   endOfObject: true

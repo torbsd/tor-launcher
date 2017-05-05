@@ -1,4 +1,4 @@
-// Copyright (c) 2016, The Tor Project, Inc.
+// Copyright (c) 2017, The Tor Project, Inc.
 // See LICENSE for licensing information.
 //
 // vim: set sw=2 sts=2 ts=8 et syntax=javascript:
@@ -229,6 +229,15 @@ let TorLauncherUtil =  // Public
     } catch (e) {}
 
     return rv;
+  },
+
+  setIntPref: function(aPrefName, aVal)
+  {
+    var val = (undefined != aVal) ? aVal : 0;
+    try
+    {
+      TLUtilInternal.mPrefsSvc.setIntPref(aPrefName, val);
+    } catch (e) {}
   },
 
   getCharPref: function(aPrefName, aDefaultVal)
