@@ -2,7 +2,7 @@
 
 <!-- For locale picker: -->
 <!ENTITY torlauncher.localePicker.title "Språk i Tor-webbläsare">
-<!ENTITY torlauncher.localePicker.prompt "Vänligen välj ett språk.">
+<!ENTITY torlauncher.localePicker.prompt "Välj ett språk.">
 
 <!-- For "first run" wizard: -->
 
