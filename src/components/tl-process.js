@@ -99,15 +99,16 @@ TorProcessService.prototype =
       }
       else if (TorLauncherUtil.shouldStartAndOwnTor)
       {
-        // If we have not already done so, perform a one-time fixup to remove
-        // any ControlPort and SocksPort lines from the user's torrc file that
-        // will conflict with the arguments we plan to pass when starting tor.
-        // See bug 20761.
+        // If we have not already done so, remove any ControlPort and
+        // SocksPort lines from the user's torrc file that may conflict
+        // with the arguments we plan to pass when starting tor.
+        // See bugs 20761 and 22283.
+        const kTorrcFixupVersion = 2;
         const kTorrcFixupPref = "extensions.torlauncher.torrc_fixup_version";
-        if ((TorLauncherUtil.getIntPref(kTorrcFixupPref, 0) < 1)
-            && this._fixupTorrc())
+        if ((TorLauncherUtil.getIntPref(kTorrcFixupPref, 0)
+            < kTorrcFixupVersion) && this._fixupTorrc())
         {
-          TorLauncherUtil.setIntPref(kTorrcFixupPref, 1);
+          TorLauncherUtil.setIntPref(kTorrcFixupPref, kTorrcFixupVersion);
         }
 
         this._startTor();
@@ -839,12 +840,8 @@ TorProcessService.prototype =
       let matchResult = aLine.match(/\s*\+*controlport\s+(.*)/i);
       if (matchResult)
       {
-        if (controlIPCFile)
-        {
-          removeLine = this._valueContainsFilePath(matchResult[1],
-                                                   controlIPCFile);
-        }
-        else
+        removeLine = this._valueIsUnixDomainSocket(matchResult[1]);
+        if (!removeLine && !controlIPCFile)
         {
           removeLine = this._valueContainsPort(matchResult[1],
                                                controlPort);
@@ -857,12 +854,8 @@ TorProcessService.prototype =
         matchResult = aLine.match(/\s*\+*socksport\s+(.*)/i);
         if (matchResult)
         {
-          if (socksPortInfo.ipcFile)
-          {
-            removeLine = this._valueContainsFilePath(matchResult[1],
-                                                     socksPortInfo.ipcFile);
-          }
-          else
+          removeLine = this._valueIsUnixDomainSocket(matchResult[1]);
+          if (!removeLine && !socksPortInfo.ipcFile)
           {
             removeLine = this._valueContainsPort(matchResult[1],
                                                  socksPortInfo.port);
@@ -1059,7 +1052,7 @@ TorProcessService.prototype =
     return lines;
   },
 
-  _valueContainsFilePath: function(aValue, aFile)
+  _valueIsUnixDomainSocket: function(aValue)
   {
     // Handle several cases:
     //  "unix:/path options"
@@ -1068,23 +1061,7 @@ TorProcessService.prototype =
     if (aValue.startsWith('"'))
       aValue = this.mProtocolSvc.TorUnescapeString(aValue);
 
-    let path;
-    let matchResult = aValue.match(/^unix:("[^"]*")/);
-    if (matchResult)
-      path = this.mProtocolSvc.TorUnescapeString(matchResult[1]);
-    else
-    {
-      matchResult = aValue.match(/^unix:(\S*)/);
-      if (matchResult)
-        path = matchResult[1];
-    }
-
-    if (!path)
-      return false;
-
-    let file = Cc['@mozilla.org/file/local;1'].createInstance(Ci.nsIFile);
-    file.initWithPath(path);
-    return file.equals(aFile);
+    return aValue.startsWith("unix:");
   },
 
   _valueContainsPort: function(aValue, aPort)
