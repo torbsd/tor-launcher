@@ -1493,6 +1493,9 @@ function applyBridgeSettings(aUseDefaults)
   if (!settings)
     return false;
 
+  if (aUseDefaults)
+    TorLauncherUtil.setCharPref(kPrefDefaultBridgeType, "");
+
   return setConfAndReportErrors(settings, "bridgeSettings");
 }
 
