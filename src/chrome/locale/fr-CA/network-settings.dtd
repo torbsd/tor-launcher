@@ -26,7 +26,7 @@
 <!ENTITY torSettings.proxyExplanation2 "Si vous n'êtes pas certain de savoir comment répondre à cette question, vérifiez les paramètres Internet d'un autre navigateur ou les paramètres réseau de votre système pour voir si un serveur mandataire local est requis.">
 <!ENTITY torSettings.enterProxy "Saisir les paramètres du serveur mandataire.">
 <!ENTITY torSettings.bridgePageTitle "Configuration des ponts Tor">
-<!ENTITY torSettings.bridgeQuestion "Votre fournisseur d'accès à Internet (FAI) bloque-t-il ou censure-t-il vos connexions au réseau Tor?">
+<!ENTITY torSettings.bridgeQuestion "Votre fournisseur de services Internet (FSI) bloque-t-il ou censure-t-il vos connexions au réseau Tor?">
 <!ENTITY torSettings.bridgeExplanation1 "Si vous n'êtes pas certain de savoir comment répondre à cette question, choisissez Non (si vous n'arrivez pas à vous connecter au réseau Tor sans pont, vous pourrez en ajouter un ultérieurement).">
 <!ENTITY torSettings.bridgeExplanation2 "Si vous choisissez Oui, l'on vous demandera de configurer des ponts Tor, qui sont des relais non répertoriés rendant le blocage des connexions au réseau Tor plus difficile.">
 <!ENTITY torSettings.bridgeSettingsPrompt "Vous pouvez utiliser le jeu de ponts fourni ou vous pouvez obtenir et saisir un jeu de ponts personnalisé.">
@@ -54,7 +54,7 @@
 <!ENTITY torsettings.useProxy.type.http "HTTP / HTTPS">
 <!ENTITY torsettings.firewall.checkbox "Cet ordinateur passe par un pare-feu qui n'autorise que les connexions à certains ports">
 <!ENTITY torsettings.firewall.allowedPorts "Ports autorisés :">
-<!ENTITY torsettings.useBridges.checkbox "Mon fournisseur d'accès à Internet (FAI) bloque les connexions vers le réseau Tor">
+<!ENTITY torsettings.useBridges.checkbox "Mon fournisseur de services Internet (FSI) bloque les connexions vers le réseau Tor">
 <!ENTITY torsettings.useBridges.default "Se connecter avec les ponts fournis">
 <!ENTITY torsettings.useBridges.note "Chaque type de pont utilise une méthode différente pour contourner la censure.&#160; Si un pont ne fonctionne pas, ressayez en utilisant un autre type.">
 <!ENTITY torsettings.useBridges.type "Type de transport :">
@@ -64,7 +64,7 @@
 
 <!ENTITY torsettings.copyLog "Copier le journal de Tor dans le presse-papiers">
 <!ENTITY torsettings.bridgeHelpTitle "Aide sur les relais-ponts">
-<!ENTITY torsettings.bridgeHelp1 "Si vous ne pouvez pas vous connecter au réseau Tor, il se peut que votre fournisseur d'accès à Internet (FAI) ou une autre organisme bloque Tor.&#160; Vous pouvez souvent le contourner en utilisant des ponts Tor qui sont des relais non répertoriés, plus difficiles à bloquer.">
+<!ENTITY torsettings.bridgeHelp1 "Si vous ne pouvez pas vous connecter au réseau Tor, il se peut que votre fournisseur de services Internet (FSI) ou une autre organisme bloque Tor.&#160; Vous pouvez souvent le contourner en utilisant des ponts Tor qui sont des relais non répertoriés, plus difficiles à bloquer.">
 <!ENTITY torsettings.bridgeHelp1B "Vous pouvez utiliser le jeu préconfiguré d'adresses de ponts fourni ou vous pouvez obtenir un jeu personnalisé d'adresses en utilisant une de ces méthodes :">
 <!ENTITY torsettings.bridgeHelp2Heading "Par le Web">
 <!ENTITY torsettings.bridgeHelp2 "En utilisant un navigateur Web pour visiter https://bridges.torproject.org">
