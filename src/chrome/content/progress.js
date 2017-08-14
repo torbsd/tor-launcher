@@ -1,4 +1,4 @@
-// Copyright (c) 2015, The Tor Project, Inc.
+// Copyright (c) 2017, The Tor Project, Inc.
 // See LICENSE for licensing information.
 //
 // vim: set sw=2 sts=2 ts=8 et syntax=javascript:
@@ -81,6 +81,16 @@ function initDialog()
     if (pleaseWait)
       pleaseWait.removeAttribute("hidden");
   }
+
+  // To avoid showing an incorrect progress value, we keep the progress bar
+  // hidden until a TorBootstrapStatus notification is received. We request
+  // the most recent bootstrap status info (which should cause such a
+  // notification to be generated) and also start a fail-safe timer to ensure
+  // that the progress bar is displayed within 2 seconds in all cases.
+  let protocolSvc = Cc["@torproject.org/torlauncher-protocol-service;1"]
+                      .getService(Ci.nsISupports).wrappedJSObject;
+  protocolSvc.TorRetrieveBootstrapStatus();
+  window.setTimeout(function() { showProgressMeterIfNoError(); }, 2000);
 }
 
 
@@ -158,6 +168,17 @@ function stopTorBootstrap()
 }
 
 
+function showProgressMeterIfNoError()
+{
+  let meter = document.getElementById("progressMeter");
+  if (meter &&
+      !document.documentElement.hasAttribute("bootstrapErrorOccurred"))
+  {
+    meter.style.visibility = "visible";
+  }
+}
+
+
 var gObserver = {
   // nsIObserver implementation.
   observe: function(aSubject, aTopic, aParam)
@@ -184,7 +205,10 @@ var gObserver = {
 
       var meter = document.getElementById("progressMeter");
       if (meter)
+      {
         meter.value = percentComplete;
+        showProgressMeterIfNoError();
+      }
 
       var bootstrapDidComplete = (percentComplete >= 100);
       if (percentComplete >= 100)
@@ -198,6 +222,8 @@ var gObserver = {
         var s = TorLauncherUtil.getLocalizedBootstrapStatus(statusObj, "REASON");
         if (s)
           labelText = s;
+
+        document.documentElement.setAttribute("bootstrapErrorOccurred", true);
 
         if (meter)
           meter.setAttribute("hidden", true);
