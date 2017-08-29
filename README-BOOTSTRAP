@@ -1,0 +1,68 @@
+HOW TOR LAUNCHER USES BOOTSTRAP STATUS MESSAGES
+
+(This information was originally recorded in
+https://trac.torproject.org/projects/tor/ticket/22232)
+
+To start monitoring events, Tor Launcher issues the following Tor
+control port command:
+  SETEVENTS STATUS_CLIENT NOTICE WARN ERR
+Tor Launcher then looks for 650 responses.
+
+When one of the following responses is received, it is logged to
+the browser console and added to an in-memory log buffer (which is
+used to implement "Copy Tor Log To Clipboard"):
+  WARN, ERR, DEBUG, INFO, NOTICE
+
+Tor Launcher also issues a GETINFO status/bootstrap-phase command
+soon after the control port connection has been established.
+
+When a STATUS_CLIENT message is received, Tor Launcher uses the
+info contained within the message to detect bootstrap errors and
+to show progress. The GETINFO status/bootstrap-phase response is
+used for this same purpose (both kinds of response messages are
+parsed and processed by the same code).
+
+Tor Launcher maintains two important pieces of internal state
+information about the bootstrap process:
+
+mIsBootstrapDone (Boolean) This is set to true when a STATUS_CLIENT
+    BOOTSTRAP event with PROGRESS=100 is received. It is set to false
+    when any other STATUS_CLIENT BOOTSTRAP event is received.
+
+mBootstrapErrorOccurred (Boolean) This is set to true when a
+    STATUS_CLIENT BOOTSTRAP event with a severity of WARN or ERR, and
+    RECOMMENDATION of warn is received. It is set to false when
+    mIsBootstrapDone is set to true as well as after the user makes
+    changes to their settings (after a SAVECONF is done).
+
+The PROGRESS field of the STATUS_CLIENT messages are used directly
+to display the completion percentage (progress bar).
+
+The TAG= keywords within the STATUS_CLIENT messages are used for
+two purposes:
+
+1. The values are mapped to localized strings and displayed in the
+progress window. If Tor Launcher cannot map the TAG to a localized
+string, it displays the SUMMARY text instead (otherwise, the SUMMARY
+field is not used).
+
+2. The TAG value along with REASON is used to suppress repeated
+errors. When Tor Launcher sets mBootstrapErrorOccurred to true (see
+above), an error is shown to the user unless the previous error
+displayed had the same TAG and REASON values.
+
+The "Copy Tor Log To Clipboard" button is displayed with the warning
+icon when Tor Launcher detects a bootstrap error (see
+mBootstrapErrorOccurred above) or when it receives a log message
+event with severity of WARN or ERR.
+
+The severity value within a STATUS_CLIENT BOOTSTRAP event is used
+to detect bootstrap errors (as described above) and also to determine
+the level for local logging.
+
+When displaying errors, Tor Launcher tries to map the REASON values
+to localized strings. If this fails, the WARNING text is displayed
+instead. HOSTADDR is appended to the error text when it is present.
+
+RECOMMENDATION is part of the information that is used to determine
+if a bootstrap error has occurred (as described above).
