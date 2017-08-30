@@ -35,7 +35,7 @@ mBootstrapErrorOccurred (Boolean) This is set to true when a
     mIsBootstrapDone is set to true as well as after the user makes
     changes to their settings (after a SAVECONF is done).
 
-The PROGRESS field of the STATUS_CLIENT messages are used directly
+The PROGRESS field within each STATUS_CLIENT message is used directly
 to display the completion percentage (progress bar).
 
 The TAG= keywords within the STATUS_CLIENT messages are used for
