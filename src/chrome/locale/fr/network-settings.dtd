@@ -11,7 +11,7 @@
 <!ENTITY torSettings.yes "Oui">
 <!ENTITY torSettings.no "Non">
 
-<!ENTITY torSettings.firstQuestion "Laquelle des suivantes décrit le mieux votre situation ?javascript:;">
+<!ENTITY torSettings.firstQuestion "Laquelle des suivantes décrit le mieux votre situation ?">
 <!ENTITY torSettings.configurePrompt1 "La connexion Internet de cet ordinateur est censurée ou relayée.">
 <!ENTITY torSettings.configurePrompt2 "Je dois paramétrer un pont (Bridge) ou un mandataire local avant de me connecter au réseau&#160;Tor.">
 <!ENTITY torSettings.configure "Configurer">
@@ -20,13 +20,13 @@
 <!ENTITY torSettings.connect "Se connecter">
 
 <!ENTITY torSettings.proxyPageTitle "Configuration du mandataire local">
-<!ENTITY torSettings.proxyQuestion "Cet ordinateur doit-il utiliser un serveur mandataire local pour accéder à Internet ?">
+<!ENTITY torSettings.proxyQuestion "Cet ordinateur doit-il utiliser un serveur mandataire local pour accéder à Internet ?">
 <!-- see https://www.torproject.org/docs/proxychain.html.en -->
 <!ENTITY torSettings.proxyExplanation1 "Dans la plupart des cas, un serveur mandataire local n'est pas requis, mais il pourrait être exigé pour une connexion par un réseau d'entreprise, d'école ou d'université.">
 <!ENTITY torSettings.proxyExplanation2 "Si vous n'êtes pas certain de savoir comment répondre à cette question, vérifiez les paramètres Internet d'un autre navigateur ou les paramètres réseau de votre système pour voir si un serveur mandataire local est requis.">
 <!ENTITY torSettings.enterProxy "Saisir les paramètres du serveur mandataire.">
 <!ENTITY torSettings.bridgePageTitle "Configuration des ponts (Bridges) Tor">
-<!ENTITY torSettings.bridgeQuestion "Votre fournisseur d'accès à Internet (FAI) bloque-t-il ou censure-t-il vos connexions au réseau Tor ?">
+<!ENTITY torSettings.bridgeQuestion "Votre fournisseur d'accès à Internet (FAI) bloque-t-il ou censure-t-il vos connexions au réseau Tor ?">
 <!ENTITY torSettings.bridgeExplanation1 "Si vous n'êtes pas certain de savoir comment répondre à cette question, choisissez Non (si vous n'arrivez pas à vous connecter au réseau Tor sans pont (Bridge), vous pourrez en ajouter un ultérieurement).">
 <!ENTITY torSettings.bridgeExplanation2 "Si vous choisissez Oui, il vous sera demandé de configurer des ponts (Bridges) Tor, qui sont des relais non répertoriés et qui rendent plus difficile le blocage du réseau Tor.">
 <!ENTITY torSettings.bridgeSettingsPrompt "Vous pouvez utiliser le jeu de ponts (Bridges) fourni ou vous pouvez obtenir et saisir un jeu de ponts personnalisé.">
